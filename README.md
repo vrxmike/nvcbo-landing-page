@@ -2,6 +2,13 @@
 
 A responsive Bootstrap landing page for NorthernVision Community Based Organization (NVCBO).
 
+**🌐 Live Site:** https://vrxmike.github.io/nvcbo-landing-page/
+
+## 📚 Documentation
+
+- **[DEPLOYMENT_FIXES.md](DEPLOYMENT_FIXES.md)** - Comprehensive documentation of all GitHub Pages deployment fixes
+- **[QUICK_FIX_SUMMARY.md](QUICK_FIX_SUMMARY.md)** - Quick reference summary of fixes implemented
+
 ## About NVCBO
 
 NorthernVision Community Based Organization was founded in 2020 with major focus on SDGs 15, 5 and 10. We place special emphasis on empowering smallholder farmers, particularly women and youth, by providing comprehensive support.
