@@ -12,6 +12,9 @@
       sidebar.classList.toggle('active');
       menuToggle.classList.toggle('active');
       
+      // Add/remove body class for backdrop overlay
+      document.body.classList.toggle('sidebar-open');
+      
       var icon = menuToggle.querySelector('.fa-bars, .fa-times');
       
       if (icon) {
@@ -27,6 +30,24 @@
     });
   }
 
+  // Close sidebar when clicking outside (on backdrop)
+  document.addEventListener('click', function(e) {
+    if (sidebar && sidebar.classList.contains('active')) {
+      // Check if click is outside sidebar and not on menu toggle
+      if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+        sidebar.classList.remove('active');
+        menuToggle.classList.remove('active');
+        document.body.classList.remove('sidebar-open');
+        
+        var icon = menuToggle.querySelector('.fa-bars, .fa-times');
+        if (icon && icon.classList.contains('fa-times')) {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      }
+    }
+  });
+
   var navbarCollapse = document.querySelector('.navbar-collapse');
 
   if (navbarCollapse) {
@@ -37,6 +58,9 @@
       item.addEventListener('click', function (event) {
         sidebar.classList.remove('active');
         menuToggle.classList.remove('active');
+        
+        // Remove body class when sidebar closes
+        document.body.classList.remove('sidebar-open');
         
         var icon = menuToggle.querySelector('.fa-bars, .fa-times');
       

@@ -33,6 +33,60 @@
         .animated-tagline:hover {
             animation-play-state: paused;
         }
+        
+        /* Sidebar z-index fix - ensure it's always on top when active */
+        #sidebar-wrapper {
+            z-index: 1050 !important; /* Higher than Bootstrap modals */
+        }
+        
+        #sidebar-wrapper.active {
+            z-index: 1060 !important; /* Even higher when active */
+        }
+        
+        /* Menu Toggle Button Styling - Always visible and on top */
+        .menu-toggle {
+            position: fixed !important;
+            z-index: 1070 !important; /* Highest z-index */
+            top: 15px;
+            right: 15px;
+            width: 50px;
+            height: 50px;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(29, 128, 159, 0.9) !important;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+        }
+        
+        .menu-toggle:hover {
+            background-color: rgba(29, 128, 159, 1) !important;
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+        }
+        
+        .menu-toggle i {
+            color: white !important;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Remove the conflicting pseudo-element rule since JS handles icon change */
+        
+        /* Optional: Add backdrop overlay when sidebar is active */
+        body.sidebar-open::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1055;
+            pointer-events: auto;
+        }
     </style>
 </head>
 
