@@ -15,6 +15,25 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Custom CSS for animated tagline -->
+    <style>
+        @keyframes colorTransition {
+            0% { color: #8A2BE2; }      /* Purple */
+            33% { color: #FF8C00; }     /* Dark Orange */
+            66% { color: #32CD32; }     /* Lime Green */
+            100% { color: #8A2BE2; }    /* Back to Purple */
+        }
+        
+        .animated-tagline {
+            animation: colorTransition 4s ease-in-out infinite;
+            transition: color 0.3s ease;
+        }
+        
+        .animated-tagline:hover {
+            animation-play-state: paused;
+        }
+    </style>
 </head>
 
 <body id="page-top"><a class="menu-toggle rounded" href="#"><i class="fa fa-bars"></i></a>
@@ -32,10 +51,11 @@
             </div>
         </div>
     </nav>
-    <header class="d-flex min-vh-100 masthead" style="background: url(&quot;assets/img/IMG_4320.png&quot;) center / cover no-repeat, #746f6f;height: 386.8px;padding-bottom: 170px;padding-top: 170px;">
-        <div class="container my-auto text-center" style="padding-top: 0px;">
-            <h1 class="mb-1" style="font-size: 40px;text-align: center;line-height: 44.6px;"><strong><span style="color: rgb(255, 140, 0);">We believe that everyone should have access to the limitless potential of opportunity.</span></strong></h1>
-            <h3 class="mb-5"><em>NorthernVision: Building a future beyond boundaries</em></h3><a class="btn btn-primary btn-xl" role="button" href="#about">Get Involved Today</a>
+    <header class="d-flex min-vh-100 masthead" style="background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(&quot;assets/img/IMG_4320.png&quot;) center / cover no-repeat, #746f6f; display: flex !important; align-items: center; justify-content: center; min-height: 100vh; padding: 2rem 1rem;">
+        <div class="container text-center" style="max-width: 100%; z-index: 2;">
+            <h1 class="mb-3 mb-md-4" style="font-size: clamp(24px, 5vw, 40px); line-height: 1.2; font-weight: bold;"><strong><span style="color: rgb(255, 140, 0);">We believe that everyone should have access to the limitless potential of opportunity.</span></strong></h1>
+            <h3 class="mb-4 mb-md-5 animated-tagline" style="font-size: clamp(18px, 3vw, 24px); font-weight: 400;"><em>NorthernVision: Building a future beyond boundaries</em></h3>
+            <a class="btn btn-primary btn-xl" role="button" href="#about" style="font-size: clamp(14px, 2.5vw, 18px); padding: 15px 30px; margin-top: 1rem;">Get Involved Today</a>
         </div>
     </header>
     <section id="about" class="content-section bg-light">
@@ -125,9 +145,33 @@
             <h2 class="mb-4">The buttons below are impossible to resist..</h2><a class="btn btn-light me-4 mt-2 btn-xl" role="button" href="#">DONATE NOW</a><a class="btn btn-dark me-4 mt-2 btn-xl" role="button" href="#">Ready To Support?</a>
         </div>
     </section>
-    <section class="callout" style="background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url(&quot;assets/img/bg-callout.jpg&quot;);background-position: center center;background-repeat: no-repeat;background-size: cover;padding-top: 172px;padding-bottom: 99px;">
-        <div class="container text-center">
-            <h2 class="mb-5 mx-auto" style="font-size: 44px;line-height: 40.8px;"><span style="line-height: 36.2px;font-size: 48px;"></span>Sneak Peek: Our New Website Coming Soon!<em></em><span style="line-height: 21.8px;font-size: 21px;"><br>Explore in-depth SDG resources, interactive community maps, and more—launching 11<sup>th</sup>&nbsp;October 2025. Stay tuned for empowering tools in sustainable development.&nbsp;</span></h2><iframe class="ratio ratio-4x3" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/9w4u1kij_uU?autoplay=1&amp;mute=1" width="300" height="333" style="max-height: 500px;height: auto;min-height: 300px;min-width: 120px;max-width: inherit;"></iframe><a class="btn btn-primary mt-8 btn-xl" role="button" href="#" style="padding-top: 20px;margin-top: 24px;">Stay Updated with Our Newsletter</a>
+    <section class="callout" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(&quot;assets/img/bg-callout.jpg&quot;); background-position: center center; background-repeat: no-repeat; background-size: cover; padding: clamp(3rem, 8vw, 8rem) 0;">
+        <div class="container text-center" style="max-width: 900px;">
+            <!-- Responsive heading with better typography -->
+            <h2 class="mb-4 mb-md-5" style="font-size: clamp(28px, 6vw, 48px); line-height: 1.2; font-weight: 700; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                Sneak Peek: Our New Website Coming Soon!
+            </h2>
+            
+            <!-- Responsive subtitle -->
+            <p class="mb-4 mb-md-5" style="font-size: clamp(16px, 3vw, 22px); line-height: 1.4; color: #f8f9fa; max-width: 700px; margin: 0 auto; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+                Explore in-depth SDG resources, interactive community maps, and more—launching 11<sup>th</sup> October 2025. Stay tuned for empowering tools in sustainable development.
+            </p>
+            
+            <!-- Responsive video container -->
+            <div class="video-container mb-4 mb-md-5" style="max-width: 600px; margin: 0 auto; position: relative; width: 100%; padding-bottom: 56.25%; height: 0; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
+                <iframe 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" 
+                    src="https://www.youtube.com/embed/9w4u1kij_uU?autoplay=1&amp;mute=1&amp;rel=0&amp;showinfo=0&amp;modestbranding=1"
+                    allowfullscreen
+                    loading="lazy">
+                </iframe>
+            </div>
+            
+            <!-- Responsive call-to-action button -->
+            <a class="btn btn-primary btn-xl" role="button" href="#" 
+               style="font-size: clamp(14px, 2.5vw, 18px); padding: clamp(12px, 2vw, 20px) clamp(24px, 4vw, 40px); margin-top: 1rem; box-shadow: 0 4px 16px rgba(0,0,0,0.2);">
+                Stay Updated with Our Newsletter
+            </a>
         </div>
     </section><!-- Start: Contact Over Map -->
     <section class="position-relative py-5">
