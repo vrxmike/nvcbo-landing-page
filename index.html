@@ -76,35 +76,106 @@
             transform: none;
         }
         
-        /* Menu Toggle Button Styling - Always visible and on top */
+        /* Menu Toggle Button Styling - Enhanced for Mobile */
         .menu-toggle {
             position: fixed !important;
             z-index: 1070 !important; /* Highest z-index */
-            top: 15px;
-            right: 15px;
-            width: 50px;
-            height: 50px;
+            top: 20px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
             display: flex !important;
             align-items: center;
             justify-content: center;
-            background-color: rgba(255, 140, 0, 0.9) !important;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 100%) !important;
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 
+                0 6px 20px rgba(255, 140, 0, 0.4),
+                0 2px 8px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
             text-decoration: none;
             border-radius: 50%;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
         
-        .menu-toggle:hover {
-            background-color: #FF7F00 !important;
-            transform: scale(1.1);
-            box-shadow: 0 6px 16px rgba(255, 140, 0, 0.4);
+        .menu-toggle:hover, .menu-toggle:active {
+            background: linear-gradient(135deg, #FF7F00 0%, #FF6600 100%) !important;
+            transform: scale(1.08);
+            box-shadow: 
+                0 8px 25px rgba(255, 140, 0, 0.6),
+                0 4px 12px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            border-color: rgba(255, 255, 255, 0.9);
         }
         
         .menu-toggle i {
             color: white !important;
-            font-size: 18px;
+            font-size: 20px;
+            font-weight: 600;
             transition: all 0.3s ease;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Mobile-specific enhancements */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                width: 60px;
+                height: 60px;
+                top: 15px;
+                right: 15px;
+                border-width: 4px;
+                box-shadow: 
+                    0 8px 24px rgba(255, 140, 0, 0.5),
+                    0 3px 10px rgba(0, 0, 0, 0.4),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            }
+            
+            .menu-toggle i {
+                font-size: 22px;
+                font-weight: 700;
+            }
+            
+            .menu-toggle:hover, .menu-toggle:active {
+                transform: scale(1.05);
+                box-shadow: 
+                    0 10px 30px rgba(255, 140, 0, 0.7),
+                    0 5px 15px rgba(0, 0, 0, 0.5),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            }
+            
+            /* Enhanced Scroll-to-Top for Mobile */
+            .scroll-to-top {
+                width: 60px !important;
+                height: 60px !important;
+                bottom: 20px !important;
+                right: 20px !important;
+                border-width: 4px !important;
+                font-size: 24px !important;
+                font-weight: 700 !important;
+                box-shadow: 0 8px 24px rgba(255,140,0,0.5), 0 3px 10px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.4);
+            }
+        }
+        
+        /* iPhone specific optimizations */
+        @media (max-width: 480px) {
+            .menu-toggle {
+                width: 58px;
+                height: 58px;
+                top: 12px;
+                right: 12px;
+                border-width: 3px;
+            }
+            
+            .scroll-to-top {
+                width: 58px !important;
+                height: 58px !important;
+                bottom: 15px !important;
+                right: 15px !important;
+                border-width: 3px !important;
+                font-size: 22px !important;
+            }
         }
         
         /* Remove the conflicting pseudo-element rule since JS handles icon change */
@@ -545,24 +616,32 @@
         </div>
         <a class="scroll-to-top rounded" href="#page-top" 
            style="
-             background-color: #FF8C00; 
+             background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 100%); 
              color: white; 
-             border: none; 
-             transition: all 0.3s ease;
+             border: 3px solid rgba(255, 255, 255, 0.8); 
+             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
              position: fixed;
-             bottom: 30px;
-             right: 30px;
-             width: 50px;
-             height: 50px;
+             bottom: 25px;
+             right: 25px;
+             width: 56px;
+             height: 56px;
              display: flex;
              align-items: center;
              justify-content: center;
              border-radius: 50%;
-             box-shadow: 0 4px 15px rgba(255,140,0,0.3);
-             font-size: 1.2rem;
+             box-shadow: 
+               0 6px 20px rgba(255,140,0,0.4),
+               0 2px 8px rgba(0,0,0,0.3),
+               inset 0 1px 0 rgba(255,255,255,0.3);
+             font-size: 22px;
+             font-weight: 600;
+             text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+             backdrop-filter: blur(10px);
+             -webkit-backdrop-filter: blur(10px);
+             z-index: 1000;
            " 
-           onmouseover="this.style.backgroundColor='#FF7F00'; this.style.transform='scale(1.1)'; this.style.boxShadow='0 8px 25px rgba(255,140,0,0.5)'" 
-           onmouseout="this.style.backgroundColor='#FF8C00'; this.style.transform='scale(1)'; this.style.boxShadow='0 4px 15px rgba(255,140,0,0.3)'">
+           onmouseover="this.style.background='linear-gradient(135deg, #FF7F00 0%, #FF6600 100%)'; this.style.transform='scale(1.08)'; this.style.boxShadow='0 8px 25px rgba(255,140,0,0.6), 0 4px 12px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.4)'; this.style.borderColor='rgba(255,255,255,0.9)'" 
+           onmouseout="this.style.background='linear-gradient(135deg, #FF8C00 0%, #FF7F00 100%)'; this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(255,140,0,0.4), 0 2px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.3)'; this.style.borderColor='rgba(255,255,255,0.8)'">
             <i class="fa fa-angle-up"></i>
         </a>
     </footer>
