@@ -19,6 +19,7 @@ This document details all the fixes implemented to successfully deploy the NVCBO
 4. **Font Loading Failures** - Simple Line Icons not rendering
 5. **External Dependencies** - Hero background using external CDN
 6. **Missing Favicon Support** - Professional branding across devices
+7. **Redundant GitHub Actions Workflows** - Duplicate deployment processes
 
 ---
 
@@ -173,6 +174,79 @@ Fix portfolio image structure - move img tags inside anchor tags for proper Boot
 **Git Commit:**
 ```
 Fix Simple Line Icons font file references to use lowercase filenames for GitHub Pages compatibility
+```
+
+---
+
+### 7. GitHub Actions Workflow Optimization
+**Issue:** Project had two redundant GitHub Actions workflow files running simultaneously on every push to master.
+
+**Implementation Date:** October 13, 2025
+
+**Files Affected:**
+- `.github/workflows/static.yml` - Removed (redundant)
+- `.github/workflows/deploy-pages.yml` - Kept (better functionality)
+
+**Problem Analysis:**
+Both workflow files were configured to trigger on pushes to `master` branch, causing:
+- Duplicate deployment jobs running in parallel
+- Wasted GitHub Actions minutes
+- Potential deployment conflicts
+- Unnecessary complexity in workflow management
+
+**Workflow Comparison:**
+
+| Aspect | `static.yml` (Removed) | `deploy-pages.yml` (Kept) |
+|--------|----------------------|---------------------------|
+| **Jobs** | Single `deploy` job | Separate `build` + `deploy` jobs |
+| **Git LFS Support** | ❌ No LFS handling | ✅ Explicit LFS support (`lfs: true`) |
+| **Concurrency** | `cancel-in-progress: false` | `cancel-in-progress: true` |
+| **Architecture** | Simple, single-step | Robust, two-step process |
+| **Error Handling** | Basic | Better debugging capabilities |
+
+**Solution Implemented:**
+1. **Removed redundant workflow:** Deleted `.github/workflows/static.yml`
+2. **Kept optimized workflow:** Retained `deploy-pages.yml` for superior functionality
+3. **Reasoning for choice:**
+   - Better Git LFS handling (essential for font files)
+   - More robust build/deploy separation
+   - Proper concurrency control prevents conflicts
+   - Enhanced error handling and debugging
+
+**Key Features of Retained Workflow:**
+```yaml
+# Git LFS Support
+- name: Checkout repository (with LFS)
+  uses: actions/checkout@v4
+  with:
+    lfs: true
+
+- name: Ensure LFS files are present
+  run: |
+    git lfs fetch --all
+    git lfs checkout
+
+# Proper Concurrency Control
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+```
+
+**Benefits Achieved:**
+- ✅ **No more redundant deployments** - saves GitHub Actions minutes
+- ✅ **Better Git LFS support** - ensures font files deploy correctly  
+- ✅ **Cleaner workflow management** - single source of truth for deployments
+- ✅ **Proper concurrency control** - prevents deployment conflicts
+- ✅ **Enhanced debugging** - separate build/deploy phases for better error isolation
+
+**Git Commit:**
+```
+Remove redundant static.yml workflow - keep deploy-pages.yml for better Git LFS support
+```
+
+---
+
+## File Size Verification
 ```
 
 ---
@@ -464,11 +538,11 @@ curl -I "https://vrxmike.github.io/nvcbo-landing-page/assets/img/portfolio-1.jpg
 - `README.md` - Project documentation
 - `DEPLOYMENT_FIXES.md` - This documentation
 
-**Total Commits for Fixes:** 8 commits
-**Total Files Modified:** 12 files
+**Total Commits for Fixes:** 9 commits
+**Total Files Modified:** 13 files
 **Deployment Method:** GitHub Actions → GitHub Pages
 
 ---
 
-*Documentation generated on October 11, 2025*  
+*Documentation updated on October 13, 2025*  
 *NVCBO Landing Page Deployment Project*
