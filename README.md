@@ -59,7 +59,7 @@ LANDPG/
 
 ## Launch Information
 
-New website launching October 11th, 2025 with enhanced SDG resources and interactive community maps.
+New website launching October 19th, 2025 with enhanced SDG resources and interactive community maps.
 
 ## Copyright
 
