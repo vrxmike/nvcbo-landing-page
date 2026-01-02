@@ -278,7 +278,7 @@
             color: #fff;
             background: linear-gradient(135deg, var(--nvcbo-orange) 0%, var(--nvcbo-dark-orange) 100%);
             line-height: 50px;
-            z-index: 999;
+            z-index: 9999;
             border-radius: 50%;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             border: 1px solid rgba(255, 255, 255, 0.5);
@@ -290,6 +290,11 @@
         
         #sidebar-wrapper {
             background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 50%, #CC5500 100%) !important;
+            z-index: 9998 !important;
+        }
+        
+        #sidebar-wrapper.active {
+            z-index: 9998 !important;
         }
     </style>
 </head>
