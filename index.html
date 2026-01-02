@@ -4,564 +4,511 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Home - NVCBO</title>
+    <title>Home - NorthernVision CBO</title>
+    <meta name="description" content="Empowering Northern Kenya through sustainable agriculture, education, and climate action.">
+    
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900&display=swap">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
     <link rel="stylesheet" href="assets/css/bss-overrides.css">
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    
-    <!-- Custom CSS for animated tagline -->
+
     <style>
-        @keyframes colorTransition {
-            0% { color: #8A2BE2; }      /* Purple */
-            33% { color: #FF8C00; }     /* Dark Orange */
-            66% { color: #32CD32; }     /* Lime Green */
-            100% { color: #8A2BE2; }    /* Back to Purple */
+        /* --- GLOBAL THEME VARIABLES --- */
+        :root {
+            --nvcbo-blue: #1D809F;
+            --nvcbo-dark-blue: #155d74;
+            --nvcbo-orange: #FF8C00;
+            --nvcbo-dark-orange: #CC5500;
+            --nvcbo-cream: #FFF5E6;
+            --nvcbo-light-bg: #f8f9fa;
+        }
+
+        /* --- HERO SECTION --- */
+        .masthead {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(29, 128, 159, 0.85), rgba(21, 93, 116, 0.8)), url('assets/img/IMG_4320.png');
+            background-position: center;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .masthead h1 {
+            font-weight: 900;
+            /* Clamp ensures font scales smoothly between mobile (2.5rem) and desktop (4.5rem) */
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .masthead h2 {
+            font-weight: 300;
+            font-size: clamp(1.1rem, 3vw, 1.8rem);
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            color: var(--nvcbo-cream);
+            max-width: 800px; /* Prevents text from stretching too wide on big screens */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- BUTTONS (Enhanced Responsiveness) --- */
+        .btn-xl {
+            padding: 1.25rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 200px; /* Ensures buttons look uniform on desktop */
+        }
+
+        /* Mobile Optimizations for Buttons */
+        @media (max-width: 576px) {
+            .btn-xl {
+                padding: 1rem 1.5rem; /* Smaller padding for mobile screens */
+                width: 100%;         /* Full width buttons for easier tapping */
+                margin-bottom: 0;    /* Margins handled by gap utility */
+            }
+            
+            /* Container constraint so buttons don't get too wide on tablets */
+            .hero-btn-container {
+                width: 100%;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+        }
+
+        .btn-primary-custom {
+            background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 50%, #CC5500 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 140, 0, 0.4);
+            color: white;
+        }
+
+        .btn-outline-custom {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.6);
+            color: white;
+        }
+
+        .btn-outline-custom:hover {
+            background: white;
+            color: var(--nvcbo-blue);
+            border-color: white;
         }
         
-        .animated-tagline {
-            animation: colorTransition 4s ease-in-out infinite;
-            transition: color 0.3s ease;
+        /* Donation Button */
+        .btn-donate {
+            background: white;
+            color: var(--nvcbo-dark-orange);
+            font-weight: 800;
+        }
+        .btn-donate:hover {
+            background: var(--nvcbo-cream);
+            color: var(--nvcbo-orange);
+        }
+
+        /* --- SECTIONS --- */
+        .content-section {
+            padding: 7.5rem 0;
+        }
+
+        .section-heading {
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .section-heading h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .section-heading .subheading {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--nvcbo-dark-orange);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- SERVICE CARDS --- */
+        .service-card {
+            background: white;
+            padding: 3rem 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            height: 100%;
+            text-align: center;
+            border-bottom: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-bottom-color: var(--nvcbo-orange);
+        }
+
+        .service-icon {
+            background: linear-gradient(135deg, var(--nvcbo-blue) 0%, var(--nvcbo-dark-blue) 100%);
+            color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(29, 128, 159, 0.3);
+        }
+
+        /* --- PORTFOLIO GRID --- */
+        .portfolio-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            background: white;
+            transition: transform 0.3s ease;
         }
         
-        .animated-tagline:hover {
-            animation-play-state: paused;
+        .portfolio-card:hover {
+             transform: translateY(-5px);
+        }
+
+        .portfolio-img-wrapper {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .portfolio-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-card:hover img {
+            transform: scale(1.1);
         }
         
-        /* Sidebar z-index fix - ensure it's always on top when active */
+        .portfolio-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--nvcbo-orange);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            z-index: 10;
+        }
+
+        .portfolio-caption {
+            padding: 1.5rem;
+        }
+
+        .portfolio-caption h4 {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        /* --- CALLOUT --- */
+        .callout {
+            padding: 8rem 0;
+            background: linear-gradient(rgba(21, 93, 116, 0.9), rgba(29, 128, 159, 0.8)), url('assets/img/bg-callout.jpg');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-align: center;
+            position: relative;
+        }
+        
+        .callout h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        /* --- DONATION SECTION --- */
+        .donation-section {
+            background: linear-gradient(135deg, var(--nvcbo-orange) 0%, var(--nvcbo-dark-orange) 100%);
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        /* --- NAVIGATION --- */
+        .menu-toggle {
+            position: fixed;
+            right: 15px;
+            top: 15px;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(135deg, var(--nvcbo-orange) 0%, var(--nvcbo-dark-orange) 100%);
+            line-height: 50px;
+            z-index: 9999;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .menu-toggle:hover {
+            background: linear-gradient(135deg, #FF7F00 0%, #CC5500 100%) !important;
+        }
+        
         #sidebar-wrapper {
-            z-index: 1050 !important; /* Higher than Bootstrap modals */
             background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 50%, #CC5500 100%) !important;
+            z-index: 9998 !important;
         }
         
         #sidebar-wrapper.active {
-            z-index: 1060 !important; /* Even higher when active */
-        }
-        
-        /* Sidebar Navigation Styling */
-        #sidebar-wrapper .navbar-nav {
-            width: 100%;
-        }
-        
-        #sidebar-wrapper .nav-link {
-            color: #FFF5E6 !important;
-            font-weight: 500;
-            padding: 15px 20px;
-            transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        #sidebar-wrapper .nav-link:hover {
-            color: #FFFFFF !important;
-            background-color: rgba(255, 255, 255, 0.1) !important;
-            transform: translateX(5px);
-        }
-        
-        #sidebar-wrapper .sidebar-brand .nav-link {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #FFFFFF !important;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-            margin-bottom: 10px;
-        }
-        
-        #sidebar-wrapper .sidebar-brand .nav-link:hover {
-            color: #FFF5E6 !important;
-            transform: none;
-        }
-        
-        /* Menu Toggle Button Styling - Enhanced for Mobile */
-        .menu-toggle {
-            position: fixed !important;
-            z-index: 1070 !important; /* Highest z-index */
-            top: 20px;
-            right: 20px;
-            width: 56px;
-            height: 56px;
-            display: flex !important;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 100%) !important;
-            border: 3px solid rgba(255, 255, 255, 0.8);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 
-                0 6px 20px rgba(255, 140, 0, 0.4),
-                0 2px 8px rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
-            text-decoration: none;
-            border-radius: 50%;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-        
-        .menu-toggle:hover, .menu-toggle:active {
-            background: linear-gradient(135deg, #FF7F00 0%, #FF6600 100%) !important;
-            transform: scale(1.08);
-            box-shadow: 
-                0 8px 25px rgba(255, 140, 0, 0.6),
-                0 4px 12px rgba(0, 0, 0, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.4);
-            border-color: rgba(255, 255, 255, 0.9);
-        }
-        
-        .menu-toggle i {
-            color: white !important;
-            font-size: 20px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-        }
-        
-        /* Mobile-specific enhancements */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                width: 60px;
-                height: 60px;
-                top: 15px;
-                right: 15px;
-                border-width: 4px;
-                box-shadow: 
-                    0 8px 24px rgba(255, 140, 0, 0.5),
-                    0 3px 10px rgba(0, 0, 0, 0.4),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.4);
-            }
-            
-            .menu-toggle i {
-                font-size: 22px;
-                font-weight: 700;
-            }
-            
-            .menu-toggle:hover, .menu-toggle:active {
-                transform: scale(1.05);
-                box-shadow: 
-                    0 10px 30px rgba(255, 140, 0, 0.7),
-                    0 5px 15px rgba(0, 0, 0, 0.5),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.5);
-            }
-            
-            /* Enhanced Scroll-to-Top for Mobile */
-            .scroll-to-top {
-                width: 60px !important;
-                height: 60px !important;
-                bottom: 20px !important;
-                right: 20px !important;
-                border-width: 4px !important;
-                font-size: 24px !important;
-                font-weight: 700 !important;
-                box-shadow: 0 8px 24px rgba(255,140,0,0.5), 0 3px 10px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.4);
-            }
-        }
-        
-        /* iPhone specific optimizations */
-        @media (max-width: 480px) {
-            .menu-toggle {
-                width: 58px;
-                height: 58px;
-                top: 12px;
-                right: 12px;
-                border-width: 3px;
-            }
-            
-            .scroll-to-top {
-                width: 58px !important;
-                height: 58px !important;
-                bottom: 15px !important;
-                right: 15px !important;
-                border-width: 3px !important;
-                font-size: 22px !important;
-            }
-        }
-        
-        /* Remove the conflicting pseudo-element rule since JS handles icon change */
-        
-        /* Enhanced Callout Section for Large Screens */
-        @media (min-width: 768px) {
-            .callout .container {
-                padding: 0 2rem;
-            }
-            
-            .callout .video-container:hover {
-                transform: scale(1.02);
-                box-shadow: 0 16px 64px rgba(0,0,0,0.5);
-            }
-            
-            .callout .btn:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 8px 32px rgba(29, 128, 159, 0.4);
-                background-color: rgba(29, 128, 159, 0.9);
-            }
-        }
-        
-        @media (min-width: 1200px) {
-            .callout {
-                min-height: 80vh;
-                display: flex;
-                align-items: center;
-            }
-            
-            .callout .container {
-                width: 100%;
-                max-width: 1400px;
-                padding: 0 3rem;
-            }
-        }
-        
-        /* Smooth transitions for all interactive elements */
-        .callout * {
-            transition: all 0.3s ease;
-        }
-        
-        /* Optional: Add backdrop overlay when sidebar is active */
-        body.sidebar-open::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1055;
-            pointer-events: auto;
-        }
-        
-        /* Launch Date Anime Effects */
-        @keyframes launchDatePulse {
-            0% { 
-                transform: scale(1);
-                color: #FF8C00;
-            }
-            100% { 
-                transform: scale(1.05);
-                color: #FF7F00;
-            }
-        }
-        
-        @keyframes launchDateGlow {
-            0% { 
-                text-shadow: 0 0 10px rgba(255, 140, 0, 0.5), 0 0 20px rgba(255, 140, 0, 0.3);
-            }
-            50% { 
-                text-shadow: 0 0 20px rgba(255, 140, 0, 0.8), 0 0 30px rgba(255, 140, 0, 0.5), 0 0 40px rgba(255, 140, 0, 0.3);
-            }
-            100% { 
-                text-shadow: 0 0 10px rgba(255, 140, 0, 0.5), 0 0 20px rgba(255, 140, 0, 0.3);
-            }
-        }
-        
-        @keyframes launchDateBounce {
-            0%, 100% { 
-                transform: translateY(0);
-            }
-            50% { 
-                transform: translateY(-3px);
-            }
-        }
-        
-        .animated-launch-date:hover {
-            animation-play-state: paused;
-            transform: scale(1.1) !important;
-            color: #FFAB76 !important;
-            text-shadow: 0 0 25px rgba(255, 140, 0, 1) !important;
+            z-index: 9998 !important;
         }
     </style>
 </head>
 
-<body id="page-top"><a class="menu-toggle rounded" href="#"><i class="fa fa-bars"></i></a>
-    <nav class="navbar navbar-expand" id="sidebar-wrapper">
-        <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler d-none" data-bs-target="#"></button>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav sidebar-nav" id="sidebar-nav">
-                    <li class="nav-item sidebar-brand"><a class="nav-link active" href="#page-top">NVCBO</a></li>
-                    <li class="nav-item sidebar-nav-item"><a class="nav-link" href="#page-top">Home</a></li>
-                    <li class="nav-item sidebar-nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item sidebar-nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item sidebar-nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                    <li class="nav-item sidebar-nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
+<body id="page-top">
+
+    <a class="menu-toggle rounded" href="#">
+        <i class="fa fa-bars"></i>
+    </a>
+    
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand"><a href="#page-top">NVCBO</a></li>
+            <li class="sidebar-nav-item"><a href="#page-top">Home</a></li>
+            <li class="sidebar-nav-item"><a href="#about">About Us</a></li>
+            <li class="sidebar-nav-item"><a href="#services">Our Impact</a></li>
+            <li class="sidebar-nav-item"><a href="https://news.northernvisionke.org/" target="_blank">Stories & News</a></li>
+            <li class="sidebar-nav-item"><a href="https://news.northernvisionke.org/" target="_blank">Media Gallery</a></li>
+            <li class="sidebar-nav-item"><a href="https://news.northernvisionke.org/" target="_blank">2025 Year in Review</a></li>
+            <li class="sidebar-nav-item"><a href="#donate">Donate</a></li>
+            <li class="sidebar-nav-item"><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
-    <header class="d-flex min-vh-100 masthead" style="background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(&quot;assets/img/IMG_4320.png&quot;) center / cover no-repeat, #746f6f; display: flex !important; align-items: center; justify-content: center; min-height: 100vh; padding: 2rem 1rem;">
-        <div class="container text-center" style="max-width: 100%; z-index: 2;">
-            <h1 class="mb-3 mb-md-4" style="font-size: clamp(24px, 5vw, 40px); line-height: 1.2; font-weight: bold;"><strong><span style="color: rgb(255, 140, 0);">We believe that everyone should have access to the limitless potential of opportunity.</span></strong></h1>
-            <h3 class="mb-4 mb-md-5 animated-tagline" style="font-size: clamp(18px, 3vw, 24px); font-weight: 400;"><em>NorthernVision: Building a future beyond boundaries</em></h3>
-            <a class="btn btn-xl" role="button" href="#about" 
-               style="
-                 background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 100%);
-                 border: none;
-                 color: white;
-                 font-size: clamp(14px, 2.5vw, 18px); 
-                 padding: 15px 30px; 
-                 margin-top: 1rem;
-                 border-radius: 30px;
-                 font-weight: 600;
-                 letter-spacing: 0.5px;
-                 text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-                 box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
-                 transition: all 0.3s ease;
-                 text-transform: uppercase;
-               "
-               onmouseover="this.style.background='linear-gradient(135deg, #FF7F00 0%, #CC5500 100%)'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(255, 140, 0, 0.4)'"
-               onmouseout="this.style.background='linear-gradient(135deg, #FF8C00 0%, #FF7F00 100%)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(255, 140, 0, 0.3)'">Get Involved Today</a>
-        </div>
-    </header>
-    <section id="about" class="content-section" style="background: linear-gradient(135deg, var(--secondary-cream) 0%, #ffffff 100%); padding: clamp(4rem, 8vw, 8rem) 0;">
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <h2 style="font-size: 24.4px;">NorthernVision Community Based Organization was founded in 2020 with major focus on SDGs 15, 5 and 10.</h2>
-                    <p class="mb-5 lead"><span>We place special emphasis on empowering smallholder farmers, particularly women and youth, by providing comprehensive support. Our strategy integrates sustainable agricultural practices, climate resilience measures, technical and digital skill training, and robust financial empowerment initiatives.</span><a href="https://unsplash.com/"></a><span></span></p><a class="btn btn-xl" role="button" href="#services"
-                       style="
-                         background: linear-gradient(135deg, #FF8C00 0%, #CC5500 100%);
-                         border: none;
-                         color: white;
-                         padding: 15px 30px;
-                         border-radius: 25px;
-                         font-weight: 600;
-                         letter-spacing: 0.3px;
-                         text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-                         box-shadow: 0 4px 15px rgba(204, 85, 0, 0.3);
-                         transition: all 0.3s ease;
-                         font-size: 1.1rem;
-                       "
-                       onmouseover="this.style.background='linear-gradient(135deg, #CC5500 0%, #B7410E 100%)'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(204, 85, 0, 0.4)'"
-                       onmouseout="this.style.background='linear-gradient(135deg, #FF8C00 0%, #CC5500 100%)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(204, 85, 0, 0.3)'"><strong><span style="color: white; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">Who We Are</span></strong></a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="services" class="content-section text-white text-center" style="background: linear-gradient(135deg, #FF8C00 0%, #CC5500 100%); padding: clamp(4rem, 8vw, 8rem) 0;">
-        <div class="container">
-            <div class="content-section-heading">
-                <h3 class="mb-0" style="color: #FFF5E6; font-weight: 500; letter-spacing: 1px; text-shadow: 0 1px 3px rgba(0,0,0,0.3);">NVCBO SDGs</h3>
-                <h2 class="mb-5"><strong><span style="color: #FFFFFF; font-size: clamp(28px, 4vw, 48px); text-shadow: 0 2px 4px rgba(0,0,0,0.4); font-weight: 700;">Driving Sustainable Change from the Grassroots</span></strong></h2>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-                    <span class="mb-3 mx-auto service-icon rounded-circle" style="background: rgba(255, 255, 255, 0.15); color: #FFFFFF; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; font-size: 2rem; border: 3px solid rgba(255, 255, 255, 0.3); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255, 255, 255, 0.25)'; this.style.transform='scale(1.1)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.15)'; this.style.transform='scale(1)'">
-                        <i class="icon-screen-smartphone"></i>
-                    </span>
-                    <h4><strong><span style="color: #FFFFFF; font-weight: 600; text-shadow: 0 1px 2px rgba(0,0,0,0.3); margin-top: 1rem; display: block;">Quality EDUCATION</span></strong></h4>
-                    <p class="mb-0" style="color: #FFF5E6; opacity: 0.9; font-weight: 400; line-height: 1.5;">Empowering communities through accessible and quality education initiatives.</p>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-                    <span class="mb-3 mx-auto service-icon rounded-circle" style="background: rgba(255, 255, 255, 0.15); color: #FFFFFF; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; font-size: 2rem; border: 3px solid rgba(255, 255, 255, 0.3); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255, 255, 255, 0.25)'; this.style.transform='scale(1.1)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.15)'; this.style.transform='scale(1)'">
-                        <i class="icon-pencil"></i>
-                    </span>
-                    <h4><strong><span style="color: #FFFFFF; font-weight: 600; text-shadow: 0 1px 2px rgba(0,0,0,0.3); margin-top: 1rem; display: block;">GENDER EQUALITY</span></strong></h4>
-                    <p class="mb-0" style="color: #FFF5E6; opacity: 0.9; font-weight: 400; line-height: 1.5;">Promoting equal opportunities and rights for all genders in our communities.</p>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-                    <span class="mb-3 mx-auto service-icon rounded-circle" style="background: rgba(255, 255, 255, 0.15); color: #FFFFFF; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; font-size: 2rem; border: 3px solid rgba(255, 255, 255, 0.3); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255, 255, 255, 0.25)'; this.style.transform='scale(1.1)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.15)'; this.style.transform='scale(1)'">
-                        <i class="icon-like"></i>
-                    </span>
-                    <h4><strong><span style="color: #FFFFFF; font-weight: 600; text-shadow: 0 1px 2px rgba(0,0,0,0.3); margin-top: 1rem; display: block;">CLIMATE ACTION</span></strong></h4>
-                    <p class="mb-0" style="color: #FFF5E6; opacity: 0.9; font-weight: 400; line-height: 1.5;">Building climate resilience through sustainable practices and environmental stewardship.</p>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-                    <span class="mb-3 mx-auto service-icon rounded-circle" style="background: rgba(255, 255, 255, 0.15); color: #FFFFFF; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; font-size: 2rem; border: 3px solid rgba(255, 255, 255, 0.3); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255, 255, 255, 0.25)'; this.style.transform='scale(1.1)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.15)'; this.style.transform='scale(1)'">
-                        <i class="icon-mustache"></i>
-                    </span>
-                    <h4><strong><span style="color: #FFFFFF; font-weight: 600; text-shadow: 0 1px 2px rgba(0,0,0,0.3); margin-top: 1rem; display: block;">LIFE ON LAND</span></strong></h4>
-                    <p class="mb-0" style="color: #FFF5E6; opacity: 0.9; font-weight: 400; line-height: 1.5;">Protecting biodiversity and promoting sustainable land use practices.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="portfolio" class="content-section">
-        <div class="container">
-            <div class="content-section-heading text-center">
-                <h3 class="mb-0" style="color: #FF8C00; font-weight: 500; letter-spacing: 1px;">Portfolio</h3>
-                <h2 class="mb-5" style="color: #333; font-weight: 700;">Recent Projects</h2>
-            </div>
-            <div class="row g-0">
-                <div class="col-lg-6"><a class="portfolio-item" href="#">
-                        <img class="img-fluid" src="assets/img/portfolio-1.jpg">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <h2><strong><span style="color: rgb(92, 60, 6);">GUARDIANS OF GOTU</span></strong></h2>
-                                <p class="mb-0">A yellow pencil with envelopes on a clean, blue backdrop!</p>
-                            </div>
-                        </div>
-                    </a></div>
-                <div class="col-lg-6"><a class="portfolio-item" href="#">
-                        <img class="img-fluid" src="assets/img/portfolio-2.jpg">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <h2>Embracing the Best of Two Worldviews</h2>
-                                <p class="mb-0">A dark blue background with a colored pencil, a clip, and a tiny ice cream cone!</p>
-                            </div>
-                        </div>
-                    </a></div>
-                <div class="col-lg-6"><a class="portfolio-item" href="#">
-                        <img class="img-fluid" src="assets/img/portfolio-3.jpg">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <h2>YOUTH NEWSROOM : KENYA| CHILE</h2>
-                                <p class="mb-0">Strawberries are such a tasty snack, especially with a little sugar on top!</p>
-                            </div>
-                        </div>
-                    </a></div>
-                <div class="col-lg-6"><a class="portfolio-item" href="#">
-                        <img class="img-fluid" src="assets/img/portfolio-4.jpg">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <h2>Workspace</h2>
-                                <p class="mb-0">A yellow workspace with some scissors, pencils, and other objects.</p>
-                            </div>
-                        </div>
-                    </a></div>
-            </div>
-        </div>
-    </section>
-    <section class="content-section text-white" style="background: linear-gradient(135deg, #CC5500 0%, #B7410E 100%); padding: clamp(4rem, 8vw, 8rem) 0;">
-        <div class="container text-center">
-            <h2 class="mb-4" style="color: #FFFFFF; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">The buttons below are impossible to resist..</h2>
-            <a class="btn me-4 mt-2 btn-xl" role="button" href="#" 
-               style="
-                 background-color: #FF8C00; 
-                 border-color: #FF8C00; 
-                 color: white;
-                 padding: 15px 30px;
-                 border-radius: 25px;
-                 font-weight: 600;
-                 transition: all 0.3s ease;
-               "
-               onmouseover="this.style.backgroundColor='#FFF5E6'; this.style.borderColor='#FFF5E6'; this.style.color='#FF8C00'; this.style.transform='translateY(-2px)'"
-               onmouseout="this.style.backgroundColor='#FF8C00'; this.style.borderColor='#FF8C00'; this.style.color='white'; this.style.transform='translateY(0)'">DONATE NOW</a>
-            <a class="btn me-4 mt-2 btn-xl" role="button" href="#" 
-               style="
-                 background-color: transparent; 
-                 border-color: #FFF5E6; 
-                 color: #FFF5E6;
-                 padding: 15px 30px;
-                 border-radius: 25px;
-                 font-weight: 600;
-                 transition: all 0.3s ease;
-                 border-width: 2px;
-               "
-               onmouseover="this.style.backgroundColor='#FFF5E6'; this.style.color='#FF8C00'; this.style.transform='translateY(-2px)'"
-               onmouseout="this.style.backgroundColor='transparent'; this.style.color='#FFF5E6'; this.style.transform='translateY(0)'">Ready To Support?</a>
-        </div>
-    </section>
-    <section class="callout" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(&quot;assets/img/bg-callout.jpg&quot;); background-position: center center; background-repeat: no-repeat; background-size: cover; padding: clamp(4rem, 10vw, 12rem) 0;">
-        <div class="container text-center" style="max-width: 1200px;">
-            <!-- Responsive heading with better typography for large screens -->
-            <h2 class="mb-4 mb-md-6 mb-lg-8" style="font-size: clamp(32px, 6vw, 64px); line-height: 1.1; font-weight: 700; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); max-width: 1000px; margin: 0 auto;">
-                Sneak Peek: Our New Website Coming Soon!
+
+    <header class="masthead d-flex">
+        <div class="container text-center my-auto px-4">
+            <h1 class="mb-1">Rooted in the Land. Powered by Light.</h1>
+            <h2 class="mb-5">
+                <em>Empowering Northern Kenya's pastoralist communities through climate justice, innovation, and cultural exchange.</em>
             </h2>
             
-            <!-- Responsive subtitle with better spacing -->
-            <p class="mb-5 mb-md-6 mb-lg-8" style="font-size: clamp(18px, 3vw, 28px); line-height: 1.3; color: #f8f9fa; max-width: 900px; margin: 0 auto 3rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-weight: 400;">
-                Explore in-depth SDG resources, interactive community maps, and more—launching 
-                <span class="animated-launch-date" style="
-                    color: #FF8C00;
-                    font-weight: 700;
-                    text-shadow: 0 0 10px rgba(255, 140, 0, 0.5), 0 0 20px rgba(255, 140, 0, 0.3);
-                    animation: launchDatePulse 2s ease-in-out infinite alternate, launchDateGlow 3s ease-in-out infinite;
-                    display: inline-block;
-                    padding: 0 4px;
-                ">02<sup style="animation: launchDateBounce 1.5s ease-in-out infinite;">nd</sup> January 2026</span>. 
-                Stay tuned for empowering tools in sustainable development.
-            </p>
-            
-            <!-- Enhanced video container for large screens -->
-            <div class="video-container mb-5 mb-md-6 mb-lg-8" style="max-width: min(80vw, 800px); margin: 0 auto 4rem; position: relative; width: 100%; padding-bottom: 56.25%; height: 0; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 48px rgba(0,0,0,0.4); transform: scale(1); transition: transform 0.3s ease;">
-                <iframe 
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" 
-                    src="https://www.youtube.com/embed/9w4u1kij_uU?autoplay=1&amp;mute=1&amp;rel=0&amp;showinfo=0&amp;modestbranding=1"
-                    allowfullscreen
-                    loading="lazy">
-                </iframe>
+            <div class="hero-btn-container d-flex justify-content-center gap-3 flex-column flex-sm-row">
+                <a class="btn btn-primary-custom btn-xl" href="#about">Discover More</a>
+                <a class="btn btn-outline-custom btn-xl" href="#donate">Support Us</a>
             </div>
-            
-            <!-- Enhanced call-to-action button for large screens -->
-            <a class="btn btn-xl" role="button" href="#" 
-               style="
-                 background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 100%);
-                 border: none;
-                 color: white;
-                 font-size: clamp(16px, 2.5vw, 22px); 
-                 padding: clamp(16px, 3vw, 24px) clamp(32px, 5vw, 48px); 
-                 margin-top: 2rem; 
-                 box-shadow: 0 6px 24px rgba(255, 140, 0, 0.4); 
-                 border-radius: 50px; 
-                 font-weight: 600; 
-                 letter-spacing: 0.5px; 
-                 text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-                 transition: all 0.3s ease;
-                 text-transform: capitalize;
-               "
-               onmouseover="this.style.background='linear-gradient(135deg, #FF7F00 0%, #CC5500 100%)'; this.style.transform='translateY(-3px) scale(1.02)'; this.style.boxShadow='0 10px 35px rgba(255, 140, 0, 0.5)'"
-               onmouseout="this.style.background='linear-gradient(135deg, #FF8C00 0%, #FF7F00 100%)'; this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 6px 24px rgba(255, 140, 0, 0.4)'">
-                Stay Updated with Our Newsletter
-            </a>
         </div>
-    </section><!-- Start: Contact Over Map -->
-    <section class="position-relative py-5">
-        <div class="d-md-none"><iframe allowfullscreen="" frameborder="0" src="https://cdn.bootstrapstudio.io/placeholders/map.html" width="100%" height="100%"></iframe></div>
-        <div class="position-absolute top-0 start-0 d-none d-md-block w-100 h-100"><iframe allowfullscreen="" frameborder="0" src="https://cdn.bootstrapstudio.io/placeholders/map.html" width="100%" height="100%"></iframe></div>
-        <div class="position-relative m-md-5 mx-2 my-5">
-            <div class="container position-relative">
-                <div class="row">
-                    <div class="col-md-6 col-xl-5 col-xxl-4 offset-md-6 offset-xl-7 offset-xxl-8">
-                        <div>
-                            <form class="border rounded shadow p-3 p-md-4 p-lg-5" method="post" style="background: var(--bs-body-bg);">
-                                <h3 class="text-center mb-3">Contact us</h3><!-- Start: Success Example -->
-                                <div class="mb-3"><input class="form-control" type="text" name="name" placeholder="Name"></div><!-- End: Success Example -->
-                                <!-- Start: Error Example -->
-                                <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email"></div><!-- End: Error Example -->
-                                <div class="mb-3"><textarea class="form-control" name="message" placeholder="Message" rows="6"></textarea></div>
-                                <div class="mb-3">
-                                    <button class="btn" type="submit"
-                                            style="
-                                              background: linear-gradient(135deg, #FF8C00 0%, #CC5500 100%);
-                                              border: none;
-                                              color: white;
-                                              padding: 12px 30px;
-                                              border-radius: 25px;
-                                              font-weight: 600;
-                                              font-size: 1.1rem;
-                                              letter-spacing: 0.3px;
-                                              text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-                                              box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
-                                              transition: all 0.3s ease;
-                                              cursor: pointer;
-                                              text-transform: uppercase;
-                                            "
-                                            onmouseover="this.style.background='linear-gradient(135deg, #CC5500 0%, #B7410E 100%)'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(255, 140, 0, 0.4)'"
-                                            onmouseout="this.style.background='linear-gradient(135deg, #FF8C00 0%, #CC5500 100%)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(255, 140, 0, 0.3)'">Send Message</button>
-                                </div>
-                            </form>
-                        </div>
+    </header>
+
+    <section class="content-section bg-light" id="about">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="section-heading">
+                        <span class="subheading">Who We Are</span>
+                        <h2>Driving Sustainable Change</h2>
+                    </div>
+                    <p class="lead mb-5" style="color: #555;">
+                        Founded in 2020, <strong>NorthernVision CBO</strong> focuses on Sustainable Development Goals (SDGs) 5, 10, and 15. 
+                        We place special emphasis on empowering smallholder farmers, particularly women and youth, through 
+                        climate resilience, digital skills, and resource management.
+                    </p>
+                    <a class="btn btn-dark btn-xl" href="#services" style="background-color: #333; border: none;">See Our Impact</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section" id="services" style="background-color: white;">
+        <div class="container">
+            <div class="section-heading">
+                <span class="subheading">Our Pillars</span>
+                <h2>Areas of Action</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card">
+                        <span class="service-icon"><i class="icon-screen-smartphone"></i></span>
+                        <h4><strong>Quality Education</strong></h4>
+                        <p class="text-muted mb-0">Bridging the digital divide with literacy labs and tech training for youth.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card">
+                        <span class="service-icon"><i class="icon-people"></i></span>
+                        <h4><strong>Gender Equality</strong></h4>
+                        <p class="text-muted mb-0">Securing land rights and economic opportunities for indigenous women.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card">
+                        <span class="service-icon"><i class="icon-energy"></i></span>
+                        <h4><strong>Climate Action</strong></h4>
+                        <p class="text-muted mb-0">Implementing solar solutions and sustainable farming in arid lands.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card">
+                        <span class="service-icon"><i class="icon-mustache"></i></span>
+                        <h4><strong>Life on Land</strong></h4>
+                        <p class="text-muted mb-0">Restoring ecosystems and promoting peaceful resource sharing.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section><!-- End: Contact Over Map -->
+    </section>
+
+    <section class="callout">
+        <div class="container text-center">
+            <h2 class="mx-auto mb-3">Our Stories Are Changing Lives</h2>
+            <p class="lead mb-5" style="color: rgba(255,255,255,0.9);">From the forests of Sweden to the plains of Isiolo, explore our journey.</p>
+            <a class="btn btn-primary-custom btn-xl" href="https://news.northernvisionke.org/" target="_blank">
+                Read the Blog
+            </a>
+        </div>
+    </section>
+
+    <section class="content-section" id="portfolio" style="background-color: var(--nvcbo-light-bg);">
+        <div class="container">
+            <div class="section-heading">
+                <span class="subheading">Portfolio</span>
+                <h2>Recent Projects</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="portfolio-card">
+                        <a class="portfolio-link" href="https://news.northernvisionke.org/" target="_blank" style="text-decoration: none;">
+                            <div class="portfolio-img-wrapper">
+                                <span class="portfolio-tag">Exchange</span>
+                                <img src="assets/img/IMG_7016.jpg" alt="Sweden Exchange">
+                            </div>
+                            <div class="portfolio-caption">
+                                <h4>Global Exchange</h4>
+                                <p class="text-muted mb-0">Cultural immersion and learning in Halmstad, Sweden.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="portfolio-card">
+                        <a class="portfolio-link" href="https://news.northernvisionke.org/" target="_blank" style="text-decoration: none;">
+                            <div class="portfolio-img-wrapper">
+                                <span class="portfolio-tag">Solar</span>
+                                <img src="assets/img/IMG_8630.jpg" alt="Solar Light Project">
+                            </div>
+                            <div class="portfolio-caption">
+                                <h4>Light in the Darkness</h4>
+                                <p class="text-muted mb-0">Providing solar lanterns to off-grid families in Gotu.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="portfolio-card">
+                        <a class="portfolio-link" href="https://news.northernvisionke.org/" target="_blank" style="text-decoration: none;">
+                            <div class="portfolio-img-wrapper">
+                                <span class="portfolio-tag">Education</span>
+                                <img src="assets/img/IMG_7013.jpg" alt="Education Workshop">
+                            </div>
+                            <div class="portfolio-caption">
+                                <h4>Digital & Rights Education</h4>
+                                <p class="text-muted mb-0">Workshops empowering youth and women with knowledge.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="portfolio-card">
+                        <a class="portfolio-link" href="https://news.northernvisionke.org/" target="_blank" style="text-decoration: none;">
+                            <div class="portfolio-img-wrapper">
+                                <span class="portfolio-tag">Community</span>
+                                <img src="assets/img/portfolio-1.jpg" alt="Community Baraza">
+                            </div>
+                            <div class="portfolio-caption">
+                                <h4>Community Dialogue</h4>
+                                <p class="text-muted mb-0">Fostering peace and resource management through local barazas.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a class="btn btn-dark btn-xl" href="https://news.northernvisionke.org/" target="_blank" style="background-color: #333; border: none;">View Full Gallery</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="donation-section" id="donate">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-4" style="font-weight: 800; text-shadow: 0 2px 5px rgba(0,0,0,0.1);">The Buttons Below Are Impossible To Resist...</h2>
+                    <p class="lead mb-5" style="opacity: 0.9;">Your support directly funds solar lanterns for students, advocacy for women, and climate resilience in Isiolo.</p>
+                    <div class="d-flex justify-content-center gap-3 flex-column flex-sm-row">
+                        <a class="btn btn-donate btn-xl" href="#contact">Donate Now</a>
+                        <a class="btn btn-outline-custom btn-xl" href="#contact">Partner With Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="map">
+        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Isiolo,+Kenya&aq=0&ie=UTF8&t=m&z=12&iwloc=A&output=embed"></iframe>
+    </section>
+
     <footer class="footer text-center" style="background: linear-gradient(135deg, #CC5500 0%, #B7410E 100%); color: #FFF5E6; padding: 3rem 0;">
         <div class="container">
+            <h2 class="mb-4" style="color: #FFFFFF; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Connect With Us</h2>
             <ul class="list-inline mb-5">
                 <li class="list-inline-item">&nbsp;
                     <a class="social-link rounded-circle" href="#" 
                        style="
-                         color: #FFF5E6; 
-                         background-color: rgba(255,255,255,0.15); 
-                         border: 2px solid #FFAB76; 
-                         padding: 12px; 
-                         width: 55px; 
-                         height: 55px; 
-                         display: inline-flex; 
-                         align-items: center; 
-                         justify-content: center; 
+                         background-color: rgba(255,255,255,0.15);
+                         color: #FFF5E6;
+                         width: 50px;
+                         height: 50px;
+                         display: inline-flex;
+                         align-items: center;
+                         justify-content: center;
+                         border-radius: 50%;
                          transition: all 0.3s ease;
-                         font-size: 1.2rem;
                          box-shadow: 0 4px 15px rgba(0,0,0,0.2);
                        " 
                        onmouseover="this.style.backgroundColor='#FF8C00'; this.style.color='white'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(255,140,0,0.4)'" 
@@ -572,17 +519,15 @@
                 <li class="list-inline-item">&nbsp;
                     <a class="social-link rounded-circle" href="#" 
                        style="
-                         color: #FFF5E6; 
-                         background-color: rgba(255,255,255,0.15); 
-                         border: 2px solid #FFAB76; 
-                         padding: 12px; 
-                         width: 55px; 
-                         height: 55px; 
-                         display: inline-flex; 
-                         align-items: center; 
-                         justify-content: center; 
+                         background-color: rgba(255,255,255,0.15);
+                         color: #FFF5E6;
+                         width: 50px;
+                         height: 50px;
+                         display: inline-flex;
+                         align-items: center;
+                         justify-content: center;
+                         border-radius: 50%;
                          transition: all 0.3s ease;
-                         font-size: 1.2rem;
                          box-shadow: 0 4px 15px rgba(0,0,0,0.2);
                        " 
                        onmouseover="this.style.backgroundColor='#FF8C00'; this.style.color='white'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(255,140,0,0.4)'" 
@@ -593,17 +538,15 @@
                 <li class="list-inline-item">&nbsp;
                     <a class="social-link rounded-circle" href="#" 
                        style="
-                         color: #FFF5E6; 
-                         background-color: rgba(255,255,255,0.15); 
-                         border: 2px solid #FFAB76; 
-                         padding: 12px; 
-                         width: 55px; 
-                         height: 55px; 
-                         display: inline-flex; 
-                         align-items: center; 
-                         justify-content: center; 
+                         background-color: rgba(255,255,255,0.15);
+                         color: #FFF5E6;
+                         width: 50px;
+                         height: 50px;
+                         display: inline-flex;
+                         align-items: center;
+                         justify-content: center;
+                         border-radius: 50%;
                          transition: all 0.3s ease;
-                         font-size: 1.2rem;
                          box-shadow: 0 4px 15px rgba(0,0,0,0.2);
                        " 
                        onmouseover="this.style.backgroundColor='#FF8C00'; this.style.color='white'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(255,140,0,0.4)'" 
@@ -614,39 +557,15 @@
             </ul>
             <p class="mb-0 small" style="color: #FFAB76; font-weight: 500; opacity: 0.9;">Copyright &nbsp;© NVCBO 2025</p>
         </div>
-        <a class="scroll-to-top rounded" href="#page-top" 
-           style="
-             background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 100%); 
-             color: white; 
-             border: 3px solid rgba(255, 255, 255, 0.8); 
-             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-             position: fixed;
-             bottom: 25px;
-             right: 25px;
-             width: 56px;
-             height: 56px;
-             display: flex;
-             align-items: center;
-             justify-content: center;
-             border-radius: 50%;
-             box-shadow: 
-               0 6px 20px rgba(255,140,0,0.4),
-               0 2px 8px rgba(0,0,0,0.3),
-               inset 0 1px 0 rgba(255,255,255,0.3);
-             font-size: 22px;
-             font-weight: 600;
-             text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-             backdrop-filter: blur(10px);
-             -webkit-backdrop-filter: blur(10px);
-             z-index: 1000;
-           " 
-           onmouseover="this.style.background='linear-gradient(135deg, #FF7F00 0%, #FF6600 100%)'; this.style.transform='scale(1.08)'; this.style.boxShadow='0 8px 25px rgba(255,140,0,0.6), 0 4px 12px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.4)'; this.style.borderColor='rgba(255,255,255,0.9)'" 
-           onmouseout="this.style.background='linear-gradient(135deg, #FF8C00 0%, #FF7F00 100%)'; this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(255,140,0,0.4), 0 2px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.3)'; this.style.borderColor='rgba(255,255,255,0.8)'">
-            <i class="fa fa-angle-up"></i>
-        </a>
     </footer>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/stylish-portfolio.js"></script>
-</body>
 
+    <a class="scroll-to-top rounded" href="#page-top" style="background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 100%);">
+        <i class="fa fa-angle-up"></i>
+    </a>
+
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/stylish-portfolio.js"></script>
+
+</body>
 </html>
