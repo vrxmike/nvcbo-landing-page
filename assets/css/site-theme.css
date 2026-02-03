@@ -1,0 +1,64 @@
+/* Site Theme Overrides for Animation Integration */
+
+/* 1. Ensure Body is Transparent so Canvas shows through */
+body {
+    background-color: transparent !important;
+    /* We set a fallback background color on the html element or a wrapper if needed,
+       but here we assume the canvas is behind everything.
+       Actually, let's set a very light orange/cream background on html as fallback */
+}
+
+html {
+    background-color: #FFF5E6; /* var(--nvcbo-cream) fallback */
+    height: 100%;
+}
+
+/* 2. Glassmorphism for Content Sections */
+/* We need to ensure text is readable against the moving background */
+
+/* General Sections */
+section, .footer-stone {
+    position: relative;
+    z-index: 1; /* Ensure content is above canvas (canvas is -1) */
+}
+
+/* Specific backgrounds for sections to be semi-transparent "glass" */
+.content-section.bg-light,
+.content-section,
+.section-heading,
+.service-card {
+    /* We override specific backgrounds to be semi-transparent white */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+/* Override bg-light to be translucent */
+.bg-light {
+    background-color: rgba(248, 249, 250, 0.85) !important;
+}
+
+/* Override white backgrounds */
+.service-card {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+section[style*="background-color: white"] {
+    background-color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Footer Stone Override */
+.footer-stone {
+    background-color: rgba(240, 240, 240, 0.95); /* Slightly opaque to hide particles at very bottom if desired, or make transparent */
+    backdrop-filter: blur(5px);
+}
+
+/* Text Shadows for better contrast on headers if they overlap particles directly */
+h1, h2, h3, h4, h5, h6 {
+    text-shadow: 0 1px 3px rgba(255,255,255, 0.8);
+}
+
+.masthead h1, .masthead h2 {
+    /* Hero text already has shadows, keep them or enhance */
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    color: white; /* Ensure hero text stays white */
+}
