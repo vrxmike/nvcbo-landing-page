@@ -1,13 +1,5 @@
 /* Site Theme Overrides for Animation Integration */
 
-/* 1. Ensure Body is Transparent so Canvas shows through */
-body {
-    background-color: transparent !important;
-    /* We set a fallback background color on the html element or a wrapper if needed,
-       but here we assume the canvas is behind everything.
-       Actually, let's set a very light orange/cream background on html as fallback */
-}
-
 html {
     background-color: #FFF5E6; /* var(--nvcbo-cream) fallback */
     height: 100%;
@@ -78,4 +70,10 @@ h1, h2, h3, h4, h5, h6 {
     /* Hero text already has shadows, keep them or enhance */
     text-shadow: 0 4px 10px rgba(0,0,0,0.5);
     color: white; /* Ensure hero text stays white */
+}
+
+/* Scroll to Top Button Visibility Fix */
+.scroll-to-top {
+    z-index: 10002 !important; /* Ensure it sits on top of footer and other elements */
+    /* Maintain bottom placement but ensure visibility */
 }
