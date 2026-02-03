@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Home - NorthernVision CBO</title>
+    <title>About Us - NorthernVision CBO</title>
     <meta name="description" content="Grassroots-Led Climate, Gender and Education Solutions in Northern Kenya.">
 
     <!-- Bootstrap CSS -->
@@ -163,12 +163,12 @@
         /* --- HERO SECTION --- */
         .masthead {
             position: relative;
-            min-height: 100vh;
+            min-height: 60vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(rgba(21, 93, 116, 0.85), rgba(29, 128, 159, 0.7)), 
-                        url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2070&auto=format&fit=crop');
+            background: linear-gradient(rgba(21, 93, 116, 0.9), rgba(29, 128, 159, 0.8)), 
+                        url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=2074&auto=format&fit=crop');
             background-position: center;
             background-size: cover;
             color: white;
@@ -183,63 +183,98 @@
         .masthead h1 .highlight { color: var(--nvcbo-orange); display: inline-block; }
         .masthead h2 { font-weight: 400; font-size: clamp(1.1rem, 2vw, 1.35rem); margin-bottom: 3.5rem; color: rgba(255, 255, 255, 0.9); max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.8; letter-spacing: 0.2px; }
 
-        /* --- BUTTONS --- */
-        .btn-xl { padding: 1.25rem 2.5rem; font-size: 0.9rem; font-weight: 700; border-radius: 50px; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: inline-flex; align-items: center; justify-content: center; min-width: 240px; }
-        .btn-primary-custom { background: linear-gradient(135deg, #FF8C00 0%, #CC5500 100%); color: white; border: none; box-shadow: 0 4px 15px rgba(204, 85, 0, 0.3); }
-        .btn-primary-custom:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(255, 140, 0, 0.4); color: white; }
-        .btn-outline-custom { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.5); color: white; }
-        .btn-outline-custom:hover { background: white; color: var(--nvcbo-blue); transform: translateY(-5px); }
-
         /* --- SECTIONS --- */
         .content-section { padding: 9rem 0; }
-
-        /* --- SERVICE CARDS --- */
-        .service-card {
-            background: rgba(255, 255, 255, 0.65);
+        .bg-stone { background-color: var(--nvcbo-stone); color: white; }
+        
+        /* --- VALUES GRID --- */
+        .value-item {
+            padding: 2rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        .value-item:hover {
+            background: rgba(255,140,0,0.05);
+            padding-left: 2.5rem;
+            border-left: 4px solid var(--nvcbo-orange);
+        }
+        .value-item h4 { font-weight: 700; color: var(--nvcbo-dark-blue); margin-bottom: 0; }
+        
+        /* --- UNIQUE FEATURES --- */
+        .feature-box {
+            background: var(--glass-bg);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            padding: 4rem 2rem;
+            padding: 3rem 2rem;
             border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
             height: 100%;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border-top: 5px solid var(--nvcbo-orange);
+        }
+        .feature-box:hover { 
+            transform: translateY(-12px); 
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--nvcbo-blue);
+            margin-bottom: 1.5rem;
+            display: inline-block;
         }
 
-        .service-card:hover { transform: translateY(-12px); background: rgba(255, 255, 255, 0.9); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08); border-color: var(--nvcbo-orange); }
-        .service-icon { background: linear-gradient(135deg, var(--nvcbo-blue) 0%, var(--nvcbo-dark-blue) 100%); color: white; width: 85px; height: 85px; border-radius: 22px; display: inline-flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 2.5rem; box-shadow: 0 8px 20px rgba(29, 128, 159, 0.2); }
-
-        /* --- HEALING CIRCLES SECTION --- */
-        .callout {
-            position: relative;
-            padding: 12rem 0;
-            background: linear-gradient(rgba(21, 93, 116, 0.95), rgba(29, 128, 159, 0.9)), 
-                        url('https://images.unsplash.com/photo-1529390079861-591de354faf5?q=80&w=2070&auto=format&fit=crop');
-            background-position: center;
-            background-attachment: fixed;
-            background-size: cover;
-            text-align: center;
-            color: white;
-            overflow: hidden;
+        /* --- GLASS CARD UTILITY --- */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            border-radius: 32px;
+            padding: 4rem 2rem;
+            transition: all 0.3s ease;
         }
-
-        #healing-three-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; opacity: 0.6; }
-        .callout .container { position: relative; z-index: 2; }
-        .callout .section-heading h2 { color: white; }
-        .callout .section-heading .subheading { color: var(--nvcbo-cream); }
-
-        /* --- DONATION SECTION --- */
-        .donation-section { background: linear-gradient(135deg, var(--nvcbo-orange) 0%, var(--nvcbo-dark-orange) 100%); color: white; text-align: center; padding: 9rem 0; }
-        .donation-glass-box { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); padding: 4rem 2rem; border-radius: 32px; }
+        .glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: scale(1.02);
+        }
 
         /* --- FOOTER --- */
-        .footer-stone { background-color: var(--nvcbo-stone); color: #ecf0f1; padding: 7rem 0 3rem 0; }
-        .footer-bottom { margin-top: 5rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center; font-size: 0.85rem; color: rgba(255, 255, 255, 0.3); }
-        .brand-logo-glass { background: rgba(255, 140, 0, 0.2); backdrop-filter: blur(5px); border: 1px solid rgba(255, 140, 0, 0.3); color: var(--nvcbo-orange); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; font-weight: 900; border-radius: 12px; margin-right: 15px; }
+        .footer-stone { 
+            background: linear-gradient(135deg, #CC5500 0%, #B7410E 100%); 
+            color: white; 
+            padding: 7rem 0 3rem 0; 
+        }
+        .footer-bottom { 
+            margin-top: 5rem; 
+            padding-top: 2rem; 
+            border-top: 1px solid rgba(255, 255, 255, 0.2); 
+            text-align: center; 
+            font-size: 0.85rem; 
+            color: rgba(255, 255, 255, 0.7); 
+        }
+        .brand-logo-glass { 
+            background: rgba(255, 255, 255, 0.15); 
+            backdrop-filter: blur(5px); 
+            border: 1px solid rgba(255, 255, 255, 0.4); 
+            color: white; 
+            width: 50px; 
+            height: 50px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-weight: 900; 
+            border-radius: 12px; 
+            margin-right: 15px; 
+        }
+
+        /* Footer visibility overrides */
+        .footer-stone a.text-white-50 { color: rgba(255, 255, 255, 0.85) !important; transition: all 0.3s; }
+        .footer-stone a.text-white-50:hover { color: white !important; padding-left: 5px; }
+        .footer-stone p { color: rgba(255, 255, 255, 0.9) !important; }
+
         .scroll-to-top { position: fixed; right: 25px; bottom: 25px; display: none; width: 50px; height: 50px; text-align: center; color: #fff; line-height: 50px; z-index: 999; text-decoration: none; background: rgba(255, 140, 0, 0.6) !important; backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.2); }
     </style>
 </head>
@@ -255,12 +290,12 @@
     <nav id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">NVCBO</li>
-            <li class="sidebar-nav-item"><a href="#page-top">Home</a></li>
-            <li class="sidebar-nav-item"><a href="#about">About Us</a></li>
-            <li class="sidebar-nav-item"><a href="#services">Programs</a></li>
-            <li class="sidebar-nav-item"><a href="#healing">Healing Circles</a></li>
+            <li class="sidebar-nav-item"><a href="index.html">Home</a></li>
+            <li class="sidebar-nav-item"><a href="about.html">About Us</a></li>
+            <li class="sidebar-nav-item"><a href="programs.html">Programs</a></li>
+            <li class="sidebar-nav-item"><a href="healing.html">Healing Circles</a></li>
             <li class="sidebar-nav-item"><a href="https://news.northernvisionke.org/donate.html">Donate</a></li>
-            <li class="sidebar-nav-item"><a href="#contact">Contact</a></li>
+            <li class="sidebar-nav-item"><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
@@ -269,111 +304,31 @@
         <div id="three-container"></div>
         <div class="container text-center my-auto px-4">
             <h1 class="animate-up delay-1">
-                Grassroots-Led <span class="highlight">Climate</span>, <span class="highlight">Gender</span> and <span class="highlight">Education</span> Solutions in Northern Kenya
+                Who We <span class="highlight">Are</span>
             </h1>
             <h2 class="animate-up delay-2">
-                Northern Vision Community-Based Organization (NVCBO) is a grassroots organization working with indigenous and pastoralist communities to strengthen climate resilience, gender justice, education and community wellbeing in Northern Kenya’s Arid and Semi-Arid Lands (ASALs).
+                Northern Vision Community-Based Organization (NVCBO) is a grassroots organization based in Northern Kenya, working with indigenous and pastoralist communities in Arid and Semi-Arid Lands (ASALs). We combine indigenous knowledge, community leadership and practical solutions to advance climate justice, gender equality, education and sustainable development.
             </h2>
-            <div class="hero-btn-container d-flex justify-content-center gap-3 flex-column flex-sm-row animate-up delay-3">
-                <a class="btn btn-primary-custom btn-xl" href="#about">Learn More About Us</a>
-                <a class="btn btn-outline-custom btn-xl" href="#services">Explore Our Programs</a>
-                <a class="btn btn-outline-custom btn-xl" href="#contact">Partner With Us</a>
-            </div>
         </div>
     </header>
 
-    <!-- About Section -->
-    <section class="content-section bg-light" id="about">
-        <div class="container text-center">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="section-heading reveal-heading">
-                        <span class="subheading">About Us</span>
-                        <h2>Community-Rooted Action</h2>
-                        <div class="heading-accent"></div>
-                    </div>
-                    <p class="lead mb-5" style="color: #444; line-height: 2;">
-                        Northern Vision CBO is a community-rooted organization grounded in indigenous knowledge, integrity and community leadership. We design and implement locally led solutions in climate adaptation, education and culture, sexual and reproductive health and rights (SRHR) and peacebuilding. Healing circles and storytelling are core tools that guide our community engagement, learning, and organizational reflection.
-                    </p>
-                    <a class="btn btn-dark btn-xl" href="#about" style="background-color: #222; border: none; border-radius: 50px;">Who We Are</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Programs Section -->
-    <section class="content-section" id="services" style="background: linear-gradient(135deg, #f4f7f8 0%, #e9eff1 100%);">
-        <div class="container">
-            <div class="section-heading reveal-heading">
-                <span class="subheading">What We Do</span>
-                <h2>Our Core Programs</h2>
-                <div class="heading-accent"></div>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6">
-                    <div class="service-card">
-                        <span class="service-icon"><i class="icon-energy"></i></span>
-                        <h4 class="fw-bold mb-3">Climate Adaptation & Food Security</h4>
-                        <p class="text-muted mb-0">Strengthening resilience through sustainable agriculture, renewable energy, ecosystem restoration and climate-smart livelihoods.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="service-card">
-                        <span class="service-icon"><i class="icon-graduation"></i></span>
-                        <h4 class="fw-bold mb-3">Education & Culture</h4>
-                        <p class="text-muted mb-0">Expanding access to education, mentorship, and cultural knowledge while strengthening identity and intergenerational learning.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="service-card">
-                        <span class="service-icon"><i class="icon-heart"></i></span>
-                        <h4 class="fw-bold mb-3">Sexual & Reproductive Health and Rights (SRHR)</h4>
-                        <p class="text-muted mb-0">Promoting dignity, health, and informed decision-making among adolescents and women.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="service-card">
-                        <span class="service-icon"><i class="icon-people"></i></span>
-                        <h4 class="fw-bold mb-3">Peace & Security – Dialogue and Digital Engagement</h4>
-                        <p class="text-muted mb-0">Promoting peaceful coexistence through dialogue, media literacy and youth digital engagement.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-5">
-                <a class="btn btn-primary-custom btn-xl" href="#services">Explore Details</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Healing Circles Section -->
-    <section class="callout" id="healing">
-        <div id="healing-three-container"></div>
-        <div class="container text-center">
-            <div class="section-heading reveal-heading">
-                <span class="subheading">Our Methodology</span>
-                <h2>Healing Circles</h2>
-                <div class="heading-accent" style="background: var(--nvcbo-cream);"></div>
-            </div>
-            <p class="lead mb-5" style="color: rgba(255,255,255,0.9); max-width: 850px; margin: 0 auto; line-height: 1.9;">
-                Healing circles are a core methodology across all Northern Vision programs. They are used for community dialogue, participatory planning, conflict resolution, youth mentorship and internal organizational reflection.
-            </p>
-            <a class="btn btn-primary-custom btn-xl" href="#healing">
-                Our Approach
-            </a>
-        </div>
-    </section>
-
-    <!-- Donation Section -->
-    <section class="donation-section" id="donate">
+    <!-- Strategic Framework Section -->
+    <section class="content-section bg-light" id="strategic-framework">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-10">
-                    <div class="donation-glass-box text-center">
-                        <h2 class="mb-4 fw-bold">Support Grassroots Action</h2>
-                        <p class="lead mb-5" style="opacity: 0.95; max-width: 700px; margin: 0 auto;">We welcome partnerships, volunteers, donors, and collaborators who share our commitment to grassroots-led climate action and community empowerment.</p>
-                        <div class="d-flex justify-content-center gap-3 flex-column flex-sm-row mt-4">
-                            <a class="btn btn-donate btn-xl" href="https://news.northernvisionke.org/donate.html" style="background: white; color: var(--nvcbo-dark-orange); border:none;">Donate Now</a>
-                            <a class="btn btn-outline-custom btn-xl" href="#contact">Become a Partner</a>
+                    <div class="row g-5">
+                        <div class="col-md-6 text-center reveal-heading">
+                            <span class="subheading">Our Vision</span>
+                            <h3 class="fw-bold mb-3" style="color: var(--nvcbo-blue);">Innovate, Connect, Prosper</h3>
+                            <p class="lead">Building a Future Beyond Boundaries.</p>
+                            <div class="heading-accent"></div>
+                        </div>
+                        <div class="col-md-6 text-center reveal-heading">
+                            <span class="subheading">Our Mission</span>
+                            <h3 class="fw-bold mb-3" style="color: var(--nvcbo-orange);">Empowering Communities</h3>
+                            <p class="lead">Unlocking potential, strengthening resilience, and sustaining progress for Indigenous Women and Grassroots Communities.</p>
+                            <div class="heading-accent"></div>
                         </div>
                     </div>
                 </div>
@@ -381,9 +336,79 @@
         </div>
     </section>
 
-    <!-- Map -->
-    <section id="contact" class="map" style="height: 450px;">
-        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Isiolo,+Kenya&aq=0&ie=UTF8&t=m&z=12&iwloc=A&output=embed"></iframe>
+    <!-- Core Values Section -->
+    <section class="content-section" id="values">
+        <div class="container">
+            <div class="section-heading reveal-heading text-center">
+                <span class="subheading">Our Foundation</span>
+                <h2>Core Values</h2>
+                <div class="heading-accent"></div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="row row-cols-1 row-cols-md-2 g-4">
+                        <div class="col value-item d-flex align-items-center"><i class="icon-check text-warning me-3"></i><h4>Transparency</h4></div>
+                        <div class="col value-item d-flex align-items-center"><i class="icon-check text-warning me-3"></i><h4>Accountability</h4></div>
+                        <div class="col value-item d-flex align-items-center"><i class="icon-check text-warning me-3"></i><h4>Integrity</h4></div>
+                        <div class="col value-item d-flex align-items-center"><i class="icon-check text-warning me-3"></i><h4>Respect</h4></div>
+                        <div class="col value-item d-flex align-items-center"><i class="icon-check text-warning me-3"></i><h4>Honor</h4></div>
+                        <div class="col value-item d-flex align-items-center"><i class="icon-check text-warning me-3"></i><h4>Kindness</h4></div>
+                        <div class="col value-item d-flex align-items-center"><i class="icon-check text-warning me-3"></i><h4>Leadership</h4></div>
+                        <div class="col value-item d-flex align-items-center"><i class="icon-check text-warning me-3"></i><h4>Equity</h4></div>
+                        <div class="col value-item d-flex align-items-center"><i class="icon-check text-warning me-3"></i><h4>Ubuntu</h4></div>
+                        <div class="col value-item d-flex align-items-center"><i class="icon-check text-warning me-3"></i><h4>Grassroots-led</h4></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unique Features Section -->
+    <section class="content-section bg-stone" id="unique">
+        <div class="container">
+            <div class="section-heading reveal-heading text-center">
+                <span class="subheading" style="color: var(--nvcbo-orange);">Why NVCBO</span>
+                <h2 class="text-white">What Makes Us Unique</h2>
+                <div class="heading-accent"></div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-box">
+                        <span class="feature-icon"><i class="icon-people"></i></span>
+                        <h4>Grassroots Roots</h4>
+                        <p class="text-muted">Deeply embedded in grassroots and indigenous communities, ensuring our solutions are relevant and owned by the people.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-box">
+                        <span class="feature-icon"><i class="icon-refresh"></i></span>
+                        <h4>Healing Circles</h4>
+                        <p class="text-muted">Our signature community engagement and organizational methodology that fosters dialogue and resolution.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-box">
+                        <span class="feature-icon"><i class="icon-speech"></i></span>
+                        <h4>Narrative Power</h4>
+                        <p class="text-muted">Strong capacity for storytelling and documentation to amplify community voices.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="feature-box">
+                        <span class="feature-icon"><i class="icon-wrench"></i></span>
+                        <h4>Practical Action</h4>
+                        <p class="text-muted">Demonstration models for climate adaptation, including sustainable farming and circular economy initiatives.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="feature-box">
+                        <span class="feature-icon"><i class="icon-globe"></i></span>
+                        <h4>Advocacy</h4>
+                        <p class="text-muted">Representing grassroots voices at national and global platforms to influence policy and resource distribution.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Footer -->
@@ -402,19 +427,19 @@
                 <div class="col-md-6 col-lg-3">
                     <h5 class="text-white fw-bold mb-4">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#about" class="text-white-50 text-decoration-none">About Us</a></li>
-                        <li><a href="#services" class="text-white-50 text-decoration-none">Programs</a></li>
+                        <li><a href="about.html" class="text-white-50 text-decoration-none">About Us</a></li>
+                        <li><a href="programs.html" class="text-white-50 text-decoration-none">Programs</a></li>
                         <li><a href="#" class="text-white-50 text-decoration-none">Projects</a></li>
-                        <li><a href="#healing" class="text-white-50 text-decoration-none">Healing Circles</a></li>
+                        <li><a href="healing.html" class="text-white-50 text-decoration-none">Healing Circles</a></li>
                         <li><a href="#" class="text-white-50 text-decoration-none">Stories & Media</a></li>
-                        <li><a href="#contact" class="text-white-50 text-decoration-none">Contact Us</a></li>
+                        <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <h5 class="text-white fw-bold mb-4">Connect</h5>
                     <ul class="list-unstyled">
                         <li><a href="https://news.northernvisionke.org/donate.html" class="text-white-50 text-decoration-none">Support Us</a></li>
-                        <li><a href="#contact" class="text-white-50 text-decoration-none">Contact Info</a></li>
+                        <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact Info</a></li>
                     </ul>
                 </div>
             </div>
@@ -437,7 +462,6 @@
     <script>
         // --- THREE.JS MANAGEMENT ---
         let heroScene, heroCamera, heroRenderer, heroParticles;
-        let healingScene, healingCamera, healingRenderer, healingCircle;
         let mouseX = 0, mouseY = 0;
 
         function initHeroThree() {
@@ -450,46 +474,40 @@
             heroRenderer.setSize(container.clientWidth, container.clientHeight);
             heroRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
             container.appendChild(heroRenderer.domElement);
+            
+            // Create particles
             const geometry = new THREE.BufferGeometry();
             const vertices = [];
-            for (let i = 0; i < 1200; i++) {
+            for (let i = 0; i < 800; i++) {
                 vertices.push(Math.random() * 20 - 10, Math.random() * 20 - 10, Math.random() * 20 - 10);
             }
             geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-            const material = new THREE.PointsMaterial({ color: 0xADD8E6, size: 0.04, transparent: true, opacity: 0.6, blending: THREE.AdditiveBlending });
+            
+            // Use NVCBO colors for particles
+            const material = new THREE.PointsMaterial({ 
+                color: 0xFF8C00, // Orange
+                size: 0.05, 
+                transparent: true, 
+                opacity: 0.6, 
+                blending: THREE.AdditiveBlending 
+            });
+            
             heroParticles = new THREE.Points(geometry, material);
             heroScene.add(heroParticles);
-        }
-
-        function initHealingThree() {
-            const container = document.getElementById('healing-three-container');
-            if (!container) return;
-            healingScene = new THREE.Scene();
-            healingCamera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-            healingCamera.position.z = 8;
-            healingRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-            healingRenderer.setSize(container.clientWidth, container.clientHeight);
-            healingRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-            container.appendChild(healingRenderer.domElement);
-            const geometry = new THREE.TorusGeometry(5, 1, 16, 100);
-            const material = new THREE.PointsMaterial({ color: 0xFFD700, size: 0.03, transparent: true, opacity: 0.4, blending: THREE.AdditiveBlending });
-            healingCircle = new THREE.Points(geometry, material);
-            healingScene.add(healingCircle);
         }
 
         function animate() {
             requestAnimationFrame(animate);
             if (heroParticles) {
-                heroParticles.rotation.y += 0.0008;
-                heroParticles.rotation.x += 0.0004;
+                // Slower, more subtle rotation for About page
+                heroParticles.rotation.y += 0.0005;
+                heroParticles.rotation.x += 0.0002;
+                
+                // Gentle mouse interaction
                 heroParticles.position.x += (mouseX - heroParticles.position.x) * 0.05;
                 heroParticles.position.y += (-mouseY - heroParticles.position.y) * 0.05;
+                
                 heroRenderer.render(heroScene, heroCamera);
-            }
-            if (healingCircle) {
-                healingCircle.rotation.z += 0.002;
-                healingCircle.rotation.y += 0.001;
-                healingRenderer.render(healingScene, healingCamera);
             }
         }
 
@@ -517,19 +535,31 @@
             });
 
             initRevealHeadings();
-
+            
+            // Mouse movement tracker for Three.js
             document.addEventListener('mousemove', (e) => {
-                mouseX = (e.clientX - window.innerWidth / 2) / 150;
-                mouseY = (e.clientY - window.innerHeight / 2) / 150;
+                mouseX = (e.clientX - window.innerWidth / 2) / 200; // Reduced sensitivity
+                mouseY = (e.clientY - window.innerHeight / 2) / 200;
             });
         });
-
+        
         window.onload = function() {
             initHeroThree();
-            initHealingThree();
             animate();
         };
+        
+        // Handle window resize for Three.js
+        window.addEventListener('resize', onWindowResize, false);
+
+        function onWindowResize() {
+            if (heroCamera && heroRenderer) {
+                const container = document.getElementById('three-container');
+                if (!container) return;
+                heroCamera.aspect = container.clientWidth / container.clientHeight;
+                heroCamera.updateProjectionMatrix();
+                heroRenderer.setSize(container.clientWidth, container.clientHeight);
+            }
+        }
     </script>
 </body>
-
 </html>
