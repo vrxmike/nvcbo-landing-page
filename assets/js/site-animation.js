@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     container.style.left = '0';
     container.style.width = '100%';
     container.style.height = '100%';
-    container.style.zIndex = '-1';
+    container.style.zIndex = '0';
     container.style.pointerEvents = 'none';
     document.body.prepend(container);
 

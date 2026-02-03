@@ -14,9 +14,9 @@ body {
 /* We need to ensure text is readable against the moving background */
 
 /* General Sections */
-section, .footer-stone {
+header, section, .footer-stone, nav {
     position: relative;
-    z-index: 1; /* Ensure content is above canvas (canvas is -1) */
+    z-index: 1; /* Ensure content is above canvas (canvas is 0) */
 }
 
 /* Specific backgrounds for sections to be semi-transparent "glass" */
