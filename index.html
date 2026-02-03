@@ -5,14 +5,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Home - NorthernVision CBO</title>
-    <meta name="description" content="Empowering Northern Kenya through sustainable agriculture, education, and climate action.">
+    <meta name="description" content="Grassroots-Led Climate, Gender and Education Solutions in Northern Kenya.">
     
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900&display=swap">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
     <link rel="stylesheet" href="assets/css/bss-overrides.css">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
 
     <style>
         /* --- GLOBAL THEME VARIABLES --- */
@@ -42,19 +47,19 @@
         .masthead h1 {
             font-weight: 900;
             /* Clamp ensures font scales smoothly between mobile (2.5rem) and desktop (4.5rem) */
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-size: clamp(2.0rem, 4vw, 3.5rem);
             text-shadow: 0 4px 10px rgba(0,0,0,0.2);
             margin-bottom: 1.5rem;
-            line-height: 1.1;
+            line-height: 1.2;
         }
 
         .masthead h2 {
             font-weight: 300;
-            font-size: clamp(1.1rem, 3vw, 1.8rem);
+            font-size: clamp(1.0rem, 2.5vw, 1.5rem);
             margin-bottom: 3rem;
             opacity: 0.9;
             color: var(--nvcbo-cream);
-            max-width: 800px; /* Prevents text from stretching too wide on big screens */
+            max-width: 900px; /* Prevents text from stretching too wide on big screens */
             margin-left: auto;
             margin-right: auto;
         }
@@ -72,7 +77,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-width: 200px; /* Ensures buttons look uniform on desktop */
+            min-width: 220px; /* Ensures buttons look uniform on desktop */
         }
 
         /* Mobile Optimizations for Buttons */
@@ -162,6 +167,9 @@
             height: 100%;
             text-align: center;
             border-bottom: 4px solid transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .service-card:hover {
@@ -182,63 +190,7 @@
             font-size: 2rem;
             margin-bottom: 1.5rem;
             box-shadow: 0 5px 15px rgba(29, 128, 159, 0.3);
-        }
-
-        /* --- PORTFOLIO GRID --- */
-        .portfolio-card {
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-            background: white;
-            transition: transform 0.3s ease;
-        }
-        
-        .portfolio-card:hover {
-             transform: translateY(-5px);
-        }
-
-        .portfolio-img-wrapper {
-            height: 250px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .portfolio-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .portfolio-card:hover img {
-            transform: scale(1.1);
-        }
-        
-        .portfolio-tag {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--nvcbo-orange);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            z-index: 10;
-        }
-
-        .portfolio-caption {
-            padding: 1.5rem;
-        }
-
-        .portfolio-caption h4 {
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #333;
+            flex-shrink: 0;
         }
 
         /* --- CALLOUT --- */
@@ -307,13 +259,13 @@
     
     <nav id="sidebar-wrapper">
         <ul class="sidebar-nav">
-            <li class="sidebar-brand"><a href="#page-top">NVCBO</a></li>
-            <li class="sidebar-nav-item"><a href="#page-top">Home</a></li>
-            <li class="sidebar-nav-item"><a href="#about">About Us</a></li>
-            <li class="sidebar-nav-item"><a href="#services">Our Impact</a></li>
-            <li class="sidebar-nav-item"><a href="https://news.northernvisionke.org/" target="_blank">Stories & News</a></li>
-            <li class="sidebar-nav-item"><a href="https://news.northernvisionke.org/" target="_blank">Media Gallery</a></li>
-            <li class="sidebar-nav-item"><a href="https://news.northernvisionke.org/" target="_blank">2025 Year in Review</a></li>
+            <li class="sidebar-brand"><a href="index.html">NVCBO</a></li>
+            <li class="sidebar-nav-item"><a href="index.html">Home</a></li>
+            <li class="sidebar-nav-item"><a href="about.html">About Us</a></li>
+            <li class="sidebar-nav-item"><a href="programs.html">Programs</a></li>
+            <li class="sidebar-nav-item"><a href="projects.html">Projects</a></li>
+            <li class="sidebar-nav-item"><a href="healing-circles.html">Healing Circles</a></li>
+            <li class="sidebar-nav-item"><a href="media.html">Stories & Media</a></li>
             <li class="sidebar-nav-item"><a href="#donate">Donate</a></li>
             <li class="sidebar-nav-item"><a href="#contact">Contact</a></li>
         </ul>
@@ -321,14 +273,15 @@
 
     <header class="masthead d-flex">
         <div class="container text-center my-auto px-4">
-            <h1 class="mb-1">Rooted in the Land. Powered by Light.</h1>
+            <h1 class="mb-1">Grassroots-Led Climate, Gender and Education Solutions in Northern Kenya</h1>
             <h2 class="mb-5">
-                <em>Empowering Northern Kenya's pastoralist communities through climate justice, innovation, and cultural exchange.</em>
+                <em>Northern Vision Community-Based Organization (NVCBO) is a grassroots organization working with indigenous and pastoralist communities to strengthen climate resilience, gender justice, education and community wellbeing in Northern Kenya’s Arid and Semi-Arid Lands (ASALs).</em>
             </h2>
             
             <div class="hero-btn-container d-flex justify-content-center gap-3 flex-column flex-sm-row">
-                <a class="btn btn-primary-custom btn-xl" href="#about">Discover More</a>
-                <a class="btn btn-outline-custom btn-xl" href="#donate">Support Us</a>
+                <a class="btn btn-primary-custom btn-xl" href="about.html">Learn More About Us</a>
+                <a class="btn btn-outline-custom btn-xl" href="programs.html">Explore Our Programs</a>
+                <a class="btn btn-outline-custom btn-xl" href="#contact">Partner With Us</a>
             </div>
         </div>
     </header>
@@ -338,15 +291,13 @@
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="section-heading">
-                        <span class="subheading">Who We Are</span>
-                        <h2>Driving Sustainable Change</h2>
+                        <span class="subheading">About Us</span>
+                        <h2>Community-Rooted Action</h2>
                     </div>
                     <p class="lead mb-5" style="color: #555;">
-                        Founded in 2020, <strong>NorthernVision CBO</strong> focuses on Sustainable Development Goals (SDGs) 5, 10, and 15. 
-                        We place special emphasis on empowering smallholder farmers, particularly women and youth, through 
-                        climate resilience, digital skills, and resource management.
+                        Northern Vision CBO is a community-rooted organization grounded in indigenous knowledge, integrity and community leadership. We design and implement locally led solutions in climate adaptation, education and culture, sexual and reproductive health and rights (SRHR) and peacebuilding. Healing circles and storytelling are core tools that guide our community engagement, learning, and organizational reflection.
                     </p>
-                    <a class="btn btn-dark btn-xl" href="#services" style="background-color: #333; border: none;">See Our Impact</a>
+                    <a class="btn btn-dark btn-xl" href="about.html" style="background-color: #333; border: none;">Who We Are</a>
                 </div>
             </div>
         </div>
@@ -355,122 +306,59 @@
     <section class="content-section" id="services" style="background-color: white;">
         <div class="container">
             <div class="section-heading">
-                <span class="subheading">Our Pillars</span>
-                <h2>Areas of Action</h2>
+                <span class="subheading">What We Do</span>
+                <h2>Our Core Programs</h2>
             </div>
             <div class="row g-4">
-                <div class="col-lg-3 col-md-6">
-                    <div class="service-card">
-                        <span class="service-icon"><i class="icon-screen-smartphone"></i></span>
-                        <h4><strong>Quality Education</strong></h4>
-                        <p class="text-muted mb-0">Bridging the digital divide with literacy labs and tech training for youth.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="service-card">
-                        <span class="service-icon"><i class="icon-people"></i></span>
-                        <h4><strong>Gender Equality</strong></h4>
-                        <p class="text-muted mb-0">Securing land rights and economic opportunities for indigenous women.</p>
-                    </div>
-                </div>
+                <!-- Tile 1: Climate Adaptation & Food Security -->
                 <div class="col-lg-3 col-md-6">
                     <div class="service-card">
                         <span class="service-icon"><i class="icon-energy"></i></span>
-                        <h4><strong>Climate Action</strong></h4>
-                        <p class="text-muted mb-0">Implementing solar solutions and sustainable farming in arid lands.</p>
+                        <h4><strong>Climate Adaptation & Food Security</strong></h4>
+                        <p class="text-muted mb-0">Strengthening resilience through sustainable agriculture, renewable energy, ecosystem restoration and climate-smart livelihoods.</p>
                     </div>
                 </div>
+                <!-- Tile 2: Education & Culture -->
                 <div class="col-lg-3 col-md-6">
                     <div class="service-card">
-                        <span class="service-icon"><i class="icon-mustache"></i></span>
-                        <h4><strong>Life on Land</strong></h4>
-                        <p class="text-muted mb-0">Restoring ecosystems and promoting peaceful resource sharing.</p>
+                        <span class="service-icon"><i class="icon-screen-smartphone"></i></span>
+                        <h4><strong>Education & Culture</strong></h4>
+                        <p class="text-muted mb-0">Expanding access to education, mentorship, and cultural knowledge while strengthening identity and intergenerational learning.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="callout">
-        <div class="container text-center">
-            <h2 class="mx-auto mb-3">Our Stories Are Changing Lives</h2>
-            <p class="lead mb-5" style="color: rgba(255,255,255,0.9);">From the forests of Sweden to the plains of Isiolo, explore our journey.</p>
-            <a class="btn btn-primary-custom btn-xl" href="https://news.northernvisionke.org/" target="_blank">
-                Read the Blog
-            </a>
-        </div>
-    </section>
-
-    <section class="content-section" id="portfolio" style="background-color: var(--nvcbo-light-bg);">
-        <div class="container">
-            <div class="section-heading">
-                <span class="subheading">Portfolio</span>
-                <h2>Recent Projects</h2>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-6">
-                    <div class="portfolio-card">
-                        <a class="portfolio-link" href="https://news.northernvisionke.org/" target="_blank" style="text-decoration: none;">
-                            <div class="portfolio-img-wrapper">
-                                <span class="portfolio-tag">Exchange</span>
-                                <img src="assets/img/IMG_7016.jpg" alt="Sweden Exchange">
-                            </div>
-                            <div class="portfolio-caption">
-                                <h4>Global Exchange</h4>
-                                <p class="text-muted mb-0">Cultural immersion and learning in Halmstad, Sweden.</p>
-                            </div>
-                        </a>
+                <!-- Tile 3: SRHR -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card">
+                        <span class="service-icon"><i class="icon-heart"></i></span>
+                        <h4><strong>Sexual & Reproductive Health</strong></h4>
+                        <p class="text-muted mb-0">Promoting dignity, health, and informed decision-making among adolescents and women.</p>
                     </div>
                 </div>
-
-                <div class="col-lg-6">
-                    <div class="portfolio-card">
-                        <a class="portfolio-link" href="https://news.northernvisionke.org/" target="_blank" style="text-decoration: none;">
-                            <div class="portfolio-img-wrapper">
-                                <span class="portfolio-tag">Solar</span>
-                                <img src="assets/img/IMG_8630.jpg" alt="Solar Light Project">
-                            </div>
-                            <div class="portfolio-caption">
-                                <h4>Light in the Darkness</h4>
-                                <p class="text-muted mb-0">Providing solar lanterns to off-grid families in Gotu.</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <div class="portfolio-card">
-                        <a class="portfolio-link" href="https://news.northernvisionke.org/" target="_blank" style="text-decoration: none;">
-                            <div class="portfolio-img-wrapper">
-                                <span class="portfolio-tag">Education</span>
-                                <img src="assets/img/IMG_7013.jpg" alt="Education Workshop">
-                            </div>
-                            <div class="portfolio-caption">
-                                <h4>Digital & Rights Education</h4>
-                                <p class="text-muted mb-0">Workshops empowering youth and women with knowledge.</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <div class="portfolio-card">
-                        <a class="portfolio-link" href="https://news.northernvisionke.org/" target="_blank" style="text-decoration: none;">
-                            <div class="portfolio-img-wrapper">
-                                <span class="portfolio-tag">Community</span>
-                                <img src="assets/img/portfolio-1.jpg" alt="Community Baraza">
-                            </div>
-                            <div class="portfolio-caption">
-                                <h4>Community Dialogue</h4>
-                                <p class="text-muted mb-0">Fostering peace and resource management through local barazas.</p>
-                            </div>
-                        </a>
+                <!-- Tile 4: Peace & Security -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card">
+                        <span class="service-icon"><i class="icon-people"></i></span>
+                        <h4><strong>Peace & Security</strong></h4>
+                        <p class="text-muted mb-0">Promoting peaceful coexistence through dialogue, media literacy and youth digital engagement.</p>
                     </div>
                 </div>
             </div>
             <div class="text-center mt-5">
-                <a class="btn btn-dark btn-xl" href="https://news.northernvisionke.org/" target="_blank" style="background-color: #333; border: none;">View Full Gallery</a>
+                <a class="btn btn-primary-custom btn-xl" href="programs.html">View All Programs</a>
             </div>
+        </div>
+    </section>
+
+    <!-- Healing Circles Highlight (Replaces Callout) -->
+    <section class="callout">
+        <div class="container text-center">
+            <h2 class="mx-auto mb-3">Healing Circles</h2>
+            <p class="lead mb-5" style="color: rgba(255,255,255,0.9); max-width: 800px; margin: 0 auto;">
+                Healing circles are a core methodology across all Northern Vision programs. They are used for community dialogue, participatory planning, conflict resolution, youth mentorship and internal organizational reflection.
+            </p>
+            <a class="btn btn-primary-custom btn-xl" href="healing-circles.html">
+                Learn About Healing Circles
+            </a>
         </div>
     </section>
 
@@ -478,8 +366,8 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <h2 class="mb-4" style="font-weight: 800; text-shadow: 0 2px 5px rgba(0,0,0,0.1);">The Buttons Below Are Impossible To Resist...</h2>
-                    <p class="lead mb-5" style="opacity: 0.9;">Your support directly funds solar lanterns for students, advocacy for women, and climate resilience in Isiolo.</p>
+                    <h2 class="mb-4" style="font-weight: 800; text-shadow: 0 2px 5px rgba(0,0,0,0.1);">Support Grassroots Action</h2>
+                    <p class="lead mb-5" style="opacity: 0.9;">We welcome partnerships, volunteers, donors, and collaborators who share our commitment to grassroots-led climate action, gender justice, and community empowerment.</p>
                     <div class="d-flex justify-content-center gap-3 flex-column flex-sm-row">
                         <a class="btn btn-donate btn-xl" href="#contact">Donate Now</a>
                         <a class="btn btn-outline-custom btn-xl" href="#contact">Partner With Us</a>
@@ -496,6 +384,37 @@
     <footer class="footer text-center" style="background: linear-gradient(135deg, #CC5500 0%, #B7410E 100%); color: #FFF5E6; padding: 3rem 0;">
         <div class="container">
             <h2 class="mb-4" style="color: #FFFFFF; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Connect With Us</h2>
+
+            <p class="mb-4" style="max-width: 600px; margin: 0 auto;">
+                Northern Vision CBO is a grassroots organization advancing climate adaptation, education, gender justice and peacebuilding in Northern Kenya through community-led solutions, healing circles and storytelling.
+            </p>
+
+            <ul class="list-inline mb-4">
+                <li class="list-inline-item">
+                    <a class="text-white text-decoration-none" href="about.html">About Us</a>
+                </li>
+                <li class="list-inline-item">&bull;</li>
+                <li class="list-inline-item">
+                    <a class="text-white text-decoration-none" href="programs.html">Programs</a>
+                </li>
+                <li class="list-inline-item">&bull;</li>
+                <li class="list-inline-item">
+                    <a class="text-white text-decoration-none" href="projects.html">Projects</a>
+                </li>
+                <li class="list-inline-item">&bull;</li>
+                <li class="list-inline-item">
+                    <a class="text-white text-decoration-none" href="healing-circles.html">Healing Circles</a>
+                </li>
+                <li class="list-inline-item">&bull;</li>
+                <li class="list-inline-item">
+                    <a class="text-white text-decoration-none" href="media.html">Stories & Media</a>
+                </li>
+                <li class="list-inline-item">&bull;</li>
+                <li class="list-inline-item">
+                    <a class="text-white text-decoration-none" href="#contact">Contact Us</a>
+                </li>
+            </ul>
+
             <ul class="list-inline mb-5">
                 <li class="list-inline-item">&nbsp;
                     <a class="social-link rounded-circle" href="#" 
