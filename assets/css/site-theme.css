@@ -72,6 +72,12 @@ h1, h2, h3, h4, h5, h6 {
     color: white; /* Ensure hero text stays white */
 }
 
+/* Reveal 3D Background in Hero and Headers */
+.masthead, .page-header, .callout {
+    background: rgba(21, 93, 116, 0.4) !important; /* Semi-transparent blue overlay */
+    /* Remove the opaque image/gradient so the fixed canvas shows through */
+}
+
 /* Scroll to Top Button Visibility Fix */
 .scroll-to-top {
     z-index: 10002 !important; /* Ensure it sits on top of footer and other elements */
