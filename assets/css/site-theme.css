@@ -75,5 +75,5 @@ h1, h2, h3, h4, h5, h6 {
 /* Scroll to Top Button Visibility Fix */
 .scroll-to-top {
     z-index: 10002 !important; /* Ensure it sits on top of footer and other elements */
-    /* Maintain bottom placement but ensure visibility */
+    display: none; /* Initially hidden, toggled by JS on scroll */
 }
