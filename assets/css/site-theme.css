@@ -11,6 +11,11 @@ body {
 html {
     background-color: #FFF5E6; /* var(--nvcbo-cream) fallback */
     height: 100%;
+    overflow-x: hidden; /* Fix horizontal scroll on mobile */
+}
+
+body {
+    overflow-x: hidden; /* Fix horizontal scroll on mobile */
 }
 
 /* 2. Glassmorphism for Content Sections */
@@ -26,20 +31,32 @@ section, .footer-stone {
 .content-section.bg-light,
 .content-section,
 .section-heading,
-.service-card {
+.service-card,
+.program-card,
+.card,
+.alert {
     /* We override specific backgrounds to be semi-transparent white */
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
 }
 
 /* Override bg-light to be translucent */
-.bg-light {
+.bg-light, .alert-light {
     background-color: rgba(248, 249, 250, 0.85) !important;
 }
 
 /* Override white backgrounds */
-.service-card {
+.service-card,
+.program-card,
+.card {
     background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Ensure card headers are also translucent if they have background */
+.card-header {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 section[style*="background-color: white"] {
