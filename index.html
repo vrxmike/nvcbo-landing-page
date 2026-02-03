@@ -37,30 +37,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            /* Using a fallback gradient/image, but allows Canvas to shine through */
-            background: linear-gradient(rgba(29, 128, 159, 0.9), rgba(21, 93, 116, 0.9));
-            /* background-image removed to save bandwidth, can be restored if Three.js fails via JS check */
+            background: linear-gradient(rgba(29, 128, 159, 0.85), rgba(21, 93, 116, 0.8)), url('assets/img/IMG_4320.png');
             background-position: center;
             background-size: cover;
             color: white;
             text-align: center;
             padding: 0 1rem;
-            position: relative; /* Essential for absolute canvas positioning */
-            overflow: hidden;
-        }
-
-        #canvas-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0; /* Behind content but in front of background color */
-        }
-
-        .masthead .container {
-            position: relative;
-            z-index: 1; /* Ensures text is above canvas */
         }
 
         .masthead h1 {
@@ -291,7 +273,6 @@
     </nav>
 
     <header class="masthead d-flex">
-        <div id="canvas-container"></div>
         <div class="container text-center my-auto px-4">
             <h1 class="mb-1">Grassroots-Led Climate, Gender and Education Solutions in Northern Kenya</h1>
             <h2 class="mb-5">
@@ -462,9 +443,6 @@ education and community wellbeing in Northern Kenya’s Arid and Semi-Arid Lands
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="assets/js/stylish-portfolio.js"></script>
-    <!-- Three.js Animation -->
-    <script src="assets/js/three.min.js"></script>
-    <script src="assets/js/hero-animation.js"></script>
 
 </body>
 </html>
