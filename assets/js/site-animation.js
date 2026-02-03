@@ -5,155 +5,98 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
-    // Create canvas container
-    const container = document.createElement('div');
-    container.id = 'canvas-container';
-    container.style.position = 'fixed';
-    container.style.top = '0';
-    container.style.left = '0';
-    container.style.width = '100%';
-    container.style.height = '100%';
-    container.style.zIndex = '0';
-    container.style.pointerEvents = 'none';
-    document.body.prepend(container);
-
-    // Get configuration from body data attributes
-    const body = document.body;
-    const speedConfig = parseFloat(body.getAttribute('data-animation-speed')) || 0.5;
-    const densityConfig = parseFloat(body.getAttribute('data-animation-density')) || 1.0;
-
     // Three.js Setup
     if (typeof THREE === 'undefined') {
         console.error('Three.js is not loaded.');
         return;
     }
 
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    // Find the container. If it doesn't exist (e.g. on old pages not yet updated), try to create one or fallback
+    // Variant2 uses #three-container inside .masthead
+    let container = document.getElementById('three-container');
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Limit pixel ratio for performance
-    container.appendChild(renderer.domElement);
-
-    // Particle System
-    // Adjust density based on screen size, fewer particles on mobile for basic optimization
-    // but no hard cutoff/disable logic.
-    const isMobile = window.innerWidth < 768;
-    const baseParticleCount = isMobile ? 30 : 80;
-    const particleCount = Math.floor(baseParticleCount * densityConfig);
-
-    const particles = new THREE.BufferGeometry();
-    const positions = new Float32Array(particleCount * 3);
-    const velocities = [];
-
-    for (let i = 0; i < particleCount; i++) {
-        positions[i * 3] = (Math.random() - 0.5) * 20; // x
-        positions[i * 3 + 1] = (Math.random() - 0.5) * 20; // y
-        positions[i * 3 + 2] = (Math.random() - 0.5) * 20; // z
-
-        velocities.push({
-            x: (Math.random() - 0.5) * 0.02 * speedConfig,
-            y: (Math.random() - 0.5) * 0.02 * speedConfig,
-            z: (Math.random() - 0.5) * 0.02 * speedConfig
-        });
+    // If not found, and we want it site-wide, let's look for a suitable place or create a fixed one like before
+    // But for now, let's stick to the Variant2 logic which puts it in .masthead if present.
+    // If we want it on subpages, we should ensure subpages have #three-container
+    if (!container) {
+        // Fallback: Create a fixed container like in previous version if explicit container is missing
+        container = document.createElement('div');
+        container.id = 'three-container-fixed';
+        container.style.position = 'fixed';
+        container.style.top = '0';
+        container.style.left = '0';
+        container.style.width = '100%';
+        container.style.height = '100%';
+        container.style.zIndex = '0'; // Behind content
+        container.style.pointerEvents = 'none';
+        container.style.opacity = '0.6';
+        document.body.prepend(container);
     }
 
-    particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    let scene, camera, renderer, particles;
+    let mouseX = 0, mouseY = 0;
 
-    const particleMaterial = new THREE.PointsMaterial({
-        color: 0xFF8C00, // NVCBO Orange
-        size: 0.15,
-        transparent: true,
-        opacity: 0.6
-    });
+    function initThree() {
+        const width = container.clientWidth || window.innerWidth;
+        const height = container.clientHeight || window.innerHeight;
 
-    const particleSystem = new THREE.Points(particles, particleMaterial);
-    scene.add(particleSystem);
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+        camera.position.z = 5;
 
-    // Lines are computationally expensive (O(N^2)).
-    // We will use a separate line geometry that we update every frame.
-    // To ensure "functioning by default" even on mid-range, we keep particle count reasonable (checked above)
-    // and optimize the line drawing.
+        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(width, height);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        container.appendChild(renderer.domElement);
 
-    const lineMaterial = new THREE.LineBasicMaterial({
-        color: 0xFF8C00,
-        transparent: true,
-        opacity: 0.15
-    });
+        const geometry = new THREE.BufferGeometry();
+        const vertices = [];
+        // Variant2 uses 1200 particles.
+        // Optimization: Reduce for mobile
+        const isMobile = window.innerWidth < 768;
+        const particleCount = isMobile ? 400 : 1200;
 
-    const linesGeometry = new THREE.BufferGeometry();
-    const lineSystem = new THREE.LineSegments(linesGeometry, lineMaterial);
-    scene.add(lineSystem);
+        for (let i = 0; i < particleCount; i++) {
+            vertices.push(Math.random() * 20 - 10, Math.random() * 20 - 10, Math.random() * 20 - 10);
+        }
+        geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
 
-    // Camera position
-    camera.position.z = 5;
+        const material = new THREE.PointsMaterial({
+            color: 0xADD8E6, // Light Blue nodes from Variant2
+            size: 0.04,
+            transparent: true,
+            opacity: 0.6,
+            blending: THREE.AdditiveBlending
+        });
 
-    // Animation Loop
+        particles = new THREE.Points(geometry, material);
+        scene.add(particles);
+
+        window.addEventListener('resize', onWindowResize);
+        document.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX - window.innerWidth / 2) / 150;
+            mouseY = (e.clientY - window.innerHeight / 2) / 150;
+        });
+
+        animate();
+    }
+
+    function onWindowResize() {
+        const width = container.clientWidth || window.innerWidth;
+        const height = container.clientHeight || window.innerHeight;
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+        renderer.setSize(width, height);
+    }
+
     function animate() {
         requestAnimationFrame(animate);
-
-        const positions = particleSystem.geometry.attributes.position.array;
-
-        // Update particles
-        for (let i = 0; i < particleCount; i++) {
-            positions[i * 3] += velocities[i].x;
-            positions[i * 3 + 1] += velocities[i].y;
-            positions[i * 3 + 2] += velocities[i].z;
-
-            // Boundary wrap (toroidal)
-            if (positions[i * 3] > 10) positions[i * 3] = -10;
-            if (positions[i * 3] < -10) positions[i * 3] = 10;
-            if (positions[i * 3 + 1] > 10) positions[i * 3 + 1] = -10;
-            if (positions[i * 3 + 1] < -10) positions[i * 3 + 1] = 10;
-            if (positions[i * 3 + 2] > 10) positions[i * 3 + 2] = -10;
-            if (positions[i * 3 + 2] < -10) positions[i * 3 + 2] = 10;
-        }
-
-        particleSystem.geometry.attributes.position.needsUpdate = true;
-
-        // Update Lines
-        // We need to calculate connections every frame.
-        const linePositions = [];
-        const connectionDistance = 3.5;
-        const connectionDistanceSq = connectionDistance * connectionDistance;
-
-        for (let i = 0; i < particleCount; i++) {
-            for (let j = i + 1; j < particleCount; j++) {
-                const dx = positions[i * 3] - positions[j * 3];
-                const dy = positions[i * 3 + 1] - positions[j * 3 + 1];
-                const dz = positions[i * 3 + 2] - positions[j * 3 + 2];
-
-                const distSq = dx*dx + dy*dy + dz*dz;
-
-                if (distSq < connectionDistanceSq) {
-                    linePositions.push(
-                        positions[i * 3], positions[i * 3 + 1], positions[i * 3 + 2],
-                        positions[j * 3], positions[j * 3 + 1], positions[j * 3 + 2]
-                    );
-                }
-            }
-        }
-
-        linesGeometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
-
-
-        // Rotate system slightly
-        particleSystem.rotation.y += 0.001 * speedConfig;
-        lineSystem.rotation.y += 0.001 * speedConfig;
-
-        particleSystem.rotation.x += 0.0005 * speedConfig;
-        lineSystem.rotation.x += 0.0005 * speedConfig;
-
+        particles.rotation.y += 0.0008;
+        particles.rotation.x += 0.0004;
+        particles.position.x += (mouseX - particles.position.x) * 0.05;
+        particles.position.y += (-mouseY - particles.position.y) * 0.05;
         renderer.render(scene, camera);
     }
 
-    animate();
-
-    // Handle Resize
-    window.addEventListener('resize', () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-    });
+    initThree();
 });
