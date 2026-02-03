@@ -7,34 +7,382 @@
     <title>Home - NorthernVision CBO</title>
     <meta name="description" content="Grassroots-Led Climate, Gender and Education Solutions in Northern Kenya.">
 
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS (Local) -->
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
 
-    <!-- External CSS to share styles across pages -->
-    <link rel="stylesheet" href="assets/css/site-theme.css">
+    <style>
+        /* --- GLOBAL THEME VARIABLES --- */
+        :root {
+            --nvcbo-blue: #1D809F;
+            --nvcbo-dark-blue: #155d74;
+            --nvcbo-orange: #FF8C00;
+            --nvcbo-dark-orange: #CC5500;
+            --nvcbo-cream: #FFF5E6;
+            --nvcbo-light-bg: #f4f7f8;
+            --nvcbo-stone: #1a252f;
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            overflow-x: hidden;
+            background-color: var(--nvcbo-light-bg);
+            color: #333;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-up {
+            opacity: 0;
+            animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.5s; }
+        .delay-3 { animation-delay: 0.8s; }
+
+        /* --- NAVIGATION --- */
+        .menu-toggle {
+            position: fixed;
+            right: 25px;
+            top: 25px;
+            width: 55px;
+            height: 55px;
+            text-align: center;
+            color: #fff;
+            background: rgba(255, 140, 0, 0.8);
+            backdrop-filter: blur(8px);
+            line-height: 55px;
+            z-index: 9999;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+        }
+
+        .menu-toggle:hover {
+            transform: scale(1.1) rotate(90deg);
+            color: #fff;
+            background: var(--nvcbo-orange);
+        }
+
+        #sidebar-wrapper {
+            position: fixed;
+            z-index: 9998;
+            right: 0;
+            width: 280px;
+            height: 100%;
+            transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+            transform: translateX(280px);
+            background: rgba(204, 85, 0, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            overflow-y: auto;
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .sidebar-nav {
+            padding: 2rem 0;
+            list-style: none;
+        }
+
+        .sidebar-nav li.sidebar-nav-item a {
+            display: block;
+            text-decoration: none;
+            color: #fff;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+        }
+
+        .sidebar-nav li.sidebar-nav-item a:hover {
+            background: rgba(255, 255, 255, 0.15);
+            padding-left: 2.5rem;
+        }
+
+        .sidebar-nav li.sidebar-brand {
+            font-size: 1.8rem;
+            font-weight: 900;
+            padding: 1rem 2rem 3rem 2rem;
+            color: #fff;
+        }
+
+        #sidebar-wrapper.active {
+            transform: translateX(0);
+        }
+
+        /* --- HERO SECTION --- */
+        .masthead {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(21, 93, 116, 0.85), rgba(29, 128, 159, 0.7)),
+                        url('assets/img/IMG_4320.png');
+            background-position: center;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+            overflow: hidden;
+        }
+
+        #three-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .masthead .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .masthead h1 {
+            font-weight: 900;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 2rem;
+        }
+
+        .masthead h1 .highlight {
+            color: var(--nvcbo-orange);
+            display: inline-block;
+        }
+
+        .masthead h2 {
+            font-weight: 400;
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            margin-bottom: 3.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+            letter-spacing: 0.2px;
+        }
+
+        /* --- BUTTONS --- */
+        .btn-xl {
+            padding: 1.25rem 2.5rem;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 240px;
+        }
+
+        .btn-primary-custom {
+            background: linear-gradient(135deg, #FF8C00 0%, #CC5500 100%);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 15px rgba(204, 85, 0, 0.3);
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 140, 0, 0.4);
+            color: white;
+        }
+
+        .btn-outline-custom {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            color: white;
+        }
+
+        .btn-outline-custom:hover {
+            background: white;
+            color: var(--nvcbo-blue);
+            transform: translateY(-5px);
+        }
+
+        /* --- SECTIONS --- */
+        .content-section {
+            padding: 9rem 0;
+        }
+
+        /* --- SERVICE CARDS (GLASSMORPHISM) --- */
+        .service-card {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 4rem 2rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            height: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+            border-color: var(--nvcbo-orange);
+        }
+
+        .service-icon {
+            background: linear-gradient(135deg, var(--nvcbo-blue) 0%, var(--nvcbo-dark-blue) 100%);
+            color: white;
+            width: 85px;
+            height: 85px;
+            border-radius: 22px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 8px 20px rgba(29, 128, 159, 0.2);
+        }
+
+        /* --- CALLOUT / HEALING CIRCLES --- */
+        .callout {
+            position: relative;
+            padding: 12rem 0;
+            background: linear-gradient(rgba(21, 93, 116, 0.95), rgba(29, 128, 159, 0.9)),
+                        url('assets/img/bg-callout.jpg');
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        #healing-three-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        .callout .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- DONATION SECTION (GLASS BOX) --- */
+        .donation-section {
+            background: linear-gradient(135deg, var(--nvcbo-orange) 0%, var(--nvcbo-dark-orange) 100%);
+            color: white;
+            text-align: center;
+            padding: 9rem 0;
+        }
+
+        .donation-glass-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 4rem 2rem;
+            border-radius: 32px;
+        }
+
+        /* --- FOOTER --- */
+        .footer-stone {
+            background-color: var(--nvcbo-stone);
+            color: #ecf0f1;
+            padding: 7rem 0 3rem 0;
+        }
+
+        .footer-bottom {
+            margin-top: 5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .brand-logo-glass {
+            background: rgba(255, 140, 0, 0.2);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 140, 0, 0.3);
+            color: var(--nvcbo-orange);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            border-radius: 12px;
+            margin-right: 15px;
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            display: none;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            color: #fff;
+            line-height: 50px;
+            z-index: 999;
+            text-decoration: none;
+            background: rgba(255, 140, 0, 0.6) !important;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
 </head>
 
 <body id="page-top">
 
-    <!-- Sidebar Toggle (Glass) -->
+    <!-- Sidebar Toggle -->
     <a class="menu-toggle rounded" href="#" id="menu-toggle">
         <i class="fa fa-bars"></i>
     </a>
 
-    <!-- Sidebar Wrapper (Glass) -->
+    <!-- Sidebar Wrapper -->
     <nav id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">NVCBO</li>
-            <li class="sidebar-nav-item"><a href="index.html">Home</a></li>
-            <li class="sidebar-nav-item"><a href="about.html">About Us</a></li>
-            <li class="sidebar-nav-item"><a href="programs.html">Programs</a></li>
-            <li class="sidebar-nav-item"><a href="projects.html">Projects</a></li>
-            <li class="sidebar-nav-item"><a href="healing-circles.html">Healing Circles</a></li>
-            <li class="sidebar-nav-item"><a href="media.html">Stories & Media</a></li>
+            <li class="sidebar-nav-item"><a href="#page-top">Home</a></li>
+            <li class="sidebar-nav-item"><a href="#about">About Us</a></li>
+            <li class="sidebar-nav-item"><a href="#services">Programs</a></li>
+            <li class="sidebar-nav-item"><a href="#healing">Healing Circles</a></li>
             <li class="sidebar-nav-item"><a href="#donate">Donate</a></li>
             <li class="sidebar-nav-item"><a href="#contact">Contact</a></li>
         </ul>
@@ -42,20 +390,19 @@
 
     <!-- Header -->
     <header class="masthead d-flex">
-        <!-- Three.js Container -->
         <div id="three-container"></div>
 
         <div class="container text-center my-auto px-4">
-            <h1>Grassroots-Led Climate, Gender and Education Solutions in Northern Kenya</h1>
-            <h2>
-                <em>Northern Vision Community-Based Organization (NVCBO) is a grassroots organization working
-                    with indigenous and pastoralist communities to strengthen climate resilience, gender justice,
-                    education and community wellbeing in Northern Kenya’s Arid and Semi-Arid Lands (ASALs).</em>
+            <h1 class="animate-up delay-1">
+                Grassroots-Led <span class="highlight">Climate</span>, <span class="highlight">Gender</span> and <span class="highlight">Education</span> Solutions in Northern Kenya
+            </h1>
+            <h2 class="animate-up delay-2">
+                Northern Vision CBO works alongside indigenous communities to strengthen resilience, justice, and wellbeing across Kenya’s Arid and Semi-Arid Lands.
             </h2>
 
-            <div class="hero-btn-container d-flex justify-content-center gap-3 flex-column flex-sm-row">
-                <a class="btn btn-primary-custom btn-xl" href="about.html">Learn More Us</a>
-                <a class="btn btn-outline-custom btn-xl" href="programs.html">Our Programs</a>
+            <div class="hero-btn-container d-flex justify-content-center gap-3 flex-column flex-sm-row animate-up delay-3">
+                <a class="btn btn-primary-custom btn-xl" href="#about">Learn More Us</a>
+                <a class="btn btn-outline-custom btn-xl" href="#services">Our Programs</a>
                 <a class="btn btn-outline-custom btn-xl" href="#contact">Partner With Us</a>
             </div>
         </div>
@@ -73,13 +420,13 @@
                     <p class="lead mb-5" style="color: #444; line-height: 2;">
                         Northern Vision CBO is a community-rooted organization grounded in indigenous knowledge, integrity and community leadership. We design and implement locally led solutions in climate adaptation, education and culture, sexual and reproductive health and rights (SRHR) and peacebuilding. Healing circles and storytelling are core tools that guide our community engagement, learning, and organizational reflection.
                     </p>
-                    <a class="btn btn-dark btn-xl" href="about.html" style="background-color: #222; border: none; border-radius: 50px;">Who We Are</a>
+                    <a class="btn btn-dark btn-xl" href="#about" style="background-color: #222; border: none; border-radius: 50px;">Who We Are</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Programs Section (Glass Cards) -->
+    <!-- Programs Section -->
     <section class="content-section" id="services" style="background: linear-gradient(135deg, #f4f7f8 0%, #e9eff1 100%);">
         <div class="container">
             <div class="section-heading">
@@ -117,25 +464,28 @@
                 </div>
             </div>
             <div class="text-center mt-5">
-                <a class="btn btn-primary-custom btn-xl" href="programs.html">Explore Details</a>
+                <a class="btn btn-primary-custom btn-xl" href="#services">Explore Details</a>
             </div>
         </div>
     </section>
 
-    <!-- Healing Circles Section -->
+    <!-- Healing Circles Section (Enhanced with Three.js) -->
     <section class="callout" id="healing">
+        <!-- New Three.js container for this section -->
+        <div id="healing-three-container"></div>
+
         <div class="container text-center">
             <h2 class="mx-auto mb-4">Healing Circles</h2>
             <p class="lead mb-5" style="color: rgba(255,255,255,0.9); max-width: 850px; margin: 0 auto; line-height: 1.9;">
                 Healing circles are a core methodology across all Northern Vision programs. They are used for community dialogue, participatory planning, conflict resolution, youth mentorship and internal organizational reflection.
             </p>
-            <a class="btn btn-primary-custom btn-xl" href="healing-circles.html">
+            <a class="btn btn-primary-custom btn-xl" href="#healing">
                 Our Methodology
             </a>
         </div>
     </section>
 
-    <!-- Donation Section (Glass Box) -->
+    <!-- Donation Section -->
     <section class="donation-section" id="donate">
         <div class="container">
             <div class="row justify-content-center">
@@ -174,9 +524,9 @@
                 <div class="col-md-6 col-lg-3">
                     <h5 class="text-white fw-bold mb-4">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="about.html" class="text-white-50 text-decoration-none">Our Story</a></li>
-                        <li><a href="programs.html" class="text-white-50 text-decoration-none">Impact Areas</a></li>
-                        <li><a href="healing-circles.html" class="text-white-50 text-decoration-none">Healing Circles</a></li>
+                        <li><a href="#about" class="text-white-50 text-decoration-none">Our Story</a></li>
+                        <li><a href="#services" class="text-white-50 text-decoration-none">Impact Areas</a></li>
+                        <li><a href="#healing" class="text-white-50 text-decoration-none">Healing Circles</a></li>
                     </ul>
                 </div>
                 <div class="col-md-6 col-lg-3">
@@ -202,10 +552,116 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/three.min.js"></script>
-    <!-- Use external animation script -->
-    <script src="assets/js/site-animation.js"></script>
 
     <script>
+        // --- THREE.JS MANAGEMENT ---
+        let heroScene, heroCamera, heroRenderer, heroParticles;
+        let healingScene, healingCamera, healingRenderer, healingCircle;
+        let mouseX = 0, mouseY = 0;
+
+        function initHeroThree() {
+            const container = document.getElementById('three-container');
+            if (!container) return;
+
+            heroScene = new THREE.Scene();
+            heroCamera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+            heroCamera.position.z = 5;
+
+            heroRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            heroRenderer.setSize(container.clientWidth, container.clientHeight);
+            heroRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            container.appendChild(heroRenderer.domElement);
+
+            const geometry = new THREE.BufferGeometry();
+            const vertices = [];
+            for (let i = 0; i < 1200; i++) {
+                vertices.push(Math.random() * 20 - 10, Math.random() * 20 - 10, Math.random() * 20 - 10);
+            }
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+
+            const material = new THREE.PointsMaterial({
+                color: 0xADD8E6,
+                size: 0.04,
+                transparent: true,
+                opacity: 0.6,
+                blending: THREE.AdditiveBlending
+            });
+
+            heroParticles = new THREE.Points(geometry, material);
+            heroScene.add(heroParticles);
+        }
+
+        function initHealingThree() {
+            const container = document.getElementById('healing-three-container');
+            if (!container) return;
+
+            healingScene = new THREE.Scene();
+            healingCamera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+            healingCamera.position.z = 8;
+
+            healingRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            healingRenderer.setSize(container.clientWidth, container.clientHeight);
+            healingRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            container.appendChild(healingRenderer.domElement);
+
+            // Create a "Community Ring" / Healing Circle
+            const geometry = new THREE.TorusGeometry(5, 1, 16, 100);
+            const material = new THREE.PointsMaterial({
+                color: 0xFFD700, // Golden nodes
+                size: 0.03,
+                transparent: true,
+                opacity: 0.4,
+                blending: THREE.AdditiveBlending
+            });
+
+            healingCircle = new THREE.Points(geometry, material);
+            healingScene.add(healingCircle);
+
+            // Add a secondary inner ring for depth
+            const innerGeometry = new THREE.TorusGeometry(3.5, 0.5, 12, 60);
+            const innerCircle = new THREE.Points(innerGeometry, material);
+            innerCircle.rotation.x = Math.PI / 2;
+            healingScene.add(innerCircle);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Hero Animation
+            if (heroParticles) {
+                heroParticles.rotation.y += 0.0008;
+                heroParticles.rotation.x += 0.0004;
+                heroParticles.position.x += (mouseX - heroParticles.position.x) * 0.05;
+                heroParticles.position.y += (-mouseY - heroParticles.position.y) * 0.05;
+                heroRenderer.render(heroScene, heroCamera);
+            }
+
+            // Healing Section Animation
+            if (healingCircle) {
+                healingCircle.rotation.z += 0.002;
+                healingCircle.rotation.y += 0.001;
+                healingRenderer.render(healingScene, healingCamera);
+            }
+        }
+
+        function onWindowResize() {
+            // Resize Hero
+            const heroCont = document.getElementById('three-container');
+            if (heroCont && heroCamera) {
+                heroCamera.aspect = heroCont.clientWidth / heroCont.clientHeight;
+                heroCamera.updateProjectionMatrix();
+                heroRenderer.setSize(heroCont.clientWidth, heroCont.clientHeight);
+            }
+
+            // Resize Healing
+            const healingCont = document.getElementById('healing-three-container');
+            if (healingCont && healingCamera) {
+                healingCamera.aspect = healingCont.clientWidth / healingCont.clientHeight;
+                healingCamera.updateProjectionMatrix();
+                healingRenderer.setSize(healingCont.clientWidth, healingCont.clientHeight);
+            }
+        }
+
         // --- UI LOGIC ---
         $(document).ready(function() {
             $("#menu-toggle").click(function(e) {
@@ -234,7 +690,20 @@
                     $('.scroll-to-top').fadeOut();
                 }
             });
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = (e.clientX - window.innerWidth / 2) / 150;
+                mouseY = (e.clientY - window.innerHeight / 2) / 150;
+            });
+
+            window.addEventListener('resize', onWindowResize);
         });
+
+        window.onload = function() {
+            initHeroThree();
+            initHealingThree();
+            animate();
+        };
     </script>
 </body>
 </html>
