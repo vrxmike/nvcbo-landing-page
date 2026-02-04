@@ -213,10 +213,26 @@
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             border-top: 5px solid var(--nvcbo-orange);
         }
+        .feature-box h4 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--nvcbo-stone);
+            margin-bottom: 1rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .feature-box p {
+            font-size: 1.1rem;
+            color: #222; /* Darker for better visibility against glass */
+            line-height: 1.6;
+        }
         .feature-box:hover { 
             transform: translateY(-12px); 
             background: rgba(255, 255, 255, 0.9);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+        .feature-box:hover h4 {
+            color: #B7410E; /* Deep orange-brown on hover */
+            transform: scale(1.05);
         }
         .feature-icon {
             font-size: 2.5rem;
@@ -315,20 +331,29 @@
     <!-- Strategic Framework Section -->
     <section class="content-section bg-light" id="strategic-framework">
         <div class="container">
+            <div class="section-heading reveal-heading text-center">
+                <span class="subheading" style="color: var(--nvcbo-orange);">Strategic Framework</span>
+                <h2>Our Vision & Mission</h2>
+                <div class="heading-accent"></div>
+            </div>
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="row g-5">
-                        <div class="col-md-6 text-center reveal-heading">
-                            <span class="subheading">Our Vision</span>
-                            <h3 class="fw-bold mb-3" style="color: var(--nvcbo-blue);">Innovate, Connect, Prosper</h3>
-                            <p class="lead">Building a Future Beyond Boundaries.</p>
-                            <div class="heading-accent"></div>
+                        <div class="col-md-6 reveal-heading">
+                            <div class="glass-card text-center h-100">
+                                <span class="subheading d-block mb-3">Our Vision</span>
+                                <h3 class="fw-bold mb-4" style="color: var(--nvcbo-blue); font-size: 1.75rem;">Innovate, Connect, Prosper</h3>
+                                <div class="heading-accent mb-4" style="width: 40px; opacity: 0.7;"></div>
+                                <p class="lead" style="font-weight: 600; opacity: 0.85;">Building a Future Beyond Boundaries.</p>
+                            </div>
                         </div>
-                        <div class="col-md-6 text-center reveal-heading">
-                            <span class="subheading">Our Mission</span>
-                            <h3 class="fw-bold mb-3" style="color: var(--nvcbo-orange);">Empowering Communities</h3>
-                            <p class="lead">Unlocking potential, strengthening resilience, and sustaining progress for Indigenous Women and Grassroots Communities.</p>
-                            <div class="heading-accent"></div>
+                        <div class="col-md-6 reveal-heading">
+                            <div class="glass-card text-center h-100">
+                                <span class="subheading d-block mb-3">Our Mission</span>
+                                <h3 class="fw-bold mb-4" style="color: var(--nvcbo-orange); font-size: 1.75rem;">Empowering Communities</h3>
+                                <div class="heading-accent mb-4" style="width: 40px; opacity: 0.7;"></div>
+                                <p class="lead" style="font-weight: 400; opacity: 0.85; line-height: 1.6;">Unlocking potential, strengthening resilience, and sustaining progress for Indigenous Women and Grassroots Communities.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
