@@ -365,6 +365,44 @@
             backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
+
+        .scroll-to-top:hover {
+            background: rgba(255, 140, 0, 1) !important;
+            transform: translateY(-5px);
+        }
+
+        /* --- SECTION HEADINGS ANIMATION --- */
+        .section-heading h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: -webkit-linear-gradient(135deg, #333, #666);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            opacity: 0; /* Hidden initially for animation */
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+
+        .section-heading .subheading {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--nvcbo-orange);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            display: block;
+            margin-bottom: 0.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+
+        .section-heading.visible h2,
+        .section-heading.visible .subheading {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 
@@ -589,6 +627,88 @@
 
             heroParticles = new THREE.Points(geometry, material);
             heroScene.add(heroParticles);
+
+            // Add Abstract 3D Elements (Acacia & Camel)
+            addAbstractSceneElements(heroScene);
+        }
+
+        function addAbstractSceneElements(scene) {
+            // Colors
+            const colorTrunk = 0x8B4513; // SaddleBrown
+            const colorLeaves = 0x228B22; // ForestGreen
+            const colorCamel = 0xC2B280; // Sand/Ecru
+
+            // --- ACACIA TREE GENERATOR ---
+            function createAcacia(x, z, scale) {
+                const group = new THREE.Group();
+                group.position.set(x, -5, z); // Ground level approx
+                group.scale.set(scale, scale, scale);
+
+                // Trunk
+                const trunkGeo = new THREE.CylinderGeometry(0.2, 0.3, 3, 6);
+                const trunkMat = new THREE.MeshBasicMaterial({ color: colorTrunk });
+                const trunk = new THREE.Mesh(trunkGeo, trunkMat);
+                trunk.position.y = 1.5;
+                group.add(trunk);
+
+                // Canopy (Flat top)
+                const canopyGeo = new THREE.CylinderGeometry(2.5, 0.5, 1, 8);
+                const canopyMat = new THREE.MeshBasicMaterial({ color: colorLeaves });
+                const canopy = new THREE.Mesh(canopyGeo, canopyMat);
+                canopy.position.y = 3;
+                group.add(canopy);
+
+                scene.add(group);
+            }
+
+            // --- CAMEL GENERATOR ---
+            function createCamel(x, z, scale, rotationY) {
+                const group = new THREE.Group();
+                group.position.set(x, -5, z);
+                group.scale.set(scale, scale, scale);
+                group.rotation.y = rotationY;
+
+                const bodyMat = new THREE.MeshBasicMaterial({ color: colorCamel });
+
+                // Body
+                const body = new THREE.Mesh(new THREE.BoxGeometry(2, 1.2, 1), bodyMat);
+                body.position.y = 1.5;
+                group.add(body);
+
+                // Hump
+                const hump = new THREE.Mesh(new THREE.ConeGeometry(0.5, 0.8, 8), bodyMat);
+                hump.position.set(0, 2.3, 0);
+                group.add(hump);
+
+                // Neck
+                const neck = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.3, 1.2), bodyMat);
+                neck.position.set(1.2, 2.0, 0);
+                neck.rotation.z = -0.5;
+                group.add(neck);
+
+                // Head
+                const head = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.4, 0.4), bodyMat);
+                head.position.set(1.6, 2.6, 0);
+                group.add(head);
+
+                // Legs
+                const legGeo = new THREE.CylinderGeometry(0.15, 0.1, 1.5);
+                const leg1 = new THREE.Mesh(legGeo, bodyMat); leg1.position.set(-0.7, 0.75, 0.3);
+                const leg2 = new THREE.Mesh(legGeo, bodyMat); leg2.position.set(-0.7, 0.75, -0.3);
+                const leg3 = new THREE.Mesh(legGeo, bodyMat); leg3.position.set(0.7, 0.75, 0.3);
+                const leg4 = new THREE.Mesh(legGeo, bodyMat); leg4.position.set(0.7, 0.75, -0.3);
+                group.add(leg1); group.add(leg2); group.add(leg3); group.add(leg4);
+
+                scene.add(group);
+            }
+
+            // Place objects
+            createAcacia(-8, -5, 1.2);
+            createAcacia(9, -8, 1.5);
+            createAcacia(-3, -12, 0.8);
+
+            createCamel(5, -6, 0.8, -0.5);
+            createCamel(7, -7, 0.6, -0.8);
         }
 
         function initHealingThree() {
@@ -697,6 +817,19 @@
             });
 
             window.addEventListener('resize', onWindowResize);
+
+            // Scroll Animation Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            document.querySelectorAll('.section-heading').forEach((el) => {
+                observer.observe(el);
+            });
         });
 
         window.onload = function() {
