@@ -29,6 +29,10 @@
             --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Source Sans Pro', sans-serif;
             overflow-x: hidden;
@@ -291,7 +295,55 @@
         .footer-stone a.text-white-50:hover { color: white !important; padding-left: 5px; }
         .footer-stone p { color: rgba(255, 255, 255, 0.9) !important; }
 
-        .scroll-to-top { position: fixed; right: 25px; bottom: 25px; display: none; width: 50px; height: 50px; text-align: center; color: #fff; line-height: 50px; z-index: 999; text-decoration: none; background: rgba(255, 140, 0, 0.6) !important; backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.2); }
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white !important;
+            text-decoration: none;
+            margin-right: 12px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+        .social-link:hover {
+            background: white;
+            color: var(--nvcbo-orange) !important;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            border-color: white;
+        }
+        .social-link:active {
+            transform: scale(0.9);
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            display: none;
+            width: 55px;
+            height: 55px;
+            text-align: center;
+            color: #fff;
+            line-height: 55px;
+            z-index: 1000;
+            text-decoration: none;
+            background: var(--nvcbo-orange) !important;
+            border-radius: 50% !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        .scroll-to-top:hover {
+            background: var(--nvcbo-dark-orange) !important;
+            transform: scale(1.1) translateY(-5px);
+            color: white;
+        }
 
         /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 992px) {
@@ -488,10 +540,15 @@
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <h5 class="text-white fw-bold mb-4">Connect</h5>
-                    <ul class="list-unstyled">
+                    <ul class="list-unstyled mb-4">
                         <li><a href="https://news.northernvisionke.org/donate.html" class="text-white-50 text-decoration-none">Support Us</a></li>
                         <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact Info</a></li>
                     </ul>
+                    <div class="d-flex">
+                        <a href="#" class="social-link" title="Facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="social-link" title="Instagram"><i class="fa fa-instagram"></i></a>
+                        <a href="#" class="social-link" title="X (Twitter)"><i class="fa fa-twitter"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -587,6 +644,14 @@
 
             initRevealHeadings();
             
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 400) {
+                    $('.scroll-to-top').fadeIn(300);
+                } else {
+                    $('.scroll-to-top').fadeOut(300);
+                }
+            });
+
             // Mouse movement tracker for Three.js
             document.addEventListener('mousemove', (e) => {
                 mouseX = (e.clientX - window.innerWidth / 2) / 200; // Reduced sensitivity

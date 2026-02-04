@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html data-bs-theme="light" lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Programs - NorthernVision CBO</title>
+    <title>Our Core Programs - NorthernVision CBO</title>
     <meta name="description" content="Grassroots-Led Climate, Gender and Education Solutions in Northern Kenya.">
 
     <!-- Bootstrap CSS -->
@@ -25,9 +24,13 @@
             --nvcbo-cream: #FFF5E6;
             --nvcbo-light-bg: #f4f7f8;
             --nvcbo-stone: #1a252f;
-            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-bg: rgba(255, 255, 255, 0.75);
             --glass-border: rgba(255, 255, 255, 0.4);
             --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -92,7 +95,7 @@
         }
 
         .section-heading h2 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
             font-weight: 900;
             color: var(--nvcbo-stone);
             letter-spacing: -1.5px;
@@ -107,9 +110,6 @@
             margin: 0 auto;
             border-radius: 2px;
         }
-
-        .heading-left .heading-accent { margin: 0; }
-        .heading-left { text-align: left; }
 
         /* --- NAVIGATION --- */
         .menu-toggle {
@@ -164,12 +164,12 @@
         /* --- HERO SECTION --- */
         .masthead {
             position: relative;
-            min-height: 100vh;
+            min-height: 60vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(rgba(21, 93, 116, 0.85), rgba(29, 128, 159, 0.7)), 
-                        url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2070&auto=format&fit=crop');
+            background: linear-gradient(rgba(29, 128, 159, 0.9), rgba(21, 93, 116, 0.85)), 
+                        url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=2074&auto=format&fit=crop');
             background-position: center;
             background-size: cover;
             color: white;
@@ -178,47 +178,217 @@
             overflow: hidden;
         }
 
-        #three-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; opacity: 0.5; }
+        #three-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; opacity: 0.4; }
         .masthead .container { position: relative; z-index: 2; }
-        .masthead h1 { font-weight: 900; font-size: clamp(2.5rem, 6vw, 4.5rem); text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 2rem; }
+        .masthead h1 { font-weight: 900; font-size: clamp(2.5rem, 6vw, 4rem); text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 2rem; }
         .masthead h1 .highlight { color: var(--nvcbo-orange); display: inline-block; }
-        .masthead h2 { font-weight: 400; font-size: clamp(1.1rem, 2vw, 1.35rem); margin-bottom: 3.5rem; color: rgba(255, 255, 255, 0.9); max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.8; letter-spacing: 0.2px; }
+        .masthead h2 { font-weight: 400; font-size: clamp(1.1rem, 2vw, 1.35rem); margin-bottom: 0; color: rgba(255, 255, 255, 0.9); max-width: 900px; margin-left: auto; margin-right: auto; line-height: 1.8; letter-spacing: 0.2px; }
 
-        /* --- BUTTONS --- */
-        .btn-xl { padding: 1.25rem 2.5rem; font-size: 0.9rem; font-weight: 700; border-radius: 50px; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: inline-flex; align-items: center; justify-content: center; min-width: 240px; }
-        .btn-primary-custom { background: linear-gradient(135deg, #FF8C00 0%, #CC5500 100%); color: white; border: none; box-shadow: 0 4px 15px rgba(204, 85, 0, 0.3); }
-        .btn-primary-custom:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(255, 140, 0, 0.4); color: white; }
-        .btn-outline-custom { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.5); color: white; }
-        .btn-outline-custom:hover { background: white; color: var(--nvcbo-blue); transform: translateY(-5px); }
-
-        /* --- SECTIONS --- */
+        /* --- CONTENT SECTIONS --- */
         .content-section { padding: 9rem 0; }
-
-        /* --- SERVICE CARDS --- */
-        .service-card {
-            background: rgba(255, 255, 255, 0.65);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 4rem 2rem;
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        .bg-stone { background-color: var(--nvcbo-stone); color: white; }
+        
+        /* --- GLASS PROGRAM CARDS --- */
+        .program-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            border-radius: 32px;
+            padding: 3.5rem 2.5rem;
             height: 100%;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+            border-top: 6px solid var(--nvcbo-orange);
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
         }
 
-        .service-card:hover { transform: translateY(-12px); background: rgba(255, 255, 255, 0.9); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08); border-color: var(--nvcbo-orange); }
-        .service-icon { background: linear-gradient(135deg, var(--nvcbo-blue) 0%, var(--nvcbo-dark-blue) 100%); color: white; width: 85px; height: 85px; border-radius: 22px; display: inline-flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 2.5rem; box-shadow: 0 8px 20px rgba(29, 128, 159, 0.2); }
+        .program-icon {
+            font-size: 2.5rem;
+            color: var(--nvcbo-blue);
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .program-goal {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--nvcbo-stone);
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .component-list { list-style: none; padding: 0; }
+        .component-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1.25rem;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        .component-list li::before {
+            content: "\f00c";
+            font-family: FontAwesome;
+            position: absolute;
+            left: 0;
+            color: var(--nvcbo-orange);
+            font-size: 0.8rem;
+            top: 4px;
+        }
+        .component-list li strong { display: block; color: var(--nvcbo-dark-blue); margin-bottom: 0.25rem; }
+
+        .methodology-highlight {
+            background: rgba(255, 140, 0, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            font-style: italic;
+            font-size: 0.95rem;
+            border-left: 4px solid var(--nvcbo-orange);
+        }
+
+        /* --- BUTTONS --- */
+        .btn-xl { padding: 1.25rem 2.5rem; font-size: 0.9rem; font-weight: 700; border-radius: 50px; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.3s; display: inline-flex; align-items: center; justify-content: center; min-width: 220px; }
+        .btn-primary-custom { background: linear-gradient(135deg, #FF8C00 0%, #CC5500 100%); color: white; border: none; box-shadow: 0 4px 15px rgba(204, 85, 0, 0.3); text-decoration: none; }
+        .btn-primary-custom:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(255, 140, 0, 0.4); color: white; }
 
         /* --- FOOTER --- */
-        .footer-stone { background-color: var(--nvcbo-stone); color: #ecf0f1; padding: 7rem 0 3rem 0; }
-        .footer-bottom { margin-top: 5rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center; font-size: 0.85rem; color: rgba(255, 255, 255, 0.3); }
-        .brand-logo-glass { background: rgba(255, 140, 0, 0.2); backdrop-filter: blur(5px); border: 1px solid rgba(255, 140, 0, 0.3); color: var(--nvcbo-orange); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; font-weight: 900; border-radius: 12px; margin-right: 15px; }
-        .scroll-to-top { position: fixed; right: 25px; bottom: 25px; display: none; width: 50px; height: 50px; text-align: center; color: #fff; line-height: 50px; z-index: 999; text-decoration: none; background: rgba(255, 140, 0, 0.6) !important; backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.2); }
+        .footer-stone { 
+            background: linear-gradient(135deg, #CC5500 0%, #B7410E 100%); 
+            color: white; 
+            padding: 7rem 0 3rem 0; 
+        }
+        .footer-bottom { 
+            margin-top: 5rem; 
+            padding-top: 2rem; 
+            border-top: 1px solid rgba(255, 255, 255, 0.2); 
+            text-align: center; 
+            font-size: 0.85rem; 
+            color: rgba(255, 255, 255, 0.7); 
+        }
+        .brand-logo-glass { 
+            background: rgba(255, 255, 255, 0.15); 
+            backdrop-filter: blur(5px); 
+            border: 1px solid rgba(255, 255, 255, 0.4); 
+            color: white; 
+            width: 50px; 
+            height: 50px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-weight: 900; 
+            border-radius: 12px; 
+            margin-right: 15px; 
+        }
+        .footer-stone a.text-white-50 { color: rgba(255, 255, 255, 0.85) !important; transition: all 0.3s; }
+        .footer-stone a.text-white-50:hover { color: white !important; padding-left: 5px; }
+        .footer-stone p { color: rgba(255, 255, 255, 0.9) !important; }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white !important;
+            text-decoration: none;
+            margin-right: 12px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+        .social-link:hover {
+            background: white;
+            color: var(--nvcbo-orange) !important;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            border-color: white;
+        }
+        .social-link:active {
+            transform: scale(0.9);
+        }
+
+        @keyframes cbo-breath {
+            0%, 100% { transform: translateY(-2px) scale(1); opacity: 0.8; color: var(--nvcbo-orange); }
+            50% { transform: translateY(-2px) scale(1.15); opacity: 1; color: white; text-shadow: 0 0 10px rgba(255, 140, 0, 0.5); }
+        }
+        .brand-name sup {
+            display: inline-block;
+            font-size: 0.55em;
+            margin-left: 2px;
+            animation: cbo-breath 3s ease-in-out infinite;
+            font-weight: 900;
+            vertical-align: top;
+            top: -0.5em;
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            display: none;
+            width: 55px;
+            height: 55px;
+            text-align: center;
+            color: #fff;
+            line-height: 55px;
+            z-index: 1000;
+            text-decoration: none;
+            background: var(--nvcbo-orange) !important;
+            border-radius: 50% !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        .scroll-to-top:hover {
+            background: var(--nvcbo-dark-orange) !important;
+            transform: scale(1.1) translateY(-5px);
+            color: white;
+        }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 992px) {
+            .content-section { padding: 6rem 0; }
+            .masthead { min-height: 50vh; padding: 6rem 1rem; }
+            .program-card { padding: 2.5rem 1.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            .row.g-5 { --bs-gutter-y: 2.5rem; --bs-gutter-x: 1.5rem; }
+            .program-card { padding: 2rem; }
+        }
+
+        @media (max-width: 576px) {
+            .section-heading { margin-bottom: 3.5rem; }
+            .section-heading h2 { font-size: 1.85rem; }
+            .masthead h1 { font-size: 2.2rem; }
+            .masthead h2 { font-size: 1rem; line-height: 1.6; }
+            .program-card { border-radius: 24px; padding: 1.75rem; }
+            .program-card h3 { font-size: 1.4rem; }
+            .program-goal { font-size: 1rem; margin-bottom: 1.5rem; padding-bottom: 1rem; }
+            .component-list li { font-size: 0.95rem; margin-bottom: 1rem; }
+            .methodology-highlight { padding: 1.25rem; font-size: 0.9rem; }
+            .footer-stone { padding: 4rem 0 2rem 0; }
+            .btn-xl { padding: 1rem 2rem; min-width: 180px; font-size: 0.85rem; }
+            .brand-name.h3 { font-size: 1.5rem; }
+        }
+
+        @media (max-width: 400px) {
+            .masthead h1 { font-size: 1.85rem; }
+            .program-card { padding: 1.5rem; }
+            .program-card h3 { font-size: 1.3rem; }
+            .program-icon { font-size: 2rem; margin-bottom: 1rem; }
+        }
     </style>
 </head>
 
@@ -237,52 +407,149 @@
             <li class="sidebar-nav-item"><a href="about.html">About Us</a></li>
             <li class="sidebar-nav-item"><a href="programs.html">Programs</a></li>
             <li class="sidebar-nav-item"><a href="healing.html">Healing Circles</a></li>
-            <li class="sidebar-nav-item"><a href="donate.html">Donate</a></li>
+            <li class="sidebar-nav-item"><a href="https://news.northernvisionke.org/donate.html">Donate</a></li>
             <li class="sidebar-nav-item"><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- Programs Section -->
-    <section class="content-section" id="services" style="background: linear-gradient(135deg, #f4f7f8 0%, #e9eff1 100%);">
+    <!-- Header -->
+    <header class="masthead d-flex">
+        <div id="three-container"></div>
+        <div class="container text-center my-auto px-4">
+            <h1 class="animate-up delay-1">
+                Our Core <span class="highlight">Programs</span>
+            </h1>
+            <h2 class="animate-up delay-2">
+                Northern Vision CBO implements four flagship programs that address interconnected challenges of climate change, gender inequality, education gaps and peace and security. Healing circles and storytelling cut across all programs as core engagement and learning tools.
+            </h2>
+        </div>
+    </header>
+
+    <!-- Programs Grid -->
+    <section class="content-section" id="programs-grid">
         <div class="container">
+            <div class="row g-5">
+                <!-- Program 1 -->
+                <div class="col-lg-6 reveal-heading">
+                    <div class="program-card">
+                        <span class="program-icon"><i class="icon-energy"></i></span>
+                        <h3 class="fw-bold mb-3">Climate Adaptation & Food Security</h3>
+                        <div class="program-goal">
+                            Goal: To strengthen community resilience to climate change through sustainable agriculture, renewable energy, ecosystem restoration, and locally led adaptation solutions.
+                        </div>
+                        <ul class="component-list">
+                            <li>
+                                <strong>Community Farm & Circular Economy Model</strong>
+                                learning center integrating solar-powered water pumping, fish farming (aquaculture), and Azolla breeding.
+                            </li>
+                            <li>
+                                <strong>Regreening & Ecosystem Restoration</strong>
+                                Mobilizing communities for tree planting (indigenous and fruit trees) in schools and homesteads.
+                            </li>
+                            <li>
+                                <strong>Renewable Energy</strong>
+                                Exploring solar and wind systems to improve energy access and reduce reliance on fossil fuels.
+                            </li>
+                        </ul>
+                        <div class="methodology-highlight">
+                            <strong>Healing Circles:</strong> Used to co-design adaptation solutions, reflect on climate impacts, and strengthen community ownership.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Program 2 -->
+                <div class="col-lg-6 reveal-heading">
+                    <div class="program-card">
+                        <span class="program-icon"><i class="icon-graduation"></i></span>
+                        <h3 class="fw-bold mb-3">Education & Culture</h3>
+                        <div class="program-goal">
+                            Goal: To expand access to education, mentorship and cultural knowledge while strengthening identity, leadership, and intergenerational learning.
+                        </div>
+                        <ul class="component-list">
+                            <li>
+                                <strong>Youth Mentorship & Learning</strong>
+                                Providing exposure and learning opportunities for young people, especially girls and marginalized youth.
+                            </li>
+                            <li>
+                                <strong>Cultural Education & Heritage</strong>
+                                Documenting indigenous knowledge and cultural practices through storytelling and creative media.
+                            </li>
+                        </ul>
+                        <div class="methodology-highlight">
+                            <strong>Healing Circles:</strong> Used for mentorship, intergenerational knowledge sharing, youth leadership reflection, and cultural dialogue.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Program 3 -->
+                <div class="col-lg-6 reveal-heading">
+                    <div class="program-card">
+                        <span class="program-icon"><i class="icon-heart"></i></span>
+                        <h3 class="fw-bold mb-3">Sexual & Reproductive Health and Rights (SRHR)</h3>
+                        <div class="program-goal">
+                            Goal: To promote dignity, health, and informed decision-making among adolescents and women through community-based education and advocacy.
+                        </div>
+                        <ul class="component-list">
+                            <li>
+                                <strong>Menstrual Health Education</strong>
+                                Sessions on hygiene and stigma reduction while distributing sanitary products.
+                            </li>
+                            <li>
+                                <strong>Community Dialogue on Harmful Practices</strong>
+                                Addressing Female Genital Cutting (FGC) and gender norms through culturally grounded dialogues.
+                            </li>
+                            <li>
+                                <strong>Adolescent Empowerment</strong>
+                                Building knowledge and leadership in young girls, linking SRHR to future livelihoods.
+                            </li>
+                        </ul>
+                        <div class="methodology-highlight">
+                            <strong>Healing Circles:</strong> Providing safe spaces for sensitive conversations on gender, health, dignity and rights.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Program 4 -->
+                <div class="col-lg-6 reveal-heading">
+                    <div class="program-card">
+                        <span class="program-icon"><i class="icon-people"></i></span>
+                        <h3 class="fw-bold mb-3">Peace & Security – Dialogue and Digital Engagement</h3>
+                        <div class="program-goal">
+                            Goal: To strengthen social cohesion, prevent misinformation-driven conflict, and promote peaceful coexistence through dialogue and digital literacy.
+                        </div>
+                        <ul class="component-list">
+                            <li>
+                                <strong>Dialogue & Cohesion</strong>
+                                Addressing gender issues, land rights, and community tensions through trauma-informed dialogue.
+                            </li>
+                            <li>
+                                <strong>Digital & Media Literacy</strong>
+                                Engaging youth on responsible online engagement to reduce incitement and misinformation.
+                            </li>
+                            <li>
+                                <strong>Storytelling for Peace</strong>
+                                Using film and photography to document lived experiences and amplify voices.
+                            </li>
+                        </ul>
+                        <div class="methodology-highlight">
+                            <strong>Healing Circles:</strong> Used to mediate dialogue, support reconciliation, and build trust across diverse community groups.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="content-section bg-stone text-center" id="cta" style="position: relative; overflow: hidden;">
+        <div id="cta-three-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; opacity: 0.5;"></div>
+        <div class="container" style="position: relative; z-index: 2;">
             <div class="section-heading reveal-heading">
-                <span class="subheading">What We Do</span>
-                <h2>Our Core Programs</h2>
+                <span class="subheading" style="color: var(--nvcbo-orange);">Taking Action</span>
+                <h2 class="text-white">See how these programs look in action</h2>
                 <div class="heading-accent"></div>
             </div>
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6">
-                    <div class="service-card">
-                        <span class="service-icon"><i class="icon-energy"></i></span>
-                        <h4 class="fw-bold mb-3">Climate Adaptation</h4>
-                        <p class="text-muted mb-0">Strengthening resilience through sustainable agriculture, renewable energy, and ecosystem restoration.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="service-card">
-                        <span class="service-icon"><i class="icon-graduation"></i></span>
-                        <h4 class="fw-bold mb-3">Education & Culture</h4>
-                        <p class="text-muted mb-0">Expanding access to mentorship and cultural knowledge while strengthening intergenerational learning.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="service-card">
-                        <span class="service-icon"><i class="icon-heart"></i></span>
-                        <h4 class="fw-bold mb-3">Health & Rights</h4>
-                        <p class="text-muted mb-0">Promoting dignity and informed decision-making among adolescents and women in Northern Kenya.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="service-card">
-                        <span class="service-icon"><i class="icon-people"></i></span>
-                        <h4 class="fw-bold mb-3">Peace & Security</h4>
-                        <p class="text-muted mb-0">Promoting peaceful coexistence through dialogue, media literacy and youth digital engagement.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-5">
-                <a class="btn btn-primary-custom btn-xl" href="programs.html">Explore Details</a>
-            </div>
+            <a class="btn btn-primary-custom btn-xl animate-up" href="https://news.northernvisionke.org/stories.html">View Our Projects</a>
         </div>
     </section>
 
@@ -293,26 +560,34 @@
                 <div class="col-lg-6">
                     <div class="d-flex align-items-center mb-4">
                         <div class="brand-logo-glass">NV</div>
-                        <div class="brand-name h3 mb-0 fw-bold">Northern Vision CBO</div>
+                        <div class="brand-name h3 mb-0 fw-bold">Northern Vision <sup>CBO</sup></div>
                     </div>
                     <p style="color: rgba(255, 255, 255, 0.5); line-height: 1.8; max-width: 450px;">
-                        Advancing climate adaptation, education, and gender justice through community-led innovations in Northern Kenya.
+                        Northern Vision CBO is a grassroots organization advancing climate adaptation, education, gender justice and peacebuilding in Northern Kenya through community-led solutions, healing circles and storytelling.
                     </p>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <h5 class="text-white fw-bold mb-4">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="about.html" class="text-white-50 text-decoration-none">Our Story</a></li>
-                        <li><a href="programs.html" class="text-white-50 text-decoration-none">Impact Areas</a></li>
+                        <li><a href="about.html" class="text-white-50 text-decoration-none">About Us</a></li>
+                        <li><a href="programs.html" class="text-white-50 text-decoration-none">Programs</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Projects</a></li>
                         <li><a href="healing.html" class="text-white-50 text-decoration-none">Healing Circles</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Stories & Media</a></li>
+                        <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <h5 class="text-white fw-bold mb-4">Connect</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="donate.html" class="text-white-50 text-decoration-none">Support Us</a></li>
+                    <ul class="list-unstyled mb-4">
+                        <li><a href="https://news.northernvisionke.org/donate.html" class="text-white-50 text-decoration-none">Support Us</a></li>
                         <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact Info</a></li>
                     </ul>
+                    <div class="d-flex">
+                        <a href="#" class="social-link" title="Facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="social-link" title="Instagram"><i class="fa fa-instagram"></i></a>
+                        <a href="#" class="social-link" title="X (Twitter)"><i class="fa fa-twitter"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -332,9 +607,85 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     
     <script>
-        // --- INTERSECTION OBSERVER FOR HEADINGS ---
+        // --- THREE.JS MANAGEMENT ---
+        let heroScene, heroCamera, heroRenderer, heroParticles;
+        let ctaScene, ctaCamera, ctaRenderer, ctaCircle;
+        let mouseX = 0, mouseY = 0;
+
+        function initHeroThree() {
+            const container = document.getElementById('three-container');
+            if (!container) return;
+            heroScene = new THREE.Scene();
+            heroCamera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+            heroCamera.position.z = 5;
+            heroRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            heroRenderer.setSize(container.clientWidth, container.clientHeight);
+            heroRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            container.appendChild(heroRenderer.domElement);
+            
+            // Create geometric nodes representing interconnected programs
+            const geometry = new THREE.BufferGeometry();
+            const vertices = [];
+            for (let i = 0; i < 1000; i++) {
+                vertices.push(Math.random() * 20 - 10, Math.random() * 20 - 10, Math.random() * 20 - 10);
+            }
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+            
+            const material = new THREE.PointsMaterial({ 
+                color: 0x1D809F, 
+                size: 0.06, 
+                transparent: true, 
+                opacity: 0.6, 
+                blending: THREE.AdditiveBlending 
+            });
+            
+            heroParticles = new THREE.Points(geometry, material);
+            heroScene.add(heroParticles);
+        }
+
+        function initCTAThree() {
+            const container = document.getElementById('cta-three-container');
+            if (!container) return;
+            ctaScene = new THREE.Scene();
+            ctaCamera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+            ctaCamera.position.z = 8;
+            ctaRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            ctaRenderer.setSize(container.clientWidth, container.clientHeight);
+            ctaRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            container.appendChild(ctaRenderer.domElement);
+            
+            // A rotating torus representing unity/cycles
+            const geometry = new THREE.TorusGeometry(5, 1.5, 16, 100);
+            const material = new THREE.PointsMaterial({ 
+                color: 0xFF8C00, 
+                size: 0.03, 
+                transparent: true, 
+                opacity: 0.4, 
+                blending: THREE.AdditiveBlending 
+            });
+            ctaCircle = new THREE.Points(geometry, material);
+            ctaScene.add(ctaCircle);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            if (heroParticles) {
+                heroParticles.rotation.y += 0.0006;
+                heroParticles.rotation.z += 0.0003;
+                heroParticles.position.x += (mouseX - heroParticles.position.x) * 0.05;
+                heroParticles.position.y += (-mouseY - heroParticles.position.y) * 0.05;
+                heroRenderer.render(heroScene, heroCamera);
+            }
+            if (ctaCircle) {
+                ctaCircle.rotation.z += 0.002;
+                ctaCircle.rotation.y += 0.001;
+                ctaRenderer.render(ctaScene, ctaCamera);
+            }
+        }
+
+        // --- INTERSECTION OBSERVER ---
         function initRevealHeadings() {
-            const observerOptions = { threshold: 0.2 };
+            const observerOptions = { threshold: 0.15 };
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -356,6 +707,44 @@
             });
 
             initRevealHeadings();
+            
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 400) {
+                    $('.scroll-to-top').fadeIn(300);
+                } else {
+                    $('.scroll-to-top').fadeOut(300);
+                }
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = (e.clientX - window.innerWidth / 2) / 250;
+                mouseY = (e.clientY - window.innerHeight / 2) / 250;
+            });
+        });
+        
+        window.onload = function() {
+            initHeroThree();
+            initCTAThree();
+            animate();
+        };
+
+        window.addEventListener('resize', () => {
+            if (heroCamera && heroRenderer) {
+                const container = document.getElementById('three-container');
+                if (container) {
+                    heroCamera.aspect = container.clientWidth / container.clientHeight;
+                    heroCamera.updateProjectionMatrix();
+                    heroRenderer.setSize(container.clientWidth, container.clientHeight);
+                }
+            }
+            if (ctaCamera && ctaRenderer) {
+                const container = document.getElementById('cta-three-container');
+                if (container) {
+                    ctaCamera.aspect = container.clientWidth / container.clientHeight;
+                    ctaCamera.updateProjectionMatrix();
+                    ctaRenderer.setSize(container.clientWidth, container.clientHeight);
+                }
+            }
         });
     </script>
 </body>

@@ -29,6 +29,10 @@
             --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Source Sans Pro', sans-serif;
             overflow-x: hidden;
@@ -190,6 +194,23 @@
         .btn-outline-custom { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.5); color: white; }
         .btn-outline-custom:hover { background: white; color: var(--nvcbo-blue); transform: translateY(-5px); }
 
+        .btn-nvcbo-orange {
+            background-color: var(--nvcbo-dark-orange);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 15px rgba(204, 85, 0, 0.3);
+        }
+        .btn-nvcbo-orange:hover {
+            background-color: var(--nvcbo-orange);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(204, 85, 0, 0.4);
+            color: white;
+        }
+        .btn-nvcbo-orange:active {
+            transform: translateY(-2px) scale(0.98);
+            box-shadow: 0 5px 15px rgba(204, 85, 0, 0.2);
+        }
+
         /* --- SECTIONS --- */
         .content-section { padding: 9rem 0; }
 
@@ -269,7 +290,70 @@
         .footer-stone a.text-white-50 { color: rgba(255, 255, 255, 0.85) !important; transition: all 0.3s; }
         .footer-stone a.text-white-50:hover { color: white !important; padding-left: 5px; }
         .footer-stone p { color: rgba(255, 255, 255, 0.9) !important; }
-        .scroll-to-top { position: fixed; right: 25px; bottom: 25px; display: none; width: 50px; height: 50px; text-align: center; color: #fff; line-height: 50px; z-index: 999; text-decoration: none; background: rgba(255, 140, 0, 0.6) !important; backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.2); }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white !important;
+            text-decoration: none;
+            margin-right: 12px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+        .social-link:hover {
+            background: white;
+            color: var(--nvcbo-orange) !important;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            border-color: white;
+        }
+        .social-link:active {
+            transform: scale(0.9);
+        }
+
+        @keyframes cbo-breath {
+            0%, 100% { transform: translateY(-2px) scale(1); opacity: 0.8; color: var(--nvcbo-orange); }
+            50% { transform: translateY(-2px) scale(1.15); opacity: 1; color: white; text-shadow: 0 0 10px rgba(255, 140, 0, 0.5); }
+        }
+        .brand-name sup {
+            display: inline-block;
+            font-size: 0.55em;
+            margin-left: 2px;
+            animation: cbo-breath 3s ease-in-out infinite;
+            font-weight: 900;
+            vertical-align: top;
+            top: -0.5em;
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            display: none;
+            width: 55px;
+            height: 55px;
+            text-align: center;
+            color: #fff;
+            line-height: 55px;
+            z-index: 1000;
+            text-decoration: none;
+            background: var(--nvcbo-orange) !important;
+            border-radius: 50% !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        .scroll-to-top:hover {
+            background: var(--nvcbo-dark-orange) !important;
+            transform: scale(1.1) translateY(-5px);
+            color: white;
+        }
 
         /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 768px) {
@@ -305,10 +389,10 @@
             <li class="sidebar-brand">NVCBO</li>
             <li class="sidebar-nav-item"><a href="#page-top">Home</a></li>
             <li class="sidebar-nav-item"><a href="about.html">About Us</a></li>
-            <li class="sidebar-nav-item"><a href="#services">Programs</a></li>
+            <li class="sidebar-nav-item"><a href="programs.html">Programs</a></li>
             <li class="sidebar-nav-item"><a href="#healing">Healing Circles</a></li>
             <li class="sidebar-nav-item"><a href="https://news.northernvisionke.org/donate.html">Donate</a></li>
-            <li class="sidebar-nav-item"><a href="#contact">Contact</a></li>
+            <li class="sidebar-nav-item"><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
@@ -324,8 +408,8 @@
             </h2>
             <div class="hero-btn-container d-flex justify-content-center gap-3 flex-column flex-sm-row animate-up delay-3">
                 <a class="btn btn-primary-custom btn-xl" href="#about">Learn More About Us</a>
-                <a class="btn btn-outline-custom btn-xl" href="#services">Explore Our Programs</a>
-                <a class="btn btn-outline-custom btn-xl" href="#contact">Partner With Us</a>
+                <a class="btn btn-outline-custom btn-xl" href="programs.html">Explore Our Programs</a>
+                <a class="btn btn-outline-custom btn-xl" href="contact.html">Partner With Us</a>
             </div>
         </div>
     </header>
@@ -343,7 +427,7 @@
                     <p class="lead mb-5" style="color: #444; line-height: 2;">
                         Northern Vision CBO is a community-rooted organization grounded in indigenous knowledge, integrity and community leadership. We design and implement locally led solutions in climate adaptation, education and culture, sexual and reproductive health and rights (SRHR) and peacebuilding. Healing circles and storytelling are core tools that guide our community engagement, learning, and organizational reflection.
                     </p>
-                    <a class="btn btn-dark btn-xl" href="about.html" style="background-color: #222; border: none; border-radius: 50px;">Who We Are</a>
+                    <a class="btn btn-nvcbo-orange btn-xl" href="about.html">Who We Are</a>
                 </div>
             </div>
         </div>
@@ -388,7 +472,7 @@
                 </div>
             </div>
             <div class="text-center mt-5">
-                <a class="btn btn-primary-custom btn-xl" href="#services">Explore Details</a>
+                <a class="btn btn-primary-custom btn-xl" href="programs.html">Explore Details</a>
             </div>
         </div>
     </section>
@@ -421,7 +505,7 @@
                         <p class="lead mb-5" style="opacity: 0.95; max-width: 700px; margin: 0 auto;">We welcome partnerships, volunteers, donors, and collaborators who share our commitment to grassroots-led climate action and community empowerment.</p>
                         <div class="d-flex justify-content-center gap-3 flex-column flex-sm-row mt-4">
                             <a class="btn btn-donate btn-xl" href="https://news.northernvisionke.org/donate.html" style="background: white; color: var(--nvcbo-dark-orange); border:none;">Donate Now</a>
-                            <a class="btn btn-outline-custom btn-xl" href="#contact">Become a Partner</a>
+                            <a class="btn btn-outline-custom btn-xl" href="contact.html">Become a Partner</a>
                         </div>
                     </div>
                 </div>
@@ -441,7 +525,7 @@
                 <div class="col-lg-6">
                     <div class="d-flex align-items-center mb-4">
                         <div class="brand-logo-glass">NV</div>
-                        <div class="brand-name h3 mb-0 fw-bold">Northern Vision CBO</div>
+                        <div class="brand-name h3 mb-0 fw-bold">Northern Vision <sup>CBO</sup></div>
                     </div>
                     <p style="color: rgba(255, 255, 255, 0.5); line-height: 1.8; max-width: 450px;">
                         Northern Vision CBO is a grassroots organization advancing climate adaptation, education, gender justice and peacebuilding in Northern Kenya through community-led solutions, healing circles and storytelling.
@@ -460,10 +544,15 @@
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <h5 class="text-white fw-bold mb-4">Connect</h5>
-                    <ul class="list-unstyled">
+                    <ul class="list-unstyled mb-4">
                         <li><a href="https://news.northernvisionke.org/donate.html" class="text-white-50 text-decoration-none">Support Us</a></li>
                         <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact Info</a></li>
                     </ul>
+                    <div class="d-flex">
+                        <a href="#" class="social-link" title="Facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="social-link" title="Instagram"><i class="fa fa-instagram"></i></a>
+                        <a href="#" class="social-link" title="X (Twitter)"><i class="fa fa-twitter"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -565,6 +654,14 @@
             });
 
             initRevealHeadings();
+
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 400) {
+                    $('.scroll-to-top').fadeIn(300);
+                } else {
+                    $('.scroll-to-top').fadeOut(300);
+                }
+            });
 
             document.addEventListener('mousemove', (e) => {
                 mouseX = (e.clientX - window.innerWidth / 2) / 150;

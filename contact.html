@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html data-bs-theme="light" lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Contact - NorthernVision CBO</title>
+    <title>Contact & Get Involved - NorthernVision CBO</title>
     <meta name="description" content="Grassroots-Led Climate, Gender and Education Solutions in Northern Kenya.">
 
     <!-- Bootstrap CSS -->
@@ -30,6 +29,10 @@
             --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Source Sans Pro', sans-serif;
             overflow-x: hidden;
@@ -43,129 +46,177 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes titleReveal {
-            from { clip-path: inset(100% 0 0 0); transform: translateY(30px); }
-            to { clip-path: inset(0 0 0 0); transform: translateY(0); }
-        }
-
         .animate-up { opacity: 0; animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
         .delay-1 { animation-delay: 0.2s; }
         .delay-2 { animation-delay: 0.5s; }
-        .delay-3 { animation-delay: 0.8s; }
 
-        /* Scroll-triggered reveal */
-        .reveal-heading h2 {
-            opacity: 0;
-            transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .reveal-heading.is-visible h2 {
-            opacity: 1;
-            animation: titleReveal 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-        }
-
-        .reveal-heading .subheading {
-            opacity: 0;
-            transform: translateY(10px);
-            transition: all 0.8s ease 0.2s;
-        }
-
-        .reveal-heading.is-visible .subheading {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* --- SECTION HEADINGS AESTHETIC --- */
-        .section-heading {
-            margin-bottom: 5rem;
-            position: relative;
-        }
-
-        .section-heading .subheading {
-            font-size: 0.85rem;
-            font-weight: 800;
-            color: var(--nvcbo-dark-orange);
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            display: block;
-            margin-bottom: 0.75rem;
-        }
-
-        .section-heading h2 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            font-weight: 900;
-            color: var(--nvcbo-stone);
-            letter-spacing: -1.5px;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
-
-        .heading-accent {
-            width: 60px;
-            height: 4px;
-            background: var(--nvcbo-orange);
-            margin: 0 auto;
-            border-radius: 2px;
-        }
-
-        .heading-left .heading-accent { margin: 0; }
-        .heading-left { text-align: left; }
+        /* Scroll reveal */
+        .reveal-heading.is-visible { opacity: 1; animation: fadeInUp 1s forwards; }
+        .reveal-heading { opacity: 0; }
 
         /* --- NAVIGATION --- */
         .menu-toggle {
+            position: fixed; right: 25px; top: 25px; width: 55px; height: 55px;
+            text-align: center; color: #fff; background: rgba(255, 140, 0, 0.8);
+            backdrop-filter: blur(8px); line-height: 55px; z-index: 9999;
+            border-radius: 50%; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3); transition: all 0.3s;
+            text-decoration: none;
+        }
+        .menu-toggle:hover { transform: scale(1.1) rotate(90deg); background: var(--nvcbo-orange); }
+
+        #sidebar-wrapper {
+            position: fixed; z-index: 9998; right: 0; width: 280px; height: 100%;
+            transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+            transform: translateX(280px); background: rgba(204, 85, 0, 0.85);
+            backdrop-filter: blur(15px); border-left: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .sidebar-nav { padding: 2rem 0; list-style: none; }
+        .sidebar-nav li.sidebar-nav-item a {
+            display: block; text-decoration: none; color: #fff; padding: 1rem 2rem;
+            font-weight: 600; transition: all 0.3s;
+        }
+        .sidebar-nav li.sidebar-brand { font-size: 1.8rem; font-weight: 900; padding: 1rem 2rem 3rem 2rem; color: #fff; }
+        #sidebar-wrapper.active { transform: translateX(0); }
+
+        /* --- HERO SECTION --- */
+        .masthead {
+            position: relative; min-height: 50vh; display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(rgba(21, 93, 116, 0.9), rgba(29, 128, 159, 0.85)), 
+                        url('https://images.unsplash.com/photo-1516216628859-9bcceca13ca4?q=80&w=2070&auto=format&fit=crop');
+            background-position: center; background-size: cover; color: white; text-align: center; padding: 6rem 1rem; overflow: hidden;
+        }
+        #three-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; opacity: 0.5; }
+        .masthead .container { position: relative; z-index: 2; }
+        .masthead h1 { font-weight: 900; font-size: clamp(2.5rem, 6vw, 4rem); letter-spacing: -1.5px; margin-bottom: 1.5rem; }
+        .masthead p { font-size: 1.25rem; max-width: 800px; margin: 0 auto; line-height: 1.6; opacity: 0.9; }
+
+        /* --- CONTENT SECTIONS --- */
+        .content-section { padding: 7rem 0; }
+        
+        /* --- GLASS INFO CARDS --- */
+        .contact-info-card {
+            background: var(--glass-bg); backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border); border-radius: 24px;
+            padding: 2.5rem; text-align: center; transition: all 0.3s; height: 100%;
+            box-shadow: var(--glass-shadow);
+        }
+        .contact-info-card:hover { transform: translateY(-10px); border-color: var(--nvcbo-orange); }
+        .contact-icon { font-size: 2.5rem; color: var(--nvcbo-orange); margin-bottom: 1.5rem; }
+        .contact-info-card h4 { font-weight: 800; color: var(--nvcbo-stone); margin-bottom: 1rem; }
+        .contact-info-card p { color: #555; font-size: 1.1rem; margin-bottom: 0; }
+
+        /* --- CONTACT FORM --- */
+        .glass-form-container {
+            background: white; border-radius: 32px; padding: 4rem;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05); border: 1px solid #eee;
+        }
+        .form-control {
+            border-radius: 12px; padding: 1rem 1.5rem; border: 2px solid #f0f0f0;
+            background: #fdfdfd; transition: all 0.3s;
+        }
+        .form-control:focus { border-color: var(--nvcbo-orange); box-shadow: none; background: white; }
+        .btn-submit {
+            background: linear-gradient(135deg, #FF8C00 0%, #CC5500 100%);
+            color: white; border: none; padding: 1rem 3rem; border-radius: 50px;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            transition: all 0.3s; width: 100%;
+        }
+        .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(204, 85, 0, 0.3); color: white; }
+
+        /* --- ENGAGEMENT PATHWAYS --- */
+        .pathway-card {
+            background: var(--glass-bg); backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border); border-radius: 24px;
+            padding: 3rem; position: relative; overflow: hidden; height: 100%;
+            transition: all 0.4s; border-top: 5px solid var(--nvcbo-blue);
+        }
+        .pathway-card:hover { background: white; transform: scale(1.02); }
+        .pathway-card h3 { font-weight: 900; color: var(--nvcbo-dark-blue); margin-bottom: 1.5rem; }
+        .pathway-card p { line-height: 1.8; color: #444; }
+
+        /* --- FOOTER --- */
+        .footer-stone { background: linear-gradient(135deg, #CC5500 0%, #B7410E 100%); color: white; padding: 7rem 0 3rem 0; }
+        .footer-bottom { margin-top: 5rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.2); text-align: center; font-size: 0.85rem; color: rgba(255, 255, 255, 0.7); }
+        .brand-logo-glass { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.4); color: white; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; font-weight: 900; border-radius: 12px; margin-right: 15px; }
+        .footer-stone a.text-white-50 { color: rgba(255, 255, 255, 0.85) !important; transition: all 0.3s; }
+        .footer-stone a.text-white-50:hover { color: white !important; padding-left: 5px; }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white !important;
+            text-decoration: none;
+            margin-right: 12px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+        .social-link:hover {
+            background: white;
+            color: var(--nvcbo-orange) !important;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            border-color: white;
+        }
+        .social-link:active {
+            transform: scale(0.9);
+        }
+
+        @keyframes cbo-breath {
+            0%, 100% { transform: translateY(-2px) scale(1); opacity: 0.8; color: var(--nvcbo-orange); }
+            50% { transform: translateY(-2px) scale(1.15); opacity: 1; color: white; text-shadow: 0 0 10px rgba(255, 140, 0, 0.5); }
+        }
+        .brand-name sup {
+            display: inline-block;
+            font-size: 0.55em;
+            margin-left: 2px;
+            animation: cbo-breath 3s ease-in-out infinite;
+            font-weight: 900;
+            vertical-align: top;
+            top: -0.5em;
+        }
+
+        .scroll-to-top {
             position: fixed;
-            right: 25px;
-            top: 25px;
+            right: 30px;
+            bottom: 30px;
+            display: none;
             width: 55px;
             height: 55px;
             text-align: center;
             color: #fff;
-            background: rgba(255, 140, 0, 0.8);
-            backdrop-filter: blur(8px);
             line-height: 55px;
-            z-index: 9999;
-            border-radius: 50%;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1000;
             text-decoration: none;
+            background: var(--nvcbo-orange) !important;
+            border-radius: 50% !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        .scroll-to-top:hover {
+            background: var(--nvcbo-dark-orange) !important;
+            transform: scale(1.1) translateY(-5px);
+            color: white;
         }
 
-        .menu-toggle:hover {
-            transform: scale(1.1) rotate(90deg);
-            color: #fff;
-            background: var(--nvcbo-orange);
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 992px) {
+            .glass-form-container { padding: 2.5rem; }
+            .content-section { padding: 5rem 0; }
         }
-
-        #sidebar-wrapper {
-            position: fixed;
-            z-index: 9998;
-            right: 0;
-            width: 280px;
-            height: 100%;
-            transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-            transform: translateX(280px);
-            background: rgba(204, 85, 0, 0.85);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            overflow-y: auto;
-            border-left: 1px solid rgba(255, 255, 255, 0.2);
+        @media (max-width: 576px) {
+            .masthead h1 { font-size: 2.2rem; }
+            .pathway-card { padding: 2rem; }
+            .glass-form-container { padding: 2rem 1.5rem; border-radius: 20px; }
+            .footer-stone { padding: 4rem 0 2rem; }
         }
-
-        .sidebar-nav { padding: 2rem 0; list-style: none; }
-        .sidebar-nav li.sidebar-nav-item a {
-            display: block; text-decoration: none; color: #fff; padding: 1rem 2rem;
-            font-weight: 600; letter-spacing: 0.5px; transition: all 0.3s;
-        }
-        .sidebar-nav li.sidebar-nav-item a:hover { background: rgba(255, 255, 255, 0.15); padding-left: 2.5rem; }
-        .sidebar-nav li.sidebar-brand { font-size: 1.8rem; font-weight: 900; padding: 1rem 2rem 3rem 2rem; color: #fff; }
-        #sidebar-wrapper.active { transform: translateX(0); }
-
-        /* --- FOOTER --- */
-        .footer-stone { background-color: var(--nvcbo-stone); color: #ecf0f1; padding: 7rem 0 3rem 0; }
-        .footer-bottom { margin-top: 5rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center; font-size: 0.85rem; color: rgba(255, 255, 255, 0.3); }
-        .brand-logo-glass { background: rgba(255, 140, 0, 0.2); backdrop-filter: blur(5px); border: 1px solid rgba(255, 140, 0, 0.3); color: var(--nvcbo-orange); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; font-weight: 900; border-radius: 12px; margin-right: 15px; }
-        .scroll-to-top { position: fixed; right: 25px; bottom: 25px; display: none; width: 50px; height: 50px; text-align: center; color: #fff; line-height: 50px; z-index: 999; text-decoration: none; background: rgba(255, 140, 0, 0.6) !important; backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.2); }
     </style>
 </head>
 
@@ -184,13 +235,103 @@
             <li class="sidebar-nav-item"><a href="about.html">About Us</a></li>
             <li class="sidebar-nav-item"><a href="programs.html">Programs</a></li>
             <li class="sidebar-nav-item"><a href="healing.html">Healing Circles</a></li>
-            <li class="sidebar-nav-item"><a href="donate.html">Donate</a></li>
+            <li class="sidebar-nav-item"><a href="https://news.northernvisionke.org/donate.html">Donate</a></li>
             <li class="sidebar-nav-item"><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
+    <!-- Header -->
+    <header class="masthead d-flex">
+        <div id="three-container"></div>
+        <div class="container animate-up delay-1">
+            <h1>Contact / <span class="highlight" style="color: var(--nvcbo-orange);">Get Involved</span></h1>
+            <p>
+                We welcome partnerships, volunteers, donors, and collaborators who share our commitment to grassroots-led climate action, gender justice, and community empowerment.
+            </p>
+        </div>
+    </header>
+
+    <!-- Contact Info Grid -->
+    <section class="content-section">
+        <div class="container">
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4 reveal-heading">
+                    <div class="contact-info-card">
+                        <i class="icon-envelope contact-icon"></i>
+                        <h4>Email Us</h4>
+                        <p>info@northernvisionke.org</p>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal-heading">
+                    <div class="contact-info-card">
+                        <i class="icon-phone contact-icon"></i>
+                        <h4>Call Us</h4>
+                        <p>+254 7XX XXX XXX</p>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal-heading">
+                    <div class="contact-info-card">
+                        <i class="icon-direction contact-icon"></i>
+                        <h4>Our Office</h4>
+                        <p>Isiolo Town, Northern Kenya</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form & Engagement -->
+    <section class="content-section bg-light">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Form -->
+                <div class="col-lg-7 reveal-heading">
+                    <div class="glass-form-container">
+                        <h2 class="fw-bold mb-4">Send Us a Message</h2>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" placeholder="Email Address" required>
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" class="form-control" placeholder="Subject">
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-submit">Submit Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Pathways -->
+                <div class="col-lg-5">
+                    <div class="row g-4 h-100">
+                        <div class="col-12 reveal-heading">
+                            <div class="pathway-card">
+                                <h3>Partner With Us</h3>
+                                <p>Information for NGOs, funders, and research institutions looking to collaborate on climate, gender, or peace programs. We value co-creation and community-led models.</p>
+                            </div>
+                        </div>
+                        <div class="col-12 reveal-heading">
+                            <div class="pathway-card" style="border-top-color: var(--nvcbo-orange);">
+                                <h3>Volunteer With Us</h3>
+                                <p>Opportunities for individuals who wish to contribute their time or skills. From storytelling to technical support, every hand strengthens our vision.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Map -->
-    <section id="contact" class="map" style="height: 100vh;">
+    <section id="map" class="map" style="height: 450px;">
         <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Isiolo,+Kenya&aq=0&ie=UTF8&t=m&z=12&iwloc=A&output=embed"></iframe>
     </section>
 
@@ -201,26 +342,34 @@
                 <div class="col-lg-6">
                     <div class="d-flex align-items-center mb-4">
                         <div class="brand-logo-glass">NV</div>
-                        <div class="brand-name h3 mb-0 fw-bold">Northern Vision CBO</div>
+                        <div class="brand-name h3 mb-0 fw-bold">Northern Vision <sup>CBO</sup></div>
                     </div>
                     <p style="color: rgba(255, 255, 255, 0.5); line-height: 1.8; max-width: 450px;">
-                        Advancing climate adaptation, education, and gender justice through community-led innovations in Northern Kenya.
+                        Northern Vision CBO is a grassroots organization advancing climate adaptation, education, gender justice and peacebuilding in Northern Kenya through community-led solutions, healing circles and storytelling.
                     </p>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <h5 class="text-white fw-bold mb-4">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="about.html" class="text-white-50 text-decoration-none">Our Story</a></li>
-                        <li><a href="programs.html" class="text-white-50 text-decoration-none">Impact Areas</a></li>
+                        <li><a href="about.html" class="text-white-50 text-decoration-none">About Us</a></li>
+                        <li><a href="programs.html" class="text-white-50 text-decoration-none">Programs</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Projects</a></li>
                         <li><a href="healing.html" class="text-white-50 text-decoration-none">Healing Circles</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Stories & Media</a></li>
+                        <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <h5 class="text-white fw-bold mb-4">Connect</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="donate.html" class="text-white-50 text-decoration-none">Support Us</a></li>
+                    <ul class="list-unstyled mb-4">
+                        <li><a href="https://news.northernvisionke.org/donate.html" class="text-white-50 text-decoration-none">Support Us</a></li>
                         <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact Info</a></li>
                     </ul>
+                    <div class="d-flex">
+                        <a href="#" class="social-link" title="Facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="social-link" title="Instagram"><i class="fa fa-instagram"></i></a>
+                        <a href="#" class="social-link" title="X (Twitter)"><i class="fa fa-twitter"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -237,13 +386,91 @@
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
     <script>
+        // --- THREE.JS MANAGEMENT ---
+        let scene, camera, renderer, particles;
+        let mouseX = 0, mouseY = 0;
+
+        function initThree() {
+            const container = document.getElementById('three-container');
+            if (!container) return;
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+            camera.position.z = 5;
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            container.appendChild(renderer.domElement);
+            
+            const geometry = new THREE.BufferGeometry();
+            const vertices = [];
+            for (let i = 0; i < 1500; i++) {
+                vertices.push(Math.random() * 20 - 10, Math.random() * 20 - 10, Math.random() * 20 - 10);
+            }
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+            const material = new THREE.PointsMaterial({ 
+                color: 0xFF8C00, size: 0.03, transparent: true, opacity: 0.5, blending: THREE.AdditiveBlending 
+            });
+            particles = new THREE.Points(geometry, material);
+            scene.add(particles);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            if (particles) {
+                particles.rotation.y += 0.001;
+                particles.rotation.x += 0.0005;
+                particles.position.x += (mouseX - particles.position.x) * 0.05;
+                particles.position.y += (-mouseY - particles.position.y) * 0.05;
+                renderer.render(scene, camera);
+            }
+        }
+
+        // --- INTERSECTION OBSERVER ---
+        function initRevealHeadings() {
+            const observerOptions = { threshold: 0.15 };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, observerOptions);
+            document.querySelectorAll('.reveal-heading').forEach(el => observer.observe(el));
+        }
+
         $(document).ready(function() {
             $("#menu-toggle").click(function(e) {
                 e.preventDefault();
                 $("#sidebar-wrapper").toggleClass("active");
                 $(".menu-toggle > .fa").toggleClass("fa-bars fa-times");
             });
+            initRevealHeadings();
+
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 400) {
+                    $('.scroll-to-top').fadeIn(300);
+                } else {
+                    $('.scroll-to-top').fadeOut(300);
+                }
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = (e.clientX - window.innerWidth / 2) / 300;
+                mouseY = (e.clientY - window.innerHeight / 2) / 300;
+            });
+        });
+        
+        window.onload = function() { initThree(); animate(); };
+        window.addEventListener('resize', () => {
+            if (camera && renderer) {
+                const container = document.getElementById('three-container');
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            }
         });
     </script>
 </body>
