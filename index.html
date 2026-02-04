@@ -356,22 +356,39 @@
         }
 
         /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 992px) {
+            .content-section { padding: 6rem 0; }
+            .masthead { min-height: 50vh; padding: 6rem 1rem; }
+            .service-card { padding: 3rem 1.5rem; }
+        }
+
         @media (max-width: 768px) {
-            .section-heading { margin-bottom: 3rem; }
-            .content-section { padding: 4rem 0; }
-            .masthead { min-height: auto; padding: 6rem 1rem 4rem; }
+            .section-heading { margin-bottom: 3.5rem; }
             .masthead h1 { font-size: 2.5rem; }
             .service-card { margin-bottom: 1rem; padding: 2.5rem 1.5rem; }
             .callout { padding: 6rem 0; }
             .donation-section { padding: 5rem 0; }
-            .footer-stone { padding: 4rem 0 2rem; }
             .btn-xl { padding: 1rem 2rem; min-width: 200px; font-size: 0.85rem; }
         }
 
-        @media (max-width: 480px) {
-             .masthead h1 { font-size: 2rem; }
-             .section-heading h2 { font-size: 2rem; }
-             .menu-toggle { width: 45px; height: 45px; line-height: 45px; top: 15px; right: 15px; }
+        @media (max-width: 576px) {
+            .section-heading { margin-bottom: 3rem; }
+            .section-heading h2 { font-size: 1.85rem; }
+            .masthead h1 { font-size: 2.2rem; }
+            .masthead h2 { font-size: 1rem; line-height: 1.6; margin-bottom: 2.5rem; }
+            .service-card { border-radius: 20px; padding: 2rem 1.25rem; }
+            .service-icon { width: 70px; height: 70px; font-size: 1.5rem; margin-bottom: 1.5rem; }
+            .donation-glass-box { padding: 2.5rem 1.5rem; border-radius: 24px; }
+            .footer-stone { padding: 4rem 0 2rem 0; }
+            .btn-xl { padding: 1rem 2rem; min-width: 180px; font-size: 0.85rem; }
+            .brand-name.h3 { font-size: 1.5rem; }
+            .menu-toggle { width: 45px; height: 45px; line-height: 45px; top: 15px; right: 15px; }
+        }
+
+        @media (max-width: 400px) {
+            .masthead h1 { font-size: 1.85rem; }
+            .section-heading h2 { font-size: 1.75rem; }
+            .service-card { padding: 1.75rem 1rem; }
         }
     </style>
 </head>
@@ -674,6 +691,25 @@
             initHealingThree();
             animate();
         };
+
+        window.addEventListener('resize', () => {
+            if (heroCamera && heroRenderer) {
+                const container = document.getElementById('three-container');
+                if (container) {
+                    heroCamera.aspect = container.clientWidth / container.clientHeight;
+                    heroCamera.updateProjectionMatrix();
+                    heroRenderer.setSize(container.clientWidth, container.clientHeight);
+                }
+            }
+            if (healingCamera && healingRenderer) {
+                const container = document.getElementById('healing-three-container');
+                if (container) {
+                    healingCamera.aspect = container.clientWidth / container.clientHeight;
+                    healingCamera.updateProjectionMatrix();
+                    healingRenderer.setSize(container.clientWidth, container.clientHeight);
+                }
+            }
+        });
     </script>
 </body>
 
