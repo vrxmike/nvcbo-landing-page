@@ -214,10 +214,102 @@
         .callout .section-heading .subheading { color: var(--nvcbo-cream); }
 
         /* --- FOOTER --- */
-        .footer-stone { background-color: var(--nvcbo-stone); color: #ecf0f1; padding: 7rem 0 3rem 0; }
-        .footer-bottom { margin-top: 5rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center; font-size: 0.85rem; color: rgba(255, 255, 255, 0.3); }
-        .brand-logo-glass { background: rgba(255, 140, 0, 0.2); backdrop-filter: blur(5px); border: 1px solid rgba(255, 140, 0, 0.3); color: var(--nvcbo-orange); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; font-weight: 900; border-radius: 12px; margin-right: 15px; }
-        .scroll-to-top { position: fixed; right: 25px; bottom: 25px; display: none; width: 50px; height: 50px; text-align: center; color: #fff; line-height: 50px; z-index: 999; text-decoration: none; background: rgba(255, 140, 0, 0.6) !important; backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.2); }
+        .footer-stone { 
+            background: linear-gradient(135deg, #CC5500 0%, #B7410E 100%); 
+            color: white; 
+            padding: 7rem 0 3rem 0; 
+        }
+        .footer-bottom { 
+            margin-top: 5rem; 
+            padding-top: 2rem; 
+            border-top: 1px solid rgba(255, 255, 255, 0.2); 
+            text-align: center; 
+            font-size: 0.85rem; 
+            color: rgba(255, 255, 255, 0.7); 
+        }
+        .brand-logo-glass { 
+            background: rgba(255, 255, 255, 0.15); 
+            backdrop-filter: blur(5px); 
+            border: 1px solid rgba(255, 255, 255, 0.4); 
+            color: white; 
+            width: 50px; 
+            height: 50px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-weight: 900; 
+            border-radius: 12px; 
+            margin-right: 15px; 
+        }
+
+        @keyframes cbo-breath {
+            0%, 100% { transform: translateY(-2px) scale(1); opacity: 0.8; color: var(--nvcbo-orange); }
+            50% { transform: translateY(-2px) scale(1.15); opacity: 1; color: white; text-shadow: 0 0 10px rgba(255, 140, 0, 0.5); }
+        }
+        .brand-name sup {
+            display: inline-block;
+            font-size: 0.55em;
+            margin-left: 2px;
+            animation: cbo-breath 3s ease-in-out infinite;
+            font-weight: 900;
+            vertical-align: top;
+            top: -0.5em;
+        }
+
+        .scroll-to-top { 
+            position: fixed; 
+            right: 30px; 
+            bottom: 30px; 
+            display: none; 
+            width: 55px; 
+            height: 55px; 
+            text-align: center; 
+            color: #fff; 
+            line-height: 55px; 
+            z-index: 1000; 
+            text-decoration: none; 
+            background: var(--nvcbo-orange) !important; 
+            border-radius: 50% !important; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25); 
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            border: 2px solid rgba(255, 255, 255, 0.2); 
+        }
+        .scroll-to-top:hover {
+            background: var(--nvcbo-dark-orange) !important;
+            transform: scale(1.1) translateY(-5px);
+            color: white;
+        }
+
+        /* Footer visibility overrides */
+        .footer-stone a.text-white-50 { color: rgba(255, 255, 255, 0.85) !important; transition: all 0.3s; }
+        .footer-stone a.text-white-50:hover { color: white !important; padding-left: 5px; }
+        .footer-stone p { color: rgba(255, 255, 255, 0.9) !important; }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white !important;
+            text-decoration: none;
+            margin-right: 12px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+        .social-link:hover {
+            background: white;
+            color: var(--nvcbo-orange) !important;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            border-color: white;
+        }
+        .social-link:active {
+            transform: scale(0.9);
+        }
     </style>
 </head>
 
@@ -266,26 +358,34 @@
                 <div class="col-lg-6">
                     <div class="d-flex align-items-center mb-4">
                         <div class="brand-logo-glass">NV</div>
-                        <div class="brand-name h3 mb-0 fw-bold">Northern Vision CBO</div>
+                        <div class="brand-name h3 mb-0 fw-bold">Northern Vision <sup>CBO</sup></div>
                     </div>
                     <p style="color: rgba(255, 255, 255, 0.5); line-height: 1.8; max-width: 450px;">
-                        Advancing climate adaptation, education, and gender justice through community-led innovations in Northern Kenya.
+                        Northern Vision CBO is a grassroots organization advancing climate adaptation, education, gender justice and peacebuilding in Northern Kenya through community-led solutions, healing circles and storytelling.
                     </p>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <h5 class="text-white fw-bold mb-4">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="about.html" class="text-white-50 text-decoration-none">Our Story</a></li>
-                        <li><a href="programs.html" class="text-white-50 text-decoration-none">Impact Areas</a></li>
+                        <li><a href="about.html" class="text-white-50 text-decoration-none">About Us</a></li>
+                        <li><a href="programs.html" class="text-white-50 text-decoration-none">Programs</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Projects</a></li>
                         <li><a href="healing.html" class="text-white-50 text-decoration-none">Healing Circles</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Stories & Media</a></li>
+                        <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <h5 class="text-white fw-bold mb-4">Connect</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="donate.html" class="text-white-50 text-decoration-none">Support Us</a></li>
+                    <ul class="list-unstyled mb-4">
+                        <li><a href="https://news.northernvisionke.org/donate.html" class="text-white-50 text-decoration-none">Support Us</a></li>
                         <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact Info</a></li>
                     </ul>
+                    <div class="d-flex">
+                        <a href="#" class="social-link" title="Facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="social-link" title="Instagram"><i class="fa fa-instagram"></i></a>
+                        <a href="#" class="social-link" title="X (Twitter)"><i class="fa fa-twitter"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
