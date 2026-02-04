@@ -1,0 +1,305 @@
+/* --- GLOBAL THEME VARIABLES --- */
+:root {
+    --nvcbo-blue: #1D809F;
+    --nvcbo-dark-blue: #155d74;
+    --nvcbo-orange: #FF8C00;
+    --nvcbo-dark-orange: #CC5500;
+    --nvcbo-cream: #FFF5E6;
+    --nvcbo-light-bg: #f4f7f8;
+    --nvcbo-stone: #1a252f;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    overflow-x: hidden;
+    background-color: var(--nvcbo-light-bg);
+    color: #333;
+}
+
+/* --- GLASSMORPHISM UTILITY --- */
+.glass-panel, .card, .service-card, .program-card {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    border-radius: 24px;
+}
+
+/* --- NAVIGATION --- */
+.menu-toggle {
+    position: fixed;
+    right: 25px;
+    top: 25px;
+    width: 55px;
+    height: 55px;
+    text-align: center;
+    color: #fff;
+    background: rgba(255, 140, 0, 0.8); /* Glass Orange */
+    backdrop-filter: blur(8px);
+    line-height: 55px;
+    z-index: 9999;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+}
+
+.menu-toggle:hover {
+    transform: scale(1.1) rotate(90deg);
+    color: #fff;
+    background: var(--nvcbo-orange);
+}
+
+#sidebar-wrapper {
+    position: fixed;
+    z-index: 9998;
+    right: 0;
+    width: 280px;
+    height: 100%;
+    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    transform: translateX(280px);
+    background: rgba(204, 85, 0, 0.85); /* Deep Glass Orange */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    overflow-y: auto;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-nav {
+    padding: 2rem 0;
+    list-style: none;
+}
+
+.sidebar-nav li.sidebar-nav-item a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s;
+}
+
+.sidebar-nav li.sidebar-nav-item a:hover {
+    background: rgba(255, 255, 255, 0.15);
+    padding-left: 2.5rem;
+}
+
+.sidebar-nav li.sidebar-brand {
+    font-size: 1.8rem;
+    font-weight: 900;
+    padding: 1rem 2rem 3rem 2rem;
+    color: #fff;
+}
+
+#sidebar-wrapper.active {
+    transform: translateX(0);
+}
+
+/* --- HERO SECTION --- */
+.masthead, .page-header {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(21, 93, 116, 0.85), rgba(29, 128, 159, 0.7)),
+                url('assets/img/IMG_4320.png');
+    background-position: center;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 4rem 1rem;
+    overflow: hidden;
+}
+
+.page-header {
+    min-height: 50vh; /* Shorter for subpages */
+    padding-top: 8rem;
+}
+
+#three-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.masthead .container, .page-header .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* --- BUTTONS --- */
+.btn-xl {
+    padding: 1.25rem 2.5rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 240px;
+}
+
+.btn-primary-custom {
+    background: linear-gradient(135deg, #FF8C00 0%, #CC5500 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(204, 85, 0, 0.3);
+}
+
+.btn-primary-custom:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 140, 0, 0.4);
+    color: white;
+}
+
+.btn-outline-custom {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: white;
+}
+
+.btn-outline-custom:hover {
+    background: white;
+    color: var(--nvcbo-blue);
+    transform: translateY(-5px);
+}
+
+/* --- SECTIONS --- */
+.content-section {
+    padding: 9rem 0;
+}
+
+/* --- SERVICE CARDS (GLASSMORPHISM) --- */
+.service-card, .program-card, .card {
+    background: rgba(255, 255, 255, 0.65) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 4rem 2rem;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.service-card:hover, .program-card:hover {
+    transform: translateY(-12px);
+    background: rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+    border-color: var(--nvcbo-orange);
+}
+
+.service-icon, .program-icon {
+    background: linear-gradient(135deg, var(--nvcbo-blue) 0%, var(--nvcbo-dark-blue) 100%);
+    color: white;
+    width: 85px;
+    height: 85px;
+    border-radius: 22px; /* Squircle look */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 8px 20px rgba(29, 128, 159, 0.2);
+}
+
+/* --- CALLOUT --- */
+.callout {
+    padding: 10rem 0;
+    background: linear-gradient(rgba(21, 93, 116, 0.92), rgba(29, 128, 159, 0.85)),
+                url('assets/img/bg-callout.jpg');
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    text-align: center;
+    color: white;
+}
+
+/* --- DONATION SECTION --- */
+.donation-section {
+    background: linear-gradient(135deg, var(--nvcbo-orange) 0%, var(--nvcbo-dark-orange) 100%);
+    color: white;
+    text-align: center;
+    padding: 9rem 0;
+}
+
+.donation-glass-box {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 4rem 2rem;
+    border-radius: 32px;
+}
+
+/* --- FOOTER --- */
+.footer-stone {
+    background-color: var(--nvcbo-stone);
+    color: #ecf0f1;
+    padding: 7rem 0 3rem 0;
+}
+
+.footer-bottom {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.brand-logo-glass {
+    background: rgba(255, 140, 0, 0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 140, 0, 0.3);
+    color: var(--nvcbo-orange);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    border-radius: 12px;
+    margin-right: 15px;
+}
+
+.scroll-to-top {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    display: none;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    color: #fff;
+    line-height: 50px;
+    z-index: 10002 !important;
+    text-decoration: none;
+    background: rgba(255, 140, 0, 0.6) !important;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.scroll-to-top:hover {
+    background: rgba(255, 140, 0, 1) !important;
+    transform: translateY(-5px);
+}

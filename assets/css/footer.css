@@ -1,0 +1,101 @@
+/* --- FOOTER OVERRIDES --- */
+.footer-stone {
+    background-color: #FFF5E6; /* --nvcbo-cream */
+    border-top: 1px solid #FFAB76; /* Lighter orange border */
+    padding: 5rem 1.5rem 2rem 1.5rem;
+    color: #333333; /* Dark gray for readability on cream */
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.footer-stone .brand-logo {
+    width: 24px;
+    height: 24px;
+    background-color: #FF8C00; /* --nvcbo-orange */
+    border-radius: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 10px;
+    margin-right: 0.5rem;
+}
+
+.footer-stone .brand-name {
+    font-weight: 800;
+    font-size: 1.25rem;
+    letter-spacing: -0.05em;
+    color: #CC5500; /* --nvcbo-dark-orange */
+    text-transform: uppercase;
+}
+
+.footer-stone .footer-description {
+    color: #666666; /* Slightly lighter gray */
+    margin-bottom: 2rem;
+    max-width: 24rem;
+    line-height: 1.625;
+}
+
+.footer-stone h4 {
+    font-weight: 700;
+    color: #CC5500; /* --nvcbo-dark-orange */
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.footer-stone ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-stone ul li {
+    margin-bottom: 1rem;
+}
+
+.footer-stone ul li a {
+    color: #666666;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.3s ease;
+}
+
+.footer-stone ul li a:hover {
+    color: #FF8C00; /* --nvcbo-orange */
+}
+
+.social-icon-box {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    color: #CC5500; /* --nvcbo-dark-orange */
+}
+
+.social-icon-box:hover {
+    background-color: #FF8C00; /* --nvcbo-orange */
+    color: white;
+}
+
+.social-icon-box svg {
+    width: 20px;
+    height: 20px;
+}
+
+.footer-bottom {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid #FFAB76; /* Match top border */
+    text-align: center;
+    font-size: 0.75rem;
+    color: #999999;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
