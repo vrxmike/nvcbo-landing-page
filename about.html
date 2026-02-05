@@ -31,6 +31,7 @@
 
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         body {
@@ -276,7 +277,7 @@
             color: rgba(255, 255, 255, 0.7); 
         }
         .brand-logo-glass { 
-            background: rgba(255, 255, 255, 0.15); 
+            background: transparent; 
             backdrop-filter: blur(5px); 
             border: 1px solid rgba(255, 255, 255, 0.4); 
             color: white; 
@@ -339,7 +340,8 @@
             position: fixed;
             right: 30px;
             bottom: 30px;
-            display: none;
+            opacity: 0;
+            visibility: hidden;
             width: 55px;
             height: 55px;
             text-align: center;
@@ -352,6 +354,12 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 2px solid rgba(255, 255, 255, 0.2);
+            transform: translateY(20px);
+        }
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
         }
         .scroll-to-top:hover {
             background: var(--nvcbo-dark-orange) !important;
@@ -361,33 +369,37 @@
 
         /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 992px) {
-            .content-section { padding: 6rem 0; }
-            .masthead { min-height: 50vh; padding: 6rem 1rem; }
-            .section-heading { margin-bottom: 3rem; }
+            .content-section { padding: 5rem 0; }
+            .masthead { min-height: 50vh; padding: 5rem 1rem; }
+            .section-heading { margin-bottom: 3.5rem; }
             .glass-card { padding: 3rem 1.5rem; margin-bottom: 2rem; height: auto !important; }
             .feature-box { padding: 2rem 1.5rem; margin-bottom: 1.5rem; height: auto !important; }
         }
 
         @media (max-width: 576px) {
             .masthead h1 { font-size: 2.5rem; }
-            .masthead h2 { font-size: 1rem; margin-bottom: 2rem; }
-            .content-section { padding: 4rem 0; }
+            .masthead h2 { font-size: 1rem; margin-bottom: 2rem; line-height: 1.6; }
+            .content-section { padding: 3rem 0; }
+            .section-heading { margin-bottom: 2rem; }
             .section-heading h2 { font-size: 2rem; }
             .glass-card { padding: 2rem 1rem; border-radius: 20px; }
             .glass-card h3 { font-size: 1.5rem !important; }
             .feature-box { padding: 2rem 1rem; border-radius: 16px; }
             .feature-box h4 { font-size: 1.25rem; }
             .feature-box p { font-size: 1rem; }
-            .value-item { padding: 1.5rem 1rem; flex-direction: column; align-items: flex-start !important; }
+            .value-item { padding: 1.25rem 1rem; flex-direction: column; align-items: flex-start !important; }
             .value-item i { margin-bottom: 0.5rem; }
             .footer-stone { padding: 4rem 0 2rem 0; }
-            .menu-toggle { right: 15px; top: 15px; width: 45px; height: 45px; line-height: 45px; }
+            .menu-toggle { right: 25px; top: 25px; width: 55px; height: 55px; line-height: 55px; }
+            .scroll-to-top { width: 45px; height: 45px; line-height: 45px; right: 20px; bottom: 20px; }
             #sidebar-wrapper { width: 250px; }
         }
     </style>
 </head>
 
 <body id="page-top">
+    <!-- Sentinel for Scroll-to-Top IntersectionObserver -->
+    <div id="top-sentinel" style="position: absolute; top: 0; height: 400px; width: 100%; pointer-events: none; visibility: hidden;"></div>
 
     <!-- Sidebar Toggle -->
     <a class="menu-toggle rounded" href="#" id="menu-toggle">
@@ -534,7 +546,9 @@
             <div class="row g-5">
                 <div class="col-lg-6">
                     <div class="d-flex align-items-center mb-4">
-                        <div class="brand-logo-glass">NV</div>
+                        <div class="brand-logo-glass">
+                            <img src="assets/img/nvcbo-logo.webp" alt="NVCBO Logo" style="height: 80%; width: 80%; object-fit: contain; mix-blend-mode: multiply;">
+                        </div>
                         <div class="brand-name h3 mb-0 fw-bold">Northern Vision <sup>CBO</sup></div>
                     </div>
                     <p style="color: rgba(255, 255, 255, 0.5); line-height: 1.8; max-width: 450px;">
@@ -658,13 +672,22 @@
 
             initRevealHeadings();
             
-            $(window).scroll(function() {
-                if ($(this).scrollTop() > 400) {
-                    $('.scroll-to-top').fadeIn(300);
-                } else {
-                    $('.scroll-to-top').fadeOut(300);
-                }
-            });
+            // Modern IntersectionObserver for Scroll-to-Top (No scroll listeners)
+            const sentinel = document.getElementById('top-sentinel');
+            const scrollToTopBtn = document.querySelector('.scroll-to-top');
+            
+            if (sentinel && scrollToTopBtn) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (!entry.isIntersecting) {
+                            scrollToTopBtn.classList.add('visible');
+                        } else {
+                            scrollToTopBtn.classList.remove('visible');
+                        }
+                    });
+                }, { root: null, threshold: 0 });
+                observer.observe(sentinel);
+            }
 
             // Mouse movement tracker for Three.js
             document.addEventListener('mousemove', (e) => {
