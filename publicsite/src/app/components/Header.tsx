@@ -34,7 +34,7 @@ export default function Header() {
           <Link href="#programs" className={`font-semibold text-sm uppercase tracking-wider transition-colors ${scrolled ? 'text-nvcbo-stone hover:text-nvcbo-orange' : 'text-white/90 hover:text-white'}`}>Programs</Link>
           <Link href="#healing" className={`font-semibold text-sm uppercase tracking-wider transition-colors ${scrolled ? 'text-nvcbo-stone hover:text-nvcbo-orange' : 'text-white/90 hover:text-white'}`}>Healing Circles</Link>
           <Link href="#donate" className={`font-semibold text-sm uppercase tracking-wider transition-colors ${scrolled ? 'text-nvcbo-stone hover:text-nvcbo-orange' : 'text-white/90 hover:text-white'}`}>Donate</Link>
-          <Link href="#contact" className="btn-primary-nv px-6 py-2 rounded-full font-bold text-sm">Contact</Link>
+          <Link href="#contact" className="inline-flex items-center justify-center px-6 py-2 rounded-full font-bold uppercase tracking-wider bg-gradient-to-br from-nvcbo-orange to-nvcbo-dark-orange text-white shadow-[0_4px_15px_rgba(204,85,0,0.3)] hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,140,0,0.4)] transition-all duration-300 text-sm">Contact</Link>
         </nav>
 
         {/* Mobile Toggle */}

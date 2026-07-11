@@ -111,28 +111,3 @@ body {
 .delay-2 { animation-delay: 0.5s; }
 .delay-3 { animation-delay: 0.8s; }
 
-/* Buttons */
-.btn-primary-nv {
-  background: linear-gradient(135deg, var(--color-nvcbo-orange) 0%, var(--color-nvcbo-dark-orange) 100%);
-  color: white;
-  border: none;
-  box-shadow: 0 4px 15px rgba(204, 85, 0, 0.3);
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-.btn-primary-nv:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(255, 140, 0, 0.4);
-}
-
-.btn-outline-nv {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  color: white;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-.btn-outline-nv:hover {
-  background: white;
-  color: var(--color-nvcbo-blue);
-  transform: translateY(-5px);
-}

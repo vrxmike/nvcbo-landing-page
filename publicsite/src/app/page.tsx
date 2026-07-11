@@ -23,10 +23,10 @@ export default function Home() {
               Northern Vision Community-Based Organization (NVCBO) is a grassroots organization working with indigenous and pastoralist communities to strengthen climate resilience, gender justice, education and community wellbeing in Northern Kenya’s Arid and Semi-Arid Lands (ASALs).
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-up delay-3">
-              <Link href="#about" className="btn-primary-nv w-full sm:w-auto text-center">
+              <Link href="#about" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider bg-gradient-to-br from-nvcbo-orange to-nvcbo-dark-orange text-white shadow-[0_4px_15px_rgba(204,85,0,0.3)] hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,140,0,0.4)] transition-all duration-300 w-full sm:w-auto text-center">
                 Learn More About Us
               </Link>
-              <Link href="#programs" className="btn-outline-nv w-full sm:w-auto text-center">
+              <Link href="#programs" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider bg-white/10 backdrop-blur-sm border border-white/50 text-white hover:bg-white hover:text-nvcbo-blue hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,255,255,0.2)] transition-all duration-300 w-full sm:w-auto text-center">
                 Explore Our Programs
               </Link>
             </div>
@@ -111,7 +111,7 @@ export default function Home() {
           </div>
           
           <div className="mt-16 text-center">
-            <Link href="#programs" className="btn-primary-nv">
+            <Link href="#programs" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider bg-gradient-to-br from-nvcbo-orange to-nvcbo-dark-orange text-white shadow-[0_4px_15px_rgba(204,85,0,0.3)] hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,140,0,0.4)] transition-all duration-300">
               Explore Details
             </Link>
           </div>
@@ -140,7 +140,7 @@ export default function Home() {
             Healing circles are a core methodology across all Northern Vision programs. They are used for community dialogue, participatory planning, conflict resolution, youth mentorship and internal organizational reflection.
           </p>
           
-          <Link href="#healing" className="btn-primary-nv">
+          <Link href="#healing" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider bg-gradient-to-br from-nvcbo-orange to-nvcbo-dark-orange text-white shadow-[0_4px_15px_rgba(204,85,0,0.3)] hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,140,0,0.4)] transition-all duration-300">
             Our Approach
           </Link>
         </div>
@@ -159,7 +159,7 @@ export default function Home() {
                 <Link href="#donate" className="inline-flex items-center justify-center px-8 py-4 bg-white text-nvcbo-dark-orange rounded-full font-bold uppercase tracking-wider transition-all shadow hover:shadow-lg hover:-translate-y-1 w-full sm:w-auto">
                   Donate Now
                 </Link>
-                <Link href="#contact" className="btn-outline-nv w-full sm:w-auto">
+                <Link href="#contact" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider bg-white/10 backdrop-blur-sm border border-white/50 text-white hover:bg-white hover:text-nvcbo-blue hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,255,255,0.2)] transition-all duration-300 w-full sm:w-auto">
                   Become a Partner
                 </Link>
               </div>
