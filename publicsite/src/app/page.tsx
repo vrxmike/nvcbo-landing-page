@@ -132,7 +132,7 @@ export default function Home() {
         <div className="container relative z-10 mx-auto px-6 text-center">
           <div className="mb-12">
             <span className="text-sm font-extrabold uppercase tracking-[4px] text-brand-cream mb-3 block">Our Methodology</span>
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-6">Healing Circles</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-brand-espresso mb-6">Healing Circles</h2>
             <div className="w-16 h-1 bg-brand-cream mx-auto rounded-full"></div>
           </div>
           
@@ -150,13 +150,13 @@ export default function Home() {
       <section id="donate" className="py-32 bg-gradient-to-br from-brand-gold to-brand-rust relative">
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
-            <div className="neo-card bg-brand-gold text-brand-espresso p-12 md:p-16 rounded-[2rem] text-center shadow-2xl">
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-6">Support Grassroots Action</h2>
-              <p className="text-xl text-white/90 leading-relaxed mb-10 max-w-2xl mx-auto">
+            <div className="bg-white text-brand-espresso p-12 md:p-16 rounded-[2rem] text-center shadow-2xl border border-white/20">
+              <h2 className="text-4xl md:text-5xl font-black text-brand-espresso mb-6">Support Grassroots Action</h2>
+              <p className="text-xl text-brand-espresso/80 leading-relaxed mb-10 max-w-2xl mx-auto">
                 We welcome partnerships, volunteers, donors, and collaborators who share our commitment to grassroots-led climate action and community empowerment.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link href="#donate" className="inline-flex items-center justify-center px-8 py-4 bg-white text-brand-rust rounded-full font-bold uppercase tracking-wider transition-all shadow hover:shadow-lg hover:-translate-y-1 w-full sm:w-auto">
+                <Link href="#donate" className="inline-flex items-center justify-center px-8 py-4 bg-brand-rust text-white rounded-full font-bold uppercase tracking-wider transition-all shadow hover:shadow-lg hover:-translate-y-1 w-full sm:w-auto">
                   Donate Now
                 </Link>
                 <Link href="#contact" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider neo-btn text-brand-espresso hover:text-brand-gold hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,255,255,0.2)] transition-all duration-300 w-full sm:w-auto">
