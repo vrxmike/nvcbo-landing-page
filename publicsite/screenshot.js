@@ -26,3 +26,14 @@ const { chromium } = require('playwright');
   await browser.close();
   console.log("Screenshots captured successfully!");
 })();
+
+(async () => {
+  const { chromium } = require('playwright');
+  const browser = await chromium.launch();
+  const context = await browser.newContext();
+  const desktopPage = await context.newPage();
+  await desktopPage.setViewportSize({ width: 1280, height: 800 });
+  await desktopPage.goto('http://localhost:3000/about', { waitUntil: 'networkidle' });
+  await desktopPage.screenshot({ path: 'designrefs/about_desktop_view.png', fullPage: true });
+  await browser.close();
+})();
