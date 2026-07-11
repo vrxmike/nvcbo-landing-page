@@ -43,12 +43,12 @@ export default function Header() {
         </Link>
 
         {/* Desktop Nav with Refined Dropdowns (Always dark text for readability against sticky glass backdrop) */}
-        <nav className="hidden lg:flex items-center gap-1 bg-nvcbo-stone/5 border border-nvcbo-stone/10 px-3 py-1.5 rounded-full shadow-inner">
-          <Link href="/" className="font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full text-nvcbo-stone hover:bg-nvcbo-stone/5 hover:text-nvcbo-orange transition-all duration-300">Home</Link>
+        <nav className="hidden md:flex items-center gap-0.5 lg:gap-1 bg-nvcbo-stone/5 border border-nvcbo-stone/10 px-2 lg:px-3 py-1.5 rounded-full shadow-inner">
+          <Link href="/" className="font-bold text-[10px] lg:text-xs uppercase tracking-widest px-2.5 lg:px-4 py-2 rounded-full text-nvcbo-stone hover:bg-nvcbo-stone/5 hover:text-nvcbo-orange transition-all duration-300">Home</Link>
           
           {/* About Us Dropdown */}
           <div className="relative group">
-            <button className="flex items-center gap-1 font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full text-nvcbo-stone hover:bg-nvcbo-stone/5 hover:text-nvcbo-orange transition-all duration-300 focus:outline-none">
+            <button className="flex items-center gap-1 font-bold text-[10px] lg:text-xs uppercase tracking-widest px-2.5 lg:px-4 py-2 rounded-full text-nvcbo-stone hover:bg-nvcbo-stone/5 hover:text-nvcbo-orange transition-all duration-300 focus:outline-none">
               About Us <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
             </button>
             <div className="absolute top-full left-0 mt-2 w-52 rounded-2xl glass border border-white/20 p-2 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
@@ -62,7 +62,7 @@ export default function Header() {
 
           {/* Programs Dropdown */}
           <div className="relative group">
-            <button className="flex items-center gap-1 font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full text-nvcbo-stone hover:bg-nvcbo-stone/5 hover:text-nvcbo-orange transition-all duration-300 focus:outline-none">
+            <button className="flex items-center gap-1 font-bold text-[10px] lg:text-xs uppercase tracking-widest px-2.5 lg:px-4 py-2 rounded-full text-nvcbo-stone hover:bg-nvcbo-stone/5 hover:text-nvcbo-orange transition-all duration-300 focus:outline-none">
               Programs <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
             </button>
             <div className="absolute top-full left-0 mt-2 w-64 rounded-2xl glass border border-white/20 p-2 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
@@ -75,7 +75,7 @@ export default function Header() {
 
           {/* Projects Dropdown */}
           <div className="relative group">
-            <button className="flex items-center gap-1 font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full text-nvcbo-stone hover:bg-nvcbo-stone/5 hover:text-nvcbo-orange transition-all duration-300 focus:outline-none">
+            <button className="flex items-center gap-1 font-bold text-[10px] lg:text-xs uppercase tracking-widest px-2.5 lg:px-4 py-2 rounded-full text-nvcbo-stone hover:bg-nvcbo-stone/5 hover:text-nvcbo-orange transition-all duration-300 focus:outline-none">
               Projects <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
             </button>
             <div className="absolute top-full left-0 mt-2 w-60 rounded-2xl glass border border-white/20 p-2 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
@@ -87,15 +87,15 @@ export default function Header() {
             </div>
           </div>
 
-          <Link href="#donate" className="flex items-center gap-1.5 font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full text-nvcbo-stone hover:bg-nvcbo-stone/5 hover:text-nvcbo-orange transition-all duration-300">
+          <Link href="#donate" className="flex items-center gap-1.5 font-bold text-[10px] lg:text-xs uppercase tracking-widest px-2.5 lg:px-4 py-2 rounded-full text-nvcbo-stone hover:bg-nvcbo-stone/5 hover:text-nvcbo-orange transition-all duration-300">
             Shop <span className="bg-nvcbo-orange text-white text-[9px] font-black px-1.5 py-0.5 rounded-full">New</span>
           </Link>
           
-          <Link href="#contact" className="inline-flex items-center justify-center px-5 py-2 rounded-full font-extrabold uppercase tracking-widest bg-gradient-to-br from-nvcbo-orange to-nvcbo-dark-orange text-white shadow-[0_4px_10px_rgba(204,85,0,0.25)] hover:scale-105 transition-all duration-300 text-xs ml-1">Contact</Link>
+          <Link href="#contact" className="inline-flex items-center justify-center px-4 lg:px-5 py-2 rounded-full font-extrabold uppercase tracking-widest bg-gradient-to-br from-nvcbo-orange to-nvcbo-dark-orange text-white shadow-[0_4px_10px_rgba(204,85,0,0.25)] hover:scale-105 transition-all duration-300 text-[10px] lg:text-xs ml-1">Contact</Link>
         </nav>
 
         {/* Mobile Toggle */}
-        <button className="lg:hidden text-nvcbo-stone font-bold p-2 bg-nvcbo-stone/5 rounded-full hover:bg-nvcbo-stone/10 transition-colors" onClick={() => setMobileMenuOpen(true)}>
+        <button className="md:hidden text-nvcbo-stone font-bold p-2 bg-nvcbo-stone/5 rounded-full hover:bg-nvcbo-stone/10 transition-colors" onClick={() => setMobileMenuOpen(true)}>
           <Menu className="w-6 h-6" />
         </button>
       </div>
