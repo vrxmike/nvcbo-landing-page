@@ -26,7 +26,7 @@ export default function Home() {
               <Link href="#about" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider bg-gradient-to-br from-brand-gold to-brand-rust text-white shadow-[0_4px_15px_rgba(204,85,0,0.3)] hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,140,0,0.4)] transition-all duration-300 w-full sm:w-auto text-center">
                 Learn More About Us
               </Link>
-              <Link href="#programs" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider neo-btn text-brand-espresso hover:text-brand-gold hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,255,255,0.2)] transition-all duration-300 w-full sm:w-auto text-center">
+              <Link href="#programs" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider neo-btn text-brand-espresso hover:text-brand-gold hover:-translate-y-1 hover:shadow-md transition-all duration-300 w-full sm:w-auto text-center">
                 Explore Our Programs
               </Link>
             </div>
@@ -159,7 +159,7 @@ export default function Home() {
                 <Link href="#donate" className="inline-flex items-center justify-center px-8 py-4 bg-brand-rust text-white rounded-full font-bold uppercase tracking-wider transition-all shadow hover:shadow-lg hover:-translate-y-1 w-full sm:w-auto">
                   Donate Now
                 </Link>
-                <Link href="#contact" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider neo-btn text-brand-espresso hover:text-brand-gold hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,255,255,0.2)] transition-all duration-300 w-full sm:w-auto">
+                <Link href="#contact" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider neo-btn text-brand-espresso hover:text-brand-gold hover:-translate-y-1 hover:shadow-md transition-all duration-300 w-full sm:w-auto">
                   Become a Partner
                 </Link>
               </div>
