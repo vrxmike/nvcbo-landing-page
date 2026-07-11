@@ -32,12 +32,9 @@ export default function Header() {
               className="h-full w-full object-contain"
             />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col justify-center">
             <span className="text-xl font-black leading-none text-brand-espresso tracking-tight">
-              NVCBO
-            </span>
-            <span className="text-[9px] font-bold uppercase tracking-widest text-brand-gold mt-0.5">
-              Northern Vision
+              Northern Vision <sup className="text-brand-gold font-black text-xs">CBO</sup>
             </span>
           </div>
         </Link>
@@ -107,7 +104,7 @@ export default function Header() {
             <div className="h-9 w-9 overflow-hidden rounded-full bg-white p-1 shadow-sm">
               <img src="/nvcbo-logo.webp" alt="Northern Vision Logo" className="h-full w-full object-contain" />
             </div>
-            <span className="text-xl font-black text-white tracking-wide">NVCBO</span>
+            <span className="text-xl font-black text-white tracking-wide">Northern Vision <sup className="text-brand-gold font-black text-xs">CBO</sup></span>
           </div>
           <button onClick={() => setMobileMenuOpen(false)} className="text-white p-2 rounded-full hover:bg-white/10 transition-colors border border-white/20">
             <X className="w-5 h-5" />
