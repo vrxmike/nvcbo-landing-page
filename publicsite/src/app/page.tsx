@@ -16,10 +16,10 @@ export default function Home() {
       >
         <div className="container relative z-10 px-6 mx-auto text-center">
           <div className="max-w-6xl mx-auto animate-up delay-1">
-            <h1 className="text-5xl md:text-7xl font-black text-white mb-6 md:mb-8 lg:mb-6 leading-tight tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-6 md:mb-8 lg:mb-6 leading-tight tracking-tight">
               Grassroots-Led <span className="text-brand-gold">Climate</span>, <span className="text-brand-gold">Gender</span> and <span className="text-brand-gold">Education</span> Solutions in Northern Kenya
             </h1>
-            <p className="text-lg md:text-2xl text-white/90 mb-8 md:mb-10 lg:mb-8 max-w-4xl mx-auto leading-relaxed animate-up delay-2">
+            <p className="text-base sm:text-lg md:text-2xl text-white/90 mb-8 md:mb-10 lg:mb-8 max-w-4xl mx-auto leading-relaxed animate-up delay-2">
               Northern Vision Community-Based Organization (NVCBO) is a grassroots organization working with indigenous and pastoralist communities to strengthen climate resilience, gender justice, education and community wellbeing in Northern Kenya’s Arid and Semi-Arid Lands (ASALs).
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-up delay-3">
@@ -40,7 +40,7 @@ export default function Home() {
           <div className="max-w-5xl mx-auto text-center">
             <div className="mb-12">
               <span className="text-sm font-extrabold uppercase tracking-[4px] text-brand-rust mb-3 block">About Us</span>
-              <h2 className="text-4xl md:text-5xl font-black text-brand-espresso mb-6">Community-Rooted Action</h2>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-brand-espresso mb-6">Community-Rooted Action</h2>
               <div className="w-16 h-1 bg-gradient-to-r from-brand-gold to-brand-rust mx-auto rounded-full"></div>
             </div>
             
@@ -60,7 +60,7 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="mb-20 text-center">
             <span className="text-sm font-extrabold uppercase tracking-[4px] text-brand-rust mb-3 block">What We Do</span>
-            <h2 className="text-4xl md:text-5xl font-black text-brand-espresso mb-6">Our Core Programs</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-brand-espresso mb-6">Our Core Programs</h2>
             <div className="w-16 h-1 bg-gradient-to-r from-brand-gold to-brand-rust mx-auto rounded-full"></div>
           </div>
 
@@ -132,7 +132,7 @@ export default function Home() {
         <div className="container relative z-10 mx-auto px-6 text-center">
           <div className="mb-12">
             <span className="text-sm font-extrabold uppercase tracking-[4px] text-brand-cream mb-3 block">Our Methodology</span>
-            <h2 className="text-4xl md:text-5xl font-black text-brand-espresso mb-6">Healing Circles</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-brand-espresso mb-6">Healing Circles</h2>
             <div className="w-16 h-1 bg-brand-cream mx-auto rounded-full"></div>
           </div>
           
@@ -151,7 +151,7 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
             <div className="bg-white text-brand-espresso p-12 md:p-16 rounded-[2rem] text-center shadow-2xl border border-white/20">
-              <h2 className="text-4xl md:text-5xl font-black text-brand-espresso mb-6">Support Grassroots Action</h2>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-brand-espresso mb-6">Support Grassroots Action</h2>
               <p className="text-xl text-brand-espresso/80 leading-relaxed mb-10 max-w-2xl mx-auto">
                 We welcome partnerships, volunteers, donors, and collaborators who share our commitment to grassroots-led climate action and community empowerment.
               </p>
