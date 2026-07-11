@@ -15,11 +15,11 @@ export default function Home() {
         }}
       >
         <div className="container relative z-10 px-6 py-32 mx-auto text-center">
-          <div className="max-w-4xl mx-auto animate-up delay-1">
+          <div className="max-w-6xl mx-auto animate-up delay-1">
             <h1 className="text-5xl md:text-7xl font-black text-white mb-8 leading-tight tracking-tight">
               Grassroots-Led <span className="text-nvcbo-orange">Climate</span>, <span className="text-nvcbo-orange">Gender</span> and <span className="text-nvcbo-orange">Education</span> Solutions in Northern Kenya
             </h1>
-            <p className="text-lg md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed animate-up delay-2">
+            <p className="text-lg md:text-2xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed animate-up delay-2">
               Northern Vision Community-Based Organization (NVCBO) is a grassroots organization working with indigenous and pastoralist communities to strengthen climate resilience, gender justice, education and community wellbeing in Northern Kenya’s Arid and Semi-Arid Lands (ASALs).
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-up delay-3">
@@ -37,7 +37,7 @@ export default function Home() {
       {/* ABOUT SECTION */}
       <section id="about" className="py-32 bg-white relative">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-5xl mx-auto text-center">
             <div className="mb-12">
               <span className="text-sm font-extrabold uppercase tracking-[4px] text-nvcbo-dark-orange mb-3 block">About Us</span>
               <h2 className="text-4xl md:text-5xl font-black text-nvcbo-stone mb-6">Community-Rooted Action</h2>
@@ -136,7 +136,7 @@ export default function Home() {
             <div className="w-16 h-1 bg-nvcbo-cream mx-auto rounded-full"></div>
           </div>
           
-          <p className="text-xl md:text-2xl text-white/90 leading-loose max-w-4xl mx-auto mb-12">
+          <p className="text-xl md:text-2xl text-white/90 leading-loose max-w-5xl mx-auto mb-12">
             Healing circles are a core methodology across all Northern Vision programs. They are used for community dialogue, participatory planning, conflict resolution, youth mentorship and internal organizational reflection.
           </p>
           
@@ -149,7 +149,7 @@ export default function Home() {
       {/* DONATION SECTION */}
       <section id="donate" className="py-32 bg-gradient-to-br from-nvcbo-orange to-nvcbo-dark-orange relative">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <div className="glass-orange p-12 md:p-16 rounded-[2rem] text-center shadow-2xl">
               <h2 className="text-4xl md:text-5xl font-black text-white mb-6">Support Grassroots Action</h2>
               <p className="text-xl text-white/90 leading-relaxed mb-10 max-w-2xl mx-auto">
