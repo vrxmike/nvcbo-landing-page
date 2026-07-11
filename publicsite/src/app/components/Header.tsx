@@ -1,11 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openAccordions, setOpenAccordions] = useState<{ [key: string]: boolean }>({
     about: false,
@@ -13,14 +12,6 @@ export default function Header() {
     projects: false,
     media: false,
   });
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const toggleAccordion = (key: string) => {
     setOpenAccordions((prev) => ({
@@ -30,11 +21,11 @@ export default function Header() {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'glass-header py-4' : 'bg-transparent py-6'}`}>
+    <header className="sticky top-0 left-0 right-0 z-50 bg-white/75 backdrop-blur-md border-b border-nvcbo-orange/10 py-4 shadow-sm transition-all duration-300">
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
         {/* Brand Logo Wrapper */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-full bg-white overflow-hidden flex items-center justify-center shadow-md p-1 border border-white/20 transition-all group-hover:scale-105">
+          <div className="w-10 h-10 rounded-full bg-white overflow-hidden flex items-center justify-center shadow-md p-1 border border-nvcbo-orange/10 transition-all group-hover:scale-105">
             <img 
               src="/nvcbo-logo.webp" 
               alt="Northern Vision Logo" 
@@ -42,7 +33,7 @@ export default function Header() {
             />
           </div>
           <div className="flex flex-col">
-            <span className={`text-xl font-black leading-none ${scrolled ? 'text-nvcbo-stone' : 'text-white'} tracking-tight`}>
+            <span className="text-xl font-black leading-none text-nvcbo-stone tracking-tight">
               NVCBO
             </span>
             <span className="text-[9px] font-bold uppercase tracking-widest text-nvcbo-orange mt-0.5">
@@ -51,13 +42,13 @@ export default function Header() {
           </div>
         </Link>
 
-        {/* Desktop Nav with Refined Dropdowns */}
-        <nav className="hidden lg:flex items-center gap-1 bg-white/5 backdrop-blur-md border border-white/10 px-3 py-2 rounded-full shadow-sm">
-          <Link href="/" className={`font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full transition-all duration-300 ${scrolled ? 'text-nvcbo-stone hover:bg-nvcbo-stone/5 hover:text-nvcbo-orange' : 'text-white hover:bg-white/15'}`}>Home</Link>
+        {/* Desktop Nav with Refined Dropdowns (Always dark text for readability against sticky glass backdrop) */}
+        <nav className="hidden lg:flex items-center gap-1 bg-nvcbo-stone/5 border border-nvcbo-stone/10 px-3 py-1.5 rounded-full shadow-inner">
+          <Link href="/" className="font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full text-nvcbo-stone hover:bg-nvcbo-stone/5 hover:text-nvcbo-orange transition-all duration-300">Home</Link>
           
           {/* About Us Dropdown */}
           <div className="relative group">
-            <button className={`flex items-center gap-1 font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full transition-all duration-300 ${scrolled ? 'text-nvcbo-stone hover:bg-nvcbo-stone/5 hover:text-nvcbo-orange' : 'text-white hover:bg-white/15'}`}>
+            <button className="flex items-center gap-1 font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full text-nvcbo-stone hover:bg-nvcbo-stone/5 hover:text-nvcbo-orange transition-all duration-300 focus:outline-none">
               About Us <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
             </button>
             <div className="absolute top-full left-0 mt-2 w-52 rounded-2xl glass border border-white/20 p-2 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
@@ -71,7 +62,7 @@ export default function Header() {
 
           {/* Programs Dropdown */}
           <div className="relative group">
-            <button className={`flex items-center gap-1 font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full transition-all duration-300 ${scrolled ? 'text-nvcbo-stone hover:bg-nvcbo-stone/5 hover:text-nvcbo-orange' : 'text-white hover:bg-white/15'}`}>
+            <button className="flex items-center gap-1 font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full text-nvcbo-stone hover:bg-nvcbo-stone/5 hover:text-nvcbo-orange transition-all duration-300 focus:outline-none">
               Programs <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
             </button>
             <div className="absolute top-full left-0 mt-2 w-64 rounded-2xl glass border border-white/20 p-2 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
@@ -84,7 +75,7 @@ export default function Header() {
 
           {/* Projects Dropdown */}
           <div className="relative group">
-            <button className={`flex items-center gap-1 font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full transition-all duration-300 ${scrolled ? 'text-nvcbo-stone hover:bg-nvcbo-stone/5 hover:text-nvcbo-orange' : 'text-white hover:bg-white/15'}`}>
+            <button className="flex items-center gap-1 font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full text-nvcbo-stone hover:bg-nvcbo-stone/5 hover:text-nvcbo-orange transition-all duration-300 focus:outline-none">
               Projects <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
             </button>
             <div className="absolute top-full left-0 mt-2 w-60 rounded-2xl glass border border-white/20 p-2 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
@@ -96,7 +87,7 @@ export default function Header() {
             </div>
           </div>
 
-          <Link href="#donate" className={`flex items-center gap-1.5 font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full transition-all duration-300 ${scrolled ? 'text-nvcbo-stone hover:bg-nvcbo-stone/5 hover:text-nvcbo-orange' : 'text-white hover:bg-white/15'}`}>
+          <Link href="#donate" className="flex items-center gap-1.5 font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full text-nvcbo-stone hover:bg-nvcbo-stone/5 hover:text-nvcbo-orange transition-all duration-300">
             Shop <span className="bg-nvcbo-orange text-white text-[9px] font-black px-1.5 py-0.5 rounded-full">New</span>
           </Link>
           
@@ -104,8 +95,8 @@ export default function Header() {
         </nav>
 
         {/* Mobile Toggle */}
-        <button className="lg:hidden text-white font-bold p-2 glass rounded-full" onClick={() => setMobileMenuOpen(true)}>
-          <Menu className={`w-6 h-6 ${scrolled ? 'text-nvcbo-stone' : 'text-white'}`} />
+        <button className="lg:hidden text-nvcbo-stone font-bold p-2 bg-nvcbo-stone/5 rounded-full hover:bg-nvcbo-stone/10 transition-colors" onClick={() => setMobileMenuOpen(true)}>
+          <Menu className="w-6 h-6" />
         </button>
       </div>
 
