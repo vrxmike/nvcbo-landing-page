@@ -1,38 +1,138 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #2B1100;
-}
-
-@theme inline {
-  /* Base tokens (dynamic — managed via :root) */
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-
-  /* Fonts (injected by Next.js at runtime) */
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
 @theme {
-  /* Brand palette — Northern Vision */
-  --color-brand-gold: #F39C12;
-  --color-brand-espresso: #2B1100;
-  --color-brand-cream: #F5F2EB;
-  --color-brand-rust: #D35400;
-  --color-brand-charcoal: #333333;
-  --color-brand-white: #FFFFFF;
+  --color-nvcbo-blue: #1D809F;
+  --color-nvcbo-dark-blue: #155d74;
+  --color-nvcbo-orange: #FF8C00;
+  --color-nvcbo-dark-orange: #CC5500;
+  --color-nvcbo-cream: #FFF5E6;
+  --color-nvcbo-light-bg: #f4f7f8;
+  --color-nvcbo-stone: #1a252f;
+}
+
+:root {
+  --background: #f4f7f8;
+  --foreground: #1a252f;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
-/* Smooth transitions for interactive elements */
-a,
-button {
-  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+/* Glassmorphism Utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.glass-dark {
+  background: rgba(26, 37, 47, 0.75);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.glass-orange {
+  background: rgba(255, 140, 0, 0.15);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border: 1px solid rgba(255, 140, 0, 0.3);
+  box-shadow: 0 8px 32px rgba(255, 140, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(26, 37, 47, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 20px 50px rgba(26, 37, 47, 0.1);
+  border-color: rgba(255, 140, 0, 0.4);
+}
+
+.glass-header {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 140, 0, 0.15);
+  box-shadow: 0 4px 30px rgba(26, 37, 47, 0.06);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, var(--color-nvcbo-orange), var(--color-nvcbo-dark-orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-blue {
+  background: linear-gradient(90deg, var(--color-nvcbo-blue), var(--color-nvcbo-dark-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes titleReveal {
+  from { clip-path: inset(100% 0 0 0); transform: translateY(30px); }
+  to { clip-path: inset(0 0 0 0); transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-up {
+  opacity: 0;
+  animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.5s; }
+.delay-3 { animation-delay: 0.8s; }
+
+/* Buttons */
+.btn-primary-nv {
+  background: linear-gradient(135deg, var(--color-nvcbo-orange) 0%, var(--color-nvcbo-dark-orange) 100%);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 15px rgba(204, 85, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.btn-primary-nv:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(255, 140, 0, 0.4);
+}
+
+.btn-outline-nv {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.btn-outline-nv:hover {
+  background: white;
+  color: var(--color-nvcbo-blue);
+  transform: translateY(-5px);
 }
