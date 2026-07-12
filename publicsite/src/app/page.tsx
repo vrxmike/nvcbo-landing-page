@@ -66,7 +66,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Program 1 */}
-            <div className="neo-card p-10 flex flex-col items-center text-center group">
+            <div className="bento-card p-10 flex flex-col items-center text-center group">
               <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-espresso to-brand-espresso text-white flex items-center justify-center mb-8 shadow-xl group-hover:scale-110 transition-transform">
                 <Leaf className="w-10 h-10" />
               </div>
@@ -77,7 +77,7 @@ export default function Home() {
             </div>
 
             {/* Program 2 */}
-            <div className="neo-card p-10 flex flex-col items-center text-center group">
+            <div className="bento-card p-10 flex flex-col items-center text-center group">
               <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-espresso to-brand-espresso text-white flex items-center justify-center mb-8 shadow-xl group-hover:scale-110 transition-transform">
                 <GraduationCap className="w-10 h-10" />
               </div>
@@ -88,7 +88,7 @@ export default function Home() {
             </div>
 
             {/* Program 3 */}
-            <div className="neo-card p-10 flex flex-col items-center text-center group">
+            <div className="bento-card p-10 flex flex-col items-center text-center group">
               <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-espresso to-brand-espresso text-white flex items-center justify-center mb-8 shadow-xl group-hover:scale-110 transition-transform">
                 <Heart className="w-10 h-10" />
               </div>
@@ -99,7 +99,7 @@ export default function Home() {
             </div>
 
             {/* Program 4 */}
-            <div className="neo-card p-10 flex flex-col items-center text-center group">
+            <div className="bento-card p-10 flex flex-col items-center text-center group">
               <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-espresso to-brand-espresso text-white flex items-center justify-center mb-8 shadow-xl group-hover:scale-110 transition-transform">
                 <Users className="w-10 h-10" />
               </div>

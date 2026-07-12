@@ -74,59 +74,60 @@ body {
 }
 
 
-/* Neumorphism Utilities */
-/* Designed for light backgrounds (white or cream) */
-.neo-card {
+/* Tactile Minimalism & Bento Utilities */
+.bento-card {
   background: var(--background);
   border-radius: 24px;
-  box-shadow: 8px 8px 16px #e6e6e6, -8px -8px 16px #ffffff;
-  transition: all 0.3s ease-in-out;
+  border: 1px solid rgba(43, 17, 0, 0.08); /* Crisp, high-contrast border */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Subtle, realistic drop shadow */
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.neo-card:hover {
-  box-shadow: 12px 12px 20px #e6e6e6, -12px -12px 20px #ffffff;
+.bento-card:hover {
   transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  border-color: rgba(243, 156, 18, 0.4); /* Brand Gold accent on hover */
 }
 
-.neo-card-inset {
-  background: var(--background);
-  border-radius: 24px;
-  box-shadow: inset 6px 6px 12px #e6e6e6, inset -6px -6px 12px #ffffff;
+/* Glassmorphism 2.0 Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+.dark-glass-panel {
+  background: rgba(43, 17, 0, 0.7); /* Brand Espresso */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 /* Specific background for cream sections */
-.bg-brand-cream .neo-card {
-  background: var(--color-brand-cream);
-  box-shadow: 8px 8px 16px #dedbc2, -8px -8px 16px #ffffff;
-}
-.bg-brand-cream .neo-card:hover {
-  box-shadow: 12px 12px 20px #dedbc2, -12px -12px 20px #ffffff;
+.bg-brand-cream .bento-card {
+  background: var(--background); /* Keep card white for high contrast */
 }
 
-.neo-btn {
+.tactile-btn {
   background: var(--background);
-  box-shadow: 6px 6px 12px #e6e6e6, -6px -6px 12px #ffffff;
-  transition: all 0.2s ease-in-out;
+  border: 1px solid rgba(43, 17, 0, 0.15);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.neo-btn:hover {
-  box-shadow: 4px 4px 8px #e6e6e6, -4px -4px 8px #ffffff;
-  transform: translateY(1px);
+.tactile-btn:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  border-color: var(--color-brand-gold);
 }
 
-.neo-btn:active {
-  box-shadow: inset 4px 4px 8px #e6e6e6, inset -4px -4px 8px #ffffff;
-  transform: translateY(2px);
+.tactile-btn:active {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transform: translateY(0);
 }
-
-.text-gradient {
-  background: linear-gradient(90deg, var(--color-brand-gold), var(--color-brand-rust));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-}
-
 @keyframes titleReveal {
   from { clip-path: inset(100% 0 0 0); transform: translateY(30px); }
   to { clip-path: inset(0 0 0 0); transform: translateY(0); }
