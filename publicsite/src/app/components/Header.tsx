@@ -49,11 +49,11 @@ export default function Header() {
               About Us <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
             </button>
             <div className="absolute top-full left-0 mt-2 w-52 rounded-2xl glass border border-white/20 p-2 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
-              <Link href="#about" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-espresso hover:bg-brand-gold/10 hover:text-brand-gold rounded-xl transition-all">Our Story</Link>
-              <Link href="#about" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-espresso hover:bg-brand-gold/10 hover:text-brand-gold rounded-xl transition-all">What We Believe</Link>
-              <Link href="#about" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-espresso hover:bg-brand-gold/10 hover:text-brand-gold rounded-xl transition-all">How We Work</Link>
-              <Link href="#about" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-espresso hover:bg-brand-gold/10 hover:text-brand-gold rounded-xl transition-all">Our Partners</Link>
-              <Link href="#about" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-espresso hover:bg-brand-gold/10 hover:text-brand-gold rounded-xl transition-all">2025 Review</Link>
+              <Link href="/about" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-espresso hover:bg-brand-gold/10 hover:text-brand-gold rounded-xl transition-all">Our Story</Link>
+              <Link href="/about" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-espresso hover:bg-brand-gold/10 hover:text-brand-gold rounded-xl transition-all">What We Believe</Link>
+              <Link href="/about" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-espresso hover:bg-brand-gold/10 hover:text-brand-gold rounded-xl transition-all">How We Work</Link>
+              <Link href="/about" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-espresso hover:bg-brand-gold/10 hover:text-brand-gold rounded-xl transition-all">Our Partners</Link>
+              <Link href="/about" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-espresso hover:bg-brand-gold/10 hover:text-brand-gold rounded-xl transition-all">2025 Review</Link>
             </div>
           </div>
 
@@ -121,11 +121,11 @@ export default function Header() {
               <ChevronDown className={`w-4 h-4 transform transition-transform duration-300 ${openAccordions.about ? 'rotate-180' : ''}`} />
             </button>
             <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.about ? 'max-h-48 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
-              <Link onClick={() => setMobileMenuOpen(false)} href="#about" className="block text-sm py-1 hover:text-brand-gold/80">Our Story</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="#about" className="block text-sm py-1 hover:text-brand-gold/80">What We Believe</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="#about" className="block text-sm py-1 hover:text-brand-gold/80">How We Work</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="#about" className="block text-sm py-1 hover:text-brand-gold/80">Our Partners</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="#about" className="block text-sm py-1 hover:text-brand-gold/80">2025 Review</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/about#story" className="block text-sm py-1 hover:text-brand-gold/80">Our Story</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/about#beliefs" className="block text-sm py-1 hover:text-brand-gold/80">What We Believe</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/about#how-we-work" className="block text-sm py-1 hover:text-brand-gold/80">How We Work</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/about#partners" className="block text-sm py-1 hover:text-brand-gold/80">Our Partners</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/about#review-2025" className="block text-sm py-1 hover:text-brand-gold/80">2025 Review</Link>
             </div>
           </div>
 

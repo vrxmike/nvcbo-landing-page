@@ -146,3 +146,19 @@ body {
 .delay-2 { animation-delay: 0.5s; }
 .delay-3 { animation-delay: 0.8s; }
 
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); } /* Scrolls half the width since content is duplicated */
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+/* Pause on hover for better UX */
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
