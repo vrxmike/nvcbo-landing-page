@@ -202,16 +202,38 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Grayscale Logo Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 items-center justify-items-center opacity-60">
-            <div className="h-24 w-full max-w-[200px] flex items-center justify-center border-2 border-brand-espresso/10 rounded-2xl grayscale hover:grayscale-0 hover:border-brand-gold transition-all duration-300 bg-white shadow-sm">
-               <span className="font-black text-2xl tracking-tighter text-brand-espresso">PACJA</span>
-            </div>
-            <div className="h-24 w-full max-w-[200px] flex items-center justify-center border-2 border-brand-espresso/10 rounded-2xl grayscale hover:grayscale-0 hover:border-brand-gold transition-all duration-300 bg-white shadow-sm">
-               <span className="font-black text-2xl tracking-tighter text-brand-espresso">WFP</span>
-            </div>
-            <div className="h-24 w-full max-w-[200px] flex items-center justify-center border-2 border-brand-espresso/10 rounded-2xl grayscale hover:grayscale-0 hover:border-brand-gold transition-all duration-300 bg-white shadow-sm">
-               <span className="font-black text-2xl tracking-tighter text-brand-espresso">Landesa</span>
+          {/* Auto-looping Marquee Carousel */}
+          <div className="relative overflow-hidden w-full before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-16 before:bg-gradient-to-r before:from-brand-cream before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-16 after:bg-gradient-to-l after:from-brand-cream after:to-transparent">
+            <div className="animate-marquee flex gap-8 items-center opacity-60 hover:opacity-100 transition-opacity duration-300 py-4">
+
+              {/* Set 1 */}
+              <div className="h-24 w-48 shrink-0 flex items-center justify-center border-2 border-brand-espresso/10 rounded-2xl grayscale hover:grayscale-0 hover:border-brand-gold transition-all duration-300 bg-white shadow-sm">
+                 <span className="font-black text-2xl tracking-tighter text-brand-espresso">PACJA</span>
+              </div>
+              <div className="h-24 w-48 shrink-0 flex items-center justify-center border-2 border-brand-espresso/10 rounded-2xl grayscale hover:grayscale-0 hover:border-brand-gold transition-all duration-300 bg-white shadow-sm">
+                 <span className="font-black text-2xl tracking-tighter text-brand-espresso">WFP</span>
+              </div>
+              <div className="h-24 w-48 shrink-0 flex items-center justify-center border-2 border-brand-espresso/10 rounded-2xl grayscale hover:grayscale-0 hover:border-brand-gold transition-all duration-300 bg-white shadow-sm">
+                 <span className="font-black text-2xl tracking-tighter text-brand-espresso">Landesa</span>
+              </div>
+              <div className="h-24 w-48 shrink-0 flex items-center justify-center border-2 border-brand-espresso/10 rounded-2xl grayscale hover:grayscale-0 hover:border-brand-gold transition-all duration-300 bg-white shadow-sm">
+                 <span className="font-black text-2xl tracking-tighter text-brand-espresso">USAID</span>
+              </div>
+
+              {/* Set 2 (Duplicated for seamless loop) */}
+              <div className="h-24 w-48 shrink-0 flex items-center justify-center border-2 border-brand-espresso/10 rounded-2xl grayscale hover:grayscale-0 hover:border-brand-gold transition-all duration-300 bg-white shadow-sm">
+                 <span className="font-black text-2xl tracking-tighter text-brand-espresso">PACJA</span>
+              </div>
+              <div className="h-24 w-48 shrink-0 flex items-center justify-center border-2 border-brand-espresso/10 rounded-2xl grayscale hover:grayscale-0 hover:border-brand-gold transition-all duration-300 bg-white shadow-sm">
+                 <span className="font-black text-2xl tracking-tighter text-brand-espresso">WFP</span>
+              </div>
+              <div className="h-24 w-48 shrink-0 flex items-center justify-center border-2 border-brand-espresso/10 rounded-2xl grayscale hover:grayscale-0 hover:border-brand-gold transition-all duration-300 bg-white shadow-sm">
+                 <span className="font-black text-2xl tracking-tighter text-brand-espresso">Landesa</span>
+              </div>
+              <div className="h-24 w-48 shrink-0 flex items-center justify-center border-2 border-brand-espresso/10 rounded-2xl grayscale hover:grayscale-0 hover:border-brand-gold transition-all duration-300 bg-white shadow-sm">
+                 <span className="font-black text-2xl tracking-tighter text-brand-espresso">USAID</span>
+              </div>
+
             </div>
           </div>
         </div>
