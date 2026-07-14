@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, BookOpen, HeartHandshake, Settings, Users, ArrowRight, TreePine, Leaf, Fish, Laptop, ScrollText, Image as ImageIcon, Video, Newspaper } from "lucide-react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -120,12 +120,12 @@ export default function Header() {
               <span>About Us</span>
               <ChevronDown className={`w-4 h-4 transform transition-transform duration-300 ${openAccordions.about ? 'rotate-180' : ''}`} />
             </button>
-            <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.about ? 'max-h-48 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/about#story" className="block text-sm py-1 hover:text-brand-gold/80">Our Story</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/about#beliefs" className="block text-sm py-1 hover:text-brand-gold/80">What We Believe</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/about#how-we-work" className="block text-sm py-1 hover:text-brand-gold/80">How We Work</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/about#partners" className="block text-sm py-1 hover:text-brand-gold/80">Our Partners</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/about#review-2025" className="block text-sm py-1 hover:text-brand-gold/80">2025 Review</Link>
+            <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.about ? 'max-h-56 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/about#story" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><BookOpen className="w-4 h-4 opacity-70" /> Our Story</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/about#beliefs" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><HeartHandshake className="w-4 h-4 opacity-70" /> What We Believe</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/about#how-we-work" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><Settings className="w-4 h-4 opacity-70" /> How We Work</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/about#partners" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><Users className="w-4 h-4 opacity-70" /> Our Partners</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/about#review-2025" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><ArrowRight className="w-4 h-4 opacity-70" /> 2025 Review</Link>
             </div>
           </div>
 
@@ -135,11 +135,11 @@ export default function Header() {
               <span>Programs</span>
               <ChevronDown className={`w-4 h-4 transform transition-transform duration-300 ${openAccordions.programs ? 'rotate-180' : ''}`} />
             </button>
-            <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.programs ? 'max-h-40 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
-              <Link onClick={() => setMobileMenuOpen(false)} href="#programs" className="block text-sm py-1 hover:text-brand-gold/80">Circle Keeper Training</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="#programs" className="block text-sm py-1 hover:text-brand-gold/80">Gender & Social Inclusion</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="#programs" className="block text-sm py-1 hover:text-brand-gold/80">Peace and Security</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="#programs" className="block text-sm py-1 hover:text-brand-gold/80">Education & Youth Leadership</Link>
+            <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.programs ? 'max-h-48 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
+              <Link onClick={() => setMobileMenuOpen(false)} href="#programs" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><Users className="w-4 h-4 opacity-70" /> Circle Keeper Training</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="#programs" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><HeartHandshake className="w-4 h-4 opacity-70" /> Gender & Social Inclusion</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="#programs" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><TreePine className="w-4 h-4 opacity-70" /> Peace and Security</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="#programs" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><BookOpen className="w-4 h-4 opacity-70" /> Education & Youth Leadership</Link>
             </div>
           </div>
 
@@ -149,12 +149,12 @@ export default function Header() {
               <span>Projects</span>
               <ChevronDown className={`w-4 h-4 transform transition-transform duration-300 ${openAccordions.projects ? 'rotate-180' : ''}`} />
             </button>
-            <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.projects ? 'max-h-48 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
-              <Link onClick={() => setMobileMenuOpen(false)} href="#programs" className="block text-sm py-1 hover:text-brand-gold/80">Climate Resilience</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="#programs" className="block text-sm py-1 hover:text-brand-gold/80">Gotu Gamachu Farm</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="#programs" className="block text-sm py-1 hover:text-brand-gold/80">Eco-Tourism Hub</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="#programs" className="block text-sm py-1 hover:text-brand-gold/80">Digital Literacy Camp</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="#programs" className="block text-sm py-1 hover:text-brand-gold/80">Indigenous Knowledge</Link>
+            <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.projects ? 'max-h-56 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
+              <Link onClick={() => setMobileMenuOpen(false)} href="#programs" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><Leaf className="w-4 h-4 opacity-70" /> Climate Resilience</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="#programs" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><Fish className="w-4 h-4 opacity-70" /> Gotu Gamachu Farm</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="#programs" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><TreePine className="w-4 h-4 opacity-70" /> Eco-Tourism Hub</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="#programs" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><Laptop className="w-4 h-4 opacity-70" /> Digital Literacy Camp</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="#programs" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><ScrollText className="w-4 h-4 opacity-70" /> Indigenous Knowledge</Link>
             </div>
           </div>
 
@@ -164,9 +164,9 @@ export default function Header() {
               <span>Media Hub</span>
               <ChevronDown className={`w-4 h-4 transform transition-transform duration-300 ${openAccordions.media ? 'rotate-180' : ''}`} />
             </button>
-            <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.media ? 'max-h-24 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
-              <Link onClick={() => setMobileMenuOpen(false)} href="#healing" className="block text-sm py-1 hover:text-brand-gold/80">Stories & News</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="#healing" className="block text-sm py-1 hover:text-brand-gold/80">Media Gallery</Link>
+            <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.media ? 'max-h-32 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
+              <Link onClick={() => setMobileMenuOpen(false)} href="#healing" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><Newspaper className="w-4 h-4 opacity-70" /> Stories & News</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="#healing" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><ImageIcon className="w-4 h-4 opacity-70" /> Media Gallery</Link>
             </div>
           </div>
 
