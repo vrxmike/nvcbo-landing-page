@@ -66,7 +66,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Program 1 */}
-            <div className="neo-card p-10 flex flex-col items-center text-center group">
+            <div className="bento-card p-10 flex flex-col items-center text-center group">
               <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-espresso to-brand-espresso text-white flex items-center justify-center mb-8 shadow-xl group-hover:scale-110 transition-transform">
                 <Leaf className="w-10 h-10" />
               </div>
@@ -77,7 +77,7 @@ export default function Home() {
             </div>
 
             {/* Program 2 */}
-            <div className="neo-card p-10 flex flex-col items-center text-center group">
+            <div className="bento-card p-10 flex flex-col items-center text-center group">
               <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-espresso to-brand-espresso text-white flex items-center justify-center mb-8 shadow-xl group-hover:scale-110 transition-transform">
                 <GraduationCap className="w-10 h-10" />
               </div>
@@ -88,7 +88,7 @@ export default function Home() {
             </div>
 
             {/* Program 3 */}
-            <div className="neo-card p-10 flex flex-col items-center text-center group">
+            <div className="bento-card p-10 flex flex-col items-center text-center group">
               <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-espresso to-brand-espresso text-white flex items-center justify-center mb-8 shadow-xl group-hover:scale-110 transition-transform">
                 <Heart className="w-10 h-10" />
               </div>
@@ -99,7 +99,7 @@ export default function Home() {
             </div>
 
             {/* Program 4 */}
-            <div className="neo-card p-10 flex flex-col items-center text-center group">
+            <div className="bento-card p-10 flex flex-col items-center text-center group">
               <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-espresso to-brand-espresso text-white flex items-center justify-center mb-8 shadow-xl group-hover:scale-110 transition-transform">
                 <Users className="w-10 h-10" />
               </div>
@@ -156,10 +156,10 @@ export default function Home() {
                 We welcome partnerships, volunteers, donors, and collaborators who share our commitment to grassroots-led climate action and community empowerment.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link href="#donate" className="inline-flex items-center justify-center px-8 py-4 bg-brand-rust text-white rounded-full font-bold uppercase tracking-wider transition-all shadow hover:shadow-lg hover:-translate-y-1 w-full sm:w-auto">
+                <Link href="#donate" className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base bg-brand-rust text-white rounded-full font-bold uppercase tracking-wider transition-all shadow hover:shadow-lg hover:-translate-y-1 w-full sm:w-auto">
                   Donate Now
                 </Link>
-                <Link href="#contact" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider bg-transparent border-2 border-brand-espresso/20 text-brand-espresso hover:border-brand-espresso hover:text-brand-rust hover:-translate-y-1 hover:shadow-sm transition-all duration-300 w-full sm:w-auto">
+                <Link href="#contact" className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base rounded-full font-bold uppercase tracking-wider bg-transparent border-2 border-brand-espresso/20 text-brand-espresso hover:border-brand-espresso hover:text-brand-rust hover:-translate-y-1 hover:shadow-sm transition-all duration-300 w-full sm:w-auto">
                   Become a Partner
                 </Link>
               </div>

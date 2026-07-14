@@ -24,7 +24,7 @@ export default function AboutPage() {
                 alt="Healing Circles Featured Photo"
                 className="absolute inset-0 w-full h-full object-cover grayscale opacity-80"
               />
-              <div className="absolute bottom-6 left-6 right-6 z-20 neo-card bg-white/90 backdrop-blur p-4 text-brand-espresso text-sm font-semibold rounded-2xl border border-white">
+              <div className="absolute bottom-6 left-6 right-6 z-20 bento-card bg-white/90 backdrop-blur p-4 text-brand-espresso text-sm font-semibold rounded-2xl border border-white">
                 Healing Circles Featured Photo
               </div>
             </div>
@@ -63,7 +63,7 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <div className="neo-card p-10 flex flex-col items-start bg-brand-cream group">
+            <div className="bento-card p-10 flex flex-col items-start bg-brand-cream group">
               <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center text-brand-gold mb-6 border border-brand-espresso/5 group-hover:scale-110 transition-transform">
                 <Users className="w-8 h-8" />
               </div>
@@ -71,7 +71,7 @@ export default function AboutPage() {
               <p className="text-brand-espresso/70 leading-relaxed text-sm md:text-base font-medium">Communities hold the knowledge, leadership, and capacity needed to shape their own futures.</p>
             </div>
 
-            <div className="neo-card p-10 flex flex-col items-start bg-brand-cream group">
+            <div className="bento-card p-10 flex flex-col items-start bg-brand-cream group">
               <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center text-brand-gold mb-6 border border-brand-espresso/5 group-hover:scale-110 transition-transform">
                 <HeartPulse className="w-8 h-8" />
               </div>
@@ -79,7 +79,7 @@ export default function AboutPage() {
               <p className="text-brand-espresso/70 leading-relaxed text-sm md:text-base font-medium">Trust, dialogue, and restoration are the foundation of resilient communities.</p>
             </div>
 
-            <div className="neo-card p-10 flex flex-col items-start bg-brand-cream group">
+            <div className="bento-card p-10 flex flex-col items-start bg-brand-cream group">
               <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center text-brand-gold mb-6 border border-brand-espresso/5 group-hover:scale-110 transition-transform">
                 <TreePine className="w-8 h-8" />
               </div>
@@ -87,7 +87,7 @@ export default function AboutPage() {
               <p className="text-brand-espresso/70 leading-relaxed text-sm md:text-base font-medium">Traditional knowledge systems are essential to sustainable development and climate resilience.</p>
             </div>
 
-            <div className="neo-card p-10 flex flex-col items-start bg-brand-cream group">
+            <div className="bento-card p-10 flex flex-col items-start bg-brand-cream group">
               <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center text-brand-gold mb-6 border border-brand-espresso/5 group-hover:scale-110 transition-transform">
                 <Scale className="w-8 h-8" />
               </div>
@@ -95,7 +95,7 @@ export default function AboutPage() {
               <p className="text-brand-espresso/70 leading-relaxed text-sm md:text-base font-medium">Inclusive participation strengthens communities and creates opportunities for everyone to thrive.</p>
             </div>
 
-            <div className="neo-card p-10 flex flex-col items-start bg-brand-cream group">
+            <div className="bento-card p-10 flex flex-col items-start bg-brand-cream group">
               <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center text-brand-gold mb-6 border border-brand-espresso/5 group-hover:scale-110 transition-transform">
                 <MessageSquare className="w-8 h-8" />
               </div>
@@ -103,7 +103,7 @@ export default function AboutPage() {
               <p className="text-brand-espresso/70 leading-relaxed text-sm md:text-base font-medium">Storytelling preserves knowledge, amplifies voices, and connects local experiences to global conversations.</p>
             </div>
 
-            <div className="neo-card p-10 flex flex-col items-start bg-brand-cream group">
+            <div className="bento-card p-10 flex flex-col items-start bg-brand-cream group">
               <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center text-brand-gold mb-6 border border-brand-espresso/5 group-hover:scale-110 transition-transform">
                 <Handshake className="w-8 h-8" />
               </div>
@@ -270,8 +270,8 @@ export default function AboutPage() {
             </div>
 
             <div className="relative z-10 shrink-0 w-full md:w-auto">
-              <Link href="#" className="flex items-center justify-center gap-3 px-8 py-5 bg-brand-gold text-white rounded-xl font-black uppercase tracking-wider shadow-[0_8px_20px_rgba(243,156,18,0.3)] hover:-translate-y-1 hover:bg-brand-rust hover:shadow-[0_12px_25px_rgba(211,84,0,0.4)] transition-all duration-300 w-full">
-                Download Report <span className="opacity-80 text-xs font-bold tracking-normal">(PDF)</span>
+              <Link href="https://news.northernvisionke.org/year-in-review-2025-v3.html" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 px-8 py-5 bg-brand-gold text-white rounded-xl font-black uppercase tracking-wider shadow-[0_8px_20px_rgba(243,156,18,0.3)] hover:-translate-y-1 hover:bg-brand-rust hover:shadow-[0_12px_25px_rgba(211,84,0,0.4)] transition-all duration-300 w-full">
+                Read full article
               </Link>
             </div>
 
