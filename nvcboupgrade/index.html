@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NorthernVision CBO - Typography Design System</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Ingestions (Google Fonts representing the curated typographic pathways) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fredoka:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;700;800&family=Open+Sans:wght@300;400;600&family=Playfair+Display:ital,wght@1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+
+  <script>
+    // Tailwind Config Customization to bind our dynamic css variables
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            nvBrown: {
+              DEFAULT: '#1F0F06',
+              darker: '#130904',
+              lighter: '#2B1408',
+              card: '#2F1A0E',
+            },
+            nvOchre: {
+              DEFAULT: '#D95D00',
+              hover: '#B54E00',
+              light: '#FFF0E5',
+              tint: '#F3E8FF'
+            },
+            nvCream: '#FFF8F2',
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Dynamic Font Variables bound to JS Font Customizer */
+    :root {
+      --font-display: 'Fredoka', sans-serif;
+      --font-accent: 'Caveat', cursive;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    .font-custom-display {
+      font-family: var(--font-display) !important;
+    }
+    .font-custom-accent {
+      font-family: var(--font-accent) !important;
+    }
+    .font-custom-body {
+      font-family: var(--font-body) !important;
+    }
+
+    /* Beautiful custom scrollbars */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1F0F06;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D95D00;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="font-custom-body bg-nvBrown text-[#FFF8F2] min-h-screen flex flex-col overflow-x-hidden">
+
+  <!-- Interactive Dashboard Shell -->
+  <div class="flex-1 flex flex-col md:flex-row min-h-screen">
+
+    <!-- LEFT SIDEBAR: NVCBO Navigation Menu (Simulating exact layout from upload 1000050776.jpg) -->
+    <aside id="sidebar" class="w-full md:w-64 bg-nvBrown-darker text-white flex flex-col border-b md:border-b-0 md:border-r border-[#3E2010] z-30 transition-all duration-300">
+
+      <!-- Logo Header Area -->
+      <div class="p-5 flex items-center justify-between border-b border-[#3E2010]">
+        <div class="flex items-center gap-3">
+          <!-- Camel Brand Icon Simulator -->
+          <div class="w-9 h-9 rounded-full bg-nvOchre flex items-center justify-center shadow-lg">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707-.707m12.728 0l-.707.707M6.343 6.343l-.707-.707M14 12a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+          <div>
+            <h1 class="font-custom-display font-bold text-lg tracking-wide text-white leading-tight">Northern Vision</h1>
+            <span class="text-[10px] text-nvOchre font-bold tracking-widest uppercase">Community Org</span>
+          </div>
+        </div>
+
+        <!-- Mobile Navigation Trigger -->
+        <button onclick="toggleMobileNav()" class="md:hidden p-1 rounded hover:bg-nvBrown-lighter focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Scrollable Nav Links -->
+      <div id="nav-links" class="hidden md:flex flex-col flex-1 p-4 space-y-2 overflow-y-auto max-h-[80vh] md:max-h-none">
+
+        <a href="#home" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-semibold hover:bg-nvBrown-lighter hover:text-white transition-all text-white bg-nvBrown-lighter/40">
+          <span>Home</span>
+        </a>
+
+        <!-- Expandable Menu: About Us -->
+        <div>
+          <button onclick="toggleDropdown('about-dropdown', 'about-chevron')" class="w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-semibold text-gray-300 hover:bg-nvBrown-lighter hover:text-white transition-all">
+            <span>About Us</span>
+            <svg id="about-chevron" class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div id="about-dropdown" class="hidden pl-8 pr-2 py-1 space-y-1">
+            <a href="#" class="block py-2 text-xs text-gray-400 hover:text-nvOchre transition-colors">Our History</a>
+            <a href="#" class="block py-2 text-xs text-gray-400 hover:text-nvOchre transition-colors">Staff & Trustees</a>
+            <a href="#" class="block py-2 text-xs text-gray-400 hover:text-nvOchre transition-colors">Key Partners</a>
+          </div>
+        </div>
+
+        <!-- Expandable Menu: Programs -->
+        <div>
+          <button onclick="toggleDropdown('programs-dropdown', 'programs-chevron')" class="w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-semibold text-gray-300 hover:bg-nvBrown-lighter hover:text-white transition-all">
+            <span>Programs</span>
+            <svg id="programs-chevron" class="w-4 h-4 transform rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div id="programs-dropdown" class="pl-8 pr-2 py-1 space-y-1 block">
+            <a href="#" class="block py-1.5 text-xs text-gray-400 hover:text-nvOchre transition-colors font-medium">Circle Keeper Training</a>
+            <a href="#" class="block py-1.5 text-xs text-gray-400 hover:text-nvOchre transition-colors font-medium">Gender & Social Inclusion</a>
+            <a href="#" class="block py-1.5 text-xs text-gray-400 hover:text-nvOchre transition-colors font-medium">Peace and Security</a>
+            <a href="#" class="block py-1.5 text-xs text-gray-400 hover:text-nvOchre transition-colors font-medium">Education & Youth Leadership</a>
+          </div>
+        </div>
+
+        <!-- Expandable Menu: Projects -->
+        <div>
+          <button onclick="toggleDropdown('projects-dropdown', 'projects-chevron')" class="w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-semibold text-gray-300 hover:bg-nvBrown-lighter hover:text-white transition-all">
+            <span>Projects</span>
+            <svg id="projects-chevron" class="w-4 h-4 transform rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div id="projects-dropdown" class="pl-8 pr-2 py-1 space-y-1 block">
+            <a href="#" class="block py-1.5 text-xs text-gray-400 hover:text-nvOchre transition-colors font-medium">Climate Resilience</a>
+            <a href="#" class="block py-1.5 text-xs text-gray-400 hover:text-nvOchre transition-colors font-medium font-custom-body">Gotu Gamachu Farm</a>
+            <a href="#" class="block py-1.5 text-xs text-gray-400 hover:text-nvOchre transition-colors font-medium">Eco-Tourism Hub</a>
+            <a href="#" class="block py-1.5 text-xs text-gray-400 hover:text-nvOchre transition-colors font-medium">Digital Literacy Camp</a>
+            <a href="#" class="block py-1.5 text-xs text-gray-400 hover:text-nvOchre transition-colors font-medium">Indigenous Knowledge</a>
+          </div>
+        </div>
+
+        <a href="#media" class="flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-semibold text-gray-300 hover:bg-nvBrown-lighter hover:text-white transition-all">
+          <span>Media Hub</span>
+        </a>
+
+        <a href="#shop" class="flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-semibold text-gray-300 hover:bg-nvBrown-lighter hover:text-white transition-all">
+          <span>Shop</span>
+          <span class="px-2 py-0.5 bg-nvOchre text-white text-[9px] font-bold tracking-wider rounded-full">NEW</span>
+        </a>
+
+        <a href="#contact" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-semibold text-gray-300 hover:bg-nvBrown-lighter hover:text-white transition-all">
+          <span>Contact</span>
+        </a>
+
+      </div>
+
+      <!-- Quick Platform Status Footer inside Sidebar -->
+      <div class="p-4 mt-auto border-t border-[#3E2010] bg-[#170B04] hidden md:block">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+          <span class="text-xs text-gray-400 font-medium">Platform Upgrade Preview</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- CENTER & RIGHT: Main Canvas Playground -->
+    <main class="flex-1 flex flex-col p-4 lg:p-8 space-y-6 overflow-y-auto">
+
+      <!-- TOP CONTROL WIDGET: Real-Time Font & Style Customizer -->
+      <div class="bg-nvBrown-lighter border border-[#3E2010] rounded-2xl p-6 shadow-xl">
+        <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+
+          <div>
+            <span class="text-nvOchre font-bold text-xs tracking-widest uppercase">NVCBO Typography Lab</span>
+            <h2 class="text-xl lg:text-2xl font-bold font-custom-display text-white mt-1">Configure Premium Typography Upgrade</h2>
+            <p class="text-xs text-gray-400 mt-1 max-w-xl">
+              Switch presets to compare how specific brand fonts render against the deep earth colors. No code leaks, completely responsive layouts.
+            </p>
+          </div>
+
+          <!-- Configuration Controls Column -->
+          <div class="flex flex-wrap items-center gap-4 w-full lg:w-auto">
+
+            <!-- Font Preset Selector -->
+            <div class="flex-1 sm:flex-initial">
+              <label class="block text-[10px] text-gray-400 font-bold uppercase tracking-wider mb-1.5">Typography Preset</label>
+              <select id="preset-selector" onchange="applyFontPreset(this.value)" class="w-full sm:w-64 px-3 py-2 bg-[#1F0F06] border border-[#3E2010] text-[#FFF8F2] text-sm rounded-lg focus:outline-none focus:border-nvOchre transition-colors">
+                <option value="groots">Pathway 1: Friendly Organic (Fredoka + Caveat)</option>
+                <option value="adobe">Pathway 2: Premium Adobe Sim (Quicksand + Playfair)</option>
+                <option value="executive">Pathway 3: Authoritative (Montserrat + Caveat)</option>
+              </select>
+            </div>
+
+            <!-- Page Background Theme Selector -->
+            <div>
+              <label class="block text-[10px] text-gray-400 font-bold uppercase tracking-wider mb-1.5">Canvas Canvas Backdrop</label>
+              <div class="flex bg-[#1F0F06] border border-[#3E2010] p-1 rounded-lg">
+                <button id="theme-dark-btn" onclick="toggleCanvasTheme('dark')" class="px-3 py-1.5 bg-nvOchre text-white text-xs font-bold rounded-md transition-all">
+                  Earthy Dark
+                </button>
+                <button id="theme-light-btn" onclick="toggleCanvasTheme('light')" class="px-3 py-1.5 text-gray-400 hover:text-white text-xs font-bold rounded-md transition-all">
+                  Earthy Light
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Spec Badge Indicators showing active styling parameters dynamically -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-6 pt-5 border-t border-[#3E2010] text-xs">
+          <div class="bg-[#1F0F06] p-3 rounded-lg flex justify-between items-center">
+            <span class="text-gray-400">Heading Typeface:</span>
+            <strong id="spec-heading" class="text-nvOchre font-medium">Fredoka Bold</strong>
+          </div>
+          <div class="bg-[#1F0F06] p-3 rounded-lg flex justify-between items-center">
+            <span class="text-gray-400">Accent Callout:</span>
+            <strong id="spec-accent" class="text-nvOchre font-medium">Caveat Script</strong>
+          </div>
+          <div class="bg-[#1F0F06] p-3 rounded-lg flex justify-between items-center">
+            <span class="text-gray-400">Reading / Body:</span>
+            <strong id="spec-body" class="text-nvOchre font-medium">Inter Sans</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAIN WEB PAGE MOCK CANVAS -->
+      <div id="mock-canvas" class="bg-nvBrown border border-[#3E2010] rounded-3xl p-6 lg:p-12 shadow-2xl relative transition-all duration-300">
+
+        <!-- Live Badge Overlay telling user this is the actual preview rendered -->
+        <div class="absolute top-4 right-4 bg-nvBrown-darker text-gray-400 border border-[#3E2010] px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-nvOchre animate-ping"></span>
+          Live Canvas View
+        </div>
+
+        <!-- Outer Content Section Container styled like the GROOTS reference -->
+        <div class="w-full max-w-4xl mx-auto text-center mt-6">
+
+          <!-- Context/Contextual Mini Badge -->
+          <div class="inline-block mx-auto mb-6 px-4 py-1.5 bg-nvOchre text-white text-xs font-bold tracking-widest uppercase rounded-full shadow-md">
+            Theory of Change
+          </div>
+
+          <!-- Main Primary Headline containing beautiful responsive scale -->
+          <h2 id="main-headline" class="font-custom-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-6 transition-all duration-300">
+            Change begins at the <br class="hidden sm:inline" /> grassroots
+          </h2>
+
+          <!-- Balanced readable paragraph explaining CBO mission -->
+          <p id="main-paragraph" class="font-custom-body mt-4 max-w-2xl mx-auto text-base text-[#E6D5C3] leading-relaxed transition-all duration-300">
+            At NorthernVision CBO, we believe communities are transformed when grassroots women have the power to lead. Through collective action, we build resilient, locally driven solutions to combat climate challenges and empower the marginalized.
+          </p>
+
+          <!-- INTERACTIVE ACTION BUTTON GROUP (Simulating exact layout from upload 1000050871.jpg) -->
+          <div class="mt-8 flex flex-wrap justify-center items-center gap-4">
+            <button onclick="triggerFeedbackModal('Donation Pipeline')" class="font-custom-display w-full sm:w-auto px-8 py-4 bg-nvOchre hover:bg-nvOchre-hover text-white font-bold text-sm tracking-widest uppercase rounded-full shadow-lg transition-all transform hover:-translate-y-0.5 active:translate-y-0">
+              Donate Now
+            </button>
+            <button onclick="triggerFeedbackModal('Partnership Portal')" class="font-custom-display w-full sm:w-auto px-8 py-4 border-2 border-[#E6D5C3] hover:border-white text-white font-bold text-sm tracking-widest uppercase rounded-full transition-all bg-transparent hover:bg-[#E6D5C3]/5">
+              Become a Partner
+            </button>
+          </div>
+
+          <!-- ------------------------------------------------------------- -->
+          <!-- CARDS LAYOUT: Grid detailing organizational pillars (No code leaks!) -->
+          <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 text-left">
+
+            <!-- Pillar Block 01 -->
+            <div id="pillar-card-1" class="bg-nvBrown-lighter p-8 rounded-2xl border border-[#3E2010] shadow-md transition-all hover:border-nvOchre duration-300 relative group overflow-hidden">
+              <div class="flex items-start gap-4 relative z-10">
+                <!-- Circular Counter -->
+                <span class="w-8 h-8 rounded-full bg-nvOchre text-white flex items-center justify-center text-xs font-bold flex-shrink-0 shadow-md">
+                  01
+                </span>
+
+                <div>
+                  <!-- Header displaying custom inline accent badge securely without leaking variables -->
+                  <h3 id="card-1-heading" class="font-custom-display text-xl sm:text-2xl font-bold text-white tracking-wide leading-snug flex flex-wrap items-center gap-x-2 gap-y-1">
+                    Grassroots Women are the
+                    <span id="script-accent-1" class="font-custom-accent px-3.5 py-1 bg-nvOchre text-white rounded-xl text-2xl tracking-normal font-normal inline-block transform -rotate-2 shadow-inner leading-none mt-1">
+                      Foundation
+                    </span>
+                  </h3>
+
+                  <p id="card-1-body" class="font-custom-body mt-4 text-sm text-[#D1BFA7] leading-relaxed">
+                    Lasting transformation begins with women. Through their lived experiences, indigenous knowledge, and hands-on leadership, they drive vital changes directly within their local communities.
+                  </p>
+                </div>
+              </div>
+              <div class="absolute -right-10 -bottom-10 w-24 h-24 bg-nvOchre/5 rounded-full group-hover:scale-150 transition-all duration-500"></div>
+            </div>
+
+            <!-- Pillar Block 02 -->
+            <div id="pillar-card-2" class="bg-nvBrown-lighter p-8 rounded-2xl border border-[#3E2010] shadow-md transition-all hover:border-nvOchre duration-300 relative group overflow-hidden">
+              <div class="flex items-start gap-4 relative z-10">
+                <span class="w-8 h-8 rounded-full bg-nvOchre text-white flex items-center justify-center text-xs font-bold flex-shrink-0 shadow-md">
+                  02
+                </span>
+
+                <div>
+                  <h3 id="card-2-heading" class="font-custom-display text-xl sm:text-2xl font-bold text-white tracking-wide leading-snug flex flex-wrap items-center gap-x-2 gap-y-1">
+                    Shifting
+                    <span id="script-accent-2" class="font-custom-accent px-3.5 py-1 bg-nvCream text-[#2B1408] rounded-xl text-2xl tracking-normal font-normal inline-block transform rotate-2 shadow-inner leading-none mt-1">
+                      Power
+                    </span>
+                    to Communities
+                  </h3>
+
+                  <p id="card-2-body" class="font-custom-body mt-4 text-sm text-[#D1BFA7] leading-relaxed">
+                    We sustain long-term impact by shifting resource allocation, decision-making, and strategic authority directly into indigenous networks situated across Northern Kenya.
+                  </p>
+                </div>
+              </div>
+              <div class="absolute -right-10 -bottom-10 w-24 h-24 bg-nvOchre/5 rounded-full group-hover:scale-150 transition-all duration-500"></div>
+            </div>
+
+          </div>
+
+          <!-- FOOTER DETAILS inside layout -->
+          <div class="mt-16 pt-8 border-t border-[#3E2010] flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+            <p id="footer-text" class="font-custom-body">© 2026 NorthernVision CBO. Supporting Indigenous grassroot campaigns.</p>
+            <div class="flex gap-4">
+              <a href="#" class="hover:text-nvOchre transition-colors">Privacy Policy</a>
+              <a href="#" class="hover:text-nvOchre transition-colors">Terms of Service</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- INTERACTIVE MODAL COMPONENT (Custom alerts/modals as required by the CSP Guardrails) -->
+  <div id="interactive-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm">
+    <div class="bg-nvBrown-lighter border-2 border-nvOchre rounded-3xl max-w-md w-full p-6 shadow-2xl transform scale-95 transition-transform duration-300">
+
+      <!-- Icon representation in modal -->
+      <div class="w-12 h-12 bg-nvOchre/10 text-nvOchre rounded-full flex items-center justify-center mb-4">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+      </div>
+
+      <h3 id="modal-title" class="font-custom-display text-xl font-bold text-white mb-2">Platform Event</h3>
+      <p id="modal-description" class="font-custom-body text-sm text-[#D1BFA7] leading-relaxed mb-6">
+        Placeholder modal action.
+      </p>
+
+      <!-- Dismiss button -->
+      <div class="flex justify-end">
+        <button onclick="dismissModal()" class="font-custom-display px-6 py-2.5 bg-nvOchre hover:bg-nvOchre-hover text-white font-bold text-xs tracking-wider uppercase rounded-full transition-colors">
+          Got It
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- INTERACTIVE APP SCRIPT CORE -->
+  <script>
+    // Map the presets to exact fonts loaded via Google Font API
+    const presets = {
+      groots: {
+        heading: "'Fredoka', sans-serif",
+        accent: "'Caveat', cursive",
+        body: "'Inter', sans-serif",
+        headingLabel: "Fredoka Bold",
+        accentLabel: "Caveat Script",
+        bodyLabel: "Inter Sans",
+        isScriptBadgeInverted: false
+      },
+      adobe: {
+        heading: "'Quicksand', sans-serif",
+        accent: "'Playfair Display', serif", // Dynamic Italic Serif styling representing classy custom script
+        body: "'Plus Jakarta Sans', sans-serif",
+        headingLabel: "Quicksand (Filson Sim)",
+        accentLabel: "Playfair Italic (Snippet Sim)",
+        bodyLabel: "Plus Jakarta Sans (Adelle Sim)",
+        isScriptBadgeInverted: true
+      },
+      executive: {
+        heading: "'Montserrat', sans-serif",
+        accent: "'Caveat', cursive",
+        body: "'Open Sans', sans-serif",
+        headingLabel: "Montserrat Display",
+        accentLabel: "Caveat Premium",
+        bodyLabel: "Open Sans Humanist",
+        isScriptBadgeInverted: false
+      }
+    };
+
+    /**
+     * Applies selected typography setup programmatically
+     */
+    function applyFontPreset(presetKey) {
+      const selected = presets[presetKey];
+      if (!selected) return;
+
+      // Update CSS Variables
+      document.documentElement.style.setProperty('--font-display', selected.heading);
+      document.documentElement.style.setProperty('--font-accent', selected.accent);
+      document.documentElement.style.setProperty('--font-body', selected.body);
+
+      // Update spec indicators in dashboard
+      document.getElementById('spec-heading').innerText = selected.headingLabel;
+      document.getElementById('spec-accent').innerText = selected.accentLabel;
+      document.getElementById('spec-body').innerText = selected.bodyLabel;
+
+      // Adapt accent typography specific inline styles to prevent rendering conflicts
+      const accentSpan1 = document.getElementById('script-accent-1');
+      const accentSpan2 = document.getElementById('script-accent-2');
+
+      if (presetKey === 'adobe') {
+        // Render serif style highlight accents beautifully
+        accentSpan1.className = "font-custom-accent px-3 py-0.5 bg-nvOchre text-white rounded-lg text-lg sm:text-xl tracking-normal italic font-semibold inline-block transform -rotate-1 shadow-md leading-none";
+        accentSpan2.className = "font-custom-accent px-3 py-0.5 bg-nvCream text-nvBrown-lighter rounded-lg text-lg sm:text-xl tracking-normal italic font-semibold inline-block transform rotate-1 shadow-md leading-none";
+      } else {
+        // Render beautiful organic handwritten look representing the reference
+        accentSpan1.className = "font-custom-accent px-3.5 py-1 bg-nvOchre text-white rounded-xl text-2xl tracking-normal font-normal inline-block transform -rotate-2 shadow-inner leading-none mt-1";
+        accentSpan2.className = "font-custom-accent px-3.5 py-1 bg-nvCream text-[#2B1408] rounded-xl text-2xl tracking-normal font-normal inline-block transform rotate-2 shadow-inner leading-none mt-1";
+      }
+    }
+
+    /**
+     * Alternates the mockup background for contrast checks (Earthy Dark vs Earthy Light)
+     */
+    function toggleCanvasTheme(theme) {
+      const canvas = document.getElementById('mock-canvas');
+      const headline = document.getElementById('main-headline');
+      const paragraph = document.getElementById('main-paragraph');
+      const card1 = document.getElementById('pillar-card-1');
+      const card2 = document.getElementById('pillar-card-2');
+      const card1Heading = document.getElementById('card-1-heading');
+      const card2Heading = document.getElementById('card-2-heading');
+      const card1Body = document.getElementById('card-1-body');
+      const card2Body = document.getElementById('card-2-body');
+      const footerText = document.getElementById('footer-text');
+
+      const darkBtn = document.getElementById('theme-dark-btn');
+      const lightBtn = document.getElementById('theme-light-btn');
+
+      if (theme === 'light') {
+        // Toggle theme layout configs
+        canvas.style.backgroundColor = '#FFF8F2';
+        canvas.style.borderColor = '#FFF0E5';
+
+        headline.className = "font-custom-display text-4xl sm:text-5xl lg:text-6xl font-bold text-nvBrown tracking-tight leading-tight mb-6 transition-all duration-300";
+        paragraph.className = "font-custom-body mt-4 max-w-2xl mx-auto text-base text-nvBrown-lighter leading-relaxed transition-all duration-300";
+
+        card1.style.backgroundColor = '#FFFFFF';
+        card1.style.borderColor = '#E6D5C3';
+        card1Heading.style.color = '#1F0F06';
+        card1Body.style.color = '#5C4A3C';
+
+        card2.style.backgroundColor = '#FFFFFF';
+        card2.style.borderColor = '#E6D5C3';
+        card2Heading.style.color = '#1F0F06';
+        card2Body.style.color = '#5C4A3C';
+
+        footerText.style.color = '#A8998D';
+
+        // Toggle UI Selection Buttons
+        lightBtn.className = "px-3 py-1.5 bg-nvOchre text-white text-xs font-bold rounded-md transition-all";
+        darkBtn.className = "px-3 py-1.5 text-gray-400 hover:text-white text-xs font-bold rounded-md transition-all";
+      } else {
+        // Return back to Earthy Dark configuration
+        canvas.style.backgroundColor = '#1F0F06';
+        canvas.style.borderColor = '#3E2010';
+
+        headline.className = "font-custom-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-6 transition-all duration-300";
+        paragraph.className = "font-custom-body mt-4 max-w-2xl mx-auto text-base text-[#E6D5C3] leading-relaxed transition-all duration-300";
+
+        card1.style.backgroundColor = '#2B1408';
+        card1.style.borderColor = '#3E2010';
+        card1Heading.style.color = '#FFFFFF';
+        card1Body.style.color = '#D1BFA7';
+
+        card2.style.backgroundColor = '#2B1408';
+        card2.style.borderColor = '#3E2010';
+        card2Heading.style.color = '#FFFFFF';
+        card2Body.style.color = '#D1BFA7';
+
+        footerText.style.color = '#6B7280'; // Reset grey color
+
+        // Toggle UI Selection Buttons
+        darkBtn.className = "px-3 py-1.5 bg-nvOchre text-white text-xs font-bold rounded-md transition-all";
+        lightBtn.className = "px-3 py-1.5 text-gray-400 hover:text-white text-xs font-bold rounded-md transition-all";
+      }
+    }
+
+    /**
+     * Standard dropdown dynamic navigation states
+     */
+    function toggleDropdown(dropdownId, chevronId) {
+      const dropdown = document.getElementById(dropdownId);
+      const chevron = document.getElementById(chevronId);
+
+      if (dropdown.style.display === "none" || dropdown.classList.contains('hidden')) {
+        dropdown.style.display = "block";
+        dropdown.classList.remove('hidden');
+        chevron.style.transform = "rotate(180deg)";
+      } else {
+        dropdown.style.display = "none";
+        dropdown.classList.add('hidden');
+        chevron.style.transform = "rotate(0deg)";
+      }
+    }
+
+    /**
+     * Toggles the sidebar view on responsive mobile breakpoints
+     */
+    function toggleMobileNav() {
+      const navLinks = document.getElementById('nav-links');
+      if (navLinks.classList.contains('hidden')) {
+        navLinks.classList.remove('hidden');
+        navLinks.classList.add('flex');
+      } else {
+        navLinks.classList.add('hidden');
+        navLinks.classList.remove('flex');
+      }
+    }
+
+    /**
+     * Custom alerts to guarantee complete compliance to Content Security Policies (CSP) and sandbox parameters
+     */
+    function triggerFeedbackModal(actionKey) {
+      const modal = document.getElementById('interactive-modal');
+      const title = document.getElementById('modal-title');
+      const desc = document.getElementById('modal-description');
+
+      title.innerText = `Connecting to ${actionKey}`;
+      desc.innerText = `This mock triggers the production ${actionKey}. It incorporates your selected typography parameters and maintains secure styling without any literal code-leaks.`;
+
+      modal.classList.remove('hidden');
+    }
+
+    function dismissModal() {
+      const modal = document.getElementById('interactive-modal');
+      modal.classList.add('hidden');
+    }
+
+    // Set initial states once page is parsed
+    window.onload = function() {
+      applyFontPreset('groots');
+    };
+  </script>
+</body>
+</html>
