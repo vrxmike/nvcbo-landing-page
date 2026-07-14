@@ -150,12 +150,11 @@ export default function Header() {
               <span>Projects</span>
               <ChevronDown className={`w-4 h-4 transform transition-transform duration-300 ${openAccordions.projects ? 'rotate-180' : ''}`} />
             </button>
-            <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.projects ? 'max-h-56 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
-              <Link onClick={() => setMobileMenuOpen(false)} href="#programs" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><Leaf className="w-4 h-4 opacity-70" /> Climate Resilience</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="#programs" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><Fish className="w-4 h-4 opacity-70" /> Gotu Gamachu Farm</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="#programs" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><TreePine className="w-4 h-4 opacity-70" /> Eco-Tourism Hub</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="#programs" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><Laptop className="w-4 h-4 opacity-70" /> Digital Literacy Camp</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="#programs" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><ScrollText className="w-4 h-4 opacity-70" /> Indigenous Knowledge</Link>
+            <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.projects ? 'max-h-64 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/projects" className="flex items-center gap-3 text-sm py-2 text-brand-gold font-black"><ArrowRight className="w-4 h-4" /> All Active Projects</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/projects/climate-resilience" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><Leaf className="w-4 h-4 opacity-70" /> Climate Resilience</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/projects/holiday-camp" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><Laptop className="w-4 h-4 opacity-70" /> Digital Literacy Camp</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/projects" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><ScrollText className="w-4 h-4 opacity-70" /> Indigenous Knowledge</Link>
             </div>
           </div>
 

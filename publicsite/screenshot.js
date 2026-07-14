@@ -76,3 +76,23 @@ const { chromium } = require('playwright');
 
   await browser.close();
 })();
+
+(async () => {
+  const { chromium } = require('playwright');
+  const browser = await chromium.launch();
+  const context = await browser.newContext();
+
+  // Desktop
+  const desktopPage = await context.newPage();
+  await desktopPage.setViewportSize({ width: 1280, height: 800 });
+  await desktopPage.goto('http://localhost:3000/projects', { waitUntil: 'networkidle' });
+  await desktopPage.screenshot({ path: 'designrefs/projects_desktop_view.png', fullPage: true });
+
+  // Mobile
+  const mobilePage = await context.newPage();
+  await mobilePage.setViewportSize({ width: 375, height: 812 });
+  await mobilePage.goto('http://localhost:3000/projects', { waitUntil: 'networkidle' });
+  await mobilePage.screenshot({ path: 'designrefs/projects_mobile_view.png', fullPage: true });
+
+  await browser.close();
+})();
