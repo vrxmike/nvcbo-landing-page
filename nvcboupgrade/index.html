@@ -267,7 +267,7 @@
             <button onclick="triggerFeedbackModal('Donation Pipeline')" class="font-custom-display w-full sm:w-auto px-8 py-4 bg-nvOchre hover:bg-nvOchre-hover text-white font-bold text-sm tracking-widest uppercase rounded-full shadow-lg transition-all transform hover:-translate-y-0.5 active:translate-y-0">
               Donate Now
             </button>
-            <button onclick="triggerFeedbackModal('Partnership Portal')" class="font-custom-display w-full sm:w-auto px-8 py-4 border-2 border-[#E6D5C3] hover:border-white text-white font-bold text-sm tracking-widest uppercase rounded-full transition-all bg-transparent hover:bg-[#E6D5C3]/5">
+            <button id="btn-partner" onclick="triggerFeedbackModal('Partnership Portal')" class="font-custom-display w-full sm:w-auto px-8 py-4 border-2 border-[#E6D5C3] hover:border-white text-white font-bold text-sm tracking-widest uppercase rounded-full transition-all bg-transparent hover:bg-[#E6D5C3]/5">
               Become a Partner
             </button>
           </div>
@@ -474,6 +474,12 @@
         // Toggle UI Selection Buttons
         lightBtn.className = "px-3 py-1.5 bg-nvOchre text-white text-xs font-bold rounded-md transition-all";
         darkBtn.className = "px-3 py-1.5 text-gray-400 hover:text-white text-xs font-bold rounded-md transition-all";
+
+        // Fix Become a Partner button visibility
+        const partnerBtn = document.getElementById("btn-partner");
+        if (partnerBtn) {
+           partnerBtn.className = "font-custom-display w-full sm:w-auto px-8 py-4 border-2 border-[#1F0F06] hover:border-[#130904] text-[#1F0F06] font-bold text-sm tracking-widest uppercase rounded-full transition-all bg-transparent hover:bg-black/5";
+        }
       } else {
         // Return back to Earthy Dark configuration
         canvas.style.backgroundColor = '#1F0F06';
@@ -497,6 +503,12 @@
         // Toggle UI Selection Buttons
         darkBtn.className = "px-3 py-1.5 bg-nvOchre text-white text-xs font-bold rounded-md transition-all";
         lightBtn.className = "px-3 py-1.5 text-gray-400 hover:text-white text-xs font-bold rounded-md transition-all";
+
+        // Restore Become a Partner button visibility
+        const partnerBtn = document.getElementById("btn-partner");
+        if (partnerBtn) {
+           partnerBtn.className = "font-custom-display w-full sm:w-auto px-8 py-4 border-2 border-[#E6D5C3] hover:border-white text-white font-bold text-sm tracking-widest uppercase rounded-full transition-all bg-transparent hover:bg-[#E6D5C3]/5";
+        }
       }
     }
 
