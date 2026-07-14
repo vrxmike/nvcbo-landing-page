@@ -1,159 +1,155 @@
 import Link from "next/link";
-import { ArrowRight, Leaf, Map, SunMedium, ExternalLink, Compass } from "lucide-react";
+import { ArrowRight, Leaf, Sprout, SunMedium, Globe, Landmark, Scale, Network, Users } from "lucide-react";
 
 export const metadata = {
-  title: "Climate Resilience | Northern Vision CBO",
-  description: "Turning Climate Adaptation into Daily, Tangible Practice in Isiolo's Drylands.",
+  title: "Climate Resilience & Sustainable Livelihoods | Northern Vision CBO",
+  description: "Adaptive Systems for Arid Landscapes. Turning climate adaptation into daily, tangible practice across Northern Kenya.",
 };
 
 // --- STATIC COPY CONSTANTS ---
-const PAGE_DATA = {
-  hero: {
-    title: "Climate Resilience & Sustainable Livelihoods",
-    subtitle: "Adaptive Systems for Arid Landscapes",
-    copy: "Set against the realities of drought, floods and shrinking pastoral systems across Isiolo's ASAL landscape, this programme turns climate adaptation into daily, tangible practice from climate-smart aquaculture and integrated farming at Gotu Gamachu Farm, to women-led kitchen gardens that put food security directly in the hands of households, to a new generation of children learning resilience through story, art, and land."
-  },
-  bentoBlocks: {
-    farm: {
-      title: "Gotu Gamachu Farm",
-      badge: "Flagship Site",
-      text: "Gotu Gamachu Farm is Northern Vision's flagship demonstration site for climate-smart aquaculture and integrated farming. It serves as the physical model for the Gotu Summer School on Climate Resilience (GSSCR) and the kitchen garden work with local women."
-    },
-    gsscr: {
-      title: "GSSCR for Children",
-      text: "A space where children learn resilience through creative writing, composition, poetry, art, and hands-on farm excursions."
-    },
-    stand4herland: {
-      title: "Women's Land Rights",
-      text: "Advancing sustainable land justice and secure tenure for women farmers. Supporting global actions in collaboration with Landesa and PACJA.",
-      href: "https://www.linkedin.com/posts/shampi-anna-2386592a9"
-    },
-    ecotourism: {
-      title: "Eco-Tourism Visitor Portal",
-      text: "Experience Gotu's landscapes firsthand. Guided visits take guests through the farm, aquaculture ponds, kitchen gardens, and the surrounding drylands.",
-      href: "/contact" // Linking to contact page to apply for a visit
-    }
-  }
+const PAGE_HERO = {
+  title: "Climate Resilience & Sustainable Livelihoods",
+  subtitle: "Adaptive Systems for Arid Landscapes",
+  copy: "Set against the realities of drought, floods and shrinking pastoral systems across Isiolo's ASAL landscape, this programme turns climate adaptation into daily, tangible practice. Every project is designed alongside communities to reflect their priorities, knowledge, and lived experiences."
 };
+
+interface Intervention {
+  id: string;
+  title: string;
+  copy: string;
+  icon: React.ElementType;
+  colSpan?: string;
+  featured?: boolean;
+}
+
+const INTERVENTIONS: Intervention[] = [
+  {
+    id: "regenerative-ag",
+    title: "Regenerative Agriculture Systems",
+    copy: "Building resilient community networks through modern climate adaptation, regenerative crop practices, and sustainable livelihood systems designed for arid environments.",
+    icon: Leaf,
+    colSpan: "lg:col-span-1"
+  },
+  {
+    id: "kitchen-gardens",
+    title: "Women-Led Kitchen Gardens",
+    copy: "Putting food security directly in the hands of local households through adaptive, small-scale kitchen gardens managed by women groups.",
+    icon: Sprout,
+    colSpan: "lg:col-span-2",
+    featured: true
+  },
+  {
+    id: "renewable-energy",
+    title: "Renewable Energy Integration",
+    copy: "Deploying renewable energy infrastructures and green tech assets to power local agricultural systems reliably.",
+    icon: SunMedium,
+    colSpan: "lg:col-span-3"
+  }
+];
+
+interface PolicyNetwork {
+  id: string;
+  name: string;
+  icon: React.ElementType;
+}
+
+const POLICY_NETWORKS: PolicyNetwork[] = [
+  { id: "climate-working-group", name: "Climate Sector Working Group", icon: Globe },
+  { id: "acepa-alignment", name: "Parliament - ACEPA Alignment", icon: Landmark },
+  { id: "landesa-wlr", name: "WLR - Landesa Conference Networks", icon: Scale },
+  { id: "stand4herland", name: "S4HL (Stand4HerLand) Policy Matrix", icon: Users },
+  { id: "pacja-global", name: "PACJA Global Policy Engagement", icon: Network },
+];
 
 export default function ClimateResiliencePage() {
   return (
-    <div className="flex flex-col bg-brand-light-bg min-h-screen pt-24 pb-32">
+    <div className="flex flex-col bg-white min-h-screen pt-24 pb-32">
 
-      {/* 1. Page Hero Component */}
-      <section className="pt-16 pb-16 md:pt-24 md:pb-24 px-6 relative overflow-hidden">
+      {/* 1. Isolated Page Hero */}
+      <section className="pt-16 pb-20 px-6 relative overflow-hidden bg-brand-cream border-b border-black/5">
         {/* Subtle Tactile Micro-texture Background */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }}></div>
 
         <div className="container mx-auto max-w-4xl text-center relative z-10">
           <Link href="/projects" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-rust hover:text-brand-gold transition-colors mb-8 w-fit mx-auto">
-            <ArrowRight className="w-4 h-4 rotate-180" /> Back to Directory
+            <ArrowRight className="w-4 h-4 rotate-180" /> Back to Projects Directory
           </Link>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-brand-espresso leading-[1.1] tracking-tight mb-6">
-            {PAGE_DATA.hero.title}
+            {PAGE_HERO.title}
           </h1>
 
-          <h2 className="text-xl md:text-2xl text-brand-espresso/90 font-bold mb-8 leading-snug">
-            {PAGE_DATA.hero.subtitle}
+          <h2 className="text-xl md:text-2xl text-brand-espresso/90 font-bold mb-8 leading-snug max-w-2xl mx-auto">
+            {PAGE_HERO.subtitle}
           </h2>
 
-          <div className="w-24 h-1.5 bg-brand-gold mx-auto rounded-full mb-8"></div>
+          <div className="w-24 h-1.5 bg-brand-gold mx-auto rounded-full mb-10"></div>
 
-          <p className="text-base sm:text-lg text-brand-espresso/80 leading-relaxed font-medium">
-            {PAGE_DATA.hero.copy}
+          <p className="text-base sm:text-lg md:text-xl text-brand-espresso/80 leading-relaxed font-medium">
+            {PAGE_HERO.copy}
           </p>
         </div>
       </section>
 
-      {/* 2. Asymmetrical Bento Grid Showcase Container */}
-      <section className="px-6 pb-20">
+      {/* 2. Core Adaptive Interventions Matrix (Bento Grid) */}
+      <section className="pt-20 pb-16 px-6 bg-white">
         <div className="container mx-auto max-w-6xl">
+
+          <div className="text-center mb-16">
+            <span className="text-sm font-extrabold uppercase tracking-[4px] text-brand-rust mb-3 block">Adaptive Models</span>
+            <h2 className="text-3xl sm:text-4xl font-black text-brand-espresso mb-6">Core Adaptive Interventions</h2>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-            {/* Bento Cell A (Gotu Gamachu Farm - Col Span 2) */}
-            <div className="bento-card md:col-span-2 bg-white flex flex-col md:flex-row overflow-hidden group">
-              <div className="p-8 md:p-10 flex flex-col flex-1 order-2 md:order-1 justify-center">
-                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-espresso/60 mb-6">
-                  <Leaf className="w-4 h-4 text-brand-rust" /> {PAGE_DATA.bentoBlocks.farm.badge}
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-black text-brand-espresso mb-4 leading-tight">
-                  {PAGE_DATA.bentoBlocks.farm.title}
-                </h3>
-                <p className="text-base text-brand-espresso/80 leading-relaxed font-medium mb-0">
-                  {PAGE_DATA.bentoBlocks.farm.text}
-                </p>
-              </div>
-              <div className="w-full md:w-2/5 aspect-video md:aspect-auto relative bg-brand-cream order-1 md:order-2 overflow-hidden">
-                <div className="absolute inset-0 bg-brand-espresso/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
-                <img
-                  src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=2070&auto=format&fit=crop"
-                  alt="Gotu Gamachu Farm Layout and Aquaculture Ponds"
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-            </div>
-
-            {/* Bento Cell B (Summer School GSSCR) */}
-            <div className="bento-card bg-brand-cream p-8 md:p-10 flex flex-col items-start group">
-              <div className="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-brand-gold mb-6 border border-brand-espresso/5">
-                <SunMedium className="w-6 h-6" />
-              </div>
-              <h3 className="text-xl font-black text-brand-espresso mb-4 leading-tight">
-                {PAGE_DATA.bentoBlocks.gsscr.title}
-              </h3>
-              <p className="text-sm text-brand-espresso/80 leading-relaxed font-medium mb-6">
-                {PAGE_DATA.bentoBlocks.gsscr.text}
-              </p>
-              <div className="mt-auto inline-flex items-center px-3 py-1.5 bg-brand-gold/10 text-brand-rust text-[10px] font-black uppercase tracking-widest rounded border border-brand-gold/20">
-                PACJA Storybook Integration
-              </div>
-            </div>
-
-            {/* Bento Cell C (Stand4HerLand Partnership) */}
-            <div className="bento-card bg-white p-8 md:p-10 flex flex-col items-start">
-              <div className="w-12 h-12 rounded-xl bg-brand-cream flex items-center justify-center text-brand-rust mb-6 border border-brand-espresso/5">
-                <Map className="w-6 h-6" />
-              </div>
-              <h3 className="text-xl font-black text-brand-espresso mb-4 leading-tight">
-                {PAGE_DATA.bentoBlocks.stand4herland.title}
-              </h3>
-              <p className="text-sm text-brand-espresso/80 leading-relaxed font-medium mb-8 flex-grow">
-                {PAGE_DATA.bentoBlocks.stand4herland.text}
-              </p>
-              <a
-                href={PAGE_DATA.bentoBlocks.stand4herland.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-auto flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-gold hover:text-brand-rust transition-colors duration-300"
+            {INTERVENTIONS.map((intervention) => (
+              <div
+                key={intervention.id}
+                className={`bento-card bg-brand-cream p-8 md:p-10 flex flex-col ${intervention.colSpan || ''} ${intervention.featured ? 'border-brand-gold/30 shadow-md' : ''}`}
               >
-                View LinkedIn Post <ExternalLink className="w-4 h-4" />
-              </a>
-            </div>
-
-            {/* Bento Cell D (Eco-Tourism Visitor Portal) - Col Span 2 */}
-            <div className="bento-card md:col-span-2 bg-brand-espresso p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8 group relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none transform translate-x-1/4 -translate-y-1/4"></div>
-
-              <div className="relative z-10 flex-1">
-                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-gold mb-4">
-                  <Compass className="w-4 h-4" /> Eco-Tourism
+                <div className="w-14 h-14 rounded-xl bg-white flex items-center justify-center text-brand-rust mb-6 border border-brand-espresso/5 shadow-sm">
+                  <intervention.icon className="w-7 h-7" />
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-black text-white mb-4 leading-tight">
-                  {PAGE_DATA.bentoBlocks.ecotourism.title}
+
+                <h3 className={`font-black text-brand-espresso mb-4 leading-tight ${intervention.featured ? 'text-2xl sm:text-3xl' : 'text-xl sm:text-2xl'}`}>
+                  {intervention.title}
                 </h3>
-                <p className="text-base text-white/80 leading-relaxed font-medium mb-0 max-w-xl">
-                  {PAGE_DATA.bentoBlocks.ecotourism.text}
+
+                <p className="text-base text-brand-espresso/80 leading-relaxed font-medium mb-0">
+                  {intervention.copy}
                 </p>
               </div>
+            ))}
+          </div>
 
-              <div className="relative z-10 shrink-0 w-full md:w-auto">
-                <Link
-                  href={PAGE_DATA.bentoBlocks.ecotourism.href}
-                  className="flex items-center justify-center gap-3 px-8 py-4 bg-brand-gold text-white rounded-xl font-black uppercase tracking-wider shadow-[0_8px_20px_rgba(243,156,18,0.3)] hover:-translate-y-1 hover:bg-brand-rust hover:shadow-[0_12px_25px_rgba(211,84,0,0.4)] active:scale-[0.98] transition-all duration-300 w-full"
-                >
-                  Apply to Visit
-                </Link>
+        </div>
+      </section>
+
+      {/* 3. Policy Bridge & Global Engagements Repository */}
+      <section className="py-16 px-6">
+        <div className="container mx-auto max-w-5xl">
+          <div className="bento-card bg-brand-espresso p-10 md:p-16 relative overflow-hidden flex flex-col lg:flex-row items-start lg:items-center gap-12">
+
+            {/* Minimalist Graphic Element */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold/5 rounded-full blur-3xl pointer-events-none transform translate-x-1/3 -translate-y-1/3"></div>
+
+            <div className="relative z-10 flex-1 lg:max-w-md">
+              <span className="text-xs font-black uppercase tracking-[3px] text-brand-gold mb-4 block">Grassroots Policy Portal</span>
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight">
+                Policy Bridge & Global Engagements
+              </h2>
+              <p className="text-base text-white/80 leading-relaxed font-medium mb-0">
+                Bridging local climate adaptation work with structured global networks and regional legislative frameworks to secure sustainable land tenure and climate justice.
+              </p>
+            </div>
+
+            <div className="relative z-10 flex-1 w-full">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {POLICY_NETWORKS.map((network) => (
+                  <div key={network.id} className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-colors duration-300">
+                    <network.icon className="w-5 h-5 text-brand-gold shrink-0 mt-0.5" />
+                    <span className="text-sm font-bold text-white/90 leading-snug">{network.name}</span>
+                  </div>
+                ))}
               </div>
             </div>
 
