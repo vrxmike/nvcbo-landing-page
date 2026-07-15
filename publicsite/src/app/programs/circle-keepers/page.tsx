@@ -134,7 +134,7 @@ export default function CircleKeepersPage() {
           <div className="bento-card bg-brand-espresso p-10 md:p-16 flex flex-col md:flex-row items-center gap-12 overflow-hidden relative">
 
             {/* Background Graphic */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none transform translate-x-1/3 -translate-y-1/3"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none transform transform-gpu will-change-transform translate-x-1/3 -translate-y-1/3"></div>
 
             <div className="shrink-0 text-center md:text-left z-10">
               <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-brand-rust/20 border border-brand-rust/30 text-brand-gold mb-4 mx-auto md:mx-0">

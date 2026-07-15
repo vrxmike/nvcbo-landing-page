@@ -255,7 +255,7 @@ export default function AboutPage() {
           <div className="bg-brand-espresso rounded-[2rem] p-8 md:p-12 shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12">
 
             {/* Background Graphic */}
-            <div className="absolute top-0 right-0 -mt-16 -mr-16 w-64 h-64 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute top-0 right-0 -mt-16 -mr-16 w-64 h-64 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none transform-gpu will-change-transform"></div>
 
             <div className="relative z-10 flex-1">
                <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full border border-white/20 text-white/80 text-xs font-bold uppercase tracking-wider mb-6">
