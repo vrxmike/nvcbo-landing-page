@@ -21,12 +21,22 @@ interface ProjectTrack {
 
 const PROJECT_TRACKS: ProjectTrack[] = [
   {
+    id: "gotu-farm",
+    title: "Gotu Gamachu Farm",
+    metadataTag: "Flagship Site",
+    description: "Explore the physical heart of Northern Vision's climate-smart interventions: integrated dryland agriculture, aquaculture scaling, and localized community training models.",
+    href: "/projects/gotu-farm",
+    colSpan: "md:col-span-1",
+    icon: Leaf,
+    image: "https://images.unsplash.com/photo-1592982537447-6f23f11d1377?q=80&w=2069&auto=format&fit=crop"
+  },
+  {
     id: "climate-resilience",
     title: "Climate Resilience & Sustainable Livelihoods",
     metadataTag: "Active Field Initiative",
     description: "Transforming ASAL landscapes through climate-smart aquaculture, women-led kitchen gardens, and integrated farming at Gotu Gamachu Farm.",
     href: "/projects/climate-resilience",
-    colSpan: "md:col-span-2",
+    colSpan: "md:col-span-1",
     icon: Leaf,
     image: "https://images.unsplash.com/photo-1592982537447-6f23f11d1377?q=80&w=2069&auto=format&fit=crop"
   },

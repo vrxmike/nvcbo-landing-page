@@ -48,12 +48,12 @@ export default function Header() {
             <button className="whitespace-nowrap flex items-center gap-0.5 lg:gap-1 font-bold text-[9px] lg:text-xs uppercase tracking-widest px-2 lg:px-4 py-1.5 rounded-full text-brand-espresso hover:bg-brand-espresso/5 hover:text-brand-gold transition-all duration-300 focus:outline-none">
               About Us <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
             </button>
-            <div className="absolute top-full left-0 mt-2 w-52 rounded-2xl glass border border-white/20 p-2 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
-              <Link href="/about" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-espresso hover:bg-brand-gold/10 hover:text-brand-gold rounded-xl transition-all">Our Story</Link>
-              <Link href="/about" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-espresso hover:bg-brand-gold/10 hover:text-brand-gold rounded-xl transition-all">What We Believe</Link>
-              <Link href="/about" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-espresso hover:bg-brand-gold/10 hover:text-brand-gold rounded-xl transition-all">How We Work</Link>
-              <Link href="/about" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-espresso hover:bg-brand-gold/10 hover:text-brand-gold rounded-xl transition-all">Our Partners</Link>
-              <Link href="/about" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-espresso hover:bg-brand-gold/10 hover:text-brand-gold rounded-xl transition-all">2025 Review</Link>
+            <div className="absolute top-full left-0 mt-2 w-52 rounded-2xl bg-brand-espresso border border-brand-gold/20 z-[100] p-2 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
+              <Link href="/about" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all">Our Story</Link>
+              <Link href="/about" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all">What We Believe</Link>
+              <Link href="/about" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all">How We Work</Link>
+              <Link href="/about" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all">Our Partners</Link>
+              <Link href="/about" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all">2025 Review</Link>
             </div>
           </div>
 
@@ -62,11 +62,11 @@ export default function Header() {
             <Link href="/programs" className="whitespace-nowrap flex items-center gap-0.5 lg:gap-1 font-bold text-[9px] lg:text-xs uppercase tracking-widest px-2 lg:px-4 py-1.5 rounded-full text-brand-espresso hover:bg-brand-espresso/5 hover:text-brand-gold transition-all duration-300 focus:outline-none">
               Programs <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
             </Link>
-            <div className="absolute top-full left-0 mt-2 w-64 rounded-2xl glass border border-white/20 p-2 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
-              <Link href="#programs" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-espresso hover:bg-brand-gold/10 hover:text-brand-gold rounded-xl transition-all">Circle Keeper Training</Link>
-              <Link href="#programs" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-espresso hover:bg-brand-gold/10 hover:text-brand-gold rounded-xl transition-all">Gender & Social Inclusion</Link>
-              <Link href="#programs" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-espresso hover:bg-brand-gold/10 hover:text-brand-gold rounded-xl transition-all">Peace and Security</Link>
-              <Link href="#programs" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-espresso hover:bg-brand-gold/10 hover:text-brand-gold rounded-xl transition-all">Education & Youth Leadership</Link>
+            <div className="absolute top-full left-0 mt-2 w-64 rounded-2xl bg-brand-espresso border border-brand-gold/20 z-[100] p-2 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
+              <Link href="#programs" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all">Circle Keeper Training</Link>
+              <Link href="#programs" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all">Gender & Social Inclusion</Link>
+              <Link href="#programs" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all">Peace and Security</Link>
+              <Link href="#programs" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all">Education & Youth Leadership</Link>
             </div>
           </div>
 
@@ -75,12 +75,12 @@ export default function Header() {
             <button className="whitespace-nowrap flex items-center gap-0.5 lg:gap-1 font-bold text-[9px] lg:text-xs uppercase tracking-widest px-2.5 lg:px-4 py-1.5 rounded-full text-brand-espresso hover:bg-brand-espresso/5 hover:text-brand-gold transition-all duration-300 focus:outline-none">
               Projects <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
             </button>
-            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 bg-white/95 backdrop-blur-xl border border-brand-espresso/10 rounded-2xl shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-              <Link href="/projects/climate-resilience" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-espresso hover:bg-brand-gold/10 hover:text-brand-gold rounded-xl transition-all"><Leaf className="w-4 h-4 opacity-70" /> Climate Resilience</Link>
-              <Link href="/projects/gotu-farm" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-espresso hover:bg-brand-gold/10 hover:text-brand-gold rounded-xl transition-all"><Leaf className="w-4 h-4 opacity-70" /> Gotu Gamachu Farm</Link>
-              <Link href="/projects/eco-tourism" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-espresso hover:bg-brand-gold/10 hover:text-brand-gold rounded-xl transition-all"><Leaf className="w-4 h-4 opacity-70" /> Eco-Tourism Hub</Link>
-              <Link href="/projects/holiday-camp" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-espresso hover:bg-brand-gold/10 hover:text-brand-gold rounded-xl transition-all"><Laptop className="w-4 h-4 opacity-70" /> Digital Literacy Camp</Link>
-              <Link href="/projects" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-espresso hover:bg-brand-gold/10 hover:text-brand-gold rounded-xl transition-all"><ScrollText className="w-4 h-4 opacity-70" /> Indigenous Knowledge</Link>
+            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 bg-brand-espresso border border-brand-gold/20 z-[100] rounded-2xl shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+              <Link href="/projects/climate-resilience" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all"><Leaf className="w-4 h-4 opacity-70" /> Climate Resilience</Link>
+              <Link href="/projects/gotu-farm" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all"><Leaf className="w-4 h-4 opacity-70" /> Gotu Gamachu Farm</Link>
+              <Link href="/projects/eco-tourism" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all"><Leaf className="w-4 h-4 opacity-70" /> Eco-Tourism Hub</Link>
+              <Link href="/projects/holiday-camp" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all"><Laptop className="w-4 h-4 opacity-70" /> Digital Literacy Camp</Link>
+              <Link href="/projects" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all"><ScrollText className="w-4 h-4 opacity-70" /> Indigenous Knowledge</Link>
               <div className="h-px bg-brand-espresso/10 my-1 mx-2"></div>
               <Link href="/projects" className="flex items-center justify-center gap-2 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-brand-rust hover:text-brand-gold transition-all">All Active Projects <ArrowRight className="w-3 h-3" /></Link>
             </div>
