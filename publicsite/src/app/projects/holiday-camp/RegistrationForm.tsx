@@ -41,7 +41,7 @@ export function RegistrationForm() {
         <button
           type="submit"
           disabled={status === "loading" || status === "success"}
-          className="tactile-btn px-6 py-3 rounded-xl bg-primary text-white font-medium disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+          className="px-6 py-3 rounded-xl bg-primary text-white font-medium border border-black/10 shadow-[0_2px_4px_rgba(0,0,0,0.05)] hover:shadow-[0_4px_8px_rgba(0,0,0,0.1)] hover:-translate-y-[2px] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
         >
           {status === "loading" ? "Registering..." : status === "success" ? "Registered!" : "Register Interest"}
         </button>
