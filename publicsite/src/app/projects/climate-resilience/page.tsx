@@ -7,6 +7,8 @@ export const metadata = {
   description: "Adaptive Systems for Arid Landscapes. Turning climate adaptation into daily, tangible practice across Northern Kenya.",
 };
 
+export const dynamic = 'force-dynamic';
+
 // --- STATIC COPY CONSTANTS ---
 const PAGE_HERO = {
   title: "Climate Resilience & Sustainable Livelihoods",

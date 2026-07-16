@@ -7,6 +7,8 @@ export const metadata = {
   description: "Explore our active grassroots initiatives in Northern Kenya, from climate-smart agriculture at Gotu Gamachu Farm to youth digital literacy.",
 };
 
+export const dynamic = 'force-dynamic';
+
 // Strongly typed project schema
 interface ProjectTrack {
   id: string;

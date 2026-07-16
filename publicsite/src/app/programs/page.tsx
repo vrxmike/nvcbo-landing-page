@@ -7,6 +7,8 @@ export const metadata = {
   description: "Explore our interconnected areas of impact, strengthening climate resilience and advancing equity through participatory community engagement in Northern Kenya.",
 };
 
+export const dynamic = 'force-dynamic';
+
 interface ProgramTrack {
   id: string;
   title: string;

@@ -9,6 +9,8 @@ export const metadata = {
   description: "Explore the physical heart of Northern Vision's climate-smart interventions at our flagship demonstration site.",
 };
 
+export const dynamic = 'force-dynamic';
+
 // --- STATIC COPY CONSTANTS ---
 const PAGE_HERO = {
   title: "Gotu Gamachu Farm",

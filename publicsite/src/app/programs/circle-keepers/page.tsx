@@ -7,6 +7,8 @@ export const metadata = {
   description: "Strengthening Local Leadership Through Healing Circles rooted in restorative justice and community leadership.",
 };
 
+export const dynamic = 'force-dynamic';
+
 // 1. Data Schema Array for Bento Card Matrix
 interface FocusTrack {
   id: string;
