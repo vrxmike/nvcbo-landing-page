@@ -12,6 +12,10 @@
   --color-muted: rgba(43, 17, 0, 0.15);
   --color-heading: var(--color-brand-espresso);
   --color-body: #4A4A4A;
+
+  --font-sans: var(--font-inter), sans-serif;
+  --font-display: var(--font-fredoka), sans-serif;
+  --font-accent: var(--font-caveat), cursive;
 }
 
 :root {
@@ -28,6 +32,15 @@ body {
   background: var(--background);
   color: var(--foreground);
   overflow-x: hidden;
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-display);
+}
+
+.font-accent {
+  font-family: var(--font-accent);
 }
 
 /* Custom container override for premium wide-screen desktop layout */
