@@ -24,6 +24,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li><Link href="#about" className="text-white/70 hover:text-white transition-colors">About Us</Link></li>
               <li><Link href="#programs" className="text-white/70 hover:text-white transition-colors">Programs</Link></li>
+              <li><Link href="/media-gallery" className="text-white/70 hover:text-white transition-colors">Media Gallery</Link></li>
               <li><Link href="#healing" className="text-white/70 hover:text-white transition-colors">Healing Circles</Link></li>
               <li><Link href="#donate" className="text-white/70 hover:text-white transition-colors">Donate</Link></li>
             </ul>
