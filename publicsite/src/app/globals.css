@@ -6,6 +6,12 @@
   --color-brand-cream: #F5F2EB;
   --color-brand-rust: #D35400;
   --color-brand-light-bg: #FAFAFA;
+
+  --color-primary: var(--color-brand-rust);
+  --color-neutral-light: var(--color-brand-cream);
+  --color-muted: rgba(43, 17, 0, 0.15);
+  --color-heading: var(--color-brand-espresso);
+  --color-body: #4A4A4A;
 }
 
 :root {
