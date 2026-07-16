@@ -9,6 +9,8 @@ export const metadata = {
   description: "Explore the physical heart of Northern Vision's climate-smart interventions at our flagship demonstration site.",
 };
 
+export const dynamic = 'force-dynamic';
+
 // --- STATIC COPY CONSTANTS ---
 const PAGE_HERO = {
   title: "Gotu Gamachu Farm",
@@ -114,7 +116,7 @@ export default function GotuFarmPage() {
             ))}
 
             {/* Dashboard: Aquaculture Scaling Analytics */}
-            <div className="bento-card bg-brand-espresso p-8 lg:col-span-1 flex flex-col justify-center border-brand-gold/30">
+            <div className="bg-brand-espresso rounded-[24px] shadow-xl p-8 lg:col-span-1 flex flex-col justify-center border-brand-gold/30">
               <span className="text-xs font-black uppercase tracking-[3px] text-brand-gold mb-6 block">Aquaculture Scaling</span>
               <div className="space-y-6">
                 {IMPACT_METRICS.map((metric) => (

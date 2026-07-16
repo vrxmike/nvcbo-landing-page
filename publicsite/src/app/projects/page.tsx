@@ -1,10 +1,13 @@
 import Link from "next/link";
-import { ArrowRight, Leaf, Laptop, ScrollText } from "lucide-react";
+import { ArrowRight, Leaf, Laptop, ScrollText, Map } from "lucide-react";
+import { Client, TablesDB } from 'node-appwrite';
 
 export const metadata = {
   title: "Our Projects | Northern Vision CBO",
   description: "Explore our active grassroots initiatives in Northern Kenya, from climate-smart agriculture at Gotu Gamachu Farm to youth digital literacy.",
 };
+
+export const dynamic = 'force-dynamic';
 
 // Strongly typed project schema
 interface ProjectTrack {
@@ -51,18 +54,59 @@ const PROJECT_TRACKS: ProjectTrack[] = [
     image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop"
   },
   {
+    id: "eco-tourism",
+    title: "Eco-Tourism Hub",
+    metadataTag: "Community-Hosted Experience",
+    description: "Visit Gotu Gamachu Farm and experience the landscapes firsthand through guided walking trails, aquaculture tours, and interactive learning.",
+    href: "/projects/eco-tourism",
+    colSpan: "md:col-span-2",
+    icon: Map,
+    image: "https://images.unsplash.com/photo-1544084944-15269ec7b5a0?q=80&w=2069&auto=format&fit=crop"
+  },
+  {
     id: "indigenous-knowledge",
-    title: "Indigenous Knowledge, Culture & Heritage",
-    metadataTag: "Program Development Stage",
+    title: "Culture & Heritage",
+    metadataTag: "Program Development",
     badge: "Coming Soon",
-    description: "Preserving intergenerational storytelling, land-and-water wisdom, and oral histories of Northern Kenya's pastoralist communities.",
+    description: "Preserving intergenerational storytelling and land-and-water wisdom.",
     href: "#", // Non-clickable or anchor until ready
-    colSpan: "md:col-span-3",
+    colSpan: "md:col-span-1",
     icon: ScrollText
   }
 ];
 
-export default function ProjectsDirectoryPage() {
+async function getProjectsData() {
+  try {
+    const client = new Client()
+      .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!)
+      .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID!)
+      .setKey(process.env.APPWRITE_API_KEY!);
+
+    const tablesDB = new TablesDB(client);
+    const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID || 'nvcbo_db';
+
+    const response = await tablesDB.listRows(dbId, 'projects');
+    return response.rows;
+  } catch (error) {
+    console.error('Error fetching projects:', error);
+    return [];
+  }
+}
+
+export default async function ProjectsDirectoryPage() {
+  const dynamicProjects = await getProjectsData();
+
+  const mergedProjects = PROJECT_TRACKS.map(staticProject => {
+    const dynamicMatch = dynamicProjects.find((p: any) => p.slug === staticProject.id);
+    if (dynamicMatch) {
+      return {
+        ...staticProject,
+        title: dynamicMatch.title || staticProject.title,
+      };
+    }
+    return staticProject;
+  });
+
   return (
     <div className="flex flex-col bg-brand-cream min-h-screen pt-24 pb-32">
 
@@ -87,7 +131,7 @@ export default function ProjectsDirectoryPage() {
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-            {PROJECT_TRACKS.map((project) => {
+            {mergedProjects.map((project) => {
               // Condition to handle "Coming Soon" unclickable cards vs standard routing cards
               const isComingSoon = project.badge === "Coming Soon";
 
