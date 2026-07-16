@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Users, HeartHandshake, ShieldCheck, GraduationCap } from "lucide-react";
+import { Client, TablesDB } from 'node-appwrite';
 
 export const metadata = {
   title: "Our Programs | Northern Vision CBO",
@@ -52,7 +53,39 @@ const PROGRAM_TRACKS: ProgramTrack[] = [
   }
 ];
 
-export default function ProgramsDirectoryPage() {
+async function getProgramsData() {
+  try {
+    const client = new Client()
+      .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!)
+      .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID!)
+      .setKey(process.env.APPWRITE_API_KEY!);
+
+    const tablesDB = new TablesDB(client);
+    const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID || 'nvcbo_db';
+
+    const response = await tablesDB.listRows(dbId, 'programs');
+    return response.rows;
+  } catch (error) {
+    console.error('Error fetching programs:', error);
+    return [];
+  }
+}
+
+export default async function ProgramsDirectoryPage() {
+  const dynamicPrograms = await getProgramsData();
+
+  const mergedPrograms = PROGRAM_TRACKS.map(staticProgram => {
+    const dynamicMatch = dynamicPrograms.find((p: any) => p.slug === staticProgram.id);
+    if (dynamicMatch) {
+      return {
+        ...staticProgram,
+        title: dynamicMatch.title || staticProgram.title,
+        description: dynamicMatch.description || staticProgram.description,
+      };
+    }
+    return staticProgram;
+  });
+
   return (
     <div className="flex flex-col bg-brand-light-bg min-h-screen pt-24 pb-32">
 
@@ -81,7 +114,7 @@ export default function ProgramsDirectoryPage() {
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-            {PROGRAM_TRACKS.map((track) => (
+            {mergedPrograms.map((track) => (
               <Link
                 key={track.id}
                 href={track.href}

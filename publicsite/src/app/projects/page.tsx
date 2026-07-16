@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Leaf, Laptop, ScrollText } from "lucide-react";
+import { Client, TablesDB } from 'node-appwrite';
 
 export const metadata = {
   title: "Our Projects | Northern Vision CBO",
@@ -62,7 +63,38 @@ const PROJECT_TRACKS: ProjectTrack[] = [
   }
 ];
 
-export default function ProjectsDirectoryPage() {
+async function getProjectsData() {
+  try {
+    const client = new Client()
+      .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!)
+      .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID!)
+      .setKey(process.env.APPWRITE_API_KEY!);
+
+    const tablesDB = new TablesDB(client);
+    const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID || 'nvcbo_db';
+
+    const response = await tablesDB.listRows(dbId, 'projects');
+    return response.rows;
+  } catch (error) {
+    console.error('Error fetching projects:', error);
+    return [];
+  }
+}
+
+export default async function ProjectsDirectoryPage() {
+  const dynamicProjects = await getProjectsData();
+
+  const mergedProjects = PROJECT_TRACKS.map(staticProject => {
+    const dynamicMatch = dynamicProjects.find((p: any) => p.slug === staticProject.id);
+    if (dynamicMatch) {
+      return {
+        ...staticProject,
+        title: dynamicMatch.title || staticProject.title,
+      };
+    }
+    return staticProject;
+  });
+
   return (
     <div className="flex flex-col bg-brand-cream min-h-screen pt-24 pb-32">
 
@@ -87,7 +119,7 @@ export default function ProjectsDirectoryPage() {
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-            {PROJECT_TRACKS.map((project) => {
+            {mergedProjects.map((project) => {
               // Condition to handle "Coming Soon" unclickable cards vs standard routing cards
               const isComingSoon = project.badge === "Coming Soon";
 

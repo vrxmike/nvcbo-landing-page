@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Leaf, Users, ShieldAlert, HeartHandshake, GraduationCap, MapPin, ArrowRight, Download, UsersRound } from "lucide-react";
+import { Client, TablesDB, Query } from 'node-appwrite';
 
 export const metadata = {
   title: "Circle Keeper Training | Northern Vision CBO",
@@ -53,7 +54,30 @@ const FOCUS_TRACKS: FocusTrack[] = [
   }
 ];
 
-export default function CircleKeepersPage() {
+async function getProgramData() {
+  try {
+    const client = new Client()
+      .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!)
+      .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID!)
+      .setKey(process.env.APPWRITE_API_KEY!);
+
+    const tablesDB = new TablesDB(client);
+    const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID || 'nvcbo_db';
+
+    const response = await tablesDB.listRows(dbId, 'programs', [
+      Query.equal('slug', 'circle-keepers')
+    ]);
+    return response.rows[0] || null;
+  } catch (error) {
+    console.error('Error fetching program data:', error);
+    return null;
+  }
+}
+
+export default async function CircleKeepersPage() {
+  const program = await getProgramData();
+  const pageTitle = program?.title || "Circle Keeper Training";
+
   return (
     <div className="flex flex-col bg-white min-h-screen pt-24 pb-32">
 
@@ -69,7 +93,7 @@ export default function CircleKeepersPage() {
               </Link>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-brand-espresso leading-[1.1] tracking-tight mb-6">
-                Circle Keeper Training
+                {pageTitle}
               </h1>
 
               <h2 className="text-xl md:text-2xl text-brand-espresso/90 font-bold mb-8 leading-snug">

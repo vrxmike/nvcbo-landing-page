@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Leaf, Sprout, SunMedium, Globe, Landmark, Scale, Network, Users } from "lucide-react";
+import { Client, TablesDB, Query } from 'node-appwrite';
 
 export const metadata = {
   title: "Climate Resilience & Sustainable Livelihoods | Northern Vision CBO",
@@ -61,7 +62,30 @@ const POLICY_NETWORKS: PolicyNetwork[] = [
   { id: "pacja-global", name: "PACJA Global Policy Engagement", icon: Network },
 ];
 
-export default function ClimateResiliencePage() {
+async function getProjectData() {
+  try {
+    const client = new Client()
+      .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!)
+      .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID!)
+      .setKey(process.env.APPWRITE_API_KEY!);
+
+    const tablesDB = new TablesDB(client);
+    const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID || 'nvcbo_db';
+
+    const response = await tablesDB.listRows(dbId, 'projects', [
+      Query.equal('slug', 'climate-resilience')
+    ]);
+    return response.rows[0] || null;
+  } catch (error) {
+    console.error('Error fetching project data:', error);
+    return null;
+  }
+}
+
+export default async function ClimateResiliencePage() {
+  const project = await getProjectData();
+  const pageTitle = project?.title || PAGE_HERO.title;
+
   return (
     <div className="flex flex-col bg-white min-h-screen pt-24 pb-32">
 
@@ -76,7 +100,7 @@ export default function ClimateResiliencePage() {
           </Link>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-brand-espresso leading-[1.1] tracking-tight mb-6">
-            {PAGE_HERO.title}
+            {pageTitle}
           </h1>
 
           <h2 className="text-xl md:text-2xl text-brand-espresso/90 font-bold mb-8 leading-snug max-w-2xl mx-auto">
