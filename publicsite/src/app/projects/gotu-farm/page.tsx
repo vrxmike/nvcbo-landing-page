@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Leaf, Sprout, Home, Waves, Users, Target, Snowflake, Beaker, ShieldAlert } from 'lucide-react';
+import FarmGallery from './FarmGallery';
 
 export const metadata = {
   title: "Gotu Gamachu Farm | Northern Vision CBO",
@@ -132,22 +133,7 @@ export default function GotuFarmPage() {
 
             {/* Farm Production Gallery (Col Span 3) */}
             <div className="lg:col-span-3 pt-8 mt-4 border-t border-brand-espresso/5">
-              <div className="mb-8">
-                <h3 className="text-3xl font-black text-brand-espresso">Flagship Production Gallery</h3>
-                <p className="text-brand-espresso/60 text-sm font-medium mt-2">Visualizing our day-to-day operations and impact.</p>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {GALLERY_ASSETS.map((asset, index) => (
-                   <div key={index} className="group relative overflow-hidden rounded-2xl bg-brand-cream border border-brand-espresso/10 aspect-[4/3] flex flex-col cursor-pointer bento-card p-2">
-                     <div className="flex-1 w-full relative rounded-xl overflow-hidden bg-brand-espresso/5 flex items-center justify-center group-hover:scale-[1.02] transition-transform duration-300">
-                        <img src={asset.src} alt={asset.alt} className="absolute inset-0 w-full h-full object-cover" />
-                     </div>
-                     <div className="pt-3 pb-1 px-1">
-                       <p className="text-xs font-bold text-brand-espresso/80 leading-snug">{asset.caption}</p>
-                     </div>
-                   </div>
-                ))}
-              </div>
+              <FarmGallery assets={GALLERY_ASSETS} />
             </div>
 
             {/* Operational Challenges & Open Matches Panel */}
