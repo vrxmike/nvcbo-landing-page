@@ -1,6 +1,9 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { VisitApplicationForm } from './VisitApplicationForm';
+import { Client, TablesDB, Query } from 'node-appwrite';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Eco-Tourism Hub | Experience Gotu Firsthand | NVCBO',
@@ -51,7 +54,32 @@ const PRICING_TIERS = [
   }
 ];
 
-export default function EcoTourismPage() {
+async function getProjectData() {
+  try {
+    const client = new Client()
+      .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!)
+      .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID!)
+      .setKey(process.env.APPWRITE_API_KEY!);
+
+    const tablesDB = new TablesDB(client);
+    const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID || 'nvcbo_db';
+
+    const response = await tablesDB.listRows(dbId, 'projects', [
+      Query.equal('slug', 'eco-tourism')
+    ]);
+    return response.rows[0] || null;
+  } catch (error) {
+    console.error('Error fetching project data:', error);
+    return null;
+  }
+}
+
+export default async function EcoTourismPage() {
+  const project = await getProjectData();
+  const pageTitle = project?.title || "Experience Gotu Firsthand";
+  const pageSubtitle = project?.subtitle || "Eco-Tourism Hub";
+  const pageCopy = project?.copy || "Visit Gotu Gamachu Farm and experience Gotu's landscapes firsthand. Guided visits take guests through the farm and the surrounding land—from the aquaculture ponds to the kitchen gardens to the wider ASAL landscape—hosted by the people who work it every day.";
+
   return (
     <main className="min-h-screen bg-neutral-light pb-24">
       
@@ -64,16 +92,16 @@ export default function EcoTourismPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="max-w-2xl space-y-6">
               <span className="inline-block px-4 py-1.5 rounded-full border border-muted bg-white text-sm font-semibold tracking-wider text-primary uppercase mb-2 shadow-sm">
-                Eco-Tourism Hub
+                {pageSubtitle}
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-heading tracking-tight leading-tight">
-                Experience Gotu Firsthand
+                {pageTitle}
               </h1>
               <p className="text-xl md:text-2xl text-heading font-medium opacity-90 pb-2">
                 Community-Hosted Eco-Tours & Cultural Exchanges
               </p>
               <p className="text-lg text-body leading-relaxed">
-                Visit Gotu Gamachu Farm and experience Gotu's landscapes firsthand. Guided visits take guests through the farm and the surrounding land—from the aquaculture ponds to the kitchen gardens to the wider ASAL landscape—hosted by the people who work it every day.
+                {pageCopy}
               </p>
             </div>
             
