@@ -1,6 +1,9 @@
 import React from 'react';
 import { RegistrationForm } from './RegistrationForm';
 import { Metadata } from 'next';
+import { Client, TablesDB, Query } from 'node-appwrite';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Digital Literacy Holiday Camp | NVCBO',
@@ -41,7 +44,32 @@ const LEARNING_COMPETENCIES = [
   }
 ];
 
-export default function HolidayCampPage() {
+async function getProjectData() {
+  try {
+    const client = new Client()
+      .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!)
+      .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID!)
+      .setKey(process.env.APPWRITE_API_KEY!);
+
+    const tablesDB = new TablesDB(client);
+    const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID || 'nvcbo_db';
+
+    const response = await tablesDB.listRows(dbId, 'projects', [
+      Query.equal('slug', 'holiday-camp')
+    ]);
+    return response.rows[0] || null;
+  } catch (error) {
+    console.error('Error fetching project data:', error);
+    return null;
+  }
+}
+
+export default async function HolidayCampPage() {
+  const project = await getProjectData();
+  const pageTitle = project?.title || "Digital Literacy Holiday Camp";
+  const pageSubtitle = project?.subtitle || "Gotu Hub";
+  const pageCopy = project?.copy || "Every school holiday, NVCBO opens a short, hands-on camp for children in Gotu to build the digital skills they'll need for school, communication and life while giving them space to simply be kids. Rooted in Gotu, built for the realities of life in Isiolo, this is digital inclusion the NVCBO way: practical, safe, and deeply human.";
+
   return (
     <main className="min-h-screen bg-neutral-light pb-24">
       {/* SECTION 1: Camp Focus Hero Layout */}
@@ -58,16 +86,16 @@ export default function HolidayCampPage() {
         <div className="container relative z-10 animate-up">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <span className="inline-block px-4 py-1.5 rounded-full border border-muted bg-white text-sm font-semibold tracking-wider text-primary uppercase mb-2">
-              Gotu Hub
+              {pageSubtitle}
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-heading tracking-tight">
-              Digital Literacy Holiday Camp
+              {pageTitle}
             </h1>
             <p className="text-xl md:text-2xl text-heading font-medium opacity-90 pb-4">
               Practical, Safe, and Deeply Human Digital Inclusion
             </p>
             <p className="text-lg text-body leading-relaxed max-w-3xl mx-auto">
-              Every school holiday, NVCBO opens a short, hands-on camp for children in Gotu to build the digital skills they'll need for school, communication and life while giving them space to simply be kids. Rooted in Gotu, built for the realities of life in Isiolo, this is digital inclusion the NVCBO way: practical, safe, and deeply human.
+              {pageCopy}
             </p>
           </div>
         </div>
