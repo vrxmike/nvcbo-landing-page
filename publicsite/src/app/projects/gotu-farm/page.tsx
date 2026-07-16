@@ -57,9 +57,9 @@ interface GalleryAsset {
 }
 
 const GALLERY_ASSETS: GalleryAsset[] = [
-  { src: '/assets/farm-aquaculture.jpg', alt: 'Active Aquaculture Ponds & Tilapia Harvesting', caption: 'Climate-smart aquaculture infrastructure.' },
-  { src: '/assets/farm-gardens.jpg', alt: 'Women-Led Resilient Kitchen Gardens Setup', caption: 'Women-managed household food security plots.' },
-  { src: '/assets/farm-gsscr.jpg', alt: 'GSSCR Children Educational Excursions on Field', caption: 'Intergenerational learning on the farm.' }
+  { src: `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/6a5584e100306fc44f56/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID}`, alt: 'Active Aquaculture Ponds & Tilapia Harvesting', caption: 'Climate-smart aquaculture infrastructure.' },
+  { src: `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/6a5584e1002d80a187d8/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID}`, alt: 'Women-Led Resilient Kitchen Gardens Setup', caption: 'Women-managed household food security plots.' },
+  { src: `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/6a5584e100306a35c9ce/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID}`, alt: 'GSSCR Children Educational Excursions on Field', caption: 'Intergenerational learning on the farm.' }
 ];
 
 export default function GotuFarmPage() {
@@ -90,10 +90,7 @@ export default function GotuFarmPage() {
             </div>
 
             <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden border-2 border-brand-espresso/10 shadow-xl bg-brand-espresso/5 flex items-center justify-center">
-               <div className="text-center p-6 opacity-60">
-                 <Leaf className="w-12 h-12 mx-auto mb-3 text-brand-espresso" />
-                 <p className="text-sm font-bold uppercase tracking-wider text-brand-espresso">Gotu Gamachu Farm<br/>Aerial Layout & Fields</p>
-               </div>
+               <img src={`${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/6a5584e100306d1ff8ef/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID}`} alt="Gotu Gamachu Farm Aerial Layout & Fields" className="absolute inset-0 w-full h-full object-cover" />
             </div>
           </div>
         </div>
@@ -143,11 +140,7 @@ export default function GotuFarmPage() {
                 {GALLERY_ASSETS.map((asset, index) => (
                    <div key={index} className="group relative overflow-hidden rounded-2xl bg-brand-cream border border-brand-espresso/10 aspect-[4/3] flex flex-col cursor-pointer bento-card p-2">
                      <div className="flex-1 w-full relative rounded-xl overflow-hidden bg-brand-espresso/5 flex items-center justify-center group-hover:scale-[1.02] transition-transform duration-300">
-                        {/* Placeholder for images before they are uploaded */}
-                        <div className="text-center opacity-40 p-4">
-                          <Leaf className="w-8 h-8 mx-auto mb-2 text-brand-espresso" />
-                          <span className="text-xs font-bold uppercase tracking-wider">{asset.alt}</span>
-                        </div>
+                        <img src={asset.src} alt={asset.alt} className="absolute inset-0 w-full h-full object-cover" />
                      </div>
                      <div className="pt-3 pb-1 px-1">
                        <p className="text-xs font-bold text-brand-espresso/80 leading-snug">{asset.caption}</p>
