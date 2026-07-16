@@ -157,7 +157,7 @@ export default async function HolidayCampPage() {
       {/* SECTION 4: Showcase & Graduation Day Bento Panel */}
       <section className="py-12 pb-24">
         <div className="container">
-          <div className="bento-card bg-primary text-white p-8 md:p-12 lg:p-16 animate-up delay-3 overflow-hidden relative max-w-6xl mx-auto">
+          <div className="bg-primary rounded-[24px] shadow-xl border border-black/5 text-white p-8 md:p-12 lg:p-16 animate-up delay-3 overflow-hidden relative max-w-6xl mx-auto">
             {/* Background design elements */}
             <div className="absolute inset-0 opacity-10 pointer-events-none">
                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">

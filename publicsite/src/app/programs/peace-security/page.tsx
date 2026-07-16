@@ -205,7 +205,7 @@ export default async function PeaceSecurityPage() {
       {/* SECTION 4: Restorative Community Support Call-to-Action */}
       <section className="py-24 bg-white">
         <div className="container">
-          <div className="bento-card bg-heading p-10 md:p-16 rounded-[2rem] text-center border border-muted shadow-2xl relative overflow-hidden animate-up delay-3 max-w-5xl mx-auto transform-gpu backface-hidden">
+          <div className="bg-heading p-10 md:p-16 rounded-[2rem] text-center border border-muted shadow-2xl relative overflow-hidden animate-up delay-3 max-w-5xl mx-auto transform-gpu backface-hidden">
             <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
             
             <div className="relative z-10 max-w-2xl mx-auto">
