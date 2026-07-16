@@ -93,7 +93,7 @@ export default function EducationYouthPage() {
       {/* SECTION 3: Grassroots Research & Documentation Center */}
       <section className="py-20 bg-white">
         <div className="container">
-          <div className="bento-card bg-heading p-10 md:p-16 rounded-[2rem] text-left border border-muted shadow-2xl relative overflow-hidden animate-up delay-2 max-w-5xl mx-auto transform-gpu">
+          <div className="bg-heading p-10 md:p-16 rounded-[2rem] text-left border border-muted shadow-2xl relative overflow-hidden animate-up delay-2 max-w-5xl mx-auto transform-gpu">
             {/* Abstract Graphic Element */}
             <div className="absolute -top-32 -right-32 w-96 h-96 bg-primary/20 rounded-full blur-[80px] pointer-events-none"></div>
             
