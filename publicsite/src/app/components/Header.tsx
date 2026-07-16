@@ -41,56 +41,105 @@ export default function Header() {
 
         {/* Desktop Nav with Refined Dropdowns (Always dark text for readability against sticky glass backdrop) */}
         <nav className="hidden md:flex items-center gap-0.5 lg:gap-1 bg-brand-espresso/5 border border-brand-espresso/10 px-1.5 lg:px-3 py-1 rounded-full shadow-inner shrink-0">
-          <Link href="/" className="whitespace-nowrap font-bold text-[9px] lg:text-xs uppercase tracking-widest px-2 lg:px-4 py-1.5 rounded-full text-brand-espresso hover:bg-brand-espresso/5 hover:text-brand-gold transition-all duration-300">Home</Link>
+          <Link href="/" className="whitespace-nowrap font-bold text-[10px] lg:text-xs uppercase tracking-widest px-2 lg:px-4 py-1.5 rounded-full text-brand-espresso hover:bg-brand-espresso/5 hover:text-brand-gold transition-all duration-300">Home</Link>
           
           {/* About Us Dropdown */}
           <div className="relative group">
-            <button className="whitespace-nowrap flex items-center gap-0.5 lg:gap-1 font-bold text-[9px] lg:text-xs uppercase tracking-widest px-2 lg:px-4 py-1.5 rounded-full text-brand-espresso hover:bg-brand-espresso/5 hover:text-brand-gold transition-all duration-300 focus:outline-none">
+            <button className="whitespace-nowrap flex items-center gap-0.5 lg:gap-1 font-bold text-[10px] lg:text-xs uppercase tracking-widest px-2 lg:px-4 py-1.5 rounded-full text-brand-espresso hover:bg-brand-espresso/5 hover:text-brand-gold transition-all duration-300 focus:outline-none">
               About Us <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
             </button>
-            <div className="absolute top-full left-0 pt-2 w-52 rounded-2xl bg-brand-espresso border border-brand-gold/20 z-[100] p-2 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
-              <Link href="/about" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all">Our Story</Link>
-              <Link href="/about" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all">What We Believe</Link>
-              <Link href="/about" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all">How We Work</Link>
-              <Link href="/about" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all">Our Partners</Link>
-              <Link href="/about" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all">2025 Review</Link>
+            <div className="absolute top-full left-0 pt-2 w-64 rounded-2xl bg-brand-espresso border border-brand-gold/20 z-[100] p-2 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
+              <Link href="/about#story" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+                <BookOpen className="w-4 h-4 opacity-70" /> Our Story
+              </Link>
+              <Link href="/about#beliefs" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+                <HeartHandshake className="w-4 h-4 opacity-70" /> What We Believe
+              </Link>
+              <Link href="/about#how-we-work" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+                <Settings className="w-4 h-4 opacity-70" /> How We Work
+              </Link>
+              <Link href="/about#partners" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+                <Users className="w-4 h-4 opacity-70" /> Our Partners
+              </Link>
+              <Link href="/about#review-2025" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+                <ArrowRight className="w-4 h-4 opacity-70" /> 2025 Review
+              </Link>
             </div>
           </div>
 
           {/* Programs Dropdown */}
           <div className="relative group">
-            <Link href="/programs" className="whitespace-nowrap flex items-center gap-0.5 lg:gap-1 font-bold text-[9px] lg:text-xs uppercase tracking-widest px-2 lg:px-4 py-1.5 rounded-full text-brand-espresso hover:bg-brand-espresso/5 hover:text-brand-gold transition-all duration-300 focus:outline-none">
+            <Link href="/programs" className="whitespace-nowrap flex items-center gap-0.5 lg:gap-1 font-bold text-[10px] lg:text-xs uppercase tracking-widest px-2 lg:px-4 py-1.5 rounded-full text-brand-espresso hover:bg-brand-espresso/5 hover:text-brand-gold transition-all duration-300 focus:outline-none">
               Programs <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
             </Link>
-            <div className="absolute top-full left-0 pt-2 w-64 rounded-2xl bg-brand-espresso border border-brand-gold/20 z-[100] p-2 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
-              <Link href="#programs" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all">Circle Keeper Training</Link>
-              <Link href="#programs" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all">Gender & Social Inclusion</Link>
-              <Link href="#programs" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all">Peace and Security</Link>
-              <Link href="#programs" className="block px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all">Education & Youth Leadership</Link>
+            <div className="absolute top-full left-0 pt-2 w-72 rounded-2xl bg-brand-espresso border border-brand-gold/20 z-[100] p-2 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
+              <Link href="/programs" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-gold hover:bg-brand-gold/10 hover:pl-5 rounded-xl transition-all duration-300">
+                <ArrowRight className="w-4 h-4" /> All Programs Directory
+              </Link>
+              <div className="h-px bg-brand-cream/10 my-1 mx-4"></div>
+              <Link href="/programs/circle-keepers" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+                <Users className="w-4 h-4 opacity-70" /> Circle Keeper Training
+              </Link>
+              <Link href="/programs/gender-equality" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+                <HeartHandshake className="w-4 h-4 opacity-70" /> Gender & Social Inclusion
+              </Link>
+              <Link href="/programs/peace-security" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+                <TreePine className="w-4 h-4 opacity-70" /> Peace and Security
+              </Link>
+              <Link href="/programs/education-youth" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+                <BookOpen className="w-4 h-4 opacity-70" /> Education & Youth Leadership
+              </Link>
             </div>
           </div>
 
           {/* Projects Dropdown */}
           <div className="relative group">
-            <button className="whitespace-nowrap flex items-center gap-0.5 lg:gap-1 font-bold text-[9px] lg:text-xs uppercase tracking-widest px-2.5 lg:px-4 py-1.5 rounded-full text-brand-espresso hover:bg-brand-espresso/5 hover:text-brand-gold transition-all duration-300 focus:outline-none">
+            <button className="whitespace-nowrap flex items-center gap-0.5 lg:gap-1 font-bold text-[10px] lg:text-xs uppercase tracking-widest px-2.5 lg:px-4 py-1.5 rounded-full text-brand-espresso hover:bg-brand-espresso/5 hover:text-brand-gold transition-all duration-300 focus:outline-none">
               Projects <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
             </button>
-            <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-64 bg-brand-espresso border border-brand-gold/20 z-[100] rounded-2xl shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-              <Link href="/projects/climate-resilience" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all"><Leaf className="w-4 h-4 opacity-70" /> Climate Resilience</Link>
-              <Link href="/projects/gotu-farm" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all"><Leaf className="w-4 h-4 opacity-70" /> Gotu Gamachu Farm</Link>
-              <Link href="/projects/eco-tourism" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all"><Leaf className="w-4 h-4 opacity-70" /> Eco-Tourism Hub</Link>
-              <Link href="/projects/holiday-camp" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all"><Laptop className="w-4 h-4 opacity-70" /> Digital Literacy Camp</Link>
-              <Link href="/projects" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/20 hover:text-brand-gold rounded-xl transition-all"><ScrollText className="w-4 h-4 opacity-70" /> Indigenous Knowledge</Link>
-              <div className="h-px bg-brand-espresso/10 my-1 mx-2"></div>
-              <Link href="/projects" className="flex items-center justify-center gap-2 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-brand-rust hover:text-brand-gold transition-all">All Active Projects <ArrowRight className="w-3 h-3" /></Link>
+            <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-72 rounded-2xl bg-brand-espresso border border-brand-gold/20 z-[100] p-2 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
+              <Link href="/projects" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-gold hover:bg-brand-gold/10 hover:pl-5 rounded-xl transition-all duration-300">
+                <ArrowRight className="w-4 h-4" /> All Active Projects
+              </Link>
+              <div className="h-px bg-brand-cream/10 my-1 mx-4"></div>
+              <Link href="/projects/climate-resilience" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+                <Leaf className="w-4 h-4 opacity-70" /> Climate Resilience
+              </Link>
+              <Link href="/projects/gotu-farm" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+                <Leaf className="w-4 h-4 opacity-70" /> Gotu Gamachu Farm
+              </Link>
+              <Link href="/projects/eco-tourism" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+                <Leaf className="w-4 h-4 opacity-70" /> Eco-Tourism Hub
+              </Link>
+              <Link href="/projects/holiday-camp" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+                <Laptop className="w-4 h-4 opacity-70" /> Digital Literacy Camp
+              </Link>
+              <Link href="/projects" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+                <ScrollText className="w-4 h-4 opacity-70" /> Indigenous Knowledge
+              </Link>
             </div>
           </div>
 
-          <Link href="#donate" className="whitespace-nowrap flex items-center gap-1 font-bold text-[9px] lg:text-xs uppercase tracking-widest px-2 lg:px-4 py-1.5 rounded-full text-brand-espresso hover:bg-brand-espresso/5 hover:text-brand-gold transition-all duration-300">
+          {/* Media Hub Dropdown */}
+          <div className="relative group">
+            <button className="whitespace-nowrap flex items-center gap-0.5 lg:gap-1 font-bold text-[10px] lg:text-xs uppercase tracking-widest px-2.5 lg:px-4 py-1.5 rounded-full text-brand-espresso hover:bg-brand-espresso/5 hover:text-brand-gold transition-all duration-300 focus:outline-none">
+              Media Hub <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
+            </button>
+            <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-64 rounded-2xl bg-brand-espresso border border-brand-gold/20 z-[100] p-2 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
+              <Link href="#healing" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+                <Newspaper className="w-4 h-4 opacity-70" /> Stories & News
+              </Link>
+              <Link href="#healing" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+                <ImageIcon className="w-4 h-4 opacity-70" /> Media Gallery
+              </Link>
+            </div>
+          </div>
+
+          <Link href="#donate" className="whitespace-nowrap flex items-center gap-1 font-bold text-[10px] lg:text-xs uppercase tracking-widest px-2 lg:px-4 py-1.5 rounded-full text-brand-espresso hover:bg-brand-espresso/5 hover:text-brand-gold transition-all duration-300">
             Shop <span className="bg-brand-gold text-white text-[8px] font-black px-1.5 py-0.5 rounded-full shrink-0">New</span>
           </Link>
           
-          <Link href="#contact" className="whitespace-nowrap inline-flex items-center justify-center px-3 lg:px-5 py-1.5 rounded-full font-extrabold uppercase tracking-widest bg-gradient-to-br from-brand-gold to-brand-rust text-white shadow-[0_4px_10px_rgba(204,85,0,0.25)] hover:scale-105 transition-all duration-300 text-[9px] lg:text-xs ml-1 shrink-0">Contact</Link>
+          <Link href="#contact" className="whitespace-nowrap inline-flex items-center justify-center px-3 lg:px-5 py-1.5 rounded-full font-extrabold uppercase tracking-widest bg-gradient-to-br from-brand-gold to-brand-rust text-white shadow-[0_4px_10px_rgba(204,85,0,0.25)] hover:scale-105 transition-all duration-300 text-[10px] lg:text-xs ml-1 shrink-0">Contact</Link>
         </nav>
 
         {/* Mobile Toggle */}
