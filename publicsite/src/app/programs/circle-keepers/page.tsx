@@ -157,7 +157,7 @@ export default async function CircleKeepersPage() {
       {/* 3. "Our Latest Training" Analytics Tracker */}
       <section className="py-20 px-6">
         <div className="container mx-auto max-w-5xl">
-          <div className="bento-card bg-brand-espresso p-10 md:p-16 flex flex-col md:flex-row items-center gap-12 overflow-hidden relative">
+          <div className="bg-brand-espresso rounded-[24px] shadow-xl border border-black/5 p-10 md:p-16 flex flex-col md:flex-row items-center gap-12 overflow-hidden relative">
 
             {/* Background Graphic */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none transform transform-gpu will-change-transform translate-x-1/3 -translate-y-1/3"></div>
