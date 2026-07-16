@@ -57,9 +57,9 @@ interface GalleryAsset {
 }
 
 const GALLERY_ASSETS: GalleryAsset[] = [
-  { src: `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/6a5584e100306fc44f56/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID}`, alt: 'Active Aquaculture Ponds & Tilapia Harvesting', caption: 'Climate-smart aquaculture infrastructure.' },
-  { src: `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/6a5584e1002d80a187d8/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID}`, alt: 'Women-Led Resilient Kitchen Gardens Setup', caption: 'Women-managed household food security plots.' },
-  { src: `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/6a5584e100306a35c9ce/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID}`, alt: 'GSSCR Children Educational Excursions on Field', caption: 'Intergenerational learning on the farm.' }
+  { src: `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/6a5584e100306fc44f56/preview?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID}`, alt: 'Active Aquaculture Ponds & Tilapia Harvesting', caption: 'Climate-smart aquaculture infrastructure.' },
+  { src: `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/6a5584e1002d80a187d8/preview?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID}`, alt: 'Women-Led Resilient Kitchen Gardens Setup', caption: 'Women-managed household food security plots.' },
+  { src: `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/6a5584e100306a35c9ce/preview?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID}`, alt: 'GSSCR Children Educational Excursions on Field', caption: 'Intergenerational learning on the farm.' }
 ];
 
 export default function GotuFarmPage() {
@@ -90,7 +90,7 @@ export default function GotuFarmPage() {
             </div>
 
             <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden border-2 border-brand-espresso/10 shadow-xl bg-brand-espresso/5 flex items-center justify-center">
-               <img src={`${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/6a5584e100306d1ff8ef/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID}`} alt="Gotu Gamachu Farm Aerial Layout & Fields" className="absolute inset-0 w-full h-full object-cover" />
+               <img src={`${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/6a5584e100306d1ff8ef/preview?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID}`} alt="Gotu Gamachu Farm Aerial Layout & Fields" className="absolute inset-0 w-full h-full object-cover" />
             </div>
           </div>
         </div>
