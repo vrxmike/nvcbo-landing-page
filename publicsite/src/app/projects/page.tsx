@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Leaf, Laptop, ScrollText } from "lucide-react";
+import { ArrowRight, Leaf, Laptop, ScrollText, Map } from "lucide-react";
 import { Client, TablesDB } from 'node-appwrite';
 
 export const metadata = {
@@ -54,13 +54,23 @@ const PROJECT_TRACKS: ProjectTrack[] = [
     image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop"
   },
   {
+    id: "eco-tourism",
+    title: "Eco-Tourism Hub",
+    metadataTag: "Community-Hosted Experience",
+    description: "Visit Gotu Gamachu Farm and experience the landscapes firsthand through guided walking trails, aquaculture tours, and interactive learning.",
+    href: "/projects/eco-tourism",
+    colSpan: "md:col-span-2",
+    icon: Map,
+    image: "https://images.unsplash.com/photo-1544084944-15269ec7b5a0?q=80&w=2069&auto=format&fit=crop"
+  },
+  {
     id: "indigenous-knowledge",
-    title: "Indigenous Knowledge, Culture & Heritage",
-    metadataTag: "Program Development Stage",
+    title: "Culture & Heritage",
+    metadataTag: "Program Development",
     badge: "Coming Soon",
-    description: "Preserving intergenerational storytelling, land-and-water wisdom, and oral histories of Northern Kenya's pastoralist communities.",
+    description: "Preserving intergenerational storytelling and land-and-water wisdom.",
     href: "#", // Non-clickable or anchor until ready
-    colSpan: "md:col-span-3",
+    colSpan: "md:col-span-1",
     icon: ScrollText
   }
 ];
