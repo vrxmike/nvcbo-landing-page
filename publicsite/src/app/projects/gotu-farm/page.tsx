@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Leaf, Sprout, Home, Waves, Users, Target, Snowflake, Beaker, ShieldAlert } from 'lucide-react';
 import FarmGallery from './FarmGallery';
+import { Client, TablesDB, Query } from 'node-appwrite';
 
 export const metadata = {
   title: "Gotu Gamachu Farm | Northern Vision CBO",
@@ -65,7 +66,50 @@ const GALLERY_ASSETS: GalleryAsset[] = [
   { src: `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/6a5584e100306a35c9ce/preview?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID}`, alt: 'GSSCR Children Educational Excursions on Field', caption: 'Intergenerational learning on the farm.' }
 ];
 
-export default function GotuFarmPage() {
+async function getFarmData() {
+  try {
+    const client = new Client()
+      .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!)
+      .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID!)
+      .setKey(process.env.APPWRITE_API_KEY!);
+
+    const tablesDB = new TablesDB(client);
+    const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID || 'nvcbo_db';
+
+    const projectsResponse = await tablesDB.listRows(dbId, 'projects', [
+      Query.equal('slug', 'gotu-farm')
+    ]);
+    const project = projectsResponse.rows[0];
+
+    const galleryResponse = await tablesDB.listRows(dbId, 'media_gallery', [
+      Query.equal('category', 'gotu-farm'),
+      Query.orderAsc('sort_order')
+    ]);
+
+    return { project, gallery: galleryResponse.rows };
+  } catch (error) {
+    console.error('Error fetching farm data:', error);
+    return { project: null, gallery: [] };
+  }
+}
+
+export default async function GotuFarmPage() {
+  const { project, gallery } = await getFarmData();
+
+  const pageTitle = project?.title || PAGE_HERO.title;
+
+  const dynamicGalleryAssets = gallery && gallery.length > 0 ? gallery.map((item: any) => ({
+    src: `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${item.file_id}/preview?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID}`,
+    alt: item.title,
+    caption: item.caption
+  })) : GALLERY_ASSETS;
+
+  const challengesList = project?.challenges?.length ? project.challenges : [
+    { title: "Cold Storage Limitations", desc: "Post-harvest loss mitigation requirements to safely store and transport yields.", icon: Snowflake },
+    { title: "Commercial Feed Access", desc: "Localized alternative resource optimization needs for sustainable aquaculture feeding.", icon: Beaker },
+    { title: "Open Perimeter Fencing", desc: "Critical requirements for crop security and wildlife preservation barriers around the farm perimeter.", icon: Home }
+  ];
+
   return (
     <div className="flex flex-col bg-white min-h-screen pt-24 pb-32">
 
@@ -81,7 +125,7 @@ export default function GotuFarmPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-brand-espresso leading-[1.1] tracking-tight mb-4">
-                {PAGE_HERO.title}
+                {pageTitle}
               </h1>
               <h2 className="text-xl md:text-2xl text-brand-espresso/90 font-bold mb-6 leading-snug">
                 {PAGE_HERO.subtitle}
@@ -135,7 +179,7 @@ export default function GotuFarmPage() {
 
             {/* Farm Production Gallery (Col Span 3) */}
             <div className="lg:col-span-3 pt-8 mt-4 border-t border-brand-espresso/5">
-              <FarmGallery assets={GALLERY_ASSETS} />
+              <FarmGallery assets={dynamicGalleryAssets} />
             </div>
 
             {/* Operational Challenges & Open Matches Panel */}
@@ -146,31 +190,24 @@ export default function GotuFarmPage() {
                </h3>
                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-                 <div className="bg-white p-6 rounded-2xl border border-brand-espresso/10 shadow-sm">
-                   <div className="w-10 h-10 rounded-full bg-brand-rust/10 flex items-center justify-center text-brand-rust mb-4">
-                     <Snowflake className="w-5 h-5" />
-                   </div>
-                   <h4 className="text-sm font-black uppercase tracking-wider text-brand-espresso mb-2">Cold Storage Limitations</h4>
-                   <p className="text-sm text-brand-espresso/70 font-medium leading-relaxed">Post-harvest loss mitigation requirements to safely store and transport yields.</p>
-                 </div>
+                  {challengesList.map((challenge: any, i: number) => {
+                    const isDynamic = typeof challenge === 'string';
+                    const title = isDynamic ? challenge : challenge.title;
+                    const desc = isDynamic ? "Strategic intervention required to optimize this area." : challenge.desc;
+                    const Icon = isDynamic ? ShieldAlert : challenge.icon;
 
-                 <div className="bg-white p-6 rounded-2xl border border-brand-espresso/10 shadow-sm">
-                   <div className="w-10 h-10 rounded-full bg-brand-rust/10 flex items-center justify-center text-brand-rust mb-4">
-                     <Beaker className="w-5 h-5" />
-                   </div>
-                   <h4 className="text-sm font-black uppercase tracking-wider text-brand-espresso mb-2">Commercial Feed Access</h4>
-                   <p className="text-sm text-brand-espresso/70 font-medium leading-relaxed">Localized alternative resource optimization needs for sustainable aquaculture feeding.</p>
-                 </div>
+                    return (
+                      <div key={i} className="bg-white p-6 rounded-2xl border border-brand-espresso/10 shadow-sm">
+                        <div className="w-10 h-10 rounded-full bg-brand-rust/10 flex items-center justify-center text-brand-rust mb-4">
+                          <Icon className="w-5 h-5" />
+                        </div>
+                        <h4 className="text-sm font-black uppercase tracking-wider text-brand-espresso mb-2">{title}</h4>
+                        <p className="text-sm text-brand-espresso/70 font-medium leading-relaxed">{desc}</p>
+                      </div>
+                    );
+                  })}
 
-                 <div className="bg-white p-6 rounded-2xl border border-brand-espresso/10 shadow-sm">
-                   <div className="w-10 h-10 rounded-full bg-brand-rust/10 flex items-center justify-center text-brand-rust mb-4">
-                     <Home className="w-5 h-5" />
-                   </div>
-                   <h4 className="text-sm font-black uppercase tracking-wider text-brand-espresso mb-2">Open Perimeter Fencing</h4>
-                   <p className="text-sm text-brand-espresso/70 font-medium leading-relaxed">Critical requirements for crop security and wildlife preservation barriers around the farm perimeter.</p>
-                 </div>
-
-               </div>
+                </div>
             </div>
 
           </div>
