@@ -1,66 +1,92 @@
-# NVCBO Landing Page
+# Nvcbo Landing Page
 
-A responsive Bootstrap landing page for NorthernVision Community Based Organization (NVCBO).
+Northern Vision CBO Landing Page
 
-**🌐 Live Site:** https://vrxmike.github.io/nvcbo-landing-page/
+![Build Status](https://img.shields.io/github/actions/workflow/status/vrxmike/nvcbo-landing-page/main.yml?branch=main)
+![License](https://img.shields.io/github/license/vrxmike/nvcbo-landing-page)
 
-## 📚 Documentation
+## 🚀 Quick Start
 
-- **[DEPLOYMENT_FIXES.md](DEPLOYMENT_FIXES.md)** - Comprehensive documentation of all GitHub Pages deployment fixes
-- **[QUICK_FIX_SUMMARY.md](QUICK_FIX_SUMMARY.md)** - Quick reference summary of fixes implemented
+### Prerequisites
+Make sure you have the required tools installed before proceeding.
 
-## About NVCBO
+### Installation
 
-NorthernVision Community Based Organization was founded in 2020 with major focus on SDGs 15, 5 and 10. We place special emphasis on empowering smallholder farmers, particularly women and youth, by providing comprehensive support.
+```bash
+# Clone the repository
+git clone https://github.com/vrxmike/nvcbo-landing-page.git
 
-## Features
+# Navigate to the project directory
+cd nvcbo-landing-page
 
-- **Responsive Design**: Built with Bootstrap 5
-- **Modern Layout**: Clean, professional design
-- **SDG Focus**: Highlighting Sustainable Development Goals
-- **Portfolio Section**: Showcasing recent projects
-- **Contact Form**: Easy way for visitors to get in touch
-- **Social Media Integration**: Links to social platforms
-
-## Project Structure
-
-```
-LANDPG/
-├── assets/
-│   ├── bootstrap/
-│   │   ├── css/
-│   │   └── js/
-│   ├── css/
-│   ├── fonts/
-│   ├── img/
-│   └── js/
-├── index.html
-└── README.md
+# Install dependencies
+npm install
 ```
 
-## How to Run
+### Usage
 
-1. Clone this repository
-2. Navigate to the project directory
-3. Start a local server:
-   ```bash
-   python3 -m http.server 8080
-   ```
-4. Open your browser and go to `http://localhost:8080`
+```bash
+# Run the project
+npm start
+```
 
-## Technologies Used
+## 🛠 Tech Stack
 
-- HTML5
-- CSS3
-- Bootstrap 5
-- Font Awesome Icons
-- Simple Line Icons
-- JavaScript
+CSS, HTML, JSON, JavaScript, Markdown, React (TS), TypeScript, Unknown (.eot), Unknown (.gitattributes), Unknown (.gitignore), Unknown (.gitkeep), Unknown (.ico), Unknown (.jpg), Unknown (.mjs), Unknown (.nix), Unknown (.nojekyll), Unknown (.otf), Unknown (.png), Unknown (.svg), Unknown (.ttf), Unknown (.webmanifest), Unknown (.webp), Unknown (.woff), Unknown (.woff2), YAML
+## 🏗 Architecture Diagram
 
-## Launch Information
+[View Interactive Diagram on ToDiagram](https://todiagram.com/editor?doc=f94331b95df144e217b31583)
 
-New website launching October 11th, 2025 with enhanced SDG resources and interactive community maps.
 
-## Copyright
+## 📖 Features
 
-© NVCBO 2025
+* Feature 1
+* Feature 2
+
+## 📂 Project Structure
+
+```text
+2oldyindex.html
+CUSTOM_DOMAIN_SETUP.md
+DEPLOYMENT_FIXES.md
+QUICK_FIX_SUMMARY.md
+README.md
+Variant1index.html
+WORKFLOW_OPTIMIZATION.md
+about.html
+android-chrome-192x192.png
+android-chrome-512x512.png
+apple-touch-icon.png
+assets/
+contact.html
+favicon-16x16.png
+favicon-32x32.png
+favicon.ico
+healing.html
+index.html
+patch_projects.js
+programs.html
+publicsite/
+site.webmanifest
+```
+
+## 🔧 Configuration
+
+TBD
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+*Generated with ❤️ by [Documentation Factory](https://github.com/vamp/repo-manual-template)*
