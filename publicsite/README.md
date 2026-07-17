@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Northern Vision CBO (NVCBO) Landing Page
 
-## Getting Started
+This is the official platform for Northern Vision Community-Based Organization (NVCBO), a grassroots-led initiative working with indigenous and pastoralist communities in Northern Kenya to strengthen climate resilience, gender justice, education, and community wellbeing.
 
-First, run the development server:
+## Tech Stack
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
+- **Styling**: Vanilla CSS with Tailwind CSS utilities
+- **Typography**: Optimized loading for Fredoka, Inter, and Caveat
+- **Backend / Database / Storage**: [Appwrite Cloud](https://appwrite.io)
+- **Realtime reactivity**: Appwrite Client SDK (`client.subscribe`)
 
+## Local Development
+
+First, copy `.env.example` (or set up your environment variables based on your Appwrite Cloud project credentials) to `.env`:
 ```bash
+NEXT_PUBLIC_APPWRITE_ENDPOINT=https://cloud.appwrite.io/v1
+NEXT_PUBLIC_APPWRITE_PROJECT_ID=your_project_id
+NEXT_PUBLIC_APPWRITE_DATABASE_ID=nvcbo_db
+NEXT_PUBLIC_APPWRITE_BUCKET_ID=nvcbo_bucket
+APPWRITE_API_KEY=your_secret_api_key  # Server-side scripts only! Never expose to client.
+```
+
+Run the development server:
+```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deployment: Appwrite Site Next.js SSR
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project is fully deployed and hosted entirely within the Appwrite ecosystem using **Appwrite Site's SSR Git Deployment** pipeline. 
 
-## Learn More
+### Deployment Workflow
+Appwrite Cloud directly integrates with this GitHub repository to provide automatic continuous deployment (CD) with Server-Side Rendering (SSR) support. 
 
-To learn more about Next.js, take a look at the following resources:
+When code is pushed to the `master` branch:
+1. **GitHub Trigger**: Appwrite detects the commit.
+2. **Build Process**: Appwrite automatically runs `npm install` and `npm run build`.
+3. **SSR Provisioning**: Appwrite spins up serverless compute required for Next.js 16's dynamic App Router and API routes.
+4. **Live Release**: The new version instantly goes live. 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Environment Variables
+For production, ensure the following keys are safely configured within the **Appwrite Console Settings** under your Site deployment environment variables:
+- `NEXT_PUBLIC_APPWRITE_ENDPOINT`
+- `NEXT_PUBLIC_APPWRITE_PROJECT_ID`
+- `NEXT_PUBLIC_APPWRITE_DATABASE_ID`
+- `NEXT_PUBLIC_APPWRITE_BUCKET_ID`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+*(Do NOT commit your `APPWRITE_API_KEY` into Git. It is solely utilized for local backend data-seeding CLI scripts.)*
 
-## Deploy on Vercel
+## Key Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Dynamic Media Gallery**: Realtime synchronization with Appwrite TablesDB rows instead of legacy Appwrite collections. Employs recursive cursor-based pagination to fluidly bypass 100-item rate limits.
+- **Glassmorphism UI**: Uses Bento grid, Tactile Minimalism, and premium gradients.
+- **WhatsApp Integration**: Immediate "Book Consultation" triggers linking deep into WhatsApp via URL parameters.
