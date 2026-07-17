@@ -18,15 +18,26 @@ async function getMediaFiles(): Promise<MediaItem[]> {
     ]);
     
     // Map Appwrite rows to MediaItem interface
-    return response.rows.map((row: any) => ({
+    return response.rows.map((row: any) => {
+      let videoUrl = undefined;
+      if (row.type === 'video') {
+        const endpoint = process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT || 'https://cloud.appwrite.io/v1';
+        const projectId = process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID || '';
+        const bucketId = process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID || 'nvcbo_bucket';
+        videoUrl = `${endpoint}/storage/buckets/${bucketId}/files/${row.appwriteId}/view?project=${projectId}`;
+      }
+
+      return {
         id: row.$id,
         title: row.title,
         category: row.category,
         type: row.type,
         appwriteId: row.appwriteId,
+        videoUrl: videoUrl,
         caption: row.caption,
         colSpan: row.colSpan,
-    }));
+      };
+    });
   } catch (error) {
     console.error('Error fetching media from Appwrite TablesDB:', error);
     return [];
