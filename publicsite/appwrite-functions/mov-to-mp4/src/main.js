@@ -11,13 +11,20 @@ ffmpeg.setFfmpegPath(ffmpegInstaller.path);
 export default async ({ req, res, log, error }) => {
   log("Starting MOV to MP4 conversion function...");
 
-  // 1. Validate the Trigger Event
+  // 1. Validate the Trigger Event (Support both Event Triggers and Manual Console Execution)
+  let fileData = null;
   const eventDataRaw = req.variables.APPWRITE_FUNCTION_EVENT_DATA;
-  if (!eventDataRaw) {
-    return res.json({ success: false, message: 'No event data found.' });
+  
+  if (eventDataRaw) {
+    fileData = JSON.parse(eventDataRaw);
+  } else if (req.body) {
+    // Fallback for manual Appwrite Console execution using the "Body" field
+    fileData = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
   }
 
-  const fileData = JSON.parse(eventDataRaw);
+  if (!fileData) {
+    return res.json({ success: false, message: 'No event data or request body found.' });
+  }
   const fileId = fileData.$id;
   const bucketId = fileData.bucketId;
   const fileName = fileData.name;
