@@ -1,4 +1,4 @@
-import { Client, Storage } from 'node-appwrite';
+import { Client, TablesDB } from 'node-appwrite';
 import MediaGalleryClient, { MediaItem } from './MediaGalleryClient';
 
 export const dynamic = 'force-dynamic';
@@ -10,33 +10,23 @@ async function getMediaFiles(): Promise<MediaItem[]> {
       .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID!)
       .setKey(process.env.APPWRITE_API_KEY!);
 
-    const storage = new Storage(client);
-    const bucketId = process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID || 'nvcbo_bucket';
+    const tablesDB = new TablesDB(client);
+    const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID || 'nvcbo_db';
 
-    const response = await storage.listFiles(bucketId);
+    const response = await tablesDB.listRows(dbId, 'media_gallery');
     
-    // Map Appwrite files to MediaItem interface
-    return response.files.map((file, idx) => {
-      // Determine size span logically for asymmetric Bento grid
-      const isLarge = idx % 5 === 0;
-      const isWide = idx % 3 === 0 && !isLarge;
-      
-      let colSpan = '';
-      if (isLarge) colSpan = 'md:col-span-2 lg:col-span-2';
-      else if (isWide) colSpan = 'md:col-span-2 lg:col-span-1';
-
-      return {
-        id: file.$id,
-        title: file.name.replace('.HEIC.heif', '').replace('.heic', ''), // Clean up extensions
-        category: 'GOTU', // Defaulting to GOTU as requested
-        type: file.mimeType.includes('video') ? 'video' : 'image',
-        appwriteId: file.$id,
-        caption: `Harvested from Gotu Gamachu Farm records. Original file size: ${(file.sizeOriginal / 1024 / 1024).toFixed(1)}MB`,
-        colSpan,
-      };
-    });
+    // Map Appwrite rows to MediaItem interface
+    return response.rows.map((row: any) => ({
+        id: row.$id,
+        title: row.title,
+        category: row.category,
+        type: row.type,
+        appwriteId: row.appwriteId,
+        caption: row.caption,
+        colSpan: row.colSpan,
+    }));
   } catch (error) {
-    console.error('Error fetching media from Appwrite Storage:', error);
+    console.error('Error fetching media from Appwrite TablesDB:', error);
     return [];
   }
 }
