@@ -23,10 +23,10 @@ export default function Home() {
               Northern Vision Community-Based Organization (NVCBO) is a grassroots organization working with indigenous and pastoralist communities to strengthen climate resilience, gender justice, education and community wellbeing in Northern Kenya’s Arid and Semi-Arid Lands (ASALs).
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-up delay-3">
-              <Link href="#about" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider bg-gradient-to-br from-brand-gold to-brand-rust text-white shadow-[0_4px_15px_rgba(204,85,0,0.3)] hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,140,0,0.4)] transition-all duration-300 w-full sm:w-auto text-center">
-                Learn More About Us
+              <Link href="https://wa.me/254700000000?text=Hello%20Northern%20Vision%20CBO!%20I%20would%20like%20to%20book%20a%20consultation." target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider bg-gradient-to-br from-brand-gold to-brand-rust text-white shadow-[0_4px_15px_rgba(204,85,0,0.3)] hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,140,0,0.4)] transition-all duration-300 w-full sm:w-auto text-center">
+                Book Consultation
               </Link>
-              <Link href="#programs" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-brand-espresso hover:-translate-y-1 hover:shadow-md transition-all duration-300 w-full sm:w-auto text-center">
+              <Link href="/programs" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-brand-espresso hover:-translate-y-1 hover:shadow-md transition-all duration-300 w-full sm:w-auto text-center">
                 Explore Our Programs
               </Link>
             </div>
@@ -48,7 +48,7 @@ export default function Home() {
               Northern Vision CBO is a community-rooted organization grounded in indigenous knowledge, integrity and community leadership. We design and implement locally led solutions in climate adaptation, education and culture, sexual and reproductive health and rights (SRHR) and peacebuilding. Healing circles and storytelling are core tools that guide our community engagement, learning, and organizational reflection.
             </p>
             
-            <Link href="#about" className="inline-flex items-center justify-center px-8 py-4 bg-brand-gold hover:bg-brand-rust text-white shadow-md hover:shadow-lg rounded-full font-bold uppercase tracking-wider transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+            <Link href="/about" className="inline-flex items-center justify-center px-8 py-4 bg-brand-gold hover:bg-brand-rust text-white shadow-md hover:shadow-lg rounded-full font-bold uppercase tracking-wider transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
               Who We Are
             </Link>
           </div>
@@ -111,7 +111,7 @@ export default function Home() {
           </div>
           
           <div className="mt-16 text-center">
-            <Link href="#programs" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider bg-gradient-to-br from-brand-gold to-brand-rust text-white shadow-[0_4px_15px_rgba(204,85,0,0.3)] hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,140,0,0.4)] transition-all duration-300">
+            <Link href="/programs" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider bg-gradient-to-br from-brand-gold to-brand-rust text-white shadow-[0_4px_15px_rgba(204,85,0,0.3)] hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,140,0,0.4)] transition-all duration-300">
               Explore Details
             </Link>
           </div>
@@ -140,7 +140,7 @@ export default function Home() {
             Healing circles are a core methodology across all Northern Vision programs. They are used for community dialogue, participatory planning, conflict resolution, youth mentorship and internal organizational reflection.
           </p>
           
-          <Link href="#healing" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider bg-gradient-to-br from-brand-gold to-brand-rust text-white shadow-[0_4px_15px_rgba(204,85,0,0.3)] hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,140,0,0.4)] transition-all duration-300">
+          <Link href="/programs/circle-keepers" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider bg-gradient-to-br from-brand-gold to-brand-rust text-white shadow-[0_4px_15px_rgba(204,85,0,0.3)] hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,140,0,0.4)] transition-all duration-300">
             Our Approach
           </Link>
         </div>
@@ -156,10 +156,10 @@ export default function Home() {
                 We welcome partnerships, volunteers, donors, and collaborators who share our commitment to grassroots-led climate action and community empowerment.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link href="#donate" className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base bg-brand-rust text-white rounded-full font-bold uppercase tracking-wider transition-all shadow hover:shadow-lg hover:-translate-y-1 w-full sm:w-auto">
+                <Link href="/shop" className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base bg-brand-rust text-white rounded-full font-bold uppercase tracking-wider transition-all shadow hover:shadow-lg hover:-translate-y-1 w-full sm:w-auto">
                   Invest in Our Impact
                 </Link>
-                <Link href="#contact" className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base rounded-full font-bold uppercase tracking-wider bg-transparent border-2 border-brand-espresso/20 text-brand-espresso hover:border-brand-espresso hover:text-brand-rust hover:-translate-y-1 hover:shadow-sm transition-all duration-300 w-full sm:w-auto">
+                <Link href="mailto:info@nvcbo.org" className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base rounded-full font-bold uppercase tracking-wider bg-transparent border-2 border-brand-espresso/20 text-brand-espresso hover:border-brand-espresso hover:text-brand-rust hover:-translate-y-1 hover:shadow-sm transition-all duration-300 w-full sm:w-auto">
                   Become a Partner
                 </Link>
               </div>
