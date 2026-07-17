@@ -37,7 +37,7 @@ const getImageUrl = (appwriteId: string) => {
   
   // Natively generate the WebP preview using the Appwrite SDK
   // Appwrite SDK signature: getFilePreview(bucketId, fileId, width, height, gravity, quality, borderWidth, borderColor, borderRadius, opacity, rotation, background, output)
-  return storage.getFilePreview(bucketId, appwriteId, 1200, 0, undefined, undefined, 0, '', 0, 1, 0, '', ImageFormat.Webp).toString();
+  return storage.getFilePreview(bucketId, appwriteId, 1200, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, ImageFormat.Webp).toString();
 };
 
 export default function MediaGalleryClient({ mediaItems }: { mediaItems: MediaItem[] }) {
