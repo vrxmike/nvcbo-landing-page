@@ -43,6 +43,14 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   font-family: var(--font-accent);
 }
 
+/* Upgraded button typography style */
+button, 
+a.rounded-full, 
+a.rounded-xl,
+.tactile-btn {
+  font-family: var(--font-display) !important;
+}
+
 /* Custom container override for premium wide-screen desktop layout */
 .container {
   width: 100%;
