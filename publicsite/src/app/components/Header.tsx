@@ -129,7 +129,7 @@ export default function Header() {
               <Link href="#healing" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
                 <Newspaper className="w-4 h-4 opacity-70" /> Stories & News
               </Link>
-              <Link href="#healing" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+              <Link href="/media-gallery" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
                 <ImageIcon className="w-4 h-4 opacity-70" /> Media Gallery
               </Link>
             </div>
@@ -219,7 +219,7 @@ export default function Header() {
             </button>
             <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.media ? 'max-h-32 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
               <Link onClick={() => setMobileMenuOpen(false)} href="#healing" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><Newspaper className="w-4 h-4 opacity-70" /> Stories & News</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="#healing" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><ImageIcon className="w-4 h-4 opacity-70" /> Media Gallery</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/media-gallery" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><ImageIcon className="w-4 h-4 opacity-70" /> Media Gallery</Link>
             </div>
           </div>
 
