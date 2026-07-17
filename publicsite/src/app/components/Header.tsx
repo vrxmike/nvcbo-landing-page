@@ -236,7 +236,7 @@ export default function Header() {
               Explore Shop
             </Link>
             <Link onClick={() => setMobileMenuOpen(false)} href="#donate" className="block w-full text-center bg-white text-brand-rust font-black py-2.5 px-4 rounded-xl shadow-md hover:bg-orange-50 transition active:scale-[0.98]">
-              Donate Now
+              Invest in Our Impact
             </Link>
           </div>
         </nav>
