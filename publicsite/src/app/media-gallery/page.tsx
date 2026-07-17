@@ -13,12 +13,26 @@ async function getMediaFiles(): Promise<MediaItem[]> {
     const tablesDB = new TablesDB(client);
     const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID || 'nvcbo_db';
 
-    const response = await tablesDB.listRows(dbId, 'media_gallery', [
-      Query.limit(100)
-    ]);
+    const allRows: any[] = [];
+    let lastId: string | null = null;
+    
+    while (true) {
+      const queries = [Query.limit(100)];
+      if (lastId) {
+        queries.push(Query.cursorAfter(lastId));
+      }
+      
+      const response = await tablesDB.listRows(dbId, 'media_gallery', queries);
+      allRows.push(...response.rows);
+      
+      if (response.rows.length < 100) {
+        break;
+      }
+      lastId = response.rows[response.rows.length - 1].$id;
+    }
     
     // Map Appwrite rows to MediaItem interface
-    return response.rows.map((row: any) => {
+    return allRows.map((row: any) => {
       let videoUrl = undefined;
       if (row.type === 'video') {
         const endpoint = process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT || 'https://cloud.appwrite.io/v1';
