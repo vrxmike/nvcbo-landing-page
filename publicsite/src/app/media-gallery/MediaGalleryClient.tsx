@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Play, X } from 'lucide-react';
+import { Client as AppwriteClient } from 'appwrite';
 
 export type Category = 'ALL' | 'GOTU' | 'BIOLIT' | 'BRUNS_KENYA' | 'SWEDEN' | 'WOLFRAM';
 
@@ -37,10 +38,40 @@ const getImageUrl = (appwriteId: string) => {
 export default function MediaGalleryClient({ mediaItems }: { mediaItems: MediaItem[] }) {
   const [activeCategory, setActiveCategory] = useState<Category>('ALL');
   const [lightboxItem, setLightboxItem] = useState<MediaItem | null>(null);
+  const [dynamicMedia, setDynamicMedia] = useState<MediaItem[]>(mediaItems);
+
+  useEffect(() => {
+    const client = new AppwriteClient();
+    client
+      .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT || 'https://cloud.appwrite.io/v1')
+      .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID || '');
+
+    const bucketId = process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID || 'nvcbo_bucket';
+
+    // Subscribe to bucket events
+    const unsubscribe = client.subscribe(`buckets.${bucketId}.files`, (response: any) => {
+      // Check if it's a delete event
+      const isDelete = response.events.some((event: string) => event.includes('.delete'));
+      
+      if (isDelete) {
+        const deletedFileId = response.payload.$id;
+        
+        // Remove instantly from frontend
+        setDynamicMedia(prev => prev.filter(item => item.appwriteId !== deletedFileId));
+        
+        // Close modal if the currently open image was the one deleted
+        setLightboxItem(current => current?.appwriteId === deletedFileId ? null : current);
+      }
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   const filteredMedia = activeCategory === 'ALL' 
-    ? mediaItems 
-    : mediaItems.filter(item => item.category === activeCategory);
+    ? dynamicMedia 
+    : dynamicMedia.filter(item => item.category === activeCategory);
 
   return (
     <div className="flex flex-col min-h-screen bg-white pt-24 pb-32">
