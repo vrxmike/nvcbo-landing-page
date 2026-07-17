@@ -1,4 +1,4 @@
-import { Client, TablesDB } from 'node-appwrite';
+import { Client, TablesDB, Query } from 'node-appwrite';
 import MediaGalleryClient, { MediaItem } from './MediaGalleryClient';
 
 export const dynamic = 'force-dynamic';
@@ -13,7 +13,9 @@ async function getMediaFiles(): Promise<MediaItem[]> {
     const tablesDB = new TablesDB(client);
     const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID || 'nvcbo_db';
 
-    const response = await tablesDB.listRows(dbId, 'media_gallery');
+    const response = await tablesDB.listRows(dbId, 'media_gallery', [
+      Query.limit(100)
+    ]);
     
     // Map Appwrite rows to MediaItem interface
     return response.rows.map((row: any) => ({
