@@ -48,7 +48,7 @@ export default async ({ req, res, log, error }) => {
     // 3. Download the .MOV file
     log(`Downloading file ${fileId} to ${tmpInputPath}...`);
     const fileBuffer = await storage.getFileDownload(bucketId, fileId);
-    fs.writeFileSync(tmpInputPath, fileBuffer);
+    fs.writeFileSync(tmpInputPath, Buffer.from(fileBuffer));
     log('Download complete.');
 
     // 4. Convert using FFmpeg
@@ -77,7 +77,8 @@ export default async ({ req, res, log, error }) => {
     // 5. Upload the new .MP4 file
     const newFileName = fileName.replace(/\.mov$/i, '.mp4');
     log(`Uploading converted file: ${newFileName}...`);
-    const inputFile = InputFile.fromPath(tmpOutputPath, newFileName);
+    const mp4Buffer = fs.readFileSync(tmpOutputPath);
+    const inputFile = InputFile.fromBuffer(mp4Buffer, newFileName);
     const newUploadedFile = await storage.createFile(bucketId, ID.unique(), inputFile);
     log(`Successfully uploaded new MP4 file: ${newUploadedFile.$id}`);
 
