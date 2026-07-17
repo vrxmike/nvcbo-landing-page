@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Play, X } from 'lucide-react';
-import { Client as AppwriteClient } from 'appwrite';
+import { Client as AppwriteClient, Storage, ImageFormat } from 'appwrite';
 
 export type Category = 'ALL' | 'GOTU' | 'BIOLIT' | 'BRUNS_KENYA' | 'SWEDEN' | 'WOLFRAM';
 
@@ -28,11 +28,16 @@ const CATEGORIES: { id: Category; label: string }[] = [
 
 const getImageUrl = (appwriteId: string) => {
   if (appwriteId.startsWith('http')) return appwriteId;
-  const endpoint = process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT || 'https://cloud.appwrite.io/v1';
-  const projectId = process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID || '';
+  const client = new AppwriteClient()
+    .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT || 'https://cloud.appwrite.io/v1')
+    .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID || '');
+  
+  const storage = new Storage(client);
   const bucketId = process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID || 'nvcbo_bucket';
   
-  return `${endpoint}/storage/buckets/${bucketId}/files/${appwriteId}/preview?project=${projectId}&width=1200&output=webp`;
+  // Natively generate the WebP preview using the Appwrite SDK
+  // Appwrite SDK signature: getFilePreview(bucketId, fileId, width, height, gravity, quality, borderWidth, borderColor, borderRadius, opacity, rotation, background, output)
+  return storage.getFilePreview(bucketId, appwriteId, 1200, 0, undefined, undefined, 0, '', 0, 1, 0, '', ImageFormat.Webp).toString();
 };
 
 export default function MediaGalleryClient({ mediaItems }: { mediaItems: MediaItem[] }) {
@@ -47,14 +52,21 @@ export default function MediaGalleryClient({ mediaItems }: { mediaItems: MediaIt
       .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID || '');
 
     const bucketId = process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID || 'nvcbo_bucket';
+    const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID || 'nvcbo_db';
+    const tableId = 'media_gallery';
 
-    // Subscribe to bucket events
-    const unsubscribe = client.subscribe(`buckets.${bucketId}.files`, (response: any) => {
-      // Check if it's a delete event
+    // Subscribe to bucket events AND database table events using the new tables/rows format
+    const unsubscribe = client.subscribe([
+        `buckets.${bucketId}.files`,
+        `databases.${dbId}.tables.${tableId}.rows`
+    ], (response: any) => {
+      // Check if it's a delete event from either the bucket or the table
       const isDelete = response.events.some((event: string) => event.includes('.delete'));
       
       if (isDelete) {
-        const deletedFileId = response.payload.$id;
+        // payload.$id is the appwriteId if it's a bucket event. 
+        // If it's a table event, payload.appwriteId contains the appwriteId we care about (or payload.$id if we mapped it 1:1, but we used ID.unique() for rows)
+        const deletedFileId = response.payload.appwriteId || response.payload.$id;
         
         // Remove instantly from frontend
         setDynamicMedia(prev => prev.filter(item => item.appwriteId !== deletedFileId));
@@ -129,6 +141,10 @@ export default function MediaGalleryClient({ mediaItems }: { mediaItems: MediaIt
                   alt={item.title}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
+                  onError={() => {
+                    // Gracefully handle 404s if a file was deleted from the bucket but the row still exists
+                    setDynamicMedia(prev => prev.filter(m => m.appwriteId !== item.appwriteId));
+                  }}
                 />
 
                 {/* Dark Matte Overlay */}
