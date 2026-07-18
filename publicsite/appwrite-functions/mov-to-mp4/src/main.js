@@ -1,4 +1,5 @@
-import { Client, Storage, TablesDB, ID, Query } from 'node-appwrite';
+import appwritePkg from 'node-appwrite';
+const { Client, Storage, TablesDB, ID, Query } = appwritePkg;
 import { InputFile } from 'node-appwrite/file';
 import ffmpeg from 'fluent-ffmpeg';
 import ffmpegInstaller from '@ffmpeg-installer/ffmpeg';
