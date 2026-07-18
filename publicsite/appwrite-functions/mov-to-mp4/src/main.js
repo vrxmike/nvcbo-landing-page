@@ -14,7 +14,7 @@ module.exports = async ({ req, res, log, error }) => {
 
   // 1. Validate the Trigger Event (Support both Event Triggers and Manual Console Execution)
   let fileData = null;
-  const eventDataRaw = req.variables.APPWRITE_FUNCTION_EVENT_DATA;
+  const eventDataRaw = process.env.APPWRITE_FUNCTION_EVENT_DATA || (req.variables && req.variables.APPWRITE_FUNCTION_EVENT_DATA);
   
   if (eventDataRaw) {
     fileData = JSON.parse(eventDataRaw);
@@ -26,6 +26,7 @@ module.exports = async ({ req, res, log, error }) => {
   if (!fileData) {
     return res.json({ success: false, message: 'No event data or request body found.' });
   }
+
   const fileId = fileData.$id;
   const bucketId = fileData.bucketId;
   const fileName = fileData.name;
@@ -39,14 +40,14 @@ module.exports = async ({ req, res, log, error }) => {
 
   // 2. Initialize Appwrite Client
   const client = new Client()
-    .setEndpoint(req.variables.NEXT_PUBLIC_APPWRITE_ENDPOINT || req.variables.APPWRITE_ENDPOINT || 'https://cloud.appwrite.io/v1')
-    .setProject(req.variables.NEXT_PUBLIC_APPWRITE_PROJECT_ID || req.variables.APPWRITE_FUNCTION_PROJECT_ID)
-    .setKey(req.variables.APPWRITE_API_KEY);
+    .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT || process.env.APPWRITE_ENDPOINT || 'https://cloud.appwrite.io/v1')
+    .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID || process.env.APPWRITE_FUNCTION_PROJECT_ID)
+    .setKey(process.env.APPWRITE_API_KEY);
 
   const storage = new Storage(client);
   const tablesDB = new TablesDB(client);
   
-  const dbId = req.variables.NEXT_PUBLIC_APPWRITE_DATABASE_ID || 'nvcbo_db';
+  const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID || 'nvcbo_db';
   const tableId = 'media_gallery';
 
   const tmpInputPath = path.join('/tmp', `${fileId}.mov`);
