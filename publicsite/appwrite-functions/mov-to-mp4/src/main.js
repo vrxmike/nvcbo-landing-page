@@ -2,12 +2,11 @@ const appwritePkg = require('node-appwrite');
 const { Client, Storage, TablesDB, ID, Query } = appwritePkg;
 const { InputFile } = require('node-appwrite/file');
 const ffmpeg = require('fluent-ffmpeg');
-const ffmpegInstaller = require('@ffmpeg-installer/ffmpeg');
 const fs = require('fs');
 const path = require('path');
 
-// Set the FFmpeg binary path securely provided by the installer package
-ffmpeg.setFfmpegPath(ffmpegInstaller.path);
+// FFmpeg is pre-installed in Appwrite's Open Runtimes containers.
+// fluent-ffmpeg will automatically find it in the system $PATH.
 
 module.exports = async ({ req, res, log, error }) => {
   log("Starting MOV to MP4 conversion function...");

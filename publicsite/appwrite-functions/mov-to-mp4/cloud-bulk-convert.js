@@ -56,11 +56,11 @@ async function triggerCloudConversions() {
 
     try {
       // Trigger the execution natively on the Appwrite Cloud environment asynchronously
-      // The third parameter 'async' means we fire-and-forget, letting Appwrite handle the heavy FFmpeg lifting
+      // The third parameter 'async' MUST be true to allow long-running FFmpeg tasks to exceed the 30s synchronous timeout
       const execution = await functions.createExecution(
         FUNCTION_ID,
         payload, 
-        false, // async = false so we can wait and see if it instantly queues
+        true, // async = true ensures it runs in the background
         '/',
         'POST'
       );
