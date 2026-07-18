@@ -85,9 +85,8 @@ module.exports = async ({ req, res, log, error }) => {
 
     // 5. Upload the new .MP4 file
     const newFileName = fileName.replace(/\.mov$/i, '.mp4');
-    log(`Uploading converted file: ${newFileName}...`);
-    const mp4Buffer = fs.readFileSync(tmpOutputPath);
-    const inputFile = InputFile.fromBuffer(mp4Buffer, newFileName);
+    log(`Uploading converted file: ${newFileName} using chunked streaming...`);
+    const inputFile = InputFile.fromPath(tmpOutputPath, newFileName);
     const newUploadedFile = await storage.createFile(bucketId, ID.unique(), inputFile);
     log(`Successfully uploaded new MP4 file: ${newUploadedFile.$id}`);
 
