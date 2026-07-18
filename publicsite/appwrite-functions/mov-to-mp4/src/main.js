@@ -1,15 +1,15 @@
-import appwritePkg from 'node-appwrite';
+const appwritePkg = require('node-appwrite');
 const { Client, Storage, TablesDB, ID, Query } = appwritePkg;
-import { InputFile } from 'node-appwrite/file';
-import ffmpeg from 'fluent-ffmpeg';
-import ffmpegInstaller from '@ffmpeg-installer/ffmpeg';
-import fs from 'fs';
-import path from 'path';
+const { InputFile } = require('node-appwrite/file');
+const ffmpeg = require('fluent-ffmpeg');
+const ffmpegInstaller = require('@ffmpeg-installer/ffmpeg');
+const fs = require('fs');
+const path = require('path');
 
 // Set the FFmpeg binary path securely provided by the installer package
 ffmpeg.setFfmpegPath(ffmpegInstaller.path);
 
-export default async ({ req, res, log, error }) => {
+module.exports = async ({ req, res, log, error }) => {
   log("Starting MOV to MP4 conversion function...");
 
   // 1. Validate the Trigger Event (Support both Event Triggers and Manual Console Execution)
