@@ -1,6 +1,6 @@
-import 'dotenv/config';
-import { Client, Query, Storage } from 'node-appwrite';
-import appwriteFunction from './src/main.js';
+require('dotenv/config');
+const { Client, Query, Storage } = require('node-appwrite');
+const appwriteFunction = require('./src/main.js');
 
 const client = new Client()
   .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT || 'https://cloud.appwrite.io/v1')
@@ -49,21 +49,14 @@ async function bulkConvert() {
     const file = allMovFiles[i];
     console.log(`\n⏳ [${i + 1}/${allMovFiles.length}] Initiating conversion for: ${file.name} (${file.$id})`);
 
-    // Build the exact mock payload that Appwrite's Cloud Engine would normally generate
-    const req = {
-      variables: {
-        APPWRITE_FUNCTION_EVENT: `buckets.${bucketId}.files.${file.$id}.create`,
-        APPWRITE_FUNCTION_EVENT_DATA: JSON.stringify({
-          $id: file.$id,
-          bucketId: bucketId,
-          name: file.name
-        }),
-        APPWRITE_ENDPOINT: process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT,
-        APPWRITE_FUNCTION_PROJECT_ID: process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID,
-        APPWRITE_API_KEY: process.env.APPWRITE_API_KEY,
-        NEXT_PUBLIC_APPWRITE_DATABASE_ID: process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
-      }
-    };
+    // Inject directly into process.env to mimic Appwrite Cloud
+    process.env.APPWRITE_FUNCTION_EVENT_DATA = JSON.stringify({
+      $id: file.$id,
+      bucketId: bucketId,
+      name: file.name
+    });
+
+    const req = { body: null };
 
     const responseObj = {
       json: (data, statusCode = 200) => {
