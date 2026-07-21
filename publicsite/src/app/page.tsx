@@ -17,10 +17,10 @@ export default function Home() {
         <div className="container relative z-10 px-6 mx-auto text-center">
           <div className="max-w-6xl mx-auto animate-up delay-1">
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-6 md:mb-8 lg:mb-6 leading-tight tracking-tight">
-              Grassroots-Led <span className="text-brand-gold">Climate</span>, <span className="text-brand-gold">Gender</span> and <span className="text-brand-gold">Education</span> Solutions in Northern Kenya
+               Community Transformation Begins with Healing
             </h1>
             <p className="text-base sm:text-lg md:text-2xl text-white/90 mb-8 md:mb-10 lg:mb-8 max-w-4xl mx-auto leading-relaxed animate-up delay-2">
-              Northern Vision Community-Based Organization (NVCBO) is a grassroots organization working with indigenous and pastoralist communities to strengthen climate resilience, gender justice, education and community wellbeing in Northern Kenya’s Arid and Semi-Arid Lands (ASALs).
+               At Northern Vision, Healing Circles are the foundation of our community engagement. Through safe, community-led spaces, we initiate dialogue, strengthen leadership, preserve indigenous knowledge and support communities to co-create solutions for climate resilience, peacebuilding, education and sustainable livelihoods.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-up delay-3">
               <Link href="/about" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider bg-gradient-to-br from-brand-gold to-brand-rust text-white shadow-[0_4px_15px_rgba(204,85,0,0.3)] hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,140,0,0.4)] transition-all duration-300 w-full sm:w-auto text-center">
