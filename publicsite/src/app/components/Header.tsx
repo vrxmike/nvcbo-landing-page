@@ -165,7 +165,7 @@ export default function Header() {
           </button>
         </div>
 
-        <nav className="flex flex-col gap-3 p-6 text-white text-md font-bold overflow-y-auto h-[calc(100dvh-85px)]">
+        <nav className="flex flex-col gap-3 p-6 text-brand-cream text-md font-bold overflow-y-auto h-[calc(100dvh-85px)]">
           <Link onClick={() => setMobileMenuOpen(false)} href="/" className="hover:text-brand-gold transition py-1">Home</Link>
 
           {/* About Accordion */}
@@ -175,11 +175,11 @@ export default function Header() {
               <ChevronDown className={`w-4 h-4 transform transition-transform duration-300 ${openAccordions.about ? 'rotate-180' : ''}`} />
             </button>
             <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.about ? 'max-h-56 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/about#story" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><BookOpen className="w-4 h-4 opacity-70" /> Our Story</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/about#beliefs" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><HeartHandshake className="w-4 h-4 opacity-70" /> What We Believe</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/about#how-we-work" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><Settings className="w-4 h-4 opacity-70" /> How We Work</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/about#partners" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><Users className="w-4 h-4 opacity-70" /> Our Partners</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/about#review-2025" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><ArrowRight className="w-4 h-4 opacity-70" /> 2025 Review</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/about#story" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><BookOpen className="w-4 h-4 opacity-70" /> Our Story</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/about#beliefs" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><HeartHandshake className="w-4 h-4 opacity-70" /> What We Believe</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/about#how-we-work" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><Settings className="w-4 h-4 opacity-70" /> How We Work</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/about#partners" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><Users className="w-4 h-4 opacity-70" /> Our Partners</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/about#review-2025" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><ArrowRight className="w-4 h-4 opacity-70" /> 2025 Review</Link>
             </div>
           </div>
 
@@ -191,10 +191,10 @@ export default function Header() {
             </button>
             <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.programs ? 'max-h-64 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
               <Link onClick={() => setMobileMenuOpen(false)} href="/programs" className="flex items-center gap-3 text-sm py-2 text-brand-gold font-black"><ArrowRight className="w-4 h-4" /> All Programs Directory</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/programs/circle-keepers" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><Users className="w-4 h-4 opacity-70" /> Circle Keeper Training</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/programs/gender-equality" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><HeartHandshake className="w-4 h-4 opacity-70" /> Gender & Social Inclusion</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/programs/peace-security" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><TreePine className="w-4 h-4 opacity-70" /> Peace and Security</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/programs/education-youth" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><BookOpen className="w-4 h-4 opacity-70" /> Education & Youth Leadership</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/programs/circle-keepers" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><Users className="w-4 h-4 opacity-70" /> Circle Keeper Training</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/programs/gender-equality" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><HeartHandshake className="w-4 h-4 opacity-70" /> Gender & Social Inclusion</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/programs/peace-security" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><TreePine className="w-4 h-4 opacity-70" /> Peace and Security</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/programs/education-youth" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><BookOpen className="w-4 h-4 opacity-70" /> Education & Youth Leadership</Link>
             </div>
           </div>
 
@@ -206,11 +206,11 @@ export default function Header() {
             </button>
             <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.projects ? 'max-h-[300px] opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
               <Link onClick={() => setMobileMenuOpen(false)} href="/projects" className="flex items-center gap-3 text-sm py-2 text-brand-gold font-black"><ArrowRight className="w-4 h-4" /> All Active Projects</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/projects/climate-resilience" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><Leaf className="w-4 h-4 opacity-70" /> Climate Resilience</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/projects/gotu-farm" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><Leaf className="w-4 h-4 opacity-70" /> Gotu Gamachu Farm</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/projects/eco-tourism" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><Leaf className="w-4 h-4 opacity-70" /> Eco-Tourism Hub</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/projects/holiday-camp" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><Laptop className="w-4 h-4 opacity-70" /> Digital Literacy Camp</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/projects" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><ScrollText className="w-4 h-4 opacity-70" /> Indigenous Knowledge</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/projects/climate-resilience" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><Leaf className="w-4 h-4 opacity-70" /> Climate Resilience</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/projects/gotu-farm" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><Leaf className="w-4 h-4 opacity-70" /> Gotu Gamachu Farm</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/projects/eco-tourism" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><Leaf className="w-4 h-4 opacity-70" /> Eco-Tourism Hub</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/projects/holiday-camp" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><Laptop className="w-4 h-4 opacity-70" /> Digital Literacy Camp</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/projects" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><ScrollText className="w-4 h-4 opacity-70" /> Indigenous Knowledge</Link>
             </div>
           </div>
 
@@ -221,8 +221,8 @@ export default function Header() {
               <ChevronDown className={`w-4 h-4 transform transition-transform duration-300 ${openAccordions.media ? 'rotate-180' : ''}`} />
             </button>
             <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.media ? 'max-h-32 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
-              <Link onClick={() => setMobileMenuOpen(false)} href="#healing" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><Newspaper className="w-4 h-4 opacity-70" /> Stories & News</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/media-gallery" className="flex items-center gap-3 text-sm py-2 hover:text-brand-gold"><ImageIcon className="w-4 h-4 opacity-70" /> Media Gallery</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="#healing" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><Newspaper className="w-4 h-4 opacity-70" /> Stories & News</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/media-gallery" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><ImageIcon className="w-4 h-4 opacity-70" /> Media Gallery</Link>
             </div>
           </div>
 
