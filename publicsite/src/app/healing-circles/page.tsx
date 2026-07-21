@@ -61,9 +61,9 @@ export default function HealingCirclesPage() {
       <section className="py-16 bg-primary">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-black text-center mb-2 text-heading">Why It Matters</h2>
-          <h3 className="text-xl text-center mb-8 text-body">Strengthening Communities Through Shared Understanding</h3>
-          <p className="text-center text-body mb-12 max-w-3xl mx-auto">
-            Healing Circles create safe, inclusive spaces that strengthen relationships and support collective action on:
+          <h3 className="text-xl text-center mb-8 text-white">Strengthening Communities Through Shared Understanding</h3>
+          <p className="text-center text-white mb-12 max-w-3xl mx-auto">
+            Circle Keepers return to their communities ready to lead safe, inclusive conversations that strengthen relationships and support collective action on :
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {pillars.map((p) => (
