@@ -8,7 +8,7 @@ export default function Home() {
       <section 
         className="relative flex items-center pt-32 pb-16 md:pt-36 md:pb-20 lg:pt-32 lg:pb-16 min-h-[70vh] lg:min-h-[60vh] justify-center overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(rgba(21, 93, 116, 0.85), rgba(29, 128, 159, 0.7)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2070&auto=format&fit=crop')`,
+          backgroundImage: `linear-gradient(rgba(21, 93, 116, 0.85), rgba(29, 128, 159, 0.7)), url('https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a5fd5630003209fc638/view?project=692a34ec001f1efc9002')`,
           backgroundPosition: 'center',
           backgroundSize: 'cover',
           backgroundAttachment: 'fixed'
