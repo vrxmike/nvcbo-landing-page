@@ -82,21 +82,21 @@ export default function HealingCirclesPage() {
            <p className="text-center text-body mb-8 max-w-3xl mx-auto">Explore how Healing Circles create safe spaces for dialogue and collective action across our areas of impact.</p>
            <div className="grid md:grid-cols-3 gap-6">
              {/* Card 1 */}
-             <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center text-white">
-               <h3 className="text-xl font-bold mb-3">Circle Keeper Training</h3>
-               <p className="mb-4">Become a facilitator and lead restorative dialogue in your community.</p>
+             <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center text-heading">
+               <h3 className="text-xl font-bold mb-3 text-heading">Circle Keeper Training</h3>
+               <p className="mb-4 text-body">Become a facilitator and lead restorative dialogue in your community.</p>
                <Link href="/programs/circle-keepers" className="inline-block px-4 py-2 bg-brand-gold hover:bg-brand-rust text-white rounded-md font-semibold transition-colors">Learn More</Link>
              </div>
              {/* Card 2 */}
-             <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center text-white">
-               <h3 className="text-xl font-bold mb-3">Community Healing Dialogues</h3>
-               <p className="mb-4">Participate in collective healing sessions across our pillars.</p>
+             <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center text-heading">
+               <h3 className="text-xl font-bold mb-3 text-heading">Community Healing Dialogues</h3>
+               <p className="mb-4 text-body">Participate in collective healing sessions across our pillars.</p>
                <Link href="/healing-circles#dialogues" className="inline-block px-4 py-2 bg-brand-gold hover:bg-brand-rust text-white rounded-md font-semibold transition-colors">Explore</Link>
              </div>
              {/* Card 3 */}
-             <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center text-white">
-               <h3 className="text-xl font-bold mb-3">Resources &amp; Learning</h3>
-               <p className="mb-4">Access guides, toolkits, and case studies on Healing Circles.</p>
+             <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center text-heading">
+               <h3 className="text-xl font-bold mb-3 text-heading">Resources &amp; Learning</h3>
+               <p className="mb-4 text-body">Access guides, toolkits, and case studies on Healing Circles.</p>
                <Link href="/resources/healing-circles" className="inline-block px-4 py-2 bg-brand-gold hover:bg-brand-rust text-white rounded-md font-semibold transition-colors">View Resources</Link>
              </div>
            </div>
