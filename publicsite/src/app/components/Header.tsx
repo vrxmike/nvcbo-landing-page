@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, ChevronDown, BookOpen, HeartHandshake, Settings, Users, ArrowRight, TreePine, Leaf, Fish, Laptop, ScrollText, Image as ImageIcon, Video, Newspaper } from "lucide-react";
+import { Menu, X, ChevronDown, BookOpen, Heart, HeartHandshake, Settings, Users, ArrowRight, TreePine, Leaf, Fish, Laptop, ScrollText, Image as ImageIcon, Video, Newspaper } from "lucide-react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -77,6 +77,9 @@ export default function Header() {
                 <ArrowRight className="w-4 h-4" /> All Programs Directory
               </Link>
               <div className="h-px bg-brand-cream/10 my-1 mx-4"></div>
+              <Link href="/healing-circles" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+                <Heart className="w-4 h-4 opacity-70" /> Experience Healing Circles
+              </Link>
               <Link href="/programs/circle-keepers" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
                 <Users className="w-4 h-4 opacity-70" /> Circle Keeper Training
               </Link>
