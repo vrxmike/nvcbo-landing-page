@@ -46,7 +46,7 @@ export default function Header() {
           {/* About Us Dropdown */}
           <div className="relative group">
             <button className="whitespace-nowrap flex items-center gap-0.5 lg:gap-1 font-bold text-[10px] lg:text-xs uppercase tracking-widest px-2 lg:px-4 py-1.5 rounded-full text-brand-espresso hover:bg-brand-espresso/5 hover:text-brand-gold transition-all duration-300 focus:outline-none">
-              About Us <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
+                About Us <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
             </button>
             <div className="absolute top-full left-0 pt-2 w-64 rounded-2xl bg-brand-espresso border border-brand-gold/20 z-[100] p-2 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
               <Link href="/about#story" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
@@ -69,8 +69,8 @@ export default function Header() {
 
           {/* Programs Dropdown */}
           <div className="relative group">
-            <Link href="/programs" className="whitespace-nowrap flex items-center gap-0.5 lg:gap-1 font-bold text-[10px] lg:text-xs uppercase tracking-widest px-2 lg:px-4 py-1.5 rounded-full text-brand-espresso hover:bg-brand-espresso/5 hover:text-brand-gold transition-all duration-300 focus:outline-none">
-              Our Impact <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
+            <Link href="/healing-circles" className="whitespace-nowrap flex items-center gap-0.5 lg:gap-1 font-bold text-[10px] lg:text-xs uppercase tracking-widest px-2 lg:px-4 py-1.5 rounded-full text-brand-espresso hover:bg-brand-espresso/5 hover:text-brand-gold transition-all duration-300 focus:outline-none">
+              Healing Circles <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
             </Link>
             <div className="absolute top-full left-0 pt-2 w-72 rounded-2xl bg-brand-espresso border border-brand-gold/20 z-[100] p-2 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
               <Link href="/programs" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-gold hover:bg-brand-gold/10 hover:pl-5 rounded-xl transition-all duration-300">
@@ -95,7 +95,7 @@ export default function Header() {
           {/* Projects Dropdown */}
           <div className="relative group">
             <button className="whitespace-nowrap flex items-center gap-0.5 lg:gap-1 font-bold text-[10px] lg:text-xs uppercase tracking-widest px-2.5 lg:px-4 py-1.5 rounded-full text-brand-espresso hover:bg-brand-espresso/5 hover:text-brand-gold transition-all duration-300 focus:outline-none">
-              Projects <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
+                Our Impact <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
             </button>
             <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-72 rounded-2xl bg-brand-espresso border border-brand-gold/20 z-[100] p-2 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
               <Link href="/projects" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-gold hover:bg-brand-gold/10 hover:pl-5 rounded-xl transition-all duration-300">
@@ -168,7 +168,7 @@ export default function Header() {
           {/* About Accordion */}
           <div className="space-y-1">
             <button className="flex w-full items-center justify-between py-1 hover:text-brand-gold transition focus:outline-none" onClick={() => toggleAccordion('about')}>
-              <span>About Us</span>
+                <span>Our Impact</span>
               <ChevronDown className={`w-4 h-4 transform transition-transform duration-300 ${openAccordions.about ? 'rotate-180' : ''}`} />
             </button>
             <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.about ? 'max-h-56 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
@@ -183,7 +183,7 @@ export default function Header() {
           {/* Programs Accordion */}
           <div className="space-y-1">
             <button className="flex w-full items-center justify-between py-1 hover:text-brand-gold transition focus:outline-none" onClick={() => toggleAccordion('programs')}>
-              <span>Our Impact</span>
+                <span>Healing Circles</span>
               <ChevronDown className={`w-4 h-4 transform transition-transform duration-300 ${openAccordions.programs ? 'rotate-180' : ''}`} />
             </button>
             <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.programs ? 'max-h-64 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
@@ -198,7 +198,7 @@ export default function Header() {
           {/* Projects Accordion */}
           <div className="space-y-1">
             <button className="flex w-full items-center justify-between py-1 hover:text-brand-gold transition focus:outline-none" onClick={() => toggleAccordion('projects')}>
-              <span>Projects</span>
+                <span>Our Impact</span>
               <ChevronDown className={`w-4 h-4 transform transition-transform duration-300 ${openAccordions.projects ? 'rotate-180' : ''}`} />
             </button>
             <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.projects ? 'max-h-[300px] opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
