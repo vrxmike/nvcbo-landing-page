@@ -145,9 +145,9 @@ export default async function CommunityDialoguesPage() {
               key={idx}
               className="relative overflow-hidden rounded-xl border border-muted"
             >
-                <Image
-                  src={img.url}
-                  alt={img.name}
+<Image
+                  src={img.src}
+                  alt={img.alt}
                   width={600}
                   height={400}
                   className="object-cover w-full h-full"
