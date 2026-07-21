@@ -35,11 +35,11 @@ export async function listBucketImages() {
 
   const previewUrls = images.map((file) => {
     const url = `${endpoint}/storage/buckets/${bucketId}/files/${file.$id}/preview?width=1200&output=webp&project=${projectId}`;
-    return { id: file.$id, name: file.name, url };
+    return { src: url, alt: file.name, caption: file.name };
   });
 
   console.log("🖼️  Image preview URLs:");
-  previewUrls.forEach((img) => console.log(`${img.name}: ${img.url}`));
+  previewUrls.forEach((img) => console.log(`${img.alt}: ${img.src}`));
   return previewUrls;
 }
 

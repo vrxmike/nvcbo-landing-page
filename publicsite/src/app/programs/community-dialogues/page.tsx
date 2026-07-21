@@ -145,14 +145,14 @@ export default async function CommunityDialoguesPage() {
               key={idx}
               className="relative overflow-hidden rounded-xl border border-muted"
             >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                width={600}
-                height={400}
-                className="object-cover w-full h-full"
-                priority={idx === 0}
-              />
+                <Image
+                  src={img.url}
+                  alt={img.name}
+                  width={600}
+                  height={400}
+                  className="object-cover w-full h-full"
+                  priority={idx === 0}
+                />
               <figcaption className="absolute bottom-0 left-0 w-full bg-primary/70 text-primary p-2 text-sm">
                 {img.caption}
               </figcaption>

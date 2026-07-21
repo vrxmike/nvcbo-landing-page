@@ -129,22 +129,34 @@ export default async function CircleKeepersPage() {
           <h2 className="text-3xl md:text-4xl font-black text-center mb-12">Gallery</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             <div className="bg-white/20 backdrop-blur-lg rounded-xl overflow-hidden">
-              <img src="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c81a9c368/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" alt="Gallery 1" className="w-full h-full object-cover"/>
+              <a href="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c81a9c368/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" target="_blank" rel="noopener noreferrer">
+                <img src="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c81a9c368/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" alt="Gallery 1" className="w-full h-full object-cover"/>
+              </a>
             </div>
             <div className="bg-white/20 backdrop-blur-lg rounded-xl overflow-hidden">
-              <img src="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c851af5a1/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" alt="Gallery 2" className="w-full h-full object-cover"/>
+              <a href="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c851af5a1/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" target="_blank" rel="noopener noreferrer">
+                <img src="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c851af5a1/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" alt="Gallery 2" className="w-full h-full object-cover"/>
+              </a>
             </div>
             <div className="bg-white/20 backdrop-blur-lg rounded-xl overflow-hidden">
-              <img src="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c83da7c50/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" alt="Gallery 3" className="w-full h-full object-cover"/>
+              <a href="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c83da7c50/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" target="_blank" rel="noopener noreferrer">
+                <img src="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c83da7c50/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" alt="Gallery 3" className="w-full h-full object-cover"/>
+              </a>
             </div>
             <div className="bg-white/20 backdrop-blur-lg rounded-xl overflow-hidden">
-              <img src="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c88ff9c47/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" alt="Gallery 4" className="w-full h-full object-cover"/>
+              <a href="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c88ff9c47/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" target="_blank" rel="noopener noreferrer">
+                <img src="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c88ff9c47/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" alt="Gallery 4" className="w-full h-full object-cover"/>
+              </a>
             </div>
             <div className="bg-white/20 backdrop-blur-lg rounded-xl overflow-hidden">
-              <img src="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c8994c3a0/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" alt="Gallery 5" className="w-full h-full object-cover"/>
+              <a href="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c8994c3a0/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" target="_blank" rel="noopener noreferrer">
+                <img src="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c8994c3a0/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" alt="Gallery 5" className="w-full h-full object-cover"/>
+              </a>
             </div>
             <div className="bg-white/20 backdrop-blur-lg rounded-xl overflow-hidden">
-              <img src="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c8d0e56fb/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" alt="Gallery 6" className="w-full h-full object-cover"/>
+              <a href="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c8d0e56fb/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" target="_blank" rel="noopener noreferrer">
+                <img src="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c8d0e56fb/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" alt="Gallery 6" className="w-full h-full object-cover"/>
+              </a>
             </div>
           </div>
         </div>
