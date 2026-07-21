@@ -84,7 +84,7 @@ export default function HealingCirclesPage() {
              {/* Card 1 */}
              <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center text-heading">
                <h3 className="text-xl font-bold mb-3 text-heading">Circle Keeper Training</h3>
-               <p className="mb-4 text-body">Become a facilitator and lead restorative dialogue in your community.</p>
+                <p className="mb-4 text-body">Building local facilitators who lead restorative dialogue and community transformation. We equip community leaders, youth and institutions with the skills to facilitate Healing Circles and strengthen community-led leadership.</p>
                <Link href="/programs/circle-keepers" className="inline-block px-4 py-2 bg-brand-gold hover:bg-brand-rust text-white rounded-md font-semibold transition-colors">Learn More</Link>
              </div>
              {/* Card 2 */}
