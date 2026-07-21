@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Users, HeartHandshake, ShieldCheck, GraduationCap } from "lucide-react";
+import { ArrowRight, Users, HeartHandshake, ShieldCheck, GraduationCap, Heart } from "lucide-react";
 import { Client, TablesDB } from 'node-appwrite';
 
 export const metadata = {
@@ -52,6 +52,14 @@ const PROGRAM_TRACKS: ProgramTrack[] = [
     icon: GraduationCap,
     description: "Equipping young people with knowledge, leadership, and technical skills to shape resilient futures, featuring advanced computing structures like our Wolfram STEM program tracks.",
     colSpan: "lg:col-span-1"
+  },
+  {
+    id: "healing-circles",
+    title: "Healing Circles",
+    href: "/programs/healing-circles",
+    icon: Heart,
+    description: "Community-driven restorative dialogue practice fostering transformation and healing.",
+    colSpan: "lg:col-span-2"
   }
 ];
 

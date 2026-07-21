@@ -23,7 +23,7 @@ export default function Home() {
                At Northern Vision, Healing Circles are the foundation of our community engagement. Through safe, community-led spaces, we initiate dialogue, strengthen leadership, preserve indigenous knowledge and support communities to co-create solutions for climate resilience, peacebuilding, education and sustainable livelihoods.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-up delay-3">
-              <Link href="/about" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider bg-gradient-to-br from-brand-gold to-brand-rust text-white shadow-[0_4px_15px_rgba(204,85,0,0.3)] hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,140,0,0.4)] transition-all duration-300 w-full sm:w-auto text-center">
+              <Link href="/healing-circles" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider bg-gradient-to-br from-brand-gold to-brand-rust text-white shadow-[0_4px_15px_rgba(204,85,0,0.3)] hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,140,0,0.4)] transition-all duration-300 w-full sm:w-auto text-center">
                 Experience Healing Circles
               </Link>
               <Link href="/programs" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-brand-espresso hover:-translate-y-1 hover:shadow-md transition-all duration-300 w-full sm:w-auto text-center">
