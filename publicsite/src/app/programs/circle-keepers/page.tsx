@@ -123,34 +123,30 @@ export default async function CircleKeepersPage() {
         </div>
       </section>
 
-      {/* 2. "Why It Matters" Bento Card Matrix */}
-      <section className="py-20 bg-brand-cream border-y border-black/5 px-6">
-        <div className="container mx-auto max-w-6xl">
-
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-sm font-extrabold uppercase tracking-[4px] text-brand-rust mb-3 block">Focus Tracks</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-brand-espresso mb-6">Why It Matters</h2>
+      {/* 2. Gallery Section - Dark Theme Bento Glassmorphism */}
+      <section className="py-20 bg-brand-espresso text-white">
+        <div className="container mx-auto max-w-6xl px-6">
+          <h2 className="text-3xl md:text-4xl font-black text-center mb-12">Gallery</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="bg-white/20 backdrop-blur-lg rounded-xl overflow-hidden">
+              <img src="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c81a9c368/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" alt="Gallery 1" className="w-full h-full object-cover"/>
+            </div>
+            <div className="bg-white/20 backdrop-blur-lg rounded-xl overflow-hidden">
+              <img src="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c851af5a1/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" alt="Gallery 2" className="w-full h-full object-cover"/>
+            </div>
+            <div className="bg-white/20 backdrop-blur-lg rounded-xl overflow-hidden">
+              <img src="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c83da7c50/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" alt="Gallery 3" className="w-full h-full object-cover"/>
+            </div>
+            <div className="bg-white/20 backdrop-blur-lg rounded-xl overflow-hidden">
+              <img src="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c88ff9c47/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" alt="Gallery 4" className="w-full h-full object-cover"/>
+            </div>
+            <div className="bg-white/20 backdrop-blur-lg rounded-xl overflow-hidden">
+              <img src="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c8994c3a0/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" alt="Gallery 5" className="w-full h-full object-cover"/>
+            </div>
+            <div className="bg-white/20 backdrop-blur-lg rounded-xl overflow-hidden">
+              <img src="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c8d0e56fb/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" alt="Gallery 6" className="w-full h-full object-cover"/>
+            </div>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {FOCUS_TRACKS.map((track) => (
-              <div
-                key={track.id}
-                className="bento-card bg-white p-8 flex flex-col items-start"
-              >
-                <div className="w-12 h-12 rounded-xl bg-brand-cream flex items-center justify-center text-brand-rust mb-6 border border-brand-espresso/5">
-                  <track.icon className="w-6 h-6" />
-                </div>
-                <h3 className="text-lg font-bold text-brand-espresso mb-3">
-                  {track.title}
-                </h3>
-                <p className="text-sm text-brand-espresso/80 leading-relaxed font-medium">
-                  {track.description}
-                </p>
-              </div>
-            ))}
-          </div>
-
         </div>
       </section>
 

@@ -90,7 +90,7 @@ export default function HealingCirclesPage() {
              {/* Card 2 */}
              <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center text-heading">
                <h3 className="text-xl font-bold mb-3 text-heading">Community Healing Dialogues</h3>
-               <p className="mb-4 text-body">Participate in collective healing sessions across our pillars.</p>
+                <p className="mb-4 text-body">Explore how Healing Circles bring communities together to listen, build trust, and take collective action. Discover how restorative dialogue strengthens climate resilience, advances gender equality, promotes peacebuilding, preserves indigenous knowledge, and addresses other community priorities.</p>
                <Link href="/healing-circles#dialogues" className="inline-block px-4 py-2 bg-brand-gold hover:bg-brand-rust text-white rounded-md font-semibold transition-colors">Explore</Link>
              </div>
              {/* Card 3 */}
