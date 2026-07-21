@@ -31,8 +31,8 @@ export default function HealingCirclesPage() {
         }}
       >
         <div className="container relative z-10 px-6 mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-black mb-6 md:mb-8 lg:mb-6 leading-tight tracking-tight">Healing Circles</h1>
-          <p className="text-base sm:text-lg md:text-2xl mb-8 md:mb-10 lg:mb-8 max-w-4xl mx-auto leading-relaxed">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-brand-espresso mb-6 md:mb-8 lg:mb-6 leading-tight tracking-tight">Healing Circles</h1>
+          <p className="text-base sm:text-lg md:text-2xl text-brand-espresso mb-8 md:mb-10 lg:mb-8 max-w-4xl mx-auto leading-relaxed">
             At Northern Vision, Healing Circles are the foundation of our community engagement. Through safe, community‑led spaces, we initiate dialogue, strengthen leadership, preserve indigenous knowledge and support communities to co‑create solutions for climate resilience, peacebuilding, education and sustainable livelihoods.
           </p>
         </div>
