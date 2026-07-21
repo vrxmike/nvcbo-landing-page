@@ -168,7 +168,7 @@ export default function Header() {
           {/* About Accordion */}
           <div className="space-y-1">
             <button className="flex w-full items-center justify-between py-1 hover:text-brand-gold transition focus:outline-none" onClick={() => toggleAccordion('about')}>
-                <span>Our Impact</span>
+                <span>About Us</span>
               <ChevronDown className={`w-4 h-4 transform transition-transform duration-300 ${openAccordions.about ? 'rotate-180' : ''}`} />
             </button>
             <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.about ? 'max-h-56 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>

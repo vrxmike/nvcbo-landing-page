@@ -56,7 +56,7 @@ const PROGRAM_TRACKS: ProgramTrack[] = [
   {
     id: "healing-circles",
     title: "Healing Circles",
-    href: "/programs/healing-circles",
+    href: "/healing-circles",
     icon: Heart,
     description: "Community-driven restorative dialogue practice fostering transformation and healing.",
     colSpan: "lg:col-span-2"
