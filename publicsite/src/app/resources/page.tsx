@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { getSpecificBucketImages } from '@/app/lib/getSpecificBucketImages';
 import { BookOpen, Newspaper, ImageIcon, ArrowRight, Download, FileText, Quote, Sparkles } from 'lucide-react';
+import ResourcesGallery from './ResourcesGallery';
 
 export const dynamic = 'force-dynamic';
 
@@ -278,53 +279,8 @@ export default async function ResourcesPage() {
             </p>
           </div>
 
-          {/* Mosaic Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {galleryImages.length > 0 ? (
-              galleryImages.slice(0, 6).map((img, idx) => (
-                <div
-                  key={idx}
-                  className="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-muted bg-white shadow-sm hover:shadow-md transition-all duration-300 transform-gpu backface-hidden"
-                >
-                  {/* Standard img tag for Appwrite WebP CDN URL */}
-                  <img
-                    src={img.src}
-                    alt={photoCaptions[idx] || img.alt || `Training Photo ${idx + 1}`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
-                  <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
-                    <p className="text-sm font-bold leading-snug">
-                      {photoCaptions[idx] || `Training Session ${idx + 1}`}
-                    </p>
-                    <span className="text-[11px] text-white/70 uppercase tracking-wider font-semibold block mt-1">
-                      Healing Circles Practice
-                    </span>
-                  </div>
-                </div>
-              ))
-            ) : (
-              /* Static Fallback Grid */
-              [0, 1, 2, 3, 4, 5].map((idx) => (
-                <div
-                  key={idx}
-                  className="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-muted bg-neutral-light p-6 flex flex-col justify-between shadow-sm hover:border-primary/40 transition-all duration-300"
-                >
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                    <ImageIcon className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <p className="text-base font-bold text-heading">
-                      {photoCaptions[idx]}
-                    </p>
-                    <span className="text-xs text-body mt-1 block">
-                      Northern Vision CBO Archive
-                    </span>
-                  </div>
-                </div>
-              ))
-            )}
-          </div>
+          {/* 6-Image Interactive Mosaic Grid with Lightbox Popup Modal */}
+          <ResourcesGallery galleryImages={galleryImages} photoCaptions={photoCaptions} />
         </section>
 
         {/* ════════════════════════════════════════════════
