@@ -73,10 +73,6 @@ export default function Header() {
               Healing Circles <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
             </Link>
             <div className="absolute top-full left-0 pt-2 w-72 rounded-2xl bg-brand-espresso border border-brand-gold/20 z-[100] p-2 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
-              <Link href="/our-impact" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-gold hover:bg-brand-gold/10 hover:pl-5 rounded-xl transition-all duration-300">
-                <ArrowRight className="w-4 h-4" /> All Our Impact Directory
-              </Link>
-              <div className="h-px bg-brand-cream/10 my-1 mx-4"></div>
               <Link href="/healing-circles" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
                 <Heart className="w-4 h-4 opacity-70" /> Experience Healing Circles
               </Link>
@@ -190,8 +186,6 @@ export default function Header() {
               <ChevronDown className={`w-4 h-4 transform transition-transform duration-300 ${openAccordions.programs ? 'rotate-180' : ''}`} />
             </button>
             <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.programs ? 'max-h-64 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-gold hover:bg-brand-gold/10 hover:pl-5 rounded-xl transition-all duration-300"><ArrowRight className="w-4 h-4" /> All Our Impact Directory</Link>
-              <div className="h-px bg-brand-cream/10 my-1 mx-4"></div>
               <Link onClick={() => setMobileMenuOpen(false)} href="/healing-circles" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300"><Heart className="w-4 h-4 opacity-70" /> Experience Healing Circles</Link>
               <Link onClick={() => setMobileMenuOpen(false)} href="/healing-circles/circle-keepers" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300"><Users className="w-4 h-4 opacity-70" /> Circle Keeper Training</Link>
               <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact/gender-equality" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300"><HeartHandshake className="w-4 h-4 opacity-70" /> Gender & Social Inclusion</Link>
