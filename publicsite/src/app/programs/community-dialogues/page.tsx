@@ -154,11 +154,26 @@ export default function CommunityDialoguesPage() {
       </section>
 
       {/* Photo Gallery */}
-      <section className="container mx-auto px-4">
-        <h2 className="text-2xl font-bold text-heading mb-6 text-center">
-          Healing Circles in Action
-        </h2>
-        <CircleGalleryModal images={displayImages.map((img) => img.src)} />
+      <section className="py-12 px-4 sm:px-6">
+        <div className="container mx-auto max-w-6xl">
+          <div className="bg-brand-espresso rounded-[24px] shadow-2xl border border-white/10 p-8 sm:p-12 relative overflow-hidden backdrop-blur-xl">
+            {/* Ambient background glow */}
+            <div className="absolute top-0 right-0 w-72 h-72 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/2"></div>
+            <div className="absolute bottom-0 left-0 w-72 h-72 bg-brand-rust/10 rounded-full blur-3xl pointer-events-none translate-y-1/2 -translate-x-1/2"></div>
+
+            {/* Section Header */}
+            <div className="text-center mb-10 relative z-10">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-3">
+                Healing Circles in Action
+              </h2>
+            </div>
+
+            {/* Gallery Grid Modal */}
+            <div className="relative z-10">
+              <CircleGalleryModal images={displayImages.map((img) => img.src)} />
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Testimonials */}
