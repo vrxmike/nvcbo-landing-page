@@ -110,7 +110,30 @@ export default function CircleKeepersPage() {
       </section>
 
       {/* 2. Gallery Section - Dark Theme Bento Glassmorphism */}
-        <CircleKeepersGallery />
+      <section className="py-12 px-6">
+        <div className="container mx-auto max-w-6xl">
+          <div className="bg-brand-espresso rounded-[24px] shadow-2xl border border-white/10 p-8 sm:p-12 relative overflow-hidden backdrop-blur-xl">
+            {/* Ambient background glow */}
+            <div className="absolute top-0 right-0 w-72 h-72 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/2"></div>
+            <div className="absolute bottom-0 left-0 w-72 h-72 bg-brand-rust/10 rounded-full blur-3xl pointer-events-none translate-y-1/2 -translate-x-1/2"></div>
+
+            {/* Title & Subtitle */}
+            <div className="text-center mb-10 relative z-10">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-3">
+                Circle Keepers Gallery
+              </h3>
+              <p className="text-sm sm:text-base text-brand-gold font-semibold tracking-wide">
+                Training photos and community moments captioned
+              </p>
+            </div>
+
+            {/* Gallery Grid Modal */}
+            <div className="relative z-10">
+              <CircleKeepersGallery />
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* 3. "Our Latest Training" Analytics Tracker */}
       <section className="py-20 px-6">
