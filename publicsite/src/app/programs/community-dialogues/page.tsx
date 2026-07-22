@@ -121,7 +121,7 @@ export default function CommunityDialoguesPage() {
   return (
     <main className="flex flex-col gap-12">
       {/* Hero & Introduction */}
-      <section className="relative flex flex-col items-center text-center py-20 px-6 bg-brand-espresso text-white overflow-hidden">
+      <section className="relative flex flex-col items-center text-center pt-32 sm:pt-36 md:pt-40 pb-20 px-6 bg-brand-espresso text-white overflow-hidden">
         {/* Background Glow Effect */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
 
