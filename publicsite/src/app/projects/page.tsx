@@ -50,7 +50,7 @@ const PROJECT_TRACKS: ProjectTrack[] = [
   {
     id: "gender-equality",
     title: "Gender Equality & Social Inclusion",
-    href: "/programs/gender-equality",
+    href: "/projects/gender-equality",
     icon: HeartHandshake,
     description: "Advancing inclusive communities where women, girls, and youth thrive, spanning crucial tracks across SRHR, Menstrual Dignity, Bodily Autonomy, and Women's Land Rights.",
     colSpan: "lg:col-span-2"
@@ -58,7 +58,7 @@ const PROJECT_TRACKS: ProjectTrack[] = [
   {
     id: "peace-security",
     title: "Peace and Security",
-    href: "/programs/peace-security",
+    href: "/projects/peace-security",
     icon: ShieldCheck,
     highlight: "130+ Documented Healing Circles Sessions",
     description: "Strengthening trust and peaceful coexistence in Northern Kenya. Combating misinformation through dedicated Media and Digital Information Literacy (MIL/DIL) safety work.",
@@ -67,7 +67,7 @@ const PROJECT_TRACKS: ProjectTrack[] = [
   {
     id: "education-youth",
     title: "Education, Youth & Digital Inclusion",
-    href: "/programs/education-youth",
+    href: "/projects/education-youth",
     icon: GraduationCap,
     description: "Equipping young people with knowledge, leadership, and technical skills to shape resilient futures, featuring advanced computing structures like our Wolfram STEM program tracks.",
     colSpan: "lg:col-span-1"

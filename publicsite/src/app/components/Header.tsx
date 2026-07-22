@@ -83,13 +83,13 @@ export default function Header() {
               <Link href="/programs/circle-keepers" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
                 <Users className="w-4 h-4 opacity-70" /> Circle Keeper Training
               </Link>
-              <Link href="/programs/gender-equality" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+              <Link href="/projects/gender-equality" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
                 <HeartHandshake className="w-4 h-4 opacity-70" /> Gender & Social Inclusion
               </Link>
-              <Link href="/programs/peace-security" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+              <Link href="/projects/peace-security" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
                 <TreePine className="w-4 h-4 opacity-70" /> Peace and Security
               </Link>
-              <Link href="/programs/education-youth" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+              <Link href="/projects/education-youth" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
                 <BookOpen className="w-4 h-4 opacity-70" /> Education & Youth Leadership
               </Link>
             </div>
@@ -194,9 +194,9 @@ export default function Header() {
               <div className="h-px bg-brand-cream/10 my-1 mx-4"></div>
               <Link onClick={() => setMobileMenuOpen(false)} href="/healing-circles" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300"><Heart className="w-4 h-4 opacity-70" /> Experience Healing Circles</Link>
               <Link onClick={() => setMobileMenuOpen(false)} href="/programs/circle-keepers" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300"><Users className="w-4 h-4 opacity-70" /> Circle Keeper Training</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/programs/gender-equality" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300"><HeartHandshake className="w-4 h-4 opacity-70" /> Gender & Social Inclusion</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/programs/peace-security" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><TreePine className="w-4 h-4 opacity-70" /> Peace and Security</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/programs/education-youth" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><BookOpen className="w-4 h-4 opacity-70" /> Education & Youth Leadership</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/projects/gender-equality" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300"><HeartHandshake className="w-4 h-4 opacity-70" /> Gender & Social Inclusion</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/projects/peace-security" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><TreePine className="w-4 h-4 opacity-70" /> Peace and Security</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/projects/education-youth" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><BookOpen className="w-4 h-4 opacity-70" /> Education & Youth Leadership</Link>
             </div>
           </div>
 
