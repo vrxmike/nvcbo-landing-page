@@ -177,20 +177,22 @@ export default function CommunityDialoguesPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="container mx-auto px-4">
-        <h2 className="text-2xl font-bold text-heading mb-6 text-center">
-          Community Voices
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {testimonials.map((t, i) => (
-            <blockquote
-              key={i}
-              className="bg-neutral-light border border-muted p-6 rounded-2xl shadow-sm"
-            >
-              <p className="text-body italic mb-4">“{t.quote}”</p>
-              <footer className="text-right font-medium text-heading">– {t.author}</footer>
-            </blockquote>
-          ))}
+      <section className="pt-12 pb-24 px-4 sm:px-6">
+        <div className="container mx-auto max-w-5xl">
+          <h2 className="text-2xl sm:text-3xl font-black text-brand-espresso mb-8 text-center">
+            Community Voices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {testimonials.map((t, i) => (
+              <blockquote
+                key={i}
+                className="bg-brand-cream/60 border border-brand-gold/20 p-8 rounded-2xl shadow-md hover:shadow-lg transition-shadow"
+              >
+                <p className="text-brand-espresso/90 italic mb-6 text-base sm:text-lg leading-relaxed font-medium">“{t.quote}”</p>
+                <footer className="text-right font-bold text-brand-rust text-sm sm:text-base">– {t.author}</footer>
+              </blockquote>
+            ))}
+          </div>
         </div>
       </section>
     </main>
