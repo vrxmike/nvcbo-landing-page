@@ -46,6 +46,16 @@ export default function MediaGalleryClient({ mediaItems }: { mediaItems: MediaIt
   const [dynamicMedia, setDynamicMedia] = useState<MediaItem[]>(mediaItems);
 
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const catParam = params.get('category')?.toUpperCase() as Category | undefined;
+      if (catParam && CATEGORIES.some(c => c.id === catParam)) {
+        setActiveCategory(catParam);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
     const client = new AppwriteClient();
     client
       .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT || 'https://cloud.appwrite.io/v1')

@@ -12,7 +12,7 @@ const STEM_INITIATIVES = [
     id: "wolfram-stem",
     title: "NVCBO STEM Program with Wolfram",
     description: "Partnering with Wolfram to bring computational thinking, coding foundations, and mathematics to local classrooms.",
-    linkUrl: "https://drive.google.com/drive/folders/1aNNfDtWUcRtWFSxK54RUj3_kw8SheNDd",
+    linkUrl: "/media-gallery?category=WOLFRAM",
     linkText: "View Documentation Repository"
   },
   {
@@ -71,10 +71,8 @@ export default function EducationYouthPage() {
                   {initiative.description}
                 </p>
                 {initiative.linkUrl && (
-                  <a 
+                  <Link 
                     href={initiative.linkUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="inline-flex items-center justify-center w-full sm:w-auto px-6 py-3 rounded-xl bg-primary text-white font-semibold hover:opacity-90 active:scale-[0.98] transition-all shadow-md mt-auto"
                   >
                     {initiative.linkText}
@@ -82,7 +80,7 @@ export default function EducationYouthPage() {
                       <line x1="5" y1="12" x2="19" y2="12"></line>
                       <polyline points="12 5 19 12 12 19"></polyline>
                     </svg>
-                  </a>
+                  </Link>
                 )}
               </div>
             ))}
