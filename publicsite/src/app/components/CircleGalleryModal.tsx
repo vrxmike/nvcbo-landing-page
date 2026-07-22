@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+// Using standard img tag for external CDN images
 
 interface GalleryModalProps {
   images: string[];
@@ -28,14 +28,14 @@ export default function CircleGalleryModal({ images }: GalleryModalProps) {
             className="bg-white/20 backdrop-blur-lg rounded-xl overflow-hidden cursor-pointer"
             onClick={() => open(idx)}
           >
-            <Image
-              src={src}
-              alt={`Gallery ${idx + 1}`}
-              width={600}
-              height={400}
-              className="w-full h-full object-cover"
-              unoptimized
-            />
+            <img
+                src={src}
+                alt={`Gallery ${idx + 1}`}
+                width={600}
+                height={400}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
           </div>
         ))}
       </div>
@@ -53,13 +53,14 @@ export default function CircleGalleryModal({ images }: GalleryModalProps) {
             >
               ✕
             </button>
-            <Image
-              src={images[current]}
-              alt={`Gallery ${current + 1}`}
-              width={1200}
-              height={800}
-              className="object-contain"
-            />
+            <img
+                src={images[current]}
+                alt={`Gallery ${current + 1}`}
+                width={1200}
+                height={800}
+                className="object-contain"
+                loading="eager"
+              />
             <button
               className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2"
               onClick={prev}
