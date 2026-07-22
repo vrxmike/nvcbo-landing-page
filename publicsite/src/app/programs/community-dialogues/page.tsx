@@ -1,7 +1,8 @@
 // src/app/programs/community-dialogues/page.tsx
 "use client";
 import Image from "next/image";
-import { listBucketImages } from "../../lib/listAppwriteImages";
+import { Client as AppwriteClient, Storage, ImageFormat } from "appwrite";
+
 import { CloudRain, Users, Shield, Sun, Flag, Leaf, Megaphone, DollarSign } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -96,16 +97,29 @@ export const testimonials = [
   },
 ];
 
-export const dynamic = "force-static";
+
 
 export default function CommunityDialoguesPage() {
   const [displayImages, setDisplayImages] = useState<Array<{ src: string; alt: string; caption: string }>>([]);
 
   useEffect(() => {
-    listBucketImages()
-      .then((images) => {
-        const limited = images.slice(0, 6);
-        setDisplayImages(limited);
+    const client = new AppwriteClient()
+      .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT || 'https://cloud.appwrite.io/v1')
+      .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID || '');
+    const storage = new Storage(client);
+    const bucketId = process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID || 'nvcbo_bucket';
+    storage
+      .listFiles(bucketId, [])
+      .then((resp) => {
+        const images = resp.files.filter((f: any) => f.mimeType?.startsWith('image/'));
+        const previewUrls = images.map((file: any) => ({
+          src: storage
+            .getFilePreview(bucketId, file.$id, 1200, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, ImageFormat.Webp)
+            .toString(),
+          alt: file.name,
+          caption: file.name,
+        }));
+        setDisplayImages(previewUrls.slice(0, 6));
       })
       .catch((e) => {
         console.error('Failed to load gallery images', e);
