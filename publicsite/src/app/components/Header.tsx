@@ -113,7 +113,7 @@ export default function Header() {
               <Link href="/our-impact/holiday-camp" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
                 <Laptop className="w-4 h-4 opacity-70" /> Digital Literacy Camp
               </Link>
-              <Link href="/our-impact" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+              <Link href="/our-impact/indigenous-knowledge" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
                 <ScrollText className="w-4 h-4 opacity-70" /> Indigenous Knowledge
               </Link>
             </div>
@@ -206,7 +206,7 @@ export default function Header() {
               <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact/gotu-farm" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><Leaf className="w-4 h-4 opacity-70" /> Gotu Gamachu Farm</Link>
               <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact/eco-tourism" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><Leaf className="w-4 h-4 opacity-70" /> Eco-Tourism Hub</Link>
               <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact/holiday-camp" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><Laptop className="w-4 h-4 opacity-70" /> Digital Literacy Camp</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><ScrollText className="w-4 h-4 opacity-70" /> Indigenous Knowledge</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact/indigenous-knowledge" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><ScrollText className="w-4 h-4 opacity-70" /> Indigenous Knowledge</Link>
             </div>
           </div>
 
