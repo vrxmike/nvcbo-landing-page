@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Leaf, Users, ShieldAlert, HeartHandshake, GraduationCap, MapPin, ArrowRight, Download, UsersRound } from "lucide-react";
 import { Client, TablesDB, Query } from 'node-appwrite';
+import { useState } from "react";
+import Image from "next/image";
 
 export const metadata = {
   title: "Circle Keeper Training | Northern Vision CBO",
@@ -80,6 +82,29 @@ export default async function CircleKeepersPage() {
   const program = await getProgramData();
   const pageTitle = program?.title || "Circle Keeper Training";
 
+  // Gallery images (Appwrite preview URLs)
+  const galleryImages = [
+    "https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c81a9c368/preview?width=1200&output=webp&project=692a34ec001f1efc9002",
+    "https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c851af5a1/preview?width=1200&output=webp&project=692a34ec001f1efc9002",
+    "https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c83da7c50/preview?width=1200&output=webp&project=692a34ec001f1efc9002",
+    "https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c88ff9c47/preview?width=1200&output=webp&project=692a34ec001f1efc9002",
+    "https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c8994c3a0/preview?width=1200&output=webp&project=692a34ec001f1efc9002",
+    "https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c8d0e56fb/preview?width=1200&output=webp&project=692a34ec001f1efc9002"
+  ];
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const openModal = (idx: number) => {
+    setCurrentIndex(idx);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => setIsModalOpen(false);
+
+  const prevImage = () => setCurrentIndex((currentIndex - 1 + galleryImages.length) % galleryImages.length);
+  const nextImage = () => setCurrentIndex((currentIndex + 1) % galleryImages.length);
+
   return (
     <div className="flex flex-col bg-white min-h-screen pt-24 pb-32">
 
@@ -127,38 +152,31 @@ export default async function CircleKeepersPage() {
       <section className="py-20 bg-brand-espresso text-white">
         <div className="container mx-auto max-w-6xl px-6">
           <h2 className="text-3xl md:text-4xl font-black text-center mb-12">Gallery</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-            <div className="bg-white/20 backdrop-blur-lg rounded-xl overflow-hidden">
-              <a href="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c81a9c368/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" target="_blank" rel="noopener noreferrer">
-                <img src="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c81a9c368/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" alt="Gallery 1" className="w-full h-full object-cover"/>
-              </a>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+              {galleryImages.map((src, idx) => (
+                <div key={idx} className="bg-white/20 backdrop-blur-lg rounded-xl overflow-hidden cursor-pointer" onClick={() => openModal(idx)}>
+                  <Image src={src} alt={`Gallery ${idx + 1}`} width={600} height={400} className="w-full h-full object-cover" />
+                </div>
+              ))}
             </div>
-            <div className="bg-white/20 backdrop-blur-lg rounded-xl overflow-hidden">
-              <a href="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c851af5a1/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" target="_blank" rel="noopener noreferrer">
-                <img src="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c851af5a1/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" alt="Gallery 2" className="w-full h-full object-cover"/>
-              </a>
-            </div>
-            <div className="bg-white/20 backdrop-blur-lg rounded-xl overflow-hidden">
-              <a href="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c83da7c50/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" target="_blank" rel="noopener noreferrer">
-                <img src="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c83da7c50/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" alt="Gallery 3" className="w-full h-full object-cover"/>
-              </a>
-            </div>
-            <div className="bg-white/20 backdrop-blur-lg rounded-xl overflow-hidden">
-              <a href="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c88ff9c47/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" target="_blank" rel="noopener noreferrer">
-                <img src="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c88ff9c47/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" alt="Gallery 4" className="w-full h-full object-cover"/>
-              </a>
-            </div>
-            <div className="bg-white/20 backdrop-blur-lg rounded-xl overflow-hidden">
-              <a href="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c8994c3a0/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" target="_blank" rel="noopener noreferrer">
-                <img src="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c8994c3a0/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" alt="Gallery 5" className="w-full h-full object-cover"/>
-              </a>
-            </div>
-            <div className="bg-white/20 backdrop-blur-lg rounded-xl overflow-hidden">
-              <a href="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c8d0e56fb/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" target="_blank" rel="noopener noreferrer">
-                <img src="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c8d0e56fb/preview?width=1200&output=webp&project=692a34ec001f1efc9002&impersonateuserid=" alt="Gallery 6" className="w-full h-full object-cover"/>
-              </a>
-            </div>
-          </div>
+
+            {/* Modal */}
+            {isModalOpen && (
+              <div className="fixed inset-0 flex items-center justify-center bg-black/70 z-50 p-4" onClick={closeModal}>
+                <div className="relative max-w-screen-lg w-full max-h-[calc(100vh-64px)] bg-white rounded-lg overflow-hidden" onClick={e => e.stopPropagation()}>
+                  <button className="absolute top-2 right-2 text-gray-600 hover:text-gray-800" onClick={closeModal} aria-label="Close">
+                    ✕
+                  </button>
+                  <Image src={galleryImages[currentIndex]} alt={`Gallery ${currentIndex + 1}`} layout="responsive" width={1200} height={800} className="object-contain" />
+                  <button className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2" onClick={prevImage} aria-label="Previous">
+                    ‹
+                  </button>
+                  <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2" onClick={nextImage} aria-label="Next">
+                    ›
+                  </button>
+                </div>
+              </div>
+            )}
         </div>
       </section>
 

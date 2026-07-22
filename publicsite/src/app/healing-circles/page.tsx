@@ -82,19 +82,19 @@ export default function HealingCirclesPage() {
            <p className="text-center text-body mb-8 max-w-3xl mx-auto">Explore how Healing Circles create safe spaces for dialogue and collective action across our areas of impact.</p>
            <div className="grid md:grid-cols-3 gap-6">
              {/* Card 1 */}
-             <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center text-heading">
+             <div className="bg-white/20 backdrop-blur-xl border border-white/30 rounded-2xl p-8 text-center text-heading shadow-lg hover:shadow-xl transition-shadow">
                <h3 className="text-xl font-bold mb-3 text-heading">Circle Keeper Training</h3>
                 <p className="mb-4 text-body">Building local facilitators who lead restorative dialogue and community transformation. We equip community leaders, youth and institutions with the skills to facilitate Healing Circles and strengthen community-led leadership.</p>
                <Link href="/programs/circle-keepers" className="inline-block px-4 py-2 bg-brand-gold hover:bg-brand-rust text-white rounded-md font-semibold transition-colors">Learn More</Link>
              </div>
              {/* Card 2 */}
-             <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center text-heading">
+             <div className="bg-white/20 backdrop-blur-xl border border-white/30 rounded-2xl p-8 text-center text-heading shadow-lg hover:shadow-xl transition-shadow">
                <h3 className="text-xl font-bold mb-3 text-heading">Community Healing Dialogues</h3>
                 <p className="mb-4 text-body">Explore how Healing Circles bring communities together to listen, build trust, and take collective action. Discover how restorative dialogue strengthens climate resilience, advances gender equality, promotes peacebuilding, preserves indigenous knowledge, and addresses other community priorities.</p>
-               <Link href="/healing-circles#dialogues" className="inline-block px-4 py-2 bg-brand-gold hover:bg-brand-rust text-white rounded-md font-semibold transition-colors">Explore</Link>
+               <Link href="/programs/community-dialogues" className="inline-block px-4 py-2 bg-brand-gold hover:bg-brand-rust text-white rounded-md font-semibold transition-colors">Explore</Link>
              </div>
              {/* Card 3 */}
-             <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center text-heading">
+             <div className="bg-white/20 backdrop-blur-xl border border-white/30 rounded-2xl p-8 text-center text-heading shadow-lg hover:shadow-xl transition-shadow">
                <h3 className="text-xl font-bold mb-3 text-heading">Resources &amp; Learning</h3>
                <p className="mb-4 text-body">Access guides, toolkits, and case studies on Healing Circles.</p>
                <Link href="/resources/healing-circles" className="inline-block px-4 py-2 bg-brand-gold hover:bg-brand-rust text-white rounded-md font-semibold transition-colors">View Resources</Link>
