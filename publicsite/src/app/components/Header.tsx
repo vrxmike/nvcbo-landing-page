@@ -119,13 +119,17 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Media Hub Dropdown */}
+          {/* Resources Dropdown */}
           <div className="relative group">
             <button className="whitespace-nowrap flex items-center gap-0.5 lg:gap-1 font-bold text-[10px] lg:text-xs uppercase tracking-widest px-2.5 lg:px-4 py-1.5 rounded-full text-brand-espresso hover:bg-brand-espresso/5 hover:text-brand-gold transition-all duration-300 focus:outline-none">
-              Media Hub <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
+              Resources <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
             </button>
             <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-64 rounded-2xl bg-brand-espresso border border-brand-gold/20 z-[100] p-2 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
-              <Link href="#healing" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+              <Link href="/resources" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-gold hover:bg-brand-gold/10 hover:pl-5 rounded-xl transition-all duration-300">
+                <ArrowRight className="w-4 h-4" /> All Resources & Learning
+              </Link>
+              <div className="h-px bg-brand-cream/10 my-1 mx-4"></div>
+              <Link href="/stories-news" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
                 <Newspaper className="w-4 h-4 opacity-70" /> Stories & News
               </Link>
               <Link href="/media-gallery" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
@@ -210,14 +214,15 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Media Hub Accordion */}
+          {/* Resources Accordion */}
           <div className="space-y-1">
             <button className="flex w-full items-center justify-between py-1 hover:text-brand-gold transition focus:outline-none" onClick={() => toggleAccordion('media')}>
-              <span>Media Hub</span>
+              <span>Resources</span>
               <ChevronDown className={`w-4 h-4 transform transition-transform duration-300 ${openAccordions.media ? 'rotate-180' : ''}`} />
             </button>
-            <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.media ? 'max-h-32 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
-              <Link onClick={() => setMobileMenuOpen(false)} href="#healing" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><Newspaper className="w-4 h-4 opacity-70" /> Stories & News</Link>
+            <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.media ? 'max-h-48 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/resources" className="flex items-center gap-3 text-sm py-2 text-brand-gold font-black"><ArrowRight className="w-4 h-4" /> All Resources & Learning</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/stories-news" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><Newspaper className="w-4 h-4 opacity-70" /> Stories & News</Link>
               <Link onClick={() => setMobileMenuOpen(false)} href="/media-gallery" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><ImageIcon className="w-4 h-4 opacity-70" /> Media Gallery</Link>
             </div>
           </div>
