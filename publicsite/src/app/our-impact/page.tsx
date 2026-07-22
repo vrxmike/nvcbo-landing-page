@@ -40,14 +40,6 @@ const PROJECT_TRACKS: ProjectTrack[] = [
     colSpan: "lg:col-span-2"
   },
   {
-    id: "circle-keepers",
-    title: "Circle Keeper Training",
-    href: "/healing-circles/circle-keepers",
-    icon: Users,
-    description: "Building local facilitators who lead restorative dialogue and community transformation by equipping community leaders, youth, and institutions.",
-    colSpan: "lg:col-span-1"
-  },
-  {
     id: "gender-equality",
     title: "Gender Equality & Social Inclusion",
     href: "/our-impact/gender-equality",
@@ -71,14 +63,6 @@ const PROJECT_TRACKS: ProjectTrack[] = [
     icon: GraduationCap,
     description: "Equipping young people with knowledge, leadership, and technical skills to shape resilient futures, featuring advanced computing structures like our Wolfram STEM program tracks.",
     colSpan: "lg:col-span-1"
-  },
-  {
-    id: "healing-circles",
-    title: "Healing Circles",
-    href: "/healing-circles",
-    icon: Heart,
-    description: "Community-driven restorative dialogue practice fostering transformation and healing.",
-    colSpan: "lg:col-span-2"
   },
   {
     id: "holiday-camp",
