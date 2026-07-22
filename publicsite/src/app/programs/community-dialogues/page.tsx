@@ -83,6 +83,7 @@ export const dialogueThemes: readonly DialogueTheme[] = [
 ] as const;
 
 // galleryImages will be fetched inside the component
+import CircleGalleryModal from "@/app/components/CircleGalleryModal";
 
 export const testimonials = [
   {
@@ -157,27 +158,7 @@ export default function CommunityDialoguesPage() {
         <h2 className="text-2xl font-bold text-heading mb-6 text-center">
           Healing Circles in Action
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {displayImages.map((img, idx) => (
-            <figure
-              key={idx}
-              className="relative overflow-hidden rounded-xl border border-muted"
-            >
-              <img
-                src={img.src}
-                alt={img.alt}
-                width={600}
-                height={400}
-                className="object-cover w-full h-full"
-                loading={idx === 0 ? "eager" : "lazy"}
-                onError={() => handleError(idx)}
-              />
-              <figcaption className="absolute bottom-0 left-0 w-full bg-primary/70 text-primary p-2 text-sm">
-                {img.caption}
-              </figcaption>
-            </figure>
-          ))}
-        </div>
+        <CircleGalleryModal images={displayImages.map((img) => img.src)} />
       </section>
 
       {/* Testimonials */}
