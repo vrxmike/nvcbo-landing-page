@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Leaf, GraduationCap, Heart, Users } from "lucide-react";
+import { Leaf, GraduationCap, Heart, Users, MessageSquare, BookOpen, ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
@@ -118,10 +118,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* HEALING CIRCLES SECTION */}
+      {/* METHODOLOGY SECTION */}
       <section 
-        id="healing" 
-        className="py-32 relative overflow-hidden"
+        className="py-24 md:py-32 relative overflow-hidden"
         style={{
           backgroundImage: `linear-gradient(rgba(21, 93, 116, 0.95), rgba(29, 128, 159, 0.9)), url('https://images.unsplash.com/photo-1529390079861-591de354faf5?q=80&w=2070&auto=format&fit=crop')`,
           backgroundPosition: 'center',
@@ -130,19 +129,90 @@ export default function Home() {
         }}
       >
         <div className="container relative z-10 mx-auto px-6 text-center">
-          <div className="mb-12">
-            <span className="text-sm font-extrabold uppercase tracking-[4px] text-brand-cream mb-3 block">Our Methodology</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-brand-espresso mb-6">Healing Circles</h2>
-            <div className="w-16 h-1 bg-brand-cream mx-auto rounded-full"></div>
+          <div className="mb-10 max-w-4xl mx-auto">
+            <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[4px] text-brand-gold mb-3 block">Our Methodology</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6">
+              Explore Healing Circles
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-brand-gold to-brand-rust mx-auto rounded-full mb-8"></div>
+            <p className="text-lg md:text-xl text-white/90 leading-relaxed">
+              Explore how Healing Circles create safe spaces for dialogue and collective action across our areas of impact.
+            </p>
           </div>
-          
-          <p className="text-xl md:text-2xl text-white/90 leading-loose max-w-5xl mx-auto mb-12">
-            Healing circles are a core methodology across all Northern Vision programs. They are used for community dialogue, participatory planning, conflict resolution, youth mentorship and internal organizational reflection.
-          </p>
-          
-          <Link href="/healing-circles/circle-keepers" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider bg-gradient-to-br from-brand-gold to-brand-rust text-white shadow-[0_4px_15px_rgba(204,85,0,0.3)] hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,140,0,0.4)] transition-all duration-300">
-            Our Approach
-          </Link>
+
+          {/* 3 Glassmorphism Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-14 text-left">
+            
+            {/* Card 1: Circle Keeper Training */}
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 hover:border-brand-gold/40 rounded-3xl p-8 flex flex-col justify-between shadow-xl hover:-translate-y-2 hover:bg-white/15 transition-all duration-300 group">
+              <div>
+                <div className="w-14 h-14 rounded-2xl bg-brand-gold/20 border border-brand-gold/30 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-brand-gold/30 transition-all duration-300">
+                  <Users className="w-7 h-7 text-brand-gold" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-brand-gold transition-colors">
+                  Circle Keeper Training
+                </h3>
+                <p className="text-sm md:text-base text-white/80 leading-relaxed mb-8">
+                  Building local facilitators who lead restorative dialogue and community transformation. We equip community leaders, youth and institutions with the skills to facilitate Healing Circles and strengthen community-led leadership.
+                </p>
+              </div>
+              <div>
+                <Link 
+                  href="/healing-circles/circle-keepers" 
+                  className="inline-flex items-center gap-2 font-extrabold text-xs uppercase tracking-wider px-6 py-3 rounded-full bg-gradient-to-r from-brand-gold to-brand-rust text-white shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
+                >
+                  Learn More <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Card 2: Community Healing Dialogues */}
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 hover:border-brand-gold/40 rounded-3xl p-8 flex flex-col justify-between shadow-xl hover:-translate-y-2 hover:bg-white/15 transition-all duration-300 group">
+              <div>
+                <div className="w-14 h-14 rounded-2xl bg-brand-gold/20 border border-brand-gold/30 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-brand-gold/30 transition-all duration-300">
+                  <MessageSquare className="w-7 h-7 text-brand-gold" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-brand-gold transition-colors">
+                  Community Healing Dialogues
+                </h3>
+                <p className="text-sm md:text-base text-white/80 leading-relaxed mb-8">
+                  Explore how Healing Circles bring communities together to listen, build trust, and take collective action. Discover how restorative dialogue strengthens climate resilience, advances gender equality, promotes peacebuilding, preserves indigenous knowledge, and addresses other community priorities.
+                </p>
+              </div>
+              <div>
+                <Link 
+                  href="/healing-circles/community-dialogues" 
+                  className="inline-flex items-center gap-2 font-extrabold text-xs uppercase tracking-wider px-6 py-3 rounded-full bg-gradient-to-r from-brand-gold to-brand-rust text-white shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
+                >
+                  Explore <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Card 3: Resources & Learning */}
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 hover:border-brand-gold/40 rounded-3xl p-8 flex flex-col justify-between shadow-xl hover:-translate-y-2 hover:bg-white/15 transition-all duration-300 group">
+              <div>
+                <div className="w-14 h-14 rounded-2xl bg-brand-gold/20 border border-brand-gold/30 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-brand-gold/30 transition-all duration-300">
+                  <BookOpen className="w-7 h-7 text-brand-gold" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-brand-gold transition-colors">
+                  Resources & Learning
+                </h3>
+                <p className="text-sm md:text-base text-white/80 leading-relaxed mb-8">
+                  Access guides, toolkits, and case studies on Healing Circles.
+                </p>
+              </div>
+              <div>
+                <Link 
+                  href="/resources" 
+                  className="inline-flex items-center gap-2 font-extrabold text-xs uppercase tracking-wider px-6 py-3 rounded-full bg-gradient-to-r from-brand-gold to-brand-rust text-white shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
+                >
+                  View Resources <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
 

@@ -43,6 +43,24 @@ export default function Header() {
         <nav className="hidden md:flex items-center gap-0.5 lg:gap-1 bg-brand-espresso/5 border border-brand-espresso/10 px-1.5 lg:px-3 py-1 rounded-full shadow-inner shrink-0">
           <Link href="/" className="whitespace-nowrap font-bold text-[10px] lg:text-xs uppercase tracking-widest px-2 lg:px-4 py-1.5 rounded-full text-brand-espresso hover:bg-brand-espresso/5 hover:text-brand-gold transition-all duration-300">Home</Link>
           
+          {/* Programs Dropdown */}
+          <div className="relative group">
+            <Link href="/healing-circles" className="whitespace-nowrap flex items-center gap-0.5 lg:gap-1 font-bold text-[10px] lg:text-xs uppercase tracking-widest px-2 lg:px-4 py-1.5 rounded-full text-brand-espresso hover:bg-brand-espresso/5 hover:text-brand-gold transition-all duration-300 focus:outline-none">
+              Healing Circles <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
+            </Link>
+            <div className="absolute top-full left-0 pt-2 w-72 rounded-2xl bg-brand-espresso border border-brand-gold/20 z-[100] p-2 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
+              <Link href="/healing-circles" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+                <Heart className="w-4 h-4 opacity-70" /> Experience Healing Circles
+              </Link>
+              <Link href="/healing-circles/community-dialogues" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+                <MessageSquare className="w-4 h-4 opacity-70" /> Community Dialogues
+              </Link>
+              <Link href="/healing-circles/circle-keepers" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+                <Users className="w-4 h-4 opacity-70" /> Circle Keeper Training
+              </Link>
+            </div>
+          </div>
+
           {/* About Us Dropdown */}
           <div className="relative group">
             <button className="whitespace-nowrap flex items-center gap-0.5 lg:gap-1 font-bold text-[10px] lg:text-xs uppercase tracking-widest px-2 lg:px-4 py-1.5 rounded-full text-brand-espresso hover:bg-brand-espresso/5 hover:text-brand-gold transition-all duration-300 focus:outline-none">
@@ -63,24 +81,6 @@ export default function Header() {
               </Link>
               <Link href="/about#review-2025" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
                 <ArrowRight className="w-4 h-4 opacity-70" /> 2025 Review
-              </Link>
-            </div>
-          </div>
-
-          {/* Programs Dropdown */}
-          <div className="relative group">
-            <Link href="/healing-circles" className="whitespace-nowrap flex items-center gap-0.5 lg:gap-1 font-bold text-[10px] lg:text-xs uppercase tracking-widest px-2 lg:px-4 py-1.5 rounded-full text-brand-espresso hover:bg-brand-espresso/5 hover:text-brand-gold transition-all duration-300 focus:outline-none">
-              Healing Circles <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
-            </Link>
-            <div className="absolute top-full left-0 pt-2 w-72 rounded-2xl bg-brand-espresso border border-brand-gold/20 z-[100] p-2 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
-              <Link href="/healing-circles" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
-                <Heart className="w-4 h-4 opacity-70" /> Experience Healing Circles
-              </Link>
-              <Link href="/healing-circles/community-dialogues" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
-                <MessageSquare className="w-4 h-4 opacity-70" /> Community Dialogues
-              </Link>
-              <Link href="/healing-circles/circle-keepers" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
-                <Users className="w-4 h-4 opacity-70" /> Circle Keeper Training
               </Link>
             </div>
           </div>
@@ -171,6 +171,19 @@ export default function Header() {
         <nav className="flex flex-col gap-3 p-6 text-brand-cream text-md font-bold overflow-y-auto h-[calc(100dvh-85px)]">
           <Link onClick={() => setMobileMenuOpen(false)} href="/" className="hover:text-brand-gold transition py-1">Home</Link>
 
+          {/* Programs Accordion */}
+          <div className="space-y-1">
+            <button className="flex w-full items-center justify-between py-1 hover:text-brand-gold transition focus:outline-none" onClick={() => toggleAccordion('programs')}>
+                <span>Healing Circles</span>
+              <ChevronDown className={`w-4 h-4 transform transition-transform duration-300 ${openAccordions.programs ? 'rotate-180' : ''}`} />
+            </button>
+            <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.programs ? 'max-h-48 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/healing-circles" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300"><Heart className="w-4 h-4 opacity-70" /> Experience Healing Circles</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/healing-circles/community-dialogues" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300"><MessageSquare className="w-4 h-4 opacity-70" /> Community Dialogues</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/healing-circles/circle-keepers" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300"><Users className="w-4 h-4 opacity-70" /> Circle Keeper Training</Link>
+            </div>
+          </div>
+
           {/* About Accordion */}
           <div className="space-y-1">
             <button className="flex w-full items-center justify-between py-1 hover:text-brand-gold transition focus:outline-none" onClick={() => toggleAccordion('about')}>
@@ -183,19 +196,6 @@ export default function Header() {
               <Link onClick={() => setMobileMenuOpen(false)} href="/about#how-we-work" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><Settings className="w-4 h-4 opacity-70" /> How We Work</Link>
               <Link onClick={() => setMobileMenuOpen(false)} href="/about#partners" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><Users className="w-4 h-4 opacity-70" /> Our Partners</Link>
               <Link onClick={() => setMobileMenuOpen(false)} href="/about#review-2025" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><ArrowRight className="w-4 h-4 opacity-70" /> 2025 Review</Link>
-            </div>
-          </div>
-
-          {/* Programs Accordion */}
-          <div className="space-y-1">
-            <button className="flex w-full items-center justify-between py-1 hover:text-brand-gold transition focus:outline-none" onClick={() => toggleAccordion('programs')}>
-                <span>Healing Circles</span>
-              <ChevronDown className={`w-4 h-4 transform transition-transform duration-300 ${openAccordions.programs ? 'rotate-180' : ''}`} />
-            </button>
-            <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.programs ? 'max-h-48 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/healing-circles" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300"><Heart className="w-4 h-4 opacity-70" /> Experience Healing Circles</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/healing-circles/community-dialogues" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300"><MessageSquare className="w-4 h-4 opacity-70" /> Community Dialogues</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/healing-circles/circle-keepers" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300"><Users className="w-4 h-4 opacity-70" /> Circle Keeper Training</Link>
             </div>
           </div>
 
