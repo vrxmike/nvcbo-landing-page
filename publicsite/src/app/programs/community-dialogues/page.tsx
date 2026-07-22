@@ -1,6 +1,6 @@
 // src/app/programs/community-dialogues/page.tsx
 "use client";
-import Image from "next/image";
+// Using standard img tags for external Appwrite CDN images (next/image rewrites URLs)
 
 
 import { CloudRain, Users, Shield, Sun, Flag, Leaf, Megaphone, DollarSign } from "lucide-react";
@@ -163,13 +163,13 @@ export default function CommunityDialoguesPage() {
               key={idx}
               className="relative overflow-hidden rounded-xl border border-muted"
             >
-              <Image
+              <img
                 src={img.src}
                 alt={img.alt}
                 width={600}
                 height={400}
                 className="object-cover w-full h-full"
-                priority={idx === 0}
+                loading={idx === 0 ? "eager" : "lazy"}
                 onError={() => handleError(idx)}
               />
               <figcaption className="absolute bottom-0 left-0 w-full bg-primary/70 text-primary p-2 text-sm">

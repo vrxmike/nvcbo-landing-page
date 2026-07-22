@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { ArrowRight, Leaf, Sprout, Home, Waves, Users, Target, Snowflake, Beaker, ShieldAlert } from 'lucide-react';
 import FarmGallery from './FarmGallery';
 
