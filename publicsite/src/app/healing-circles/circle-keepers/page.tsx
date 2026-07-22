@@ -76,8 +76,8 @@ export default function CircleKeepersPage() {
 
             {/* Copy Container */}
             <div className="flex flex-col justify-center order-2 lg:order-1">
-              <Link href="/programs" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-rust hover:text-brand-gold transition-colors mb-6 w-fit">
-                <ArrowRight className="w-4 h-4 rotate-180" /> Back to Programs
+              <Link href="/healing-circles" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-rust hover:text-brand-gold transition-colors mb-6 w-fit">
+                <ArrowRight className="w-4 h-4 rotate-180" /> Back to Healing Circles
               </Link>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-brand-espresso leading-[1.1] tracking-tight mb-6">

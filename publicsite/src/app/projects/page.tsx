@@ -42,7 +42,7 @@ const PROJECT_TRACKS: ProjectTrack[] = [
   {
     id: "circle-keepers",
     title: "Circle Keeper Training",
-    href: "/programs/circle-keepers",
+    href: "/healing-circles/circle-keepers",
     icon: Users,
     description: "Building local facilitators who lead restorative dialogue and community transformation by equipping community leaders, youth, and institutions.",
     colSpan: "lg:col-span-1"
