@@ -100,7 +100,7 @@ export default function HealingCirclesPage() {
              <div className="bg-white/20 backdrop-blur-xl border border-white/30 rounded-2xl p-8 text-center text-heading shadow-lg hover:shadow-xl transition-shadow">
                <h3 className="text-xl font-bold mb-3 text-heading">Resources &amp; Learning</h3>
                <p className="mb-4 text-body">Access guides, toolkits, and case studies on Healing Circles.</p>
-               <Link href="/resources/healing-circles" className="inline-block px-4 py-2 bg-brand-gold hover:bg-brand-rust text-white rounded-md font-semibold transition-colors">View Resources</Link>
+               <Link href="/resources" className="inline-block px-4 py-2 bg-brand-gold hover:bg-brand-rust text-white rounded-md font-semibold transition-colors">View Resources</Link>
              </div>
            </div>
          </div>
