@@ -73,8 +73,8 @@ export default function Header() {
               Healing Circles <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
             </Link>
             <div className="absolute top-full left-0 pt-2 w-72 rounded-2xl bg-brand-espresso border border-brand-gold/20 z-[100] p-2 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
-              <Link href="/projects" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-gold hover:bg-brand-gold/10 hover:pl-5 rounded-xl transition-all duration-300">
-                <ArrowRight className="w-4 h-4" /> All Projects Directory
+              <Link href="/our-impact" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-gold hover:bg-brand-gold/10 hover:pl-5 rounded-xl transition-all duration-300">
+                <ArrowRight className="w-4 h-4" /> All Our Impact Directory
               </Link>
               <div className="h-px bg-brand-cream/10 my-1 mx-4"></div>
               <Link href="/healing-circles" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
@@ -83,13 +83,13 @@ export default function Header() {
               <Link href="/healing-circles/circle-keepers" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
                 <Users className="w-4 h-4 opacity-70" /> Circle Keeper Training
               </Link>
-              <Link href="/projects/gender-equality" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+              <Link href="/our-impact/gender-equality" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
                 <HeartHandshake className="w-4 h-4 opacity-70" /> Gender & Social Inclusion
               </Link>
-              <Link href="/projects/peace-security" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+              <Link href="/our-impact/peace-security" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
                 <TreePine className="w-4 h-4 opacity-70" /> Peace and Security
               </Link>
-              <Link href="/projects/education-youth" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+              <Link href="/our-impact/education-youth" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
                 <BookOpen className="w-4 h-4 opacity-70" /> Education & Youth Leadership
               </Link>
             </div>
@@ -101,23 +101,23 @@ export default function Header() {
                 Our Impact <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
             </button>
             <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-72 rounded-2xl bg-brand-espresso border border-brand-gold/20 z-[100] p-2 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
-              <Link href="/projects" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-gold hover:bg-brand-gold/10 hover:pl-5 rounded-xl transition-all duration-300">
-                <ArrowRight className="w-4 h-4" /> All Active Projects
+              <Link href="/our-impact" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-gold hover:bg-brand-gold/10 hover:pl-5 rounded-xl transition-all duration-300">
+                <ArrowRight className="w-4 h-4" /> All Our Impact Tracks
               </Link>
               <div className="h-px bg-brand-cream/10 my-1 mx-4"></div>
-              <Link href="/projects/climate-resilience" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+              <Link href="/our-impact/climate-resilience" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
                 <Leaf className="w-4 h-4 opacity-70" /> Climate Resilience
               </Link>
-              <Link href="/projects/gotu-farm" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+              <Link href="/our-impact/gotu-farm" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
                 <Leaf className="w-4 h-4 opacity-70" /> Gotu Gamachu Farm
               </Link>
-              <Link href="/projects/eco-tourism" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+              <Link href="/our-impact/eco-tourism" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
                 <Leaf className="w-4 h-4 opacity-70" /> Eco-Tourism Hub
               </Link>
-              <Link href="/projects/holiday-camp" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+              <Link href="/our-impact/holiday-camp" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
                 <Laptop className="w-4 h-4 opacity-70" /> Digital Literacy Camp
               </Link>
-              <Link href="/projects" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+              <Link href="/our-impact" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
                 <ScrollText className="w-4 h-4 opacity-70" /> Indigenous Knowledge
               </Link>
             </div>
@@ -190,29 +190,29 @@ export default function Header() {
               <ChevronDown className={`w-4 h-4 transform transition-transform duration-300 ${openAccordions.programs ? 'rotate-180' : ''}`} />
             </button>
             <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.programs ? 'max-h-64 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/projects" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-gold hover:bg-brand-gold/10 hover:pl-5 rounded-xl transition-all duration-300"><ArrowRight className="w-4 h-4" /> All Projects Directory</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-gold hover:bg-brand-gold/10 hover:pl-5 rounded-xl transition-all duration-300"><ArrowRight className="w-4 h-4" /> All Our Impact Directory</Link>
               <div className="h-px bg-brand-cream/10 my-1 mx-4"></div>
               <Link onClick={() => setMobileMenuOpen(false)} href="/healing-circles" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300"><Heart className="w-4 h-4 opacity-70" /> Experience Healing Circles</Link>
               <Link onClick={() => setMobileMenuOpen(false)} href="/healing-circles/circle-keepers" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300"><Users className="w-4 h-4 opacity-70" /> Circle Keeper Training</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/projects/gender-equality" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300"><HeartHandshake className="w-4 h-4 opacity-70" /> Gender & Social Inclusion</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/projects/peace-security" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><TreePine className="w-4 h-4 opacity-70" /> Peace and Security</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/projects/education-youth" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><BookOpen className="w-4 h-4 opacity-70" /> Education & Youth Leadership</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact/gender-equality" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300"><HeartHandshake className="w-4 h-4 opacity-70" /> Gender & Social Inclusion</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact/peace-security" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><TreePine className="w-4 h-4 opacity-70" /> Peace and Security</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact/education-youth" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><BookOpen className="w-4 h-4 opacity-70" /> Education & Youth Leadership</Link>
             </div>
           </div>
 
           {/* Projects Accordion */}
           <div className="space-y-1">
             <button className="flex w-full items-center justify-between py-1 hover:text-brand-gold transition focus:outline-none" onClick={() => toggleAccordion('projects')}>
-                <span>Our Impact</span>
+              <span className="font-bold text-xs uppercase tracking-widest text-brand-cream">Our Impact</span>
               <ChevronDown className={`w-4 h-4 transform transition-transform duration-300 ${openAccordions.projects ? 'rotate-180' : ''}`} />
             </button>
-            <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.projects ? 'max-h-[300px] opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/projects" className="flex items-center gap-3 text-sm py-2 text-brand-gold font-black"><ArrowRight className="w-4 h-4" /> All Active Projects</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/projects/climate-resilience" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><Leaf className="w-4 h-4 opacity-70" /> Climate Resilience</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/projects/gotu-farm" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><Leaf className="w-4 h-4 opacity-70" /> Gotu Gamachu Farm</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/projects/eco-tourism" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><Leaf className="w-4 h-4 opacity-70" /> Eco-Tourism Hub</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/projects/holiday-camp" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><Laptop className="w-4 h-4 opacity-70" /> Digital Literacy Camp</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/projects" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><ScrollText className="w-4 h-4 opacity-70" /> Indigenous Knowledge</Link>
+            <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.projects ? 'max-h-64 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact" className="flex items-center gap-3 text-sm py-2 text-brand-gold font-black"><ArrowRight className="w-4 h-4" /> All Our Impact Tracks</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact/climate-resilience" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><Leaf className="w-4 h-4 opacity-70" /> Climate Resilience</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact/gotu-farm" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><Leaf className="w-4 h-4 opacity-70" /> Gotu Gamachu Farm</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact/eco-tourism" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><Leaf className="w-4 h-4 opacity-70" /> Eco-Tourism Hub</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact/holiday-camp" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><Laptop className="w-4 h-4 opacity-70" /> Digital Literacy Camp</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><ScrollText className="w-4 h-4 opacity-70" /> Indigenous Knowledge</Link>
             </div>
           </div>
 

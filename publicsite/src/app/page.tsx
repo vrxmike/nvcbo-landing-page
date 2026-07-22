@@ -26,7 +26,7 @@ export default function Home() {
               <Link href="/healing-circles" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider bg-gradient-to-br from-brand-gold to-brand-rust text-white shadow-[0_4px_15px_rgba(204,85,0,0.3)] hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,140,0,0.4)] transition-all duration-300 w-full sm:w-auto text-center">
                 Experience Healing Circles
               </Link>
-              <Link href="/projects" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-brand-espresso hover:-translate-y-1 hover:shadow-md transition-all duration-300 w-full sm:w-auto text-center">
+              <Link href="/our-impact" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-brand-espresso hover:-translate-y-1 hover:shadow-md transition-all duration-300 w-full sm:w-auto text-center">
                 Explore Areas of Impact
               </Link>
             </div>
@@ -111,7 +111,7 @@ export default function Home() {
           </div>
           
           <div className="mt-16 text-center">
-            <Link href="/projects" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider bg-gradient-to-br from-brand-gold to-brand-rust text-white shadow-[0_4px_15px_rgba(204,85,0,0.3)] hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,140,0,0.4)] transition-all duration-300">
+            <Link href="/our-impact" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider bg-gradient-to-br from-brand-gold to-brand-rust text-white shadow-[0_4px_15px_rgba(204,85,0,0.3)] hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,140,0,0.4)] transition-all duration-300">
               Explore Details
             </Link>
           </div>

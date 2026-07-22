@@ -24,7 +24,7 @@ const PROJECT_TRACKS: ProjectTrack[] = [
   {
     id: "gotu-farm",
     title: "Gotu Gamachu Farm",
-    href: "/projects/gotu-farm",
+    href: "/our-impact/gotu-farm",
     icon: Leaf,
     highlight: "Flagship Site",
     description: "Explore the physical heart of Northern Vision's climate-smart interventions: integrated dryland agriculture, aquaculture scaling, and localized community training models.",
@@ -33,7 +33,7 @@ const PROJECT_TRACKS: ProjectTrack[] = [
   {
     id: "climate-resilience",
     title: "Climate Resilience & Livelihoods",
-    href: "/projects/climate-resilience",
+    href: "/our-impact/climate-resilience",
     icon: Leaf,
     highlight: "Active Field Initiative",
     description: "Transforming ASAL landscapes through climate-smart aquaculture, women-led kitchen gardens, and integrated farming at Gotu Gamachu Farm.",
@@ -50,7 +50,7 @@ const PROJECT_TRACKS: ProjectTrack[] = [
   {
     id: "gender-equality",
     title: "Gender Equality & Social Inclusion",
-    href: "/projects/gender-equality",
+    href: "/our-impact/gender-equality",
     icon: HeartHandshake,
     description: "Advancing inclusive communities where women, girls, and youth thrive, spanning crucial tracks across SRHR, Menstrual Dignity, Bodily Autonomy, and Women's Land Rights.",
     colSpan: "lg:col-span-2"
@@ -58,7 +58,7 @@ const PROJECT_TRACKS: ProjectTrack[] = [
   {
     id: "peace-security",
     title: "Peace and Security",
-    href: "/projects/peace-security",
+    href: "/our-impact/peace-security",
     icon: ShieldCheck,
     highlight: "130+ Documented Healing Circles Sessions",
     description: "Strengthening trust and peaceful coexistence in Northern Kenya. Combating misinformation through dedicated Media and Digital Information Literacy (MIL/DIL) safety work.",
@@ -67,7 +67,7 @@ const PROJECT_TRACKS: ProjectTrack[] = [
   {
     id: "education-youth",
     title: "Education, Youth & Digital Inclusion",
-    href: "/projects/education-youth",
+    href: "/our-impact/education-youth",
     icon: GraduationCap,
     description: "Equipping young people with knowledge, leadership, and technical skills to shape resilient futures, featuring advanced computing structures like our Wolfram STEM program tracks.",
     colSpan: "lg:col-span-1"
@@ -83,7 +83,7 @@ const PROJECT_TRACKS: ProjectTrack[] = [
   {
     id: "holiday-camp",
     title: "Digital Literacy Holiday Camp",
-    href: "/projects/holiday-camp",
+    href: "/our-impact/holiday-camp",
     icon: Laptop,
     highlight: "School Holidays Track",
     description: "A hands-on, 6-day program in Gotu equipping children with core computing skills, internet safety, and digital storytelling.",
@@ -92,7 +92,7 @@ const PROJECT_TRACKS: ProjectTrack[] = [
   {
     id: "eco-tourism",
     title: "Eco-Tourism Hub",
-    href: "/projects/eco-tourism",
+    href: "/our-impact/eco-tourism",
     icon: Map,
     highlight: "Community-Hosted Experience",
     description: "Visit Gotu Gamachu Farm and experience the landscapes firsthand through guided walking trails, aquaculture tours, and interactive learning.",
