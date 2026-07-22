@@ -1,16 +1,15 @@
-"use client";
+
 import Link from "next/link";
 import { Leaf, Users, ShieldAlert, HeartHandshake, GraduationCap, MapPin, ArrowRight, Download, UsersRound } from "lucide-react";
-import Image from "next/image";
-import CircleGalleryModal from "../../components/CircleGalleryModal";
-import { useState, useEffect } from "react";
+import CircleKeepersGallery from "./CircleKeepersGallery";
+
 
 export const metadata = {
   title: "Circle Keeper Training | Northern Vision CBO",
   description: "Strengthening Local Leadership Through Healing Circles rooted in restorative justice and community leadership.",
 };
 
-export const dynamic = 'force-dynamic';
+
 
 // 1. Data Schema Array for Bento Card Matrix
 interface FocusTrack {
@@ -63,18 +62,7 @@ const FOCUS_TRACKS: FocusTrack[] = [
 const pageTitle = "Circle Keeper Training";
 
 export default function CircleKeepersPage() {
-  const [galleryImages, setGalleryImages] = useState<Array<{ src: string; alt: string; caption: string }>>([]);
 
-  useEffect(() => {
-    fetch('/api/gallery-images')
-      .then(res => res.json())
-      .then((imgs) => {
-        setGalleryImages(imgs.slice(0, 6));
-      })
-      .catch((e) => {
-        console.error('Failed to load gallery images', e);
-      });
-  }, []);
 
 
 
@@ -122,12 +110,7 @@ export default function CircleKeepersPage() {
       </section>
 
       {/* 2. Gallery Section - Dark Theme Bento Glassmorphism */}
-      <section className="py-20 bg-brand-espresso text-white">
-        <div className="container mx-auto max-w-6xl px-6">
-          <h2 className="text-3xl md:text-4xl font-black text-center mb-12">Gallery</h2>
-          <CircleGalleryModal images={galleryImages} />
-        </div>
-      </section>
+        <CircleKeepersGallery />
 
       {/* 3. "Our Latest Training" Analytics Tracker */}
       <section className="py-20 px-6">
