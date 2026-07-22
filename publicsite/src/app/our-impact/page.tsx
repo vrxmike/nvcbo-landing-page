@@ -87,7 +87,7 @@ const PROJECT_TRACKS: ProjectTrack[] = [
     title: "Culture & Heritage",
     href: "/our-impact/indigenous-knowledge",
     icon: ScrollText,
-    badge: null,
+    badge: undefined,
     description: "Preserving intergenerational storytelling, land wisdom, and indigenous water management systems.",
     colSpan: "lg:col-span-1"
   }
