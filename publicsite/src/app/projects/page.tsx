@@ -148,19 +148,19 @@ export default async function ProjectsDirectoryPage() {
       {/* Top Hero Header Block */}
       <section className="pt-16 pb-12 md:pt-24 md:pb-20 px-6">
         <div className="container mx-auto max-w-4xl text-center">
-          <span className="text-sm font-extrabold uppercase tracking-[4px] text-brand-rust mb-4 block">Our Projects</span>
+          <span className="text-sm font-extrabold uppercase tracking-[4px] text-brand-rust mb-4 block">Areas of Action</span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-brand-espresso leading-[1.1] tracking-tight mb-6">
-            Grassroots Interventions in Action
+            Our Areas of Impact
           </h1>
 
           <div className="w-24 h-1.5 bg-brand-gold mx-auto rounded-full mb-8"></div>
 
           <h2 className="text-xl md:text-2xl text-brand-espresso font-bold mb-6 max-w-3xl mx-auto leading-snug">
-            We design and implement targeted, time-bound initiatives designed to address the specific social, climate, and technological realities of Isiolo County.
+            We work across interconnected areas that strengthen climate resilience and advance equity through Participatory Community Engagement.
           </h2>
 
           <p className="text-base md:text-lg text-brand-espresso/80 leading-relaxed font-medium">
-            Explore our active community projects on the ground, ranging from climate-smart agriculture and aquaculture to youth digital literacy.
+            As a trusted community partner and facilitator of Healing Circles, Northern Vision CBO acts as a systemic learning hub. We are dedicated to bridging the lived grassroots realities of indigenous communities in Isiolo County directly to dynamic, actionable policy frameworks.
           </p>
         </div>
       </section>
