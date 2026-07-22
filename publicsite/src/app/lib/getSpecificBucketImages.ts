@@ -23,11 +23,11 @@ export async function getSpecificBucketImages() {
     "6a5584e10030672ce1ac",
   ];
 
-  const endpoint = process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT?.replace(/\/v1$/, "") ?? "https://fra.cloud.appwrite.io";
+  const endpoint = process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT ?? "https://fra.cloud.appwrite.io/v1";
   const projectId = process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID ?? "";
 
   const previewUrls = fileIds.map((id) => {
-    const url = `${endpoint}/storage/buckets/${bucketId}/files/${id}/preview?width=1200&output=webp&project=${projectId}`;
+    const url = `${endpoint}/storage/buckets/${bucketId}/files/${id}/preview?width=1200&output=webp&project=${projectId}&impersonateuserid=`;
     return { src: url, alt: id, caption: id };
   });
 
