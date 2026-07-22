@@ -1,7 +1,9 @@
 // src/app/programs/community-dialogues/page.tsx
+"use client";
 import Image from "next/image";
 import { listBucketImages } from "../../lib/listAppwriteImages";
 import { CloudRain, Users, Shield, Sun, Flag, Leaf, Megaphone, DollarSign } from "lucide-react";
+import { useState, useEffect } from "react";
 
 /**
  * Typed data structures for the page – immutable for fast RSC rendering.
@@ -96,8 +98,23 @@ export const testimonials = [
 
 export const dynamic = "force-static";
 
-export default async function CommunityDialoguesPage() {
-  const galleryImages = await listBucketImages();
+export default function CommunityDialoguesPage() {
+  const [displayImages, setDisplayImages] = useState<Array<{ src: string; alt: string; caption: string }>>([]);
+
+  useEffect(() => {
+    listBucketImages()
+      .then((images) => {
+        const limited = images.slice(0, 6);
+        setDisplayImages(limited);
+      })
+      .catch((e) => {
+        console.error('Failed to load gallery images', e);
+      });
+  }, []);
+
+  const handleError = (idx: number) => {
+    setDisplayImages((prev) => prev.filter((_, i) => i !== idx));
+  };
 
   return (
     <main className="flex flex-col gap-12">
@@ -140,19 +157,20 @@ export default async function CommunityDialoguesPage() {
           Healing Circles in Action
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {galleryImages.map((img, idx) => (
+          {displayImages.map((img, idx) => (
             <figure
               key={idx}
               className="relative overflow-hidden rounded-xl border border-muted"
             >
-<Image
-                  src={img.src}
-                  alt={img.alt}
-                  width={600}
-                  height={400}
-                  className="object-cover w-full h-full"
-                  priority={idx === 0}
-                />
+              <Image
+                src={img.src}
+                alt={img.alt}
+                width={600}
+                height={400}
+                className="object-cover w-full h-full"
+                priority={idx === 0}
+                onError={() => handleError(idx)}
+              />
               <figcaption className="absolute bottom-0 left-0 w-full bg-primary/70 text-primary p-2 text-sm">
                 {img.caption}
               </figcaption>
