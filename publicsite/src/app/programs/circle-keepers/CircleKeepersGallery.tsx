@@ -9,7 +9,7 @@ export default function CircleKeepersGallery() {
     fetch('/api/gallery-images')
       .then((res) => res.json())
       .then((imgs) => {
-        const srcs = imgs.map((img: any) => img.src);
+        const srcs = imgs.map((img: any) => img.src).slice(0, 6);
         setGalleryImages(srcs);
       })
       .catch((e) => {
