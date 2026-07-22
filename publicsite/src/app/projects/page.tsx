@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Leaf, Laptop, ScrollText, Map } from "lucide-react";
+import { ArrowRight, Leaf, Laptop, Map, ScrollText } from "lucide-react";
 import { Client, TablesDB } from 'node-appwrite';
 
 export const metadata = {
@@ -9,69 +9,62 @@ export const metadata = {
 
 export const dynamic = 'force-dynamic';
 
-// Strongly typed project schema
 interface ProjectTrack {
   id: string;
   title: string;
-  metadataTag: string;
-  description: string;
   href: string;
-  colSpan: string;
-  badge?: string;
+  description: React.ReactNode;
   icon: React.ElementType;
-  image?: string;
+  highlight?: string;
+  colSpan?: string;
+  badge?: string;
 }
 
 const PROJECT_TRACKS: ProjectTrack[] = [
   {
     id: "gotu-farm",
     title: "Gotu Gamachu Farm",
-    metadataTag: "Flagship Site",
-    description: "Explore the physical heart of Northern Vision's climate-smart interventions: integrated dryland agriculture, aquaculture scaling, and localized community training models.",
     href: "/projects/gotu-farm",
-    colSpan: "md:col-span-1",
     icon: Leaf,
-    image: "https://images.unsplash.com/photo-1592982537447-6f23f11d1377?q=80&w=2069&auto=format&fit=crop"
+    highlight: "Flagship Site",
+    description: "Explore the physical heart of Northern Vision's climate-smart interventions: integrated dryland agriculture, aquaculture scaling, and localized community training models.",
+    colSpan: "lg:col-span-1"
   },
   {
     id: "climate-resilience",
-    title: "Climate Resilience & Sustainable Livelihoods",
-    metadataTag: "Active Field Initiative",
-    description: "Transforming ASAL landscapes through climate-smart aquaculture, women-led kitchen gardens, and integrated farming at Gotu Gamachu Farm.",
+    title: "Climate Resilience & Livelihoods",
     href: "/projects/climate-resilience",
-    colSpan: "md:col-span-1",
     icon: Leaf,
-    image: "https://images.unsplash.com/photo-1592982537447-6f23f11d1377?q=80&w=2069&auto=format&fit=crop"
+    highlight: "Active Field Initiative",
+    description: "Transforming ASAL landscapes through climate-smart aquaculture, women-led kitchen gardens, and integrated farming at Gotu Gamachu Farm.",
+    colSpan: "lg:col-span-2"
   },
   {
     id: "holiday-camp",
     title: "Digital Literacy Holiday Camp",
-    metadataTag: "School Holidays Track",
-    description: "A hands-on, 6-day program in Gotu equipping children with core computing skills, internet safety, and digital storytelling.",
     href: "/projects/holiday-camp",
-    colSpan: "md:col-span-1",
     icon: Laptop,
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop"
+    highlight: "School Holidays Track",
+    description: "A hands-on, 6-day program in Gotu equipping children with core computing skills, internet safety, and digital storytelling.",
+    colSpan: "lg:col-span-2"
   },
   {
     id: "eco-tourism",
     title: "Eco-Tourism Hub",
-    metadataTag: "Community-Hosted Experience",
-    description: "Visit Gotu Gamachu Farm and experience the landscapes firsthand through guided walking trails, aquaculture tours, and interactive learning.",
     href: "/projects/eco-tourism",
-    colSpan: "md:col-span-2",
     icon: Map,
-    image: "https://images.unsplash.com/photo-1544084944-15269ec7b5a0?q=80&w=2069&auto=format&fit=crop"
+    highlight: "Community-Hosted Experience",
+    description: "Visit Gotu Gamachu Farm and experience the landscapes firsthand through guided walking trails, aquaculture tours, and interactive learning.",
+    colSpan: "lg:col-span-1"
   },
   {
     id: "indigenous-knowledge",
     title: "Culture & Heritage",
-    metadataTag: "Program Development",
+    href: "#",
+    icon: ScrollText,
     badge: "Coming Soon",
-    description: "Preserving intergenerational storytelling and land-and-water wisdom.",
-    href: "#", // Non-clickable or anchor until ready
-    colSpan: "md:col-span-1",
-    icon: ScrollText
+    description: "Preserving intergenerational storytelling, land wisdom, and indigenous water management systems.",
+    colSpan: "lg:col-span-2"
   }
 ];
 
@@ -102,93 +95,87 @@ export default async function ProjectsDirectoryPage() {
       return {
         ...staticProject,
         title: dynamicMatch.title || staticProject.title,
+        description: dynamicMatch.description || staticProject.description,
       };
     }
     return staticProject;
   });
 
   return (
-    <div className="flex flex-col bg-brand-cream min-h-screen pt-24 pb-32">
+    <div className="flex flex-col bg-brand-light-bg min-h-screen pt-24 pb-32">
 
-      {/* 1. Master Projects Hero */}
-      <section className="pt-16 pb-12 md:pt-24 md:pb-16 px-6">
+      {/* Top Hero Header Block */}
+      <section className="pt-16 pb-12 md:pt-24 md:pb-20 px-6">
         <div className="container mx-auto max-w-4xl text-center">
           <span className="text-sm font-extrabold uppercase tracking-[4px] text-brand-rust mb-4 block">Our Projects</span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-brand-espresso leading-[1.1] tracking-tight mb-6">
             Grassroots Interventions in Action
           </h1>
 
-          <div className="w-24 h-1.5 bg-gradient-to-r from-brand-gold to-brand-rust mx-auto rounded-full mb-8"></div>
+          <div className="w-24 h-1.5 bg-brand-gold mx-auto rounded-full mb-8"></div>
 
-          <p className="text-base sm:text-lg md:text-xl text-brand-espresso/80 leading-relaxed font-medium max-w-3xl mx-auto">
-            We design and implement targeted, time-bound initiatives designed to address the specific social, climate, and technological realities of Isiolo County. Explore our active projects on the ground.
+          <h2 className="text-xl md:text-2xl text-brand-espresso font-bold mb-6 max-w-3xl mx-auto leading-snug">
+            We design and implement targeted, time-bound initiatives designed to address the specific social, climate, and technological realities of Isiolo County.
+          </h2>
+
+          <p className="text-base md:text-lg text-brand-espresso/80 leading-relaxed font-medium">
+            Explore our active community projects on the ground, ranging from climate-smart agriculture and aquaculture to youth digital literacy.
           </p>
         </div>
       </section>
 
-      {/* 2. Asymmetrical Directory Grid Showcase */}
+      {/* Bento Grid Array Execution */}
       <section className="px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-            {mergedProjects.map((project) => {
-              // Condition to handle "Coming Soon" unclickable cards vs standard routing cards
-              const isComingSoon = project.badge === "Coming Soon";
+            {mergedProjects.map((track) => {
+              const isComingSoon = track.badge === "Coming Soon";
 
               const CardContent = (
-                <div className={`bento-card flex flex-col h-full bg-white overflow-hidden group ${isComingSoon ? 'opacity-90' : 'hover:border-brand-gold hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-pointer'}`}>
+                <div className={`bento-card bg-white p-8 md:p-10 flex flex-col items-start group transition-all duration-300 ease-in-out h-full ${
+                  isComingSoon ? 'opacity-90 cursor-default' : 'hover:border-brand-gold hover:-translate-y-1 hover:shadow-lg cursor-pointer'
+                }`}>
+                  <div className="w-14 h-14 rounded-xl bg-brand-cream flex items-center justify-center text-brand-rust mb-6 border border-brand-espresso/5 group-hover:bg-brand-gold group-hover:text-white transition-colors duration-300">
+                    <track.icon className="w-7 h-7" />
+                  </div>
 
-                  {/* Image Header Block (If image exists) */}
-                  {project.image && (
-                    <div className="w-full h-48 sm:h-64 relative overflow-hidden bg-brand-cream">
-                      <div className="absolute inset-0 bg-brand-espresso/5 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-                      />
+                  <div className="flex flex-wrap items-center gap-2 mb-4">
+                    <h3 className="text-2xl font-black text-brand-espresso group-hover:text-brand-rust transition-colors duration-300">
+                      {track.title}
+                    </h3>
+                  </div>
+
+                  {track.highlight && (
+                    <div className="inline-block px-3 py-1.5 bg-brand-gold/10 text-brand-rust text-xs font-bold uppercase tracking-wider rounded-lg mb-4 border border-brand-gold/20">
+                      {track.highlight}
                     </div>
                   )}
 
-                  <div className="p-8 md:p-10 flex flex-col flex-1 relative">
-
-                    {/* Top Meta Data row */}
-                    <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-                      <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-espresso/60">
-                        <project.icon className="w-4 h-4 text-brand-rust" /> {project.metadataTag}
-                      </div>
-
-                      {project.badge && (
-                        <div className="inline-block px-3 py-1 bg-brand-espresso/5 text-brand-espresso text-[10px] font-black uppercase tracking-widest rounded-md border border-brand-espresso/10">
-                          {project.badge}
-                        </div>
-                      )}
+                  {track.badge && (
+                    <div className="inline-block px-3 py-1.5 bg-brand-espresso/5 text-brand-espresso text-xs font-bold uppercase tracking-wider rounded-lg mb-4 border border-brand-espresso/10">
+                      {track.badge}
                     </div>
+                  )}
 
-                    <h2 className="text-2xl sm:text-3xl font-black text-brand-espresso mb-4 leading-tight group-hover:text-brand-rust transition-colors duration-300">
-                      {project.title}
-                    </h2>
+                  <p className="text-base text-brand-espresso/80 leading-relaxed font-medium mb-8 flex-grow">
+                    {track.description}
+                  </p>
 
-                    <p className="text-base text-brand-espresso/80 leading-relaxed font-medium mb-8 flex-grow">
-                      {project.description}
-                    </p>
-
-                    {!isComingSoon && (
-                      <div className="mt-auto flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-brand-gold group-hover:text-brand-rust transition-colors duration-300">
-                        Explore Project <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
-                      </div>
-                    )}
-
-                  </div>
+                  {!isComingSoon && (
+                    <div className="mt-auto flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-brand-gold group-hover:text-brand-rust transition-colors duration-300">
+                      Explore Project <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+                    </div>
+                  )}
                 </div>
               );
 
               return isComingSoon ? (
-                <div key={project.id} className={project.colSpan}>
+                <div key={track.id} className={track.colSpan || ''}>
                   {CardContent}
                 </div>
               ) : (
-                <Link href={project.href} key={project.id} className={project.colSpan}>
+                <Link key={track.id} href={track.href} className={track.colSpan || ''}>
                   {CardContent}
                 </Link>
               );
