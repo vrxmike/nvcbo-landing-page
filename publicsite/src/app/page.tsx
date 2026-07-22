@@ -122,7 +122,7 @@ export default function Home() {
       <section 
         className="py-24 md:py-32 relative overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(rgba(21, 93, 116, 0.95), rgba(29, 128, 159, 0.9)), url('https://images.unsplash.com/photo-1529390079861-591de354faf5?q=80&w=2070&auto=format&fit=crop')`,
+          backgroundImage: `linear-gradient(135deg, rgba(43, 17, 0, 0.94) 0%, rgba(21, 93, 116, 0.90) 100%), url('https://images.unsplash.com/photo-1529390079861-591de354faf5?q=80&w=2070&auto=format&fit=crop')`,
           backgroundPosition: 'center',
           backgroundSize: 'cover',
           backgroundAttachment: 'fixed'
@@ -140,11 +140,11 @@ export default function Home() {
             </p>
           </div>
 
-          {/* 3 Glassmorphism Cards */}
+          {/* 3 Glassmorphism Cards with Brand Espresso styling */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-14 text-left">
             
             {/* Card 1: Circle Keeper Training */}
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 hover:border-brand-gold/40 rounded-3xl p-8 flex flex-col justify-between shadow-xl hover:-translate-y-2 hover:bg-white/15 transition-all duration-300 group">
+            <div className="bg-brand-espresso/80 backdrop-blur-xl border border-brand-gold/25 hover:border-brand-gold/60 rounded-3xl p-8 flex flex-col justify-between shadow-2xl hover:-translate-y-2 hover:bg-brand-espresso/95 transition-all duration-300 group">
               <div>
                 <div className="w-14 h-14 rounded-2xl bg-brand-gold/20 border border-brand-gold/30 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-brand-gold/30 transition-all duration-300">
                   <Users className="w-7 h-7 text-brand-gold" />
@@ -167,7 +167,7 @@ export default function Home() {
             </div>
 
             {/* Card 2: Community Healing Dialogues */}
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 hover:border-brand-gold/40 rounded-3xl p-8 flex flex-col justify-between shadow-xl hover:-translate-y-2 hover:bg-white/15 transition-all duration-300 group">
+            <div className="bg-brand-espresso/80 backdrop-blur-xl border border-brand-gold/25 hover:border-brand-gold/60 rounded-3xl p-8 flex flex-col justify-between shadow-2xl hover:-translate-y-2 hover:bg-brand-espresso/95 transition-all duration-300 group">
               <div>
                 <div className="w-14 h-14 rounded-2xl bg-brand-gold/20 border border-brand-gold/30 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-brand-gold/30 transition-all duration-300">
                   <MessageSquare className="w-7 h-7 text-brand-gold" />
@@ -190,7 +190,7 @@ export default function Home() {
             </div>
 
             {/* Card 3: Resources & Learning */}
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 hover:border-brand-gold/40 rounded-3xl p-8 flex flex-col justify-between shadow-xl hover:-translate-y-2 hover:bg-white/15 transition-all duration-300 group">
+            <div className="bg-brand-espresso/80 backdrop-blur-xl border border-brand-gold/25 hover:border-brand-gold/60 rounded-3xl p-8 flex flex-col justify-between shadow-2xl hover:-translate-y-2 hover:bg-brand-espresso/95 transition-all duration-300 group">
               <div>
                 <div className="w-14 h-14 rounded-2xl bg-brand-gold/20 border border-brand-gold/30 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-brand-gold/30 transition-all duration-300">
                   <BookOpen className="w-7 h-7 text-brand-gold" />
