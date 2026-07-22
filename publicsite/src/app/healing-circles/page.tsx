@@ -1,5 +1,9 @@
-// src/app/healing-circles/page.tsx
 import Link from 'next/link';
+
+export const metadata = {
+  title: "Healing Circles | Northern Vision CBO",
+  description: "Experience community-driven restorative dialogue practices fostering transformation, trust building, and healing in Northern Kenya.",
+};
 
 // ----- Static Data -----
 interface Pillar {

@@ -3,8 +3,8 @@ import { ArrowRight, Leaf, Laptop, Map, ScrollText, HeartHandshake, ShieldCheck,
 import { Client, TablesDB } from 'node-appwrite';
 
 export const metadata = {
-  title: "Our Projects | Northern Vision CBO",
-  description: "Explore our active grassroots initiatives in Northern Kenya, from climate-smart agriculture at Gotu Gamachu Farm to youth digital literacy.",
+  title: "Our Impact | Northern Vision CBO",
+  description: "Explore our interconnected areas of impact in Northern Kenya, strengthening climate resilience, advancing equity, and fostering community wellbeing.",
 };
 
 export const dynamic = 'force-dynamic';
