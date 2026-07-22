@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Leaf, Laptop, Map, ScrollText } from "lucide-react";
+import { ArrowRight, Leaf, Laptop, Map, ScrollText, HeartHandshake, ShieldCheck, GraduationCap, Users, Heart } from "lucide-react";
 import { Client, TablesDB } from 'node-appwrite';
 
 export const metadata = {
@@ -40,13 +40,54 @@ const PROJECT_TRACKS: ProjectTrack[] = [
     colSpan: "lg:col-span-2"
   },
   {
+    id: "circle-keepers",
+    title: "Circle Keeper Training",
+    href: "/programs/circle-keepers",
+    icon: Users,
+    description: "Building local facilitators who lead restorative dialogue and community transformation by equipping community leaders, youth, and institutions.",
+    colSpan: "lg:col-span-1"
+  },
+  {
+    id: "gender-equality",
+    title: "Gender Equality & Social Inclusion",
+    href: "/programs/gender-equality",
+    icon: HeartHandshake,
+    description: "Advancing inclusive communities where women, girls, and youth thrive, spanning crucial tracks across SRHR, Menstrual Dignity, Bodily Autonomy, and Women's Land Rights.",
+    colSpan: "lg:col-span-2"
+  },
+  {
+    id: "peace-security",
+    title: "Peace and Security",
+    href: "/programs/peace-security",
+    icon: ShieldCheck,
+    highlight: "130+ Documented Healing Circles Sessions",
+    description: "Strengthening trust and peaceful coexistence in Northern Kenya. Combating misinformation through dedicated Media and Digital Information Literacy (MIL/DIL) safety work.",
+    colSpan: "lg:col-span-2"
+  },
+  {
+    id: "education-youth",
+    title: "Education, Youth & Digital Inclusion",
+    href: "/programs/education-youth",
+    icon: GraduationCap,
+    description: "Equipping young people with knowledge, leadership, and technical skills to shape resilient futures, featuring advanced computing structures like our Wolfram STEM program tracks.",
+    colSpan: "lg:col-span-1"
+  },
+  {
+    id: "healing-circles",
+    title: "Healing Circles",
+    href: "/healing-circles",
+    icon: Heart,
+    description: "Community-driven restorative dialogue practice fostering transformation and healing.",
+    colSpan: "lg:col-span-2"
+  },
+  {
     id: "holiday-camp",
     title: "Digital Literacy Holiday Camp",
     href: "/projects/holiday-camp",
     icon: Laptop,
     highlight: "School Holidays Track",
     description: "A hands-on, 6-day program in Gotu equipping children with core computing skills, internet safety, and digital storytelling.",
-    colSpan: "lg:col-span-2"
+    colSpan: "lg:col-span-1"
   },
   {
     id: "eco-tourism",
@@ -55,7 +96,7 @@ const PROJECT_TRACKS: ProjectTrack[] = [
     icon: Map,
     highlight: "Community-Hosted Experience",
     description: "Visit Gotu Gamachu Farm and experience the landscapes firsthand through guided walking trails, aquaculture tours, and interactive learning.",
-    colSpan: "lg:col-span-1"
+    colSpan: "lg:col-span-2"
   },
   {
     id: "indigenous-knowledge",
@@ -64,7 +105,7 @@ const PROJECT_TRACKS: ProjectTrack[] = [
     icon: ScrollText,
     badge: "Coming Soon",
     description: "Preserving intergenerational storytelling, land wisdom, and indigenous water management systems.",
-    colSpan: "lg:col-span-2"
+    colSpan: "lg:col-span-1"
   }
 ];
 
