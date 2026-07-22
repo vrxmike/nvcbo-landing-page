@@ -1,6 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
-import Link from 'next';
+import Link from 'next/link';
 import { getSpecificBucketImages } from '@/app/lib/getSpecificBucketImages';
 import { BookOpen, Newspaper, ImageIcon, ArrowRight, Download, FileText, Quote, Sparkles } from 'lucide-react';
 
