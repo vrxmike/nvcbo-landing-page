@@ -79,15 +79,6 @@ export default function Header() {
               <Link href="/healing-circles/circle-keepers" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
                 <Users className="w-4 h-4 opacity-70" /> Circle Keeper Training
               </Link>
-              <Link href="/our-impact/gender-equality" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
-                <HeartHandshake className="w-4 h-4 opacity-70" /> Gender & Social Inclusion
-              </Link>
-              <Link href="/our-impact/peace-security" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
-                <TreePine className="w-4 h-4 opacity-70" /> Peace and Security
-              </Link>
-              <Link href="/our-impact/education-youth" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
-                <BookOpen className="w-4 h-4 opacity-70" /> Education & Youth Leadership
-              </Link>
             </div>
           </div>
 
@@ -103,6 +94,15 @@ export default function Header() {
               <div className="h-px bg-brand-cream/10 my-1 mx-4"></div>
               <Link href="/our-impact/climate-resilience" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
                 <Leaf className="w-4 h-4 opacity-70" /> Climate Resilience
+              </Link>
+              <Link href="/our-impact/gender-equality" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+                <HeartHandshake className="w-4 h-4 opacity-70" /> Gender & Social Inclusion
+              </Link>
+              <Link href="/our-impact/peace-security" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+                <TreePine className="w-4 h-4 opacity-70" /> Peace and Security
+              </Link>
+              <Link href="/our-impact/education-youth" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
+                <BookOpen className="w-4 h-4 opacity-70" /> Education & Youth Leadership
               </Link>
               <Link href="/our-impact/gotu-farm" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300">
                 <Leaf className="w-4 h-4 opacity-70" /> Gotu Gamachu Farm
@@ -185,12 +185,9 @@ export default function Header() {
                 <span>Healing Circles</span>
               <ChevronDown className={`w-4 h-4 transform transition-transform duration-300 ${openAccordions.programs ? 'rotate-180' : ''}`} />
             </button>
-            <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.programs ? 'max-h-64 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
+            <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.programs ? 'max-h-32 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
               <Link onClick={() => setMobileMenuOpen(false)} href="/healing-circles" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300"><Heart className="w-4 h-4 opacity-70" /> Experience Healing Circles</Link>
               <Link onClick={() => setMobileMenuOpen(false)} href="/healing-circles/circle-keepers" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300"><Users className="w-4 h-4 opacity-70" /> Circle Keeper Training</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact/gender-equality" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl transition-all duration-300"><HeartHandshake className="w-4 h-4 opacity-70" /> Gender & Social Inclusion</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact/peace-security" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><TreePine className="w-4 h-4 opacity-70" /> Peace and Security</Link>
-              <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact/education-youth" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><BookOpen className="w-4 h-4 opacity-70" /> Education & Youth Leadership</Link>
             </div>
           </div>
 
@@ -200,9 +197,12 @@ export default function Header() {
               <span className="font-bold text-xs uppercase tracking-widest text-brand-cream">Our Impact</span>
               <ChevronDown className={`w-4 h-4 transform transition-transform duration-300 ${openAccordions.projects ? 'rotate-180' : ''}`} />
             </button>
-            <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.projects ? 'max-h-64 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
+            <div className={`pl-4 space-y-1.5 border-l border-white/15 transition-all duration-300 overflow-hidden ${openAccordions.projects ? 'max-h-96 opacity-100 mt-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
               <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact" className="flex items-center gap-3 text-sm py-2 text-brand-gold font-black"><ArrowRight className="w-4 h-4" /> All Our Impact Tracks</Link>
               <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact/climate-resilience" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><Leaf className="w-4 h-4 opacity-70" /> Climate Resilience</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact/gender-equality" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><HeartHandshake className="w-4 h-4 opacity-70" /> Gender & Social Inclusion</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact/peace-security" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><TreePine className="w-4 h-4 opacity-70" /> Peace and Security</Link>
+              <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact/education-youth" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><BookOpen className="w-4 h-4 opacity-70" /> Education & Youth Leadership</Link>
               <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact/gotu-farm" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><Leaf className="w-4 h-4 opacity-70" /> Gotu Gamachu Farm</Link>
               <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact/eco-tourism" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><Leaf className="w-4 h-4 opacity-70" /> Eco-Tourism Hub</Link>
               <Link onClick={() => setMobileMenuOpen(false)} href="/our-impact/holiday-camp" className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-cream hover:bg-brand-gold/10 hover:text-brand-gold hover:pl-5 rounded-xl"><Laptop className="w-4 h-4 opacity-70" /> Digital Literacy Camp</Link>
