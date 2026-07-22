@@ -1,9 +1,9 @@
+"use client";
 import Link from "next/link";
 import { Leaf, Users, ShieldAlert, HeartHandshake, GraduationCap, MapPin, ArrowRight, Download, UsersRound } from "lucide-react";
-import { Client, TablesDB, Query } from 'node-appwrite';
-
 import Image from "next/image";
 import CircleGalleryModal from "../../components/CircleGalleryModal";
+import { useState, useEffect } from "react";
 
 export const metadata = {
   title: "Circle Keeper Training | Northern Vision CBO",
@@ -59,39 +59,22 @@ const FOCUS_TRACKS: FocusTrack[] = [
   }
 ];
 
-async function getProgramData() {
-  try {
-    const client = new Client()
-      .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!)
-      .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID!)
-      .setKey(process.env.APPWRITE_API_KEY!);
+// No server-side SDK usage in client component. Static title for page.
+const pageTitle = "Circle Keeper Training";
 
-    const tablesDB = new TablesDB(client);
-    const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID || 'nvcbo_db';
+export default function CircleKeepersPage() {
+  const [galleryImages, setGalleryImages] = useState<Array<{ src: string; alt: string; caption: string }>>([]);
 
-    const response = await tablesDB.listRows(dbId, 'programs', [
-      Query.equal('slug', 'circle-keepers')
-    ]);
-    return response.rows[0] || null;
-  } catch (error) {
-    console.error('Error fetching program data:', error);
-    return null;
-  }
-}
-
-export default async function CircleKeepersPage() {
-  const program = await getProgramData();
-  const pageTitle = program?.title || "Circle Keeper Training";
-
-  // Gallery images (Appwrite preview URLs)
-  const galleryImages = [
-    "https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c81a9c368/preview?width=1200&output=webp&project=692a34ec001f1efc9002",
-    "https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c851af5a1/preview?width=1200&output=webp&project=692a34ec001f1efc9002",
-    "https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c83da7c50/preview?width=1200&output=webp&project=692a34ec001f1efc9002",
-    "https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c88ff9c47/preview?width=1200&output=webp&project=692a34ec001f1efc9002",
-    "https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c8994c3a0/preview?width=1200&output=webp&project=692a34ec001f1efc9002",
-    "https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a597ed3000c8d0e56fb/preview?width=1200&output=webp&project=692a34ec001f1efc9002"
-  ];
+  useEffect(() => {
+    fetch('/api/gallery-images')
+      .then(res => res.json())
+      .then((imgs) => {
+        setGalleryImages(imgs.slice(0, 6));
+      })
+      .catch((e) => {
+        console.error('Failed to load gallery images', e);
+      });
+  }, []);
 
 
 
