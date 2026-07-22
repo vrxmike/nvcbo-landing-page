@@ -121,14 +121,27 @@ export default function CommunityDialoguesPage() {
   return (
     <main className="flex flex-col gap-12">
       {/* Hero & Introduction */}
-      <section className="flex flex-col items-center text-center py-16 px-4 bg-primary text-primary">
-        <h1 className="text-4xl md:text-5xl font-black">Community Healing Dialogues</h1>
-        <h2 className="text-xl md:text-2xl font-medium mt-2">Conversations That Matter</h2>
-        <p className="text-body leading-relaxed max-w-3xl mx-auto mt-6">
-          Healing Circles are adapted to the priorities of each community, creating safe spaces where people
-          listen, reflect, and take collective action. While every dialogue is unique, our work commonly
-          focuses on the following interconnected themes.
-        </p>
+      <section className="relative flex flex-col items-center text-center py-20 px-6 bg-brand-espresso text-white overflow-hidden">
+        {/* Background Glow Effect */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
+          <span className="text-xs font-black uppercase tracking-[3px] text-brand-gold mb-3">
+            Program Spotlight
+          </span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.1] mb-4">
+            Community Healing Dialogues
+          </h1>
+          <h2 className="text-xl sm:text-2xl font-bold text-brand-gold/90 mb-6">
+            Conversations That Matter
+          </h2>
+          <div className="w-20 h-1.5 bg-brand-gold rounded-full mb-8"></div>
+          <p className="text-white text-base sm:text-lg md:text-xl font-medium leading-relaxed max-w-3xl drop-shadow-sm">
+            Healing Circles are adapted to the priorities of each community, creating safe spaces where people
+            listen, reflect, and take collective action. While every dialogue is unique, our work commonly
+            focuses on the following interconnected themes.
+          </p>
+        </div>
       </section>
 
       {/* Theme Grid */}
