@@ -270,7 +270,7 @@ export default function AboutPage() {
             </div>
 
             <div className="relative z-10 shrink-0 w-full md:w-auto">
-              <Link href="https://news.northernvisionke.org/year-in-review-2025-v3.html" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 px-8 py-5 bg-brand-gold text-white rounded-xl font-black uppercase tracking-wider shadow-[0_8px_20px_rgba(243,156,18,0.3)] hover:-translate-y-1 hover:bg-brand-rust hover:shadow-[0_12px_25px_rgba(211,84,0,0.4)] transition-all duration-300 w-full">
+              <Link href="/healing-circles/circle-keepers" className="flex items-center justify-center gap-3 px-8 py-5 bg-brand-gold text-white rounded-xl font-black uppercase tracking-wider shadow-[0_8px_20px_rgba(243,156,18,0.3)] hover:-translate-y-1 hover:bg-brand-rust hover:shadow-[0_12px_25px_rgba(211,84,0,0.4)] transition-all duration-300 w-full">
                 Read full article
               </Link>
             </div>
