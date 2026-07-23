@@ -145,17 +145,27 @@ export default function MediaGalleryClient({ mediaItems }: { mediaItems: MediaIt
                 className={`group relative overflow-hidden rounded-[24px] bg-neutral-light border border-muted shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer ${item.colSpan || ''}`}
                 style={{ animationDelay: `${idx * 100}ms` }}
               >
-                {/* Image Background */}
-                <img
-                  src={getImageUrl(item.appwriteId)}
-                  alt={item.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                  onError={() => {
-                    // Gracefully handle 404s if a file was deleted from the bucket but the row still exists
-                    setDynamicMedia(prev => prev.filter(m => m.appwriteId !== item.appwriteId));
-                  }}
-                />
+                {/* Image / Video Thumbnail Background */}
+                {item.type === 'video' ? (
+                  <video
+                    src={item.videoUrl || `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT || 'https://cloud.appwrite.io/v1'}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID || 'nvcbo_bucket'}/files/${item.appwriteId}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID || ''}`}
+                    preload="metadata"
+                    muted
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none"
+                  />
+                ) : (
+                  <img
+                    src={getImageUrl(item.appwriteId)}
+                    alt={item.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                    onError={() => {
+                      // Gracefully handle 404s if an image file was deleted from the bucket
+                      setDynamicMedia(prev => prev.filter(m => m.appwriteId !== item.appwriteId));
+                    }}
+                  />
+                )}
 
                 {/* Dark Matte Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
