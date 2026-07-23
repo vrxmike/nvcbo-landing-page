@@ -145,7 +145,7 @@ export default function Header() {
             Shop <span className="bg-brand-gold text-white text-[8px] font-black px-1.5 py-0.5 rounded-full shrink-0">New</span>
           </Link>
           
-          <Link href="#contact" className="whitespace-nowrap inline-flex items-center justify-center px-3 lg:px-5 py-1.5 rounded-full font-extrabold uppercase tracking-widest bg-gradient-to-br from-brand-gold to-brand-rust text-white shadow-[0_4px_10px_rgba(204,85,0,0.25)] hover:scale-105 transition-all duration-300 text-[10px] lg:text-xs ml-1 shrink-0">Contact</Link>
+          <Link href="/contact" className="whitespace-nowrap inline-flex items-center justify-center px-3 lg:px-5 py-1.5 rounded-full font-extrabold uppercase tracking-widest bg-gradient-to-br from-brand-gold to-brand-rust text-white shadow-[0_4px_10px_rgba(204,85,0,0.25)] hover:scale-105 transition-all duration-300 text-[10px] lg:text-xs ml-1 shrink-0">Contact</Link>
         </nav>
 
         {/* Mobile Toggle */}
@@ -236,7 +236,7 @@ export default function Header() {
             <span className="bg-white text-brand-rust text-[9px] uppercase font-black px-2 py-0.5 rounded-full">New</span>
           </Link>
 
-          <Link onClick={() => setMobileMenuOpen(false)} href="#contact" className="hover:text-brand-gold transition py-1">Contact</Link>
+          <Link onClick={() => setMobileMenuOpen(false)} href="/contact" className="hover:text-brand-gold transition py-1">Contact</Link>
 
           {/* Bottom Actions */}
           <div className="pt-4 mt-4 border-t border-white/10 space-y-2">
