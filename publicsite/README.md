@@ -50,6 +50,24 @@ For production, ensure the following keys are safely configured within the **App
 
 *(Do NOT commit your `APPWRITE_API_KEY` into Git. It is solely utilized for local backend data-seeding CLI scripts.)*
 
+### Custom Appwrite Domain Setup
+You can route all API requests, authentication sessions, and storage media through your own custom domain endpoint:
+
+1. **Configure Custom Domain in Appwrite**:
+   - Navigate to **Appwrite Console** $\rightarrow$ **Settings** $\rightarrow$ **Domains**.
+   - Add your custom subdomain (e.g., `<YOUR_CUSTOM_DOMAIN>`) and set up the corresponding CNAME or A DNS record at your domain registrar.
+   - Appwrite automatically provisions and renews SSL/TLS certificates.
+
+2. **Update Endpoint Variable**:
+   - Update `NEXT_PUBLIC_APPWRITE_ENDPOINT` in your local `.env` and production site environment settings:
+     ```env
+     NEXT_PUBLIC_APPWRITE_ENDPOINT="https://<YOUR_CUSTOM_DOMAIN>/v1"
+     ```
+
+3. **Key Advantages**:
+   - **First-Party Cookies**: Session cookies share your primary domain, avoiding third-party cookie blocking in browsers (Safari ITP / Chrome).
+   - **Branding & Consistency**: Replaces default region endpoints with your organization's custom API domain.
+
 ## Key Features
 
 - **Dynamic Media Gallery**: Realtime synchronization with Appwrite TablesDB rows instead of legacy Appwrite collections. Employs recursive cursor-based pagination to fluidly bypass 100-item rate limits.
