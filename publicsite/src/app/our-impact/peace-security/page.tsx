@@ -1,5 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
+import Link from 'next/link';
 import { Client, TablesDB, Query } from 'node-appwrite';
 
 export const dynamic = 'force-dynamic';
@@ -220,9 +221,9 @@ export default async function PeaceSecurityPage() {
               </p>
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button className="w-full sm:w-auto px-8 py-4 rounded-xl bg-primary text-white font-bold tracking-wide active:scale-[0.98] hover:shadow-[0_8px_16px_rgba(211,84,0,0.3)] hover:-translate-y-1 transition-all duration-200">
+                <Link href="/become-a-partner" className="w-full sm:w-auto px-8 py-4 rounded-xl bg-primary text-white font-bold tracking-wide active:scale-[0.98] hover:shadow-[0_8px_16px_rgba(211,84,0,0.3)] hover:-translate-y-1 transition-all duration-200 text-center">
                   Partner With Us
-                </button>
+                </Link>
                 <button className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/10 text-white font-bold tracking-wide border border-white/20 active:scale-[0.98] hover:bg-white/20 hover:-translate-y-1 transition-all duration-200 backdrop-blur-sm">
                   Contact our Facilitation Team
                 </button>

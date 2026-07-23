@@ -141,7 +141,7 @@ export default function HealingCirclesPage() {
             <h3 className="text-3xl font-black mb-4 text-heading">Bring a Healing Circle to Your Community</h3>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
               <button className="px-8 py-3 bg-brand-gold text-white rounded-full font-bold transition-transform active:scale-[0.98]">Request a Circle Session</button>
-              <button className="px-8 py-3 bg-brand-rust text-white rounded-full font-bold transition-transform active:scale-[0.98]">Partner With Us</button>
+              <Link href="/become-a-partner" className="inline-flex items-center justify-center px-8 py-3 bg-brand-rust text-white rounded-full font-bold transition-transform active:scale-[0.98]">Partner With Us</Link>
             </div>
           </div>
         </div>

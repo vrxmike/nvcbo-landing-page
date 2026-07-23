@@ -253,7 +253,7 @@ export default function Home() {
                 <Link href="/shop" className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base bg-brand-rust text-white rounded-full font-bold uppercase tracking-wider transition-all shadow hover:shadow-lg hover:-translate-y-1 w-full sm:w-auto">
                   Invest in Our Impact
                 </Link>
-                <Link href="mailto:info@nvcbo.org" className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base rounded-full font-bold uppercase tracking-wider bg-transparent border-2 border-brand-espresso/20 text-brand-espresso hover:border-brand-espresso hover:text-brand-rust hover:-translate-y-1 hover:shadow-sm transition-all duration-300 w-full sm:w-auto">
+                <Link href="/become-a-partner" className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base rounded-full font-bold uppercase tracking-wider bg-transparent border-2 border-brand-espresso/20 text-brand-espresso hover:border-brand-espresso hover:text-brand-rust hover:-translate-y-1 hover:shadow-sm transition-all duration-300 w-full sm:w-auto">
                   Become a Partner
                 </Link>
               </div>
