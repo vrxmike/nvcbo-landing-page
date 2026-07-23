@@ -207,14 +207,16 @@ export default function MediaGalleryClient({ mediaItems }: { mediaItems: MediaIt
 
           <div className="relative w-full max-w-5xl max-h-[85vh] flex flex-col items-center justify-center rounded-3xl overflow-hidden shadow-2xl border border-white/10">
             {lightboxItem.type === 'video' && lightboxItem.videoUrl ? (
-              <div className="w-full aspect-video bg-black rounded-t-2xl overflow-hidden">
-                <iframe 
+              <div className="w-full aspect-video bg-black rounded-t-2xl overflow-hidden flex items-center justify-center">
+                <video 
                   src={lightboxItem.videoUrl} 
-                  title={lightboxItem.title}
-                  className="w-full h-full border-0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
-                ></iframe>
+                  controls 
+                  autoPlay 
+                  playsInline
+                  className="w-full h-full max-h-[75vh] object-contain focus:outline-none"
+                >
+                  Your browser does not support HTML5 video playback.
+                </video>
               </div>
             ) : (
               <div className="relative w-full max-h-[70vh] flex items-center justify-center bg-black rounded-t-2xl overflow-hidden">
