@@ -20,9 +20,9 @@ export default function AboutPage() {
               <div className="absolute inset-0 bg-brand-gold/10 mix-blend-multiply z-10"></div>
               {/* Note: This is an aspect-ratio protected container element serving as an image frame placeholder */}
               <img
-                src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=2070&auto=format&fit=crop"
+                src="https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a617d140002da812a7f/view?project=692a34ec001f1efc9002"
                 alt="Healing Circles Featured Photo"
-                className="absolute inset-0 w-full h-full object-cover grayscale opacity-80"
+                className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute bottom-6 left-6 right-6 z-20 bento-card bg-white/90 backdrop-blur p-4 text-brand-espresso text-sm font-semibold rounded-2xl border border-white">
                 Healing Circles Featured Photo
