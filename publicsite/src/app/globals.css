@@ -190,3 +190,26 @@ a.rounded-xl,
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-brand-gradient {
+  background: linear-gradient(
+    135deg,
+    #FFFFFF 0%,
+    var(--color-brand-gold) 25%,
+    #F1C40F 50%,
+    var(--color-brand-rust) 75%,
+    #FFFFFF 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 5s ease-in-out infinite;
+}
+

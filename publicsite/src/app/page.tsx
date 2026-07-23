@@ -16,7 +16,7 @@ export default function Home() {
       >
         <div className="container relative z-10 px-6 mx-auto text-center">
           <div className="max-w-6xl mx-auto animate-up delay-1">
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-6 md:mb-8 lg:mb-6 leading-tight tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black mb-6 md:mb-8 lg:mb-6 leading-tight tracking-tight animate-brand-gradient">
                Community Transformation Begins with Healing
             </h1>
             <p className="text-base sm:text-lg md:text-2xl text-white/90 mb-8 md:mb-10 lg:mb-8 max-w-4xl mx-auto leading-relaxed animate-up delay-2">
