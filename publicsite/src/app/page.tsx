@@ -56,61 +56,85 @@ export default function Home() {
       </section>
 
       {/* PROGRAMS SECTION */}
-      <section id="programs" className="py-32 bg-brand-cream relative">
-        <div className="container mx-auto px-6">
-          <div className="mb-20 text-center">
+      <section id="programs" className="py-20 md:py-28 bg-brand-cream relative">
+        <div className="w-full max-w-[1400px] mx-auto px-4 lg:px-8">
+          <div className="mb-14 text-center">
             <span className="text-sm font-extrabold uppercase tracking-[4px] text-brand-rust mb-3 block">What We Do</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-brand-espresso mb-6">Our Core Programs</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-brand-espresso mb-4">Our Core Programs</h2>
             <div className="w-16 h-1 bg-gradient-to-r from-brand-gold to-brand-rust mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
             {/* Program 1 */}
-            <div className="bento-card p-10 flex flex-col items-center text-center group">
-              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-espresso to-brand-espresso text-white flex items-center justify-center mb-8 shadow-xl group-hover:scale-110 transition-transform">
-                <Leaf className="w-10 h-10" />
+            <div className="bento-card p-5 sm:p-6 lg:p-6 flex flex-col justify-between group hover:-translate-y-1 hover:shadow-xl transition-all duration-300 bg-white rounded-3xl border border-brand-espresso/10 hover:border-brand-gold/40">
+              <div>
+                <div className="flex items-center gap-3.5 mb-3.5">
+                  <div className="w-11 h-11 rounded-2xl bg-brand-espresso text-brand-gold shrink-0 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+                    <Leaf className="w-5 h-5" />
+                  </div>
+                  <h4 className="text-base font-bold text-brand-espresso leading-snug group-hover:text-brand-rust transition-colors">
+                    Climate Adaptation & Food Security
+                  </h4>
+                </div>
+                <p className="text-xs lg:text-[13px] text-brand-espresso/80 leading-relaxed font-medium">
+                  Strengthening resilience through sustainable agriculture, renewable energy, ecosystem restoration and climate-smart livelihoods.
+                </p>
               </div>
-              <h4 className="text-xl font-bold text-brand-espresso mb-4">Climate Adaptation & Food Security</h4>
-              <p className="text-brand-espresso/80 leading-relaxed">
-                Strengthening resilience through sustainable agriculture, renewable energy, ecosystem restoration and climate-smart livelihoods.
-              </p>
             </div>
 
             {/* Program 2 */}
-            <div className="bento-card p-10 flex flex-col items-center text-center group">
-              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-espresso to-brand-espresso text-white flex items-center justify-center mb-8 shadow-xl group-hover:scale-110 transition-transform">
-                <GraduationCap className="w-10 h-10" />
+            <div className="bento-card p-5 sm:p-6 lg:p-6 flex flex-col justify-between group hover:-translate-y-1 hover:shadow-xl transition-all duration-300 bg-white rounded-3xl border border-brand-espresso/10 hover:border-brand-gold/40">
+              <div>
+                <div className="flex items-center gap-3.5 mb-3.5">
+                  <div className="w-11 h-11 rounded-2xl bg-brand-espresso text-brand-gold shrink-0 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+                    <GraduationCap className="w-5 h-5" />
+                  </div>
+                  <h4 className="text-base font-bold text-brand-espresso leading-snug group-hover:text-brand-rust transition-colors">
+                    Education & Culture
+                  </h4>
+                </div>
+                <p className="text-xs lg:text-[13px] text-brand-espresso/80 leading-relaxed font-medium">
+                  Expanding access to education, mentorship, and cultural knowledge while strengthening identity and intergenerational learning.
+                </p>
               </div>
-              <h4 className="text-xl font-bold text-brand-espresso mb-4">Education & Culture</h4>
-              <p className="text-brand-espresso/80 leading-relaxed">
-                Expanding access to education, mentorship, and cultural knowledge while strengthening identity and intergenerational learning.
-              </p>
             </div>
 
             {/* Program 3 */}
-            <div className="bento-card p-10 flex flex-col items-center text-center group">
-              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-espresso to-brand-espresso text-white flex items-center justify-center mb-8 shadow-xl group-hover:scale-110 transition-transform">
-                <Heart className="w-10 h-10" />
+            <div className="bento-card p-5 sm:p-6 lg:p-6 flex flex-col justify-between group hover:-translate-y-1 hover:shadow-xl transition-all duration-300 bg-white rounded-3xl border border-brand-espresso/10 hover:border-brand-gold/40">
+              <div>
+                <div className="flex items-center gap-3.5 mb-3.5">
+                  <div className="w-11 h-11 rounded-2xl bg-brand-espresso text-brand-gold shrink-0 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+                    <Heart className="w-5 h-5" />
+                  </div>
+                  <h4 className="text-base font-bold text-brand-espresso leading-snug group-hover:text-brand-rust transition-colors">
+                    Sexual & Reproductive Health & Rights
+                  </h4>
+                </div>
+                <p className="text-xs lg:text-[13px] text-brand-espresso/80 leading-relaxed font-medium">
+                  Promoting dignity, health, and informed decision-making among adolescents and women.
+                </p>
               </div>
-              <h4 className="text-xl font-bold text-brand-espresso mb-4">Sexual & Reproductive Health and Rights</h4>
-              <p className="text-brand-espresso/80 leading-relaxed">
-                Promoting dignity, health, and informed decision-making among adolescents and women.
-              </p>
             </div>
 
             {/* Program 4 */}
-            <div className="bento-card p-10 flex flex-col items-center text-center group">
-              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-espresso to-brand-espresso text-white flex items-center justify-center mb-8 shadow-xl group-hover:scale-110 transition-transform">
-                <Users className="w-10 h-10" />
+            <div className="bento-card p-5 sm:p-6 lg:p-6 flex flex-col justify-between group hover:-translate-y-1 hover:shadow-xl transition-all duration-300 bg-white rounded-3xl border border-brand-espresso/10 hover:border-brand-gold/40">
+              <div>
+                <div className="flex items-center gap-3.5 mb-3.5">
+                  <div className="w-11 h-11 rounded-2xl bg-brand-espresso text-brand-gold shrink-0 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+                    <Users className="w-5 h-5" />
+                  </div>
+                  <h4 className="text-base font-bold text-brand-espresso leading-snug group-hover:text-brand-rust transition-colors">
+                    Peace & Security
+                  </h4>
+                </div>
+                <p className="text-xs lg:text-[13px] text-brand-espresso/80 leading-relaxed font-medium">
+                  Promoting peaceful coexistence through dialogue, media literacy and youth digital engagement.
+                </p>
               </div>
-              <h4 className="text-xl font-bold text-brand-espresso mb-4">Peace & Security</h4>
-              <p className="text-brand-espresso/80 leading-relaxed">
-                Promoting peaceful coexistence through dialogue, media literacy and youth digital engagement.
-              </p>
             </div>
           </div>
           
-          <div className="mt-16 text-center">
+          <div className="mt-12 text-center">
             <Link href="/our-impact" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider bg-gradient-to-br from-brand-gold to-brand-rust text-white shadow-[0_4px_15px_rgba(204,85,0,0.3)] hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,140,0,0.4)] transition-all duration-300">
               Explore Details
             </Link>
