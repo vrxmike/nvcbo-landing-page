@@ -1,75 +1,142 @@
 # Northern Vision CBO (NVCBO) Landing Page
 
-This is the official platform for Northern Vision Community-Based Organization (NVCBO), a grassroots-led initiative working with indigenous and pastoralist communities in Northern Kenya to strengthen climate resilience, gender justice, education, and community wellbeing.
+This is the official platform for **Northern Vision Community-Based Organization (NVCBO)**, a grassroots-led initiative working with indigenous and pastoralist communities in Northern Kenya to strengthen climate resilience, gender justice, education, and community wellbeing.
 
-## Tech Stack
+---
+
+## 🏗️ System Architecture & Data Flow
+
+```mermaid
+graph TD
+    Client["🌐 User Client (Browser)"]
+    
+    subgraph NextJS["⚡ Next.js 16 App Router"]
+        ServerComp["📄 Server Components (node-appwrite)"]
+        ClientComp["💻 Client Components (appwrite JS SDK)"]
+        Custom404["🚧 Custom 404 Route (not-found.tsx)"]
+    end
+
+    subgraph AppwriteCloud["☁️ Appwrite Cloud Infrastructure"]
+        TablesDB[("📊 TablesDB (nvcbo_db.media_gallery)")]
+        StorageCDN[("📁 Storage Bucket (nvcbo_bucket)")]
+        RealtimeWS["⚡ Realtime WebSockets (client.subscribe)"]
+    end
+
+    Client -->|HTTP GET Requests| NextJS
+    ServerComp -->|TablesDB.listRows (Cursor Pagination)| TablesDB
+    ClientComp -->|HTML5 Video Stream & WebP Previews| StorageCDN
+    ClientComp -->|Realtime Subscriptions| RealtimeWS
+    RealtimeWS -.->|Instant File & Row Mutation Events| ClientComp
+```
+
+---
+
+## 📂 Project Directory Structure
+
+```
+publicsite/
+├── docs/                                 # Detailed Documentation Manuals
+│   ├── NON_TECHNICAL_MANUAL.md           # Visual Sitemaps, User Journeys & Wireframes
+│   └── TECHNICAL_ARCHITECTURE.md         # Blueprint & Architecture Specification
+├── src/
+│   ├── app/
+│   │   ├── about/                        # Our Story, Beliefs, Partners, 2025 Review
+│   │   ├── api/                          # Serverless API Endpoints (gallery-images)
+│   │   ├── components/                   # Reusable UI Components
+│   │   │   ├── CircleGalleryModal.tsx    # Lightbox Modal (Top-Right Close, Esc/Arrow key nav)
+│   │   │   ├── Footer.tsx                # Site Footer
+│   │   │   └── Header.tsx                # Glass Sticky Navbar & Mobile Drawer
+│   │   ├── healing-circles/              # Healing Circles & Sub-tracks
+│   │   │   ├── circle-keepers/           # Circle Keeper Training & Photo Gallery
+│   │   │   ├── community-dialogues/      # Community Dialogues & Photo Gallery
+│   │   │   └── indigenous-knowledge/     # Indigenous Knowledge Integration
+│   │   ├── media-gallery/                # Dynamic Media Hub (TablesDB + Realtime WS)
+│   │   │   ├── MediaGalleryClient.tsx    # Native MP4 Video Player & Content-Hugging Pills
+│   │   │   └── page.tsx                  # Server Component (TablesDB Recursive Fetch)
+│   │   ├── our-impact/                   # Impact Tracks (Climate, Gender, Peace, Eco-Tourism, etc.)
+│   │   ├── resources/                    # Resources & Learning Hub
+│   │   ├── shop/                         # Shop Redirect / Under Development 404 Handler
+│   │   ├── globals.css                   # Tailwind CSS Theme & Animated Brand Gradients
+│   │   ├── layout.tsx                    # Root Layout
+│   │   ├── not-found.tsx                 # Custom Dark-Mode 404 Page & Newsletter Form
+│   │   └── page.tsx                      # Homepage (Animated Hero Title, Programs Grid, Methodology)
+├── .env                                  # Environment Variables (Gitignored)
+├── AGENTS.md                             # AI Agent Rules & Security Directives
+├── README.md                             # Repository Overview
+└── SECURITY.md                           # Security Vulnerability & Secret Handling Directives
+```
+
+---
+
+## 🚀 Tech Stack
+
 - **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
-- **Styling**: Vanilla CSS with Tailwind CSS utilities
-- **Typography**: Optimized loading for Fredoka, Inter, and Caveat
-- **Backend / Database / Storage**: [Appwrite Cloud](https://appwrite.io)
-- **Realtime reactivity**: Appwrite Client SDK (`client.subscribe`)
+- **Styling**: Vanilla CSS with Tailwind CSS utilities & dynamic animations
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Backend / Database**: [Appwrite Cloud](https://appwrite.io) (`TablesDB` API)
+- **Storage CDN**: Appwrite Storage Buckets (`nvcbo_bucket`)
+- **Realtime Synchronization**: Appwrite Client SDK (`client.subscribe`)
 
-## Local Development
+---
 
-First, copy `.env.example` (or set up your environment variables based on your Appwrite Cloud project credentials) to `.env`:
-```bash
-NEXT_PUBLIC_APPWRITE_ENDPOINT=https://cloud.appwrite.io/v1
-NEXT_PUBLIC_APPWRITE_PROJECT_ID=your_project_id
-NEXT_PUBLIC_APPWRITE_DATABASE_ID=nvcbo_db
-NEXT_PUBLIC_APPWRITE_BUCKET_ID=nvcbo_bucket
-APPWRITE_API_KEY=your_secret_api_key  # Server-side scripts only! Never expose to client.
-```
+## ✨ Key Platform Features & Recent Updates
 
-Run the development server:
-```bash
-npm install
-npm run dev
-```
+1. **Animated Hero Gradient Title**:
+   - The homepage hero title (`Community Transformation Begins with Healing`) features a smooth, animated text color shift across brand colors (White, Gold `#F39C12`, Yellow `#F1C40F`, Rust `#D35400`).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Native HTML5 MP4 Lightbox Video Player**:
+   - Native `<video controls autoPlay playsInline>` streaming in `/media-gallery` with volume adjustment, full scrubbing support, and dynamic WebP preview fallbacks.
 
-## Deployment: Appwrite Site Next.js SSR
+3. **Content-Hugging Category Pills**:
+   - Media Gallery categories wrap naturally and hug button text on mobile screens (`w-auto`), allowing multiple filter pills per line.
 
-This project is fully deployed and hosted entirely within the Appwrite ecosystem using **Appwrite Site's SSR Git Deployment** pipeline. 
+4. **Refined Image Lightbox Modals**:
+   - `CircleGalleryModal` features a close button (`X`) positioned outside the image frame in the top-right corner with generous margins, plus keyboard listeners (`Esc` to exit, `ArrowLeft`/`ArrowRight` to cycle photos).
 
-### Deployment Workflow
-Appwrite Cloud directly integrates with this GitHub repository to provide automatic continuous deployment (CD) with Server-Side Rendering (SSR) support. 
+5. **Custom Dark-Mode 404 Page with Newsletter Form**:
+   - Includes a custom **Under Active Development** message on `/shop`, `/contact`, and `/become-a-partner`, backed by a client-side Newsletter Subscription Form.
 
-When code is pushed to the `master` branch:
-1. **GitHub Trigger**: Appwrite detects the commit.
-2. **Build Process**: Appwrite automatically runs `npm install` and `npm run build`.
-3. **SSR Provisioning**: Appwrite spins up serverless compute required for Next.js 16's dynamic App Router and API routes.
-4. **Live Release**: The new version instantly goes live. 
+6. **Realtime TablesDB Integration**:
+   - Synchronizes media uploads and deletions live across clients using Appwrite WebSockets without page refreshes.
 
-### Environment Variables
-For production, ensure the following keys are safely configured within the **Appwrite Console Settings** under your Site deployment environment variables:
-- `NEXT_PUBLIC_APPWRITE_ENDPOINT`
-- `NEXT_PUBLIC_APPWRITE_PROJECT_ID`
-- `NEXT_PUBLIC_APPWRITE_DATABASE_ID`
-- `NEXT_PUBLIC_APPWRITE_BUCKET_ID`
+---
 
-*(Do NOT commit your `APPWRITE_API_KEY` into Git. It is solely utilized for local backend data-seeding CLI scripts.)*
+## 🛠️ Local Development
 
-### Custom Appwrite Domain Setup
-You can route all API requests, authentication sessions, and storage media through your own custom domain endpoint:
+1. Copy `.env.example` to `.env`:
+   ```bash
+   NEXT_PUBLIC_APPWRITE_ENDPOINT=https://cloud.appwrite.io/v1
+   NEXT_PUBLIC_APPWRITE_PROJECT_ID=your_project_id
+   NEXT_PUBLIC_APPWRITE_DATABASE_ID=nvcbo_db
+   NEXT_PUBLIC_APPWRITE_BUCKET_ID=nvcbo_bucket
+   APPWRITE_API_KEY=your_secret_api_key  # Server-side scripts only! Never expose to client.
+   ```
 
-1. **Configure Custom Domain in Appwrite**:
-   - Navigate to **Appwrite Console** $\rightarrow$ **Settings** $\rightarrow$ **Domains**.
-   - Add your custom subdomain (e.g., `<YOUR_CUSTOM_DOMAIN>`) and set up the corresponding CNAME or A DNS record at your domain registrar.
-   - Appwrite automatically provisions and renews SSL/TLS certificates.
+2. Run the development server:
+   ```bash
+   npm install
+   npm run dev
+   ```
 
-2. **Update Endpoint Variable**:
-   - Update `NEXT_PUBLIC_APPWRITE_ENDPOINT` in your local `.env` and production site environment settings:
-     ```env
-     NEXT_PUBLIC_APPWRITE_ENDPOINT="https://<YOUR_CUSTOM_DOMAIN>/v1"
-     ```
+3. Open [http://localhost:3000](http://localhost:3000) with your browser.
 
-3. **Key Advantages**:
-   - **First-Party Cookies**: Session cookies share your primary domain, avoiding third-party cookie blocking in browsers (Safari ITP / Chrome).
-   - **Branding & Consistency**: Replaces default region endpoints with your organization's custom API domain.
+---
 
-## Key Features
+## 🌐 Deployment & Environment Configuration
 
-- **Dynamic Media Gallery**: Realtime synchronization with Appwrite TablesDB rows instead of legacy Appwrite collections. Employs recursive cursor-based pagination to fluidly bypass 100-item rate limits.
-- **Glassmorphism UI**: Uses Bento grid, Tactile Minimalism, and premium gradients.
-- **WhatsApp Integration**: Immediate "Book Consultation" triggers linking deep into WhatsApp via URL parameters.
+### Appwrite Site SSR Git Deployment
+This project is continuously deployed using **Appwrite Site's SSR Git Deployment** pipeline. When code is pushed to `master`, Appwrite automatically builds and deploys serverless compute for Next.js 16.
+
+### Environment Variables & Custom Domain Setup
+- Ensure `NEXT_PUBLIC_APPWRITE_ENDPOINT`, `NEXT_PUBLIC_APPWRITE_PROJECT_ID`, `NEXT_PUBLIC_APPWRITE_DATABASE_ID`, and `NEXT_PUBLIC_APPWRITE_BUCKET_ID` are configured in Appwrite Console settings.
+- **Custom Domain**: Update `NEXT_PUBLIC_APPWRITE_ENDPOINT` to your custom domain (e.g., `https://<YOUR_CUSTOM_DOMAIN>/v1`). Appwrite automatically manages SSL certificates and first-party cookies.
+
+*(Do NOT commit your `APPWRITE_API_KEY` into Git. Refer to [SECURITY.md](SECURITY.md) for security procedures.)*
+
+---
+
+## 📖 Additional Manuals & Reference Guides
+
+- 📘 [Non-Technical Platform Guide](docs/NON_TECHNICAL_MANUAL.md) — Visual sitemap, user journeys & wireframe layouts.
+- 💻 [Technical Architecture Blueprint](docs/TECHNICAL_ARCHITECTURE.md) — Deep technical documentation, schema & API flowcharts.
+- 🔒 [Security Policy](SECURITY.md) — Environment variable protection & secret handling guidelines.
