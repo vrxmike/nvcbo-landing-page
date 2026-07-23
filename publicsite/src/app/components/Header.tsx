@@ -141,7 +141,7 @@ export default function Header() {
             </div>
           </div>
 
-          <Link href="#donate" className="whitespace-nowrap flex items-center gap-1 font-bold text-[10px] lg:text-xs uppercase tracking-widest px-2 lg:px-4 py-1.5 rounded-full text-brand-espresso hover:bg-brand-espresso/5 hover:text-brand-gold transition-all duration-300">
+          <Link href="/shop" className="whitespace-nowrap flex items-center gap-1 font-bold text-[10px] lg:text-xs uppercase tracking-widest px-2 lg:px-4 py-1.5 rounded-full text-brand-espresso hover:bg-brand-espresso/5 hover:text-brand-gold transition-all duration-300">
             Shop <span className="bg-brand-gold text-white text-[8px] font-black px-1.5 py-0.5 rounded-full shrink-0">New</span>
           </Link>
           
@@ -231,7 +231,7 @@ export default function Header() {
             </div>
           </div>
 
-          <Link onClick={() => setMobileMenuOpen(false)} href="#donate" className="flex items-center justify-between py-1 hover:text-brand-gold transition">
+          <Link onClick={() => setMobileMenuOpen(false)} href="/shop" className="flex items-center justify-between py-1 hover:text-brand-gold transition">
             <span>Shop</span>
             <span className="bg-white text-brand-rust text-[9px] uppercase font-black px-2 py-0.5 rounded-full">New</span>
           </Link>
@@ -240,10 +240,10 @@ export default function Header() {
 
           {/* Bottom Actions */}
           <div className="pt-4 mt-4 border-t border-white/10 space-y-2">
-            <Link onClick={() => setMobileMenuOpen(false)} href="#donate" className="block w-full text-center border border-white/70 text-white text-sm font-semibold py-2 px-4 rounded-xl hover:bg-white/10 transition">
+            <Link onClick={() => setMobileMenuOpen(false)} href="/shop" className="block w-full text-center border border-white/70 text-white text-sm font-semibold py-2 px-4 rounded-xl hover:bg-white/10 transition">
               Explore Shop
             </Link>
-            <Link onClick={() => setMobileMenuOpen(false)} href="#donate" className="block w-full text-center bg-white text-brand-rust font-black py-2.5 px-4 rounded-xl shadow-md hover:bg-orange-50 transition active:scale-[0.98]">
+            <Link onClick={() => setMobileMenuOpen(false)} href="/invest-in-our-impact" className="block w-full text-center bg-white text-brand-rust font-black py-2.5 px-4 rounded-xl shadow-md hover:bg-orange-50 transition active:scale-[0.98]">
               Invest in Our Impact
             </Link>
           </div>

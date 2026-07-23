@@ -1,5 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 export async function generateMetadata(): Promise<Metadata> {
   const shopEnabled = process.env.NEXT_PUBLIC_ENABLE_SHOP === 'true';
@@ -53,23 +54,7 @@ export default function ShopPage() {
   const shopEnabled = process.env.NEXT_PUBLIC_ENABLE_SHOP === 'true';
 
   if (!shopEnabled) {
-    return (
-      <main className="min-h-[80vh] bg-brand-cream flex items-center justify-center p-6">
-        <div className="bento-card p-12 md:p-16 text-center max-w-2xl w-full border border-muted bg-white shadow-xl animate-up">
-          <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6 text-primary">
-            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-              <line x1="12" y1="8" x2="12" y2="16"></line>
-              <line x1="8" y1="12" x2="16" y2="12"></line>
-            </svg>
-          </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-heading mb-4 tracking-tight">Shop Coming Soon</h1>
-          <p className="text-lg text-body leading-relaxed max-w-lg mx-auto">
-            We are currently finalizing our merchandise inventory and secure checkout pathways. Stay tuned for the official launch to support NVCBO directly.
-          </p>
-        </div>
-      </main>
-    );
+    notFound();
   }
 
   return (
