@@ -7,26 +7,52 @@ This is the official platform for **Northern Vision Community-Based Organization
 ## 🏗️ System Architecture & Data Flow
 
 ```mermaid
-graph TD
-    Client["🌐 User Client (Browser)"]
+flowchart TD
+    Client["🌐 User Client Browser"]
     
     subgraph NextJS["⚡ Next.js 16 App Router"]
-        ServerComp["📄 Server Components (node-appwrite)"]
-        ClientComp["💻 Client Components (appwrite JS SDK)"]
-        Custom404["🚧 Custom 404 Route (not-found.tsx)"]
+        ServerComp["📄 Server Components node-appwrite"]
+        ClientComp["💻 Client Components appwrite JS SDK"]
+        Custom404["🚧 Custom 404 Route not-found.tsx"]
     end
 
     subgraph AppwriteCloud["☁️ Appwrite Cloud Infrastructure"]
-        TablesDB[("📊 TablesDB (nvcbo_db.media_gallery)")]
-        StorageCDN[("📁 Storage Bucket (nvcbo_bucket)")]
-        RealtimeWS["⚡ Realtime WebSockets (client.subscribe)"]
+        TablesDB[("📊 TablesDB: nvcbo_db.media_gallery")]
+        StorageCDN[("📁 Storage Bucket: nvcbo_bucket")]
+        RealtimeWS["⚡ Realtime WebSockets: client.subscribe"]
     end
 
     Client -->|HTTP GET Requests| NextJS
-    ServerComp -->|TablesDB.listRows (Cursor Pagination)| TablesDB
+    ServerComp -->|TablesDB.listRows Cursor Pagination| TablesDB
     ClientComp -->|HTML5 Video Stream & WebP Previews| StorageCDN
     ClientComp -->|Realtime Subscriptions| RealtimeWS
     RealtimeWS -.->|Instant File & Row Mutation Events| ClientComp
+```
+
+## 🗺️ Visual Website Sitemap
+
+```mermaid
+flowchart TD
+    Home["🏠 Homepage /"] --> About["ℹ️ About Us /about"]
+    Home --> Healing["💬 Healing Circles /healing-circles"]
+    Home --> Impact["🌱 Our Impact /our-impact"]
+    Home --> Resources["📚 Resources & Learning /resources"]
+    Home --> MediaHub["🖼️ Media Gallery /media-gallery"]
+
+    Healing --> HC_Dialogues["🗣️ Community Dialogues /healing-circles/community-dialogues"]
+    Healing --> HC_Keepers["👥 Circle Keeper Training /healing-circles/circle-keepers"]
+    Healing --> HC_Indigenous["📜 Indigenous Knowledge /healing-circles/indigenous-knowledge"]
+
+    Impact --> Imp_Climate["☀️ Climate Resilience /our-impact/climate-resilience"]
+    Impact --> Imp_Gender["⚖️ Gender & Inclusion /our-impact/gender-equality"]
+    Impact --> Imp_Peace["🕊️ Peace & Security /our-impact/peace-security"]
+    Impact --> Imp_Edu["🎓 Education & Youth /our-impact/education-youth"]
+    Impact --> Imp_Gotu["🌾 Gotu Gamachu Farm /our-impact/gotu-farm"]
+    Impact --> Imp_EcoTour["🏕️ Eco-Tourism Hub /our-impact/eco-tourism"]
+    Impact --> Imp_HolidayCamp["💻 Digital Literacy Camp /our-impact/holiday-camp"]
+    Impact --> Imp_IK["📜 Indigenous Knowledge /our-impact/indigenous-knowledge"]
+
+    Home -. "Shop / Become a Partner / Contact" .-> Dev404["🚧 Under Active Development Custom 404"]
 ```
 
 ---
