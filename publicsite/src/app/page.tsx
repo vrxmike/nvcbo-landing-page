@@ -60,7 +60,7 @@ export default function Home() {
         <div className="w-full max-w-[1400px] mx-auto px-4 lg:px-8">
           <div className="mb-14 text-center">
             <span className="text-sm font-extrabold uppercase tracking-[4px] text-brand-rust mb-3 block">What We Do</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-brand-espresso mb-4">Our Core Programs</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-brand-espresso mb-4">Our Areas of Impact</h2>
             <div className="w-16 h-1 bg-gradient-to-r from-brand-gold to-brand-rust mx-auto rounded-full"></div>
           </div>
 
@@ -107,7 +107,7 @@ export default function Home() {
                     <Heart className="w-5 h-5" />
                   </div>
                   <h4 className="text-base font-bold text-brand-espresso leading-snug group-hover:text-brand-rust transition-colors">
-                    Sexual & Reproductive Health & Rights
+                    Gender Equality and Social Inclusion
                   </h4>
                 </div>
                 <p className="text-xs lg:text-[13px] text-brand-espresso/80 leading-relaxed font-medium">
@@ -136,7 +136,7 @@ export default function Home() {
           
           <div className="mt-12 text-center">
             <Link href="/our-impact" className="inline-flex items-center justify-center px-9 py-4 rounded-full font-bold uppercase tracking-wider bg-gradient-to-br from-brand-gold to-brand-rust text-white shadow-[0_4px_15px_rgba(204,85,0,0.3)] hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(255,140,0,0.4)] transition-all duration-300">
-              Explore Details
+              Explore Our Impact
             </Link>
           </div>
         </div>

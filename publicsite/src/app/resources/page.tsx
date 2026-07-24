@@ -9,7 +9,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Resources & Learning | Northern Vision CBO',
-  description: "Discover Northern Vision's publications, reports, toolkits, stories, videos, and insights from Healing Circle practice.",
+  description: "Discover publications, reports, stories, videos, and practical resources documenting community-led transformation through Healing Circles and grassroots action.",
 };
 
 // ──────────────────────────────────────────────────────
@@ -17,13 +17,13 @@ export const metadata: Metadata = {
 // ──────────────────────────────────────────────────────
 
 const TAXONOMY_TAGS: readonly string[] = [
-  "Jo Bauen's Training Report",
+  "Featured Publication",
+  "Reports",
   "Articles",
   "Videos",
+  "Photo Essays",
   "Testimonials",
-  "Photo essays",
-  "Learning resources",
-  "Future publications",
+  "Toolkits",
 ] as const;
 
 // ──────────────────────────────────────────────────────
@@ -31,9 +31,8 @@ const TAXONOMY_TAGS: readonly string[] = [
 // ──────────────────────────────────────────────────────
 
 const FEATURED_PUBLICATION = {
-  badge: "FEATURED PUBLICATION",
+  badge: "Featured Publication",
   title: "Building Community Leadership Through Circle Keeper Training",
-  author: "Jo Bauen's Training Report",
   description: "Explore the learning report documenting the training, participant experiences, key lessons, and recommendations for strengthening restorative leadership.",
   pdfUrl: "https://drive.google.com/file/d/1gSi06RWFWFvs763pDfN46pzsPC5R8R6S/view?usp=sharing",
   buttonText: "Read the Report (PDF) ➔",
@@ -89,13 +88,13 @@ export default async function ResourcesPage() {
               Resources & Learning
             </h1>
             <p className="text-xl md:text-2xl text-body leading-relaxed max-w-3xl mx-auto font-medium">
-              Discover Northern Vision&apos;s publications, reports, toolkits, stories, videos and insights from Healing Circle practice.
+              Discover publications, reports, stories, videos, and practical resources documenting community-led transformation through Healing Circles and grassroots action.
             </p>
 
             {/* Repository Taxonomy List */}
             <div className="pt-6">
               <span className="text-xs font-bold tracking-[0.2em] text-primary uppercase block mb-3">
-                Repository Taxonomy
+                Browse by
               </span>
               <div className="flex flex-wrap items-center justify-center gap-2 max-w-3xl mx-auto">
                 {TAXONOMY_TAGS.map((tag) => (
@@ -232,9 +231,6 @@ export default async function ResourcesPage() {
                 <div className="flex items-center gap-3">
                   <span className="px-3.5 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase border border-primary/20">
                     {FEATURED_PUBLICATION.badge}
-                  </span>
-                  <span className="text-xs font-semibold text-body">
-                    {FEATURED_PUBLICATION.author}
                   </span>
                 </div>
 
