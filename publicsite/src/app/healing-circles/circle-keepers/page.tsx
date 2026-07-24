@@ -1,6 +1,6 @@
 
 import Link from "next/link";
-import { Leaf, Users, ShieldAlert, HeartHandshake, GraduationCap, MapPin, ArrowRight, Download, UsersRound } from "lucide-react";
+import { Leaf, Users, ShieldAlert, HeartHandshake, GraduationCap, MapPin, ArrowRight, BookOpen, UsersRound } from "lucide-react";
 import CircleKeepersGallery from "./CircleKeepersGallery";
 
 
@@ -184,9 +184,11 @@ export default function CircleKeepersPage() {
               href="https://drive.google.com/file/d/1gSi06RWFWFvs763pDfN46pzsPC5R8R6S/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-brand-gold text-white rounded-full font-black uppercase tracking-wider hover:bg-brand-rust active:scale-[0.98] transition-all duration-300 shadow-md hover:shadow-xl w-full sm:w-auto"
+              className="group inline-flex items-center justify-center gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 bg-brand-gold hover:bg-brand-rust text-white rounded-full font-black text-xs sm:text-sm uppercase tracking-wider active:scale-[0.98] transition-all duration-300 shadow-md hover:shadow-xl w-full sm:w-auto max-w-xs sm:max-w-none"
             >
-              Read the Publication &rarr;
+              <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+              <span>Read the Publication</span>
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 group-hover:translate-x-1 transition-transform duration-300" />
             </a>
 
           </div>
