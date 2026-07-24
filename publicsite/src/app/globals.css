@@ -1,0 +1,215 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-gold: #F39C12;
+  --color-brand-espresso: #2B1100;
+  --color-brand-cream: #F5F2EB;
+  --color-brand-rust: #D35400;
+  --color-brand-light-bg: #FAFAFA;
+
+  --color-primary: var(--color-brand-rust);
+  --color-neutral-light: var(--color-brand-cream);
+  --color-muted: rgba(43, 17, 0, 0.15);
+  --color-heading: var(--color-brand-espresso);
+  --color-body: #4A4A4A;
+
+  --font-sans: var(--font-inter), sans-serif;
+  --font-display: var(--font-fredoka), sans-serif;
+  --font-accent: var(--font-caveat), cursive;
+}
+
+:root {
+  --background: #FFFFFF;
+  --foreground: #2B1100;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-display);
+}
+
+.font-accent {
+  font-family: var(--font-accent);
+}
+
+/* Upgraded button typography style */
+button, 
+a.rounded-full, 
+a.rounded-xl,
+.tactile-btn {
+  font-family: var(--font-display) !important;
+}
+
+/* Custom container override for premium wide-screen desktop layout */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1240px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1440px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1620px;
+  }
+}
+
+
+/* Tactile Minimalism & Bento Utilities */
+.bento-card {
+  background: var(--background);
+  border-radius: 24px;
+  border: 1px solid rgba(43, 17, 0, 0.08); /* Crisp, high-contrast border */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Subtle, realistic drop shadow */
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  border-color: rgba(243, 156, 18, 0.4); /* Brand Gold accent on hover */
+}
+
+/* Glassmorphism 2.0 Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+.dark-glass-panel {
+  background: rgba(43, 17, 0, 0.7); /* Brand Espresso */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Specific background for cream sections */
+.bg-brand-cream .bento-card {
+  background: var(--background); /* Keep card white for high contrast */
+}
+
+.tactile-btn {
+  background: var(--background);
+  border: 1px solid rgba(43, 17, 0, 0.15);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tactile-btn:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  border-color: var(--color-brand-gold);
+}
+
+.tactile-btn:active {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transform: translateY(0);
+}
+@keyframes titleReveal {
+  from { clip-path: inset(100% 0 0 0); transform: translateY(30px); }
+  to { clip-path: inset(0 0 0 0); transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-up {
+  opacity: 0;
+  animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.5s; }
+.delay-3 { animation-delay: 0.8s; }
+
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); } /* Scrolls half the width since content is duplicated */
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+/* Pause on hover for better UX */
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-brand-gradient {
+  background: linear-gradient(
+    135deg,
+    #FFFFFF 0%,
+    var(--color-brand-gold) 25%,
+    #F1C40F 50%,
+    var(--color-brand-rust) 75%,
+    #FFFFFF 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 5s ease-in-out infinite;
+}
+
