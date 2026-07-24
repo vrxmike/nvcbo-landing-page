@@ -135,7 +135,7 @@ export default function CircleKeepersPage() {
         </div>
       </section>
 
-      {/* 3. "Our Latest Training" Analytics Tracker */}
+      {/* 3. "Our Latest Circle Keeper Training" Analytics Tracker */}
       <section className="py-20 px-6">
         <div className="container mx-auto max-w-5xl">
           <div className="bg-brand-espresso rounded-[24px] shadow-xl border border-black/5 p-10 md:p-16 flex flex-col md:flex-row items-center gap-12 overflow-hidden relative">
@@ -147,14 +147,14 @@ export default function CircleKeepersPage() {
               <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-brand-rust/20 border border-brand-rust/30 text-brand-gold mb-4 mx-auto md:mx-0">
                 <UsersRound className="w-10 h-10" />
               </div>
-              <div className="text-6xl md:text-7xl font-black text-white tracking-tighter mb-2">30</div>
-              <div className="text-sm font-bold uppercase tracking-wider text-brand-gold">Cohort Members</div>
+              <div className="text-6xl md:text-7xl font-black text-white tracking-tighter mb-2">27</div>
+              <div className="text-sm font-bold uppercase tracking-wider text-brand-gold">Circle Keepers Trained</div>
             </div>
 
             <div className="flex-1 text-center md:text-left z-10">
-              <h3 className="text-2xl md:text-3xl font-black text-white mb-6">Our Latest Training</h3>
+              <h3 className="text-2xl md:text-3xl font-black text-white mb-6">Our Latest Circle Keeper Training</h3>
               <p className="text-base md:text-lg text-white/80 leading-relaxed font-medium">
-                Our recent Circle Keeper Training brought together 30 community leaders, youth, and government representatives to strengthen community-led approaches to healing and restorative justice. Participants developed advanced facilitation skills, explored restorative justice principles, and exchanged lived experiences and cultural knowledge that will continue shaping their work in their communities.
+                Northern Vision recently brought together 27 community leaders, youth, and government representatives to strengthen their capacity to facilitate Healing Circles rooted in restorative justice, indigenous knowledge, and inclusive community dialogue. These Circle Keepers are now equipped to convene safe spaces for communities to address conflict, strengthen relationships, and lead locally driven change.
               </p>
             </div>
 
@@ -162,7 +162,7 @@ export default function CircleKeepersPage() {
         </div>
       </section>
 
-      {/* 4. Featured Learning Report Download Component */}
+      {/* 4. Featured Publication Component */}
       <section className="pb-20 px-6">
         <div className="container mx-auto max-w-4xl">
           <div className="bento-card bg-brand-cream p-10 md:p-12 text-center flex flex-col items-center shadow-lg border border-brand-gold/20 relative overflow-hidden">
@@ -170,14 +170,14 @@ export default function CircleKeepersPage() {
             {/* Subtle Top Border Highlight */}
             <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-gold to-brand-rust"></div>
 
-            <span className="text-xs font-black uppercase tracking-[3px] text-brand-rust mb-4 block">Featured Resource</span>
+            <span className="text-xs font-black uppercase tracking-[3px] text-brand-rust mb-4 block">Featured Publication</span>
 
             <h3 className="text-2xl md:text-4xl font-black text-brand-espresso mb-6 max-w-2xl leading-tight">
-              Building Community Leadership Through Circle Keeper Training
+              Embracing the Best of Two Worldviews
             </h3>
 
             <p className="text-base md:text-lg text-brand-espresso/80 leading-relaxed font-medium max-w-2xl mb-10">
-              Explore the learning report documenting the training, participant experiences, key lessons, and recommendations for strengthening restorative leadership.
+              What happens when communities embrace the best of two worldviews? Dr. Jo Bauen reflects on Northern Vision's first Circle Keeper Training and the role of Healing Circles in creating safe spaces that honor every voice, strengthen indigenous values of interconnectedness, and open new possibilities for inclusive community dialogue and leadership.
             </p>
 
             <a
@@ -186,7 +186,7 @@ export default function CircleKeepersPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-brand-gold text-white rounded-full font-black uppercase tracking-wider hover:bg-brand-rust active:scale-[0.98] transition-all duration-300 shadow-md hover:shadow-xl w-full sm:w-auto"
             >
-              <Download className="w-5 h-5" /> Download Full Report
+              Read the Publication &rarr;
             </a>
 
           </div>
