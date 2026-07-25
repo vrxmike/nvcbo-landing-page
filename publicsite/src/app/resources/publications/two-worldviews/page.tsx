@@ -1,0 +1,641 @@
+import React from 'react';
+import { Metadata } from 'next';
+import Link from 'next/link';
+import {
+  FileText,
+  Download,
+  ArrowLeft,
+  Quote,
+  Sparkles,
+  MapPin,
+  Users,
+  Calendar,
+  BookOpen,
+  CheckCircle2,
+  ExternalLink,
+  Heart,
+  Globe,
+  Feather,
+  MessageSquareQuote,
+} from 'lucide-react';
+import PublicationInteractive, { ImageFrame, PublicationImage } from './PublicationInteractive';
+
+export const metadata: Metadata = {
+  title: 'Embracing the Best of Two Worldviews | Dr. Jo Bauen | Northern Vision CBO',
+  description:
+    'Practicing Restorative Justice in Tribal Kenya: Field report and reflection by Jo Bauen, Ed.D. on Healing Circle facilitator training in Isiolo.',
+  openGraph: {
+    title: 'Embracing the Best of Two Worldviews: Practicing Restorative Justice in Tribal Kenya',
+    description:
+      'Field report by Jo Bauen, Ed.D. detailing the 7-Step Healing Circle method and cultural exchange with 27 youth leaders in Isiolo, Kenya.',
+    type: 'article',
+  },
+};
+
+// ──────────────────────────────────────────────────────
+// 1. Immutable Publication Metadata Schema
+// ──────────────────────────────────────────────────────
+
+export const PUBLICATION_META = {
+  title: 'Embracing the Best of Two Worldviews: Practicing Restorative Justice in Tribal Kenya',
+  author: 'Jo Bauen, Ed.D.',
+  pdfUrl: 'https://drive.google.com/file/d/1gSi06RWFWFvs763pDfN46pzsPC5R8R6S/view?usp=sharing',
+  category: 'FEATURED PUBLICATION | RESTORATIVE JUSTICE',
+  participantsCount: 27,
+  location: 'Isiolo, Kenya',
+  date: 'Early 2024',
+  tribes: ['Borana', 'Rendille', 'Sakhuye', 'Somali', 'Luhya'],
+} as const;
+
+// Appwrite Endpoint Configuration
+const ENDPOINT = process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT?.replace(/\/v1$/, '') || 'https://fra.cloud.appwrite.io';
+const BUCKET_ID = process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID || 'nvcbo_bucket';
+const PROJECT_ID = process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID || '692a34ec001f1efc9002';
+
+const makeAppwriteUrl = (fileId: string) =>
+  `${ENDPOINT}/storage/buckets/${BUCKET_ID}/files/${fileId}/preview?width=1200&output=webp&project=${PROJECT_ID}`;
+
+// ──────────────────────────────────────────────────────
+// 2. Publication Image Slots (Appwrite WebP Pipeline)
+// ──────────────────────────────────────────────────────
+
+export const PUBLICATION_IMAGES: Record<string, PublicationImage> = {
+  hero1: {
+    id: 'hero1',
+    appwriteId: '6a5584e100306a35c9ce',
+    url: makeAppwriteUrl('6a5584e100306a35c9ce'),
+    caption: 'Jo Bauen and Zamzam Bonaya co-facilitating the Healing Circle training in Isiolo.',
+    alt: 'Jo and Zamzam co-facilitating',
+  },
+  hero2: {
+    id: 'hero2',
+    appwriteId: '6a5584e100306124378d',
+    url: makeAppwriteUrl('6a5584e100306124378d'),
+    caption: 'Group photo of the 27 tribal youth leaders and facilitators representing multi-sector organizations.',
+    alt: 'The training participants group photo',
+  },
+  context1: {
+    id: 'context1',
+    appwriteId: '6a5584e10030657d429e',
+    url: makeAppwriteUrl('6a5584e10030657d429e'),
+    caption: 'Dr. Jo Bauen in dialogue with Saadia Boru of the Borana Council of Elders.',
+    alt: 'Jo and Saadia Boru of the Borana Council of Elders',
+  },
+  morning1: {
+    id: 'morning1',
+    appwriteId: '6a5584e10030648a1bc6',
+    url: makeAppwriteUrl('6a5584e10030648a1bc6'),
+    caption: 'Participants passing and holding the Talking Piece during the worldview reflection.',
+    alt: 'Participants using the Talking Piece',
+  },
+  morning2: {
+    id: 'morning2',
+    appwriteId: '6a5584e100306edd1fc7',
+    url: makeAppwriteUrl('6a5584e100306edd1fc7'),
+    caption: 'The whole group session seated in circle around tables at the Isiolo cultural center.',
+    alt: 'The whole group session in circle',
+  },
+  practice1: {
+    id: 'practice1',
+    appwriteId: '6a5584e10030672ce1ac',
+    url: makeAppwriteUrl('6a5584e10030672ce1ac'),
+    caption: 'Small group break-out session practicing the 7-step Healing Circle method.',
+    alt: 'A practice Healing Circle in small groups',
+  },
+  conclusion1: {
+    id: 'conclusion1',
+    appwriteId: '6a5fd5630003209fc638',
+    url: makeAppwriteUrl('6a5fd5630003209fc638'),
+    caption: 'Hussein, Jillo and Shampi of the Northern Vision CBO core organizing team.',
+    alt: 'Hussein, Jillo and Shampi of Northern Vision',
+  },
+  conclusion2: {
+    id: 'conclusion2',
+    appwriteId: '6a617d140002da812a7f',
+    url: makeAppwriteUrl('6a617d140002da812a7f'),
+    caption: 'The Northern Vision team together with Dr. Jo Bauen and Rebecca.',
+    alt: 'The Northern Vision team plus Jo and Rebecca',
+  },
+  conclusion3: {
+    id: 'conclusion3',
+    appwriteId: '6a5584e100306a35c9ce',
+    url: makeAppwriteUrl('6a5584e100306a35c9ce'),
+    caption: 'Celebratory community dance and songs at the completion of the Circle Keeper training.',
+    alt: 'A dance to celebrate the end of the training',
+  },
+};
+
+// ──────────────────────────────────────────────────────
+// 3. 7-Step Method Schema Data
+// ──────────────────────────────────────────────────────
+
+const SEVEN_STEPS = [
+  {
+    step: '01',
+    title: 'Opening',
+    description: 'Poem, somatic exercise, or guided breathing to ground participants and center collective presence.',
+    icon: Sparkles,
+  },
+  {
+    step: '02',
+    title: 'Introducing the Talking Piece',
+    description: 'Establishes an equitable environment where whoever holds the piece speaks without interruption.',
+    icon: Feather,
+  },
+  {
+    step: '03',
+    title: 'Check-In',
+    description: 'Invites each person to share their current state of mind and body, building authentic vulnerability.',
+    icon: Heart,
+  },
+  {
+    step: '04',
+    title: 'Values Round',
+    description: 'Naming personal values and identifying shared group commitments that govern the circle.',
+    icon: CheckCircle2,
+  },
+  {
+    step: '05',
+    title: 'Discussion Round',
+    description: 'Heart-centered dialogue based on pre-selected themes exploring challenges and opportunities.',
+    icon: MessageSquareQuote,
+  },
+  {
+    step: '06',
+    title: 'Check-Out',
+    description: 'Synthesizing key takeaways by asking each participant: "What is your take-away from today?"',
+    icon: BookOpen,
+  },
+  {
+    step: '07',
+    title: 'Closing',
+    description: 'Closing poem, prayer, or guided breathing exercise to honor shared commitments and transition.',
+    icon: Globe,
+  },
+] as const;
+
+// ──────────────────────────────────────────────────────
+// 4. Main Page Component (RSC)
+// ──────────────────────────────────────────────────────
+
+export default function TwoWorldviewsPage() {
+  return (
+    <main className="min-h-screen bg-neutral-light pb-24">
+      {/* Interactive Client Wrapper (Progress, Lightbox, Sticky Jump Bar) */}
+      <PublicationInteractive
+        images={PUBLICATION_IMAGES}
+        pdfUrl={PUBLICATION_META.pdfUrl}
+      />
+
+      {/* ════════════════════════════════════════════════
+          ARTICLE HERO & METADATA HEADER
+          ════════════════════════════════════════════════ */}
+      <header id="hero" className="relative pt-28 pb-16 lg:pt-36 lg:pb-20 bg-[#F5F2EB] border-b border-muted overflow-hidden">
+        {/* Fine paper background texture */}
+        <div
+          className="absolute inset-0 opacity-[0.07] pointer-events-none"
+          style={{
+            backgroundImage:
+              'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")',
+          }}
+        />
+
+        {/* Ambient warm glow */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="container max-w-5xl mx-auto px-4 relative z-10 animate-up">
+          {/* Back Navigation */}
+          <Link
+            href="/resources"
+            className="inline-flex items-center gap-2 text-xs font-bold text-primary hover:text-heading uppercase tracking-wider mb-8 transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" /> Back to Resources & Learning
+          </Link>
+
+          <div className="space-y-6">
+            {/* Category Tag */}
+            <div>
+              <span className="inline-block px-3.5 py-1 rounded-full border border-primary/20 bg-primary/10 text-xs font-bold tracking-widest text-primary uppercase">
+                {PUBLICATION_META.category}
+              </span>
+            </div>
+
+            {/* Main Title */}
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-heading tracking-tight leading-[1.15]">
+              {PUBLICATION_META.title}
+            </h1>
+
+            {/* Author & Context Bar */}
+            <div className="flex flex-wrap items-center gap-y-3 gap-x-6 pt-2 border-t border-muted/60 text-sm font-medium text-body">
+              <div className="flex items-center gap-2">
+                <span className="font-bold text-heading">Author:</span>
+                <span className="text-primary font-bold">{PUBLICATION_META.author}</span>
+              </div>
+
+              <div className="flex items-center gap-1.5 text-body">
+                <MapPin className="w-4 h-4 text-primary shrink-0" />
+                <span>{PUBLICATION_META.location}</span>
+              </div>
+
+              <div className="flex items-center gap-1.5 text-body">
+                <Users className="w-4 h-4 text-primary shrink-0" />
+                <span>{PUBLICATION_META.participantsCount} Youth Leaders</span>
+              </div>
+
+              <div className="flex items-center gap-1.5 text-body">
+                <Calendar className="w-4 h-4 text-primary shrink-0" />
+                <span>{PUBLICATION_META.date}</span>
+              </div>
+            </div>
+
+            {/* Tribes Badges */}
+            <div className="flex flex-wrap items-center gap-2 pt-1">
+              <span className="text-xs font-bold uppercase tracking-wider text-heading/70 mr-1">
+                Participating Tribes:
+              </span>
+              {PUBLICATION_META.tribes.map((tribe) => (
+                <span
+                  key={tribe}
+                  className="px-2.5 py-0.5 rounded-md bg-white border border-muted text-xs font-semibold text-heading shadow-xs"
+                >
+                  {tribe}
+                </span>
+              ))}
+            </div>
+
+            {/* Download CTA Button */}
+            <div className="pt-4 flex flex-wrap items-center gap-4">
+              <a
+                href={PUBLICATION_META.pdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="tactile-btn inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-primary text-white font-bold text-base tracking-wide shadow-md hover:shadow-lg hover:bg-primary/90 active:scale-[0.98] transition-all duration-200"
+              >
+                <Download className="w-5 h-5" /> Download Original PDF
+              </a>
+              <span className="text-xs text-body font-medium">
+                Official field publication document (Google Drive PDF)
+              </span>
+            </div>
+          </div>
+
+          {/* Hero Media Grid (2 Frames) */}
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <ImageFrame image={PUBLICATION_IMAGES.hero1} priority aspect="aspect-[4/3]" />
+            <ImageFrame image={PUBLICATION_IMAGES.hero2} priority aspect="aspect-[4/3]" />
+          </div>
+        </div>
+      </header>
+
+      {/* ════════════════════════════════════════════════
+          ARTICLE CONTENT CONTAINER
+          ════════════════════════════════════════════════ */}
+      <article className="container max-w-4xl mx-auto px-4 pt-16 space-y-20">
+
+        {/* ──────────────────────────────────────────────
+            SECTION 1: AN INVITATION
+            ────────────────────────────────────────────── */}
+        <section id="invitation" className="space-y-6 scroll-mt-28">
+          <div className="flex items-center gap-3">
+            <span className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold">
+              01
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-heading tracking-tight">
+              An Invitation
+            </h2>
+          </div>
+
+          <div className="prose prose-lg max-w-none text-body leading-relaxed space-y-6 text-base sm:text-lg font-normal">
+            <p className="first-letter:text-5xl first-letter:font-black first-letter:text-primary first-letter:mr-3 first-letter:float-left first-letter:leading-none">
+              I have just had the honor of holding a Healing Circle facilitator training for a group of 27 youth leaders from several tribes in Northern Kenya. I was invited by Zamzam Bonaya, a 23-year-old human rights activist from the Borana tribe in northern-Kenyan. In late 2023 Zamzam interned with a non-profit here in Oakland, California, and she lived with my wife and me. During her stay, Zamzam attended my weekly Healing Circles, a community-building process that is based on the principles of Restorative Justice. She quickly embraced the Circle process, and invited me to lead a Healing Circle facilitator training in her village of Isiolo, Kenya.
+            </p>
+
+            <p>
+              This invitation meant that I was asked to teach a circle method that is based on global indigenous principles and practices to a tribal community grounded in the same principles and practices. I was thrilled by this challenge, and knew I had to own the irony of the potential appropriation of tribal practice, and then of teaching it back to the tribe. The training would have to confront this paradox right away. So, in our email preparations, Zamzam and I decided to open the day with a reflection on two contrasting paradigms or worldviews, namely the Western/Scientific/Modern and the Traditional/Tribal/Indigenous. We wanted to validate the tribal values, to acknowledge the roots of Restorative Justice, and to explore what the two paradigms might offer each other. After this opening reflection I was to teach the seven-step Healing Circle method to the tribal youth participants.
+            </p>
+          </div>
+        </section>
+
+        {/* ──────────────────────────────────────────────
+            SECTION 2: THE CONTEXT THAT MADE THIS POSSIBLE
+            ────────────────────────────────────────────── */}
+        <section id="context" className="space-y-6 scroll-mt-28">
+          <div className="flex items-center gap-3">
+            <span className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold">
+              02
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-heading tracking-tight">
+              The Context that Made this Possible
+            </h2>
+          </div>
+
+          <div className="prose prose-lg max-w-none text-body leading-relaxed space-y-6 text-base sm:text-lg font-normal">
+            <p>
+              While still an undergraduate in Nairobi, Zamzam founded Northern Vision, a community based organization focused on environmental justice, women’s rights, and youth development in the northern region of Kenya. Since graduating, she has invited her brother and two close friends to join her to organize for environmental and social justice. While the community based organization has no funding, and the team earns no salary, they are collaborating on the issues most important to each of them and having an impact. When the team saw the opportunity for me to hold a Healing Circle training, they recruited 27 young leaders, ages 20-40, mostly from the Borana tribe, plus others from Rendille, Sakhuye, Somali and Luhya tribes. The participants represented a range of community organizations including Peace Link, a regional pastoralist organization promoting peaceful tribal relationships; EcoRafiki, an environmental justice group; anti-Female Genital Cutting activists and survivors; staff from the Kenya’s gender inclusivity office; the Office of the Isiolo Ombudsman and several other human rights activists. In addition, Zamzam invited Saadia Boru, a woman from the Elder Council, and asked her to speak about the Council’s conflict resolution and decision-making process, which is held in circle!
+            </p>
+          </div>
+
+          {/* Section 2 Media Block */}
+          <div className="pt-4">
+            <ImageFrame image={PUBLICATION_IMAGES.context1} aspect="aspect-[16/9]" />
+          </div>
+        </section>
+
+        {/* ──────────────────────────────────────────────
+            SECTION 3: ON THE MORNING OF THE TRAINING & WORLDVIEW REFLECTION
+            ────────────────────────────────────────────── */}
+        <section id="morning" className="space-y-8 scroll-mt-28">
+          <div className="flex items-center gap-3">
+            <span className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold">
+              03
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-heading tracking-tight">
+              On the Morning of the Training & Worldview Reflection
+            </h2>
+          </div>
+
+          <div className="prose prose-lg max-w-none text-body leading-relaxed space-y-6 text-base sm:text-lg font-normal">
+            <p>
+              Everyone dressed in traditional clothing for the day’s event—this was Zamzam’s idea to emphasize the significance of the tribes represented. The training was held at a cultural center that housed several human rights offices, including Northern Vision. The space was quiet and beautiful with shade trees and birdsong. Several aging buildings circled an open courtyard, the metal walls of our classroom rolled upward to open, and the day was warm. Zamzam’s team had miraculously provided swag: notepads, pens and cloth bags all with the Northern Vision logo. Sitting in a big circle around folding tables, we began by introducing ourselves and named the tribes, and organizations we were from. Next up was tea break! Chai tea, plantain and fried dough was ready for us upstairs in an airy dining hall where we all got the chance to meet informally, eat and chat.
+            </p>
+
+            <p>
+              After the tea break, Zamzam and I led a reflection on the two worldviews. I shared a list of the major ideas attributed to the Western/Modern paradigm, openly naming my culture’s value of autonomy and objectivity, our prioritization of material wealth, and our limited connection to the planet and all living things. Zamzam shared the attributes of Tribal/Traditional cultures, highlighting community over autonomy, and noting the values of people over profit, and honoring ancestral values. Then we passed the ‘talking piece’, an object used in circles that allows each person to speak as it is passed from hand to hand. We asked, &quot;Which worldview do you associate with?&quot; Or, &quot;What are your thoughts about these examples of the two contrasting worldviews?&quot; This freed the room to validate and honor their deep-seated, unbroken connection to tribal values, to each other and to the earth. The vast majority spoke about the positives of their traditional cultural worldview. They named their love of their families and community. They saw their connection to tradition, earth, and all living things. They shared that they are not materialists, stating that, &quot;Money isn’t everything.&quot; A few people voiced the negative impact of Western capitalism on the globe. And a couple of men defended the prescribed role of women in tribal communities saying, &quot;There are reasons for the status of women.&quot; Explaining that, &quot;We men protect our women and they care for our children.&quot;
+            </p>
+
+            <p>
+              I appreciated their comments and praised their cultural strengths. Then Jillo, a staff member of Northern Vision spoke up, &quot;But tell me, who in this room can live a day without their cell phone?&quot; He prompted thoughts about the limitations of traditional culture, and the yearning for modern life. Another young man spoke up, saying, &quot;I love the Western lifestyle.&quot; Some women stated that they wanted their voices heard and they wanted the right to own land. Both women and men expressed their desire to end female genital cutting. Someone added that children need to be heard as well, and ‘mainstreamed’ into important conversations. As individuals voiced differing views, they sometimes disagreed, and yet they seemed to accept the contrasting opinions, or at least nobody left the room. Then Jillo proposed, &quot;Can we create a hybrid worldview?&quot;
+            </p>
+          </div>
+
+          {/* Pull-Quote Callout Card */}
+          <div className="my-8 bento-card bg-brand-espresso text-white p-8 md:p-10 rounded-3xl relative overflow-hidden shadow-xl border border-white/10">
+            <div className="absolute -right-8 -bottom-8 w-40 h-40 bg-brand-gold/15 rounded-full blur-2xl pointer-events-none" />
+            <Quote className="w-12 h-12 text-brand-gold/40 mb-4" />
+            <blockquote className="text-2xl sm:text-3xl font-black text-brand-cream leading-tight tracking-tight">
+              &quot;Can we create a hybrid worldview?&quot;
+            </blockquote>
+            <cite className="block mt-4 text-sm font-bold text-brand-gold not-italic tracking-wider uppercase">
+              — Jillo, Northern Vision Team Member
+            </cite>
+          </div>
+
+          {/* Section 3 Media Grid (2 Frames) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+            <ImageFrame image={PUBLICATION_IMAGES.morning1} aspect="aspect-[4/3]" />
+            <ImageFrame image={PUBLICATION_IMAGES.morning2} aspect="aspect-[4/3]" />
+          </div>
+        </section>
+
+        {/* ──────────────────────────────────────────────
+            SECTION 4: THE SEVEN-STEP HEALING CIRCLE METHOD (BENTO GRID)
+            ────────────────────────────────────────────── */}
+        <section id="method" className="space-y-8 scroll-mt-28">
+          <div className="flex items-center gap-3">
+            <span className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold">
+              04
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-heading tracking-tight">
+              The Seven-Step Healing Circle Method
+            </h2>
+          </div>
+
+          <div className="prose prose-lg max-w-none text-body leading-relaxed space-y-4 text-base sm:text-lg font-normal">
+            <p>
+              I offered the definition of Restorative Justice, acknowledging its indigenous roots, and its uses in the US and globally. I defined the Healing Circle as a community building process that creates a safe space, honors each participant and recognizes our interconnectedness.
+            </p>
+          </div>
+
+          {/* Structured 7-Step Bento Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
+            {SEVEN_STEPS.map((step) => {
+              const IconComponent = step.icon;
+              return (
+                <div
+                  key={step.step}
+                  className="bento-card bg-white p-6 rounded-2xl border border-muted shadow-sm hover:border-primary/40 flex flex-col justify-between transition-all duration-300 group"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-xs font-black tracking-widest text-primary uppercase bg-primary/10 px-2.5 py-1 rounded-md">
+                        Step {step.step}
+                      </span>
+                      <div className="w-9 h-9 rounded-xl bg-neutral-light group-hover:bg-primary/10 flex items-center justify-center text-primary transition-colors">
+                        <IconComponent className="w-5 h-5" />
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-bold text-heading mb-2 group-hover:text-primary transition-colors">
+                      {step.title}
+                    </h3>
+                    <p className="text-body text-sm leading-relaxed font-medium">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+
+            {/* Highlight Summary Card filling grid */}
+            <div className="bento-card bg-gradient-to-br from-primary to-brand-rust text-white p-6 rounded-2xl shadow-md flex flex-col justify-between md:col-span-2 lg:col-span-2">
+              <div>
+                <span className="text-xs font-bold tracking-widest uppercase bg-white/20 px-3 py-1 rounded-full text-white inline-block mb-3">
+                  Core Restorative Philosophy
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
+                  Building Safe Spaces Across Pastoralist Communities
+                </h3>
+                <p className="text-white/90 text-sm leading-relaxed font-medium">
+                  The 7-step Healing Circle framework provides an equitable, structured container for dialogue that transforms tension into shared understanding, honoring lived indigenous wisdom while addressing contemporary community challenges.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ──────────────────────────────────────────────
+            SECTION 5: SMALL GROUP PRACTICE & REPORT-BACKS
+            ────────────────────────────────────────────── */}
+        <section id="practice" className="space-y-8 scroll-mt-28">
+          <div className="flex items-center gap-3">
+            <span className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold">
+              05
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-heading tracking-tight">
+              Small Group Practice & Report-Backs
+            </h2>
+          </div>
+
+          <div className="prose prose-lg max-w-none text-body leading-relaxed space-y-6 text-base sm:text-lg font-normal">
+            <p>
+              The final component of the training was practice: to break into small groups to plan and each hold their own Healing Circle. We counted off into four groups, each with a Northern Vision staff member or myself facilitating. The groups each chose as themes: 1) Who do you look up to? 2) What inspires your work? 3) How can we address trauma? And, 4) How to overcome fear of vulnerability?
+            </p>
+
+            <p>
+              After the time for the small groups ended, their report-backs told us that the circles worked. Each group had allowed participants to share deeply, and to strengthen bonds among each other. One participant added, &quot;We need to hold circles with our youth, our single mothers, and our formerly incarcerated.&quot; After the report-back, Jillo concluded, &quot;We should all know that a community that does not sit in Circle, is doomed!&quot;
+            </p>
+          </div>
+
+          {/* Practice Circle Themes Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-2">
+            {[
+              { num: 'Theme 1', title: 'Who do you look up to?' },
+              { num: 'Theme 2', title: 'What inspires your work?' },
+              { num: 'Theme 3', title: 'How can we address trauma?' },
+              { num: 'Theme 4', title: 'How to overcome fear of vulnerability?' },
+            ].map((theme) => (
+              <div
+                key={theme.num}
+                className="bg-white border border-muted p-5 rounded-xl flex items-center gap-4 shadow-xs"
+              >
+                <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold text-xs shrink-0">
+                  {theme.num}
+                </div>
+                <span className="font-bold text-heading text-base">{theme.title}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Section Quote Block */}
+          <div className="bento-card bg-neutral-light border border-muted p-8 rounded-2xl relative">
+            <MessageSquareQuote className="w-10 h-10 text-primary/40 mb-3" />
+            <blockquote className="text-xl sm:text-2xl font-bold text-heading leading-snug">
+              &quot;We should all know that a community that does not sit in Circle, is doomed!&quot;
+            </blockquote>
+            <cite className="block mt-3 text-xs font-bold text-primary not-italic tracking-wider uppercase">
+              — Jillo, Northern Vision Team Member
+            </cite>
+          </div>
+
+          {/* Section 5 Media Block */}
+          <div className="pt-2">
+            <ImageFrame image={PUBLICATION_IMAGES.practice1} aspect="aspect-[16/9]" />
+          </div>
+        </section>
+
+        {/* ──────────────────────────────────────────────
+            SECTION 6: CONCLUSIONS / OUTCOMES
+            ────────────────────────────────────────────── */}
+        <section id="conclusions" className="space-y-8 scroll-mt-28">
+          <div className="flex items-center gap-3">
+            <span className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold">
+              06
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-heading tracking-tight">
+              Conclusions & Key Outcomes
+            </h2>
+          </div>
+
+          <div className="prose prose-lg max-w-none text-body leading-relaxed space-y-6 text-base sm:text-lg font-normal">
+            <p className="text-lg sm:text-xl font-medium text-heading leading-relaxed bg-white border border-muted p-8 rounded-2xl shadow-xs">
+              I learned that these differing worldviews are potent--they define us, and also challenge us to move beyond their confining elements. But these two paradigms are not singular, stand-alone truths. It helps to demystify them, to depolarize them so that we can learn who we are in the midst of them. I learned that we can’t completely deny either paradigm in favor of the other... Zamzam’s experience with Healing Circles in the US and her vision for their application in her home village created a profound cultural exchange for myself and 27 others. We waded in the unknown zone between two worldviews... And through the Healing Circle practice, we found a means to embrace the best of both worldviews.
+            </p>
+          </div>
+
+          {/* Section 6 Media Grid (3 Frames) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+            <ImageFrame image={PUBLICATION_IMAGES.conclusion1} aspect="aspect-[4/3]" />
+            <ImageFrame image={PUBLICATION_IMAGES.conclusion2} aspect="aspect-[4/3]" />
+            <ImageFrame image={PUBLICATION_IMAGES.conclusion3} aspect="aspect-[4/3]" />
+          </div>
+        </section>
+
+        {/* ──────────────────────────────────────────────
+            SECTION 7: SOURCES & ACADEMIC CITATIONS
+            ────────────────────────────────────────────── */}
+        <section id="citations" className="space-y-6 scroll-mt-28 pt-8 border-t border-muted">
+          <div className="flex items-center gap-3">
+            <span className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold">
+              07
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-heading tracking-tight">
+              Sources & Academic References
+            </h2>
+          </div>
+
+          <div className="bg-white border border-muted p-8 rounded-2xl space-y-4 shadow-xs">
+            <p className="text-xs font-bold tracking-widest text-primary uppercase">
+              Methodological Foundations & Literature
+            </p>
+
+            <ul className="space-y-3 divide-y divide-muted/50">
+              <li className="pt-2 flex items-start gap-3">
+                <span className="text-primary font-bold">•</span>
+                <div>
+                  <a
+                    href="https://rjoyoakland.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold text-heading hover:text-primary inline-flex items-center gap-1.5 transition-colors"
+                  >
+                    Restorative Justice for Oakland Youth (RJOY) <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                  <p className="text-xs text-body mt-0.5">
+                    Oakland, California restorative circle practices and community model.
+                  </p>
+                </div>
+              </li>
+
+              <li className="pt-3 flex items-start gap-3">
+                <span className="text-primary font-bold">•</span>
+                <div>
+                  <span className="font-bold text-heading">
+                    Kay Pranis&apos; Circle Keepers Handbook
+                  </span>
+                  <span className="text-xs text-body block mt-0.5">
+                    Living Justice Press — Definitive guide for circle process design and facilitation.
+                  </span>
+                </div>
+              </li>
+
+              <li className="pt-3 flex items-start gap-3">
+                <span className="text-primary font-bold">•</span>
+                <div>
+                  <a
+                    href="https://www.facebook.com/RJTI.training/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold text-heading hover:text-primary inline-flex items-center gap-1.5 transition-colors"
+                  >
+                    Renjitham Alfred — Restorative Justice Training Institute <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                  <p className="text-xs text-body mt-0.5">
+                    Facilitation training curriculum and global indigenous restorative frameworks.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* Bottom CTA Block */}
+        <section className="pt-12 text-center">
+          <div className="bento-card bg-brand-cream border border-muted p-10 rounded-3xl space-y-4">
+            <h3 className="text-2xl font-bold text-heading">
+              Interested in Circle Keeper Facilitation or Field Reports?
+            </h3>
+            <p className="text-body max-w-xl mx-auto text-sm leading-relaxed">
+              Northern Vision CBO continues to conduct Healing Circles across Northern Kenya. Reach out to collaborate or request circle facilitation training.
+            </p>
+            <div className="pt-2 flex flex-wrap justify-center gap-4">
+              <a
+                href={PUBLICATION_META.pdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="tactile-btn inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-white font-bold text-sm shadow-md hover:bg-primary/90 transition-all"
+              >
+                <Download className="w-4 h-4" /> Download PDF Report
+              </a>
+              <Link
+                href="/resources"
+                className="tactile-btn inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white border border-muted text-heading font-bold text-sm hover:border-primary transition-all"
+              >
+                Explore All Resources
+              </Link>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </main>
+  );
+}

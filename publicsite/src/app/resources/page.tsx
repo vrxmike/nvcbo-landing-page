@@ -32,10 +32,12 @@ const TAXONOMY_TAGS: readonly string[] = [
 
 const FEATURED_PUBLICATION = {
   badge: "Featured Publication",
-  title: "Building Community Leadership Through Circle Keeper Training",
-  description: "Explore the learning report documenting the training, participant experiences, key lessons, and recommendations for strengthening restorative leadership.",
+  title: "Embracing the Best of Two Worldviews: Practicing Restorative Justice in Tribal Kenya",
+  author: "Jo Bauen, Ed.D.",
+  description: "Explore the interactive field report by Jo Bauen, Ed.D. documenting the 7-step Healing Circle facilitator training with 27 tribal youth leaders in Isiolo, Kenya.",
   pdfUrl: "https://drive.google.com/file/d/1gSi06RWFWFvs763pDfN46pzsPC5R8R6S/view?usp=sharing",
-  buttonText: "Read the Report (PDF) ➔",
+  articleUrl: "/resources/publications/two-worldviews",
+  buttonText: "Read Interactive Report ➔",
 } as const;
 
 // ──────────────────────────────────────────────────────
@@ -243,15 +245,23 @@ export default async function ResourcesPage() {
                 </p>
               </div>
 
-              <div className="w-full md:w-auto shrink-0 pt-2">
+              <div className="w-full md:w-auto shrink-0 pt-2 flex flex-col sm:flex-row md:flex-col gap-3">
+                <Link
+                  href={FEATURED_PUBLICATION.articleUrl}
+                  className="w-full md:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-primary text-white font-bold text-base tracking-wide shadow-md hover:shadow-lg hover:bg-primary/90 active:scale-[0.98] transition-all duration-200"
+                >
+                  <BookOpen className="w-5 h-5" />
+                  {FEATURED_PUBLICATION.buttonText}
+                </Link>
+
                 <a
                   href={FEATURED_PUBLICATION.pdfUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full md:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-primary text-white font-bold text-base tracking-wide shadow-md hover:shadow-lg hover:bg-primary/90 active:scale-[0.98] transition-all duration-200"
+                  className="w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white border border-muted text-heading hover:text-primary hover:border-primary/50 font-bold text-sm tracking-wide shadow-xs hover:shadow-md transition-all duration-200"
                 >
-                  <FileText className="w-5 h-5" />
-                  {FEATURED_PUBLICATION.buttonText}
+                  <Download className="w-4 h-4 text-primary" />
+                  Download PDF
                 </a>
               </div>
 
