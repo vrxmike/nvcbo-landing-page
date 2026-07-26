@@ -184,7 +184,7 @@ export default function PublicationInteractive({
           >
             <div className="flex items-center justify-between p-4 border-b border-muted bg-neutral-light">
               <div className="flex items-center gap-2 text-xs font-bold text-primary tracking-widest uppercase">
-                <Sparkles className="w-4 h-4" /> Appwrite WebP Media Frame
+                <Sparkles className="w-4 h-4" /> Appwrite Storage Media Frame
               </div>
               <button
                 onClick={() => setActiveImage(null)}

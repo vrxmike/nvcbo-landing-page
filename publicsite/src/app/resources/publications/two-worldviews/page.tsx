@@ -56,70 +56,70 @@ const makeAppwriteUrl = (fileId: string) =>
   `${ENDPOINT}/storage/buckets/${BUCKET_ID}/files/${fileId}/preview?width=1200&output=webp&project=${PROJECT_ID}`;
 
 // ──────────────────────────────────────────────────────
-// 2. Publication Image Slots (Appwrite WebP Pipeline)
+// 2. Publication Image Slots (Raw Appwrite Cloud File CDN)
 // ──────────────────────────────────────────────────────
 
 export const PUBLICATION_IMAGES: Record<string, PublicationImage> = {
   hero1: {
     id: 'hero1',
     appwriteId: '6a655257001c94d17b7e',
-    url: makeAppwriteUrl('6a655257001c94d17b7e'),
+    url: 'https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a655257001c94d17b7e/view?project=692a34ec001f1efc9002',
     caption: 'Jo Bauen and Zamzam Bonaya co-facilitating the Healing Circle training in Isiolo.',
     alt: 'Jo and Zamzam co-facilitating',
   },
   hero2: {
     id: 'hero2',
     appwriteId: '6a6552590022615ff7f4',
-    url: makeAppwriteUrl('6a6552590022615ff7f4'),
+    url: 'https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a6552590022615ff7f4/view?project=692a34ec001f1efc9002',
     caption: 'Group photo of the 27 tribal youth leaders and facilitators representing multi-sector organizations.',
     alt: 'The training participants group photo',
   },
   context1: {
     id: 'context1',
     appwriteId: '6a65525c001407933217',
-    url: makeAppwriteUrl('6a65525c001407933217'),
+    url: 'https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a65525c001407933217/view?project=692a34ec001f1efc9002',
     caption: 'Dr. Jo Bauen in dialogue with Saadia Boru of the Borana Council of Elders.',
     alt: 'Jo and Saadia Boru of the Borana Council of Elders',
   },
   morning1: {
     id: 'morning1',
     appwriteId: '6a65525e0035dc39b8cb',
-    url: makeAppwriteUrl('6a65525e0035dc39b8cb'),
+    url: 'https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a65525e0035dc39b8cb/view?project=692a34ec001f1efc9002',
     caption: 'Participants passing and holding the Talking Piece during the worldview reflection.',
     alt: 'Participants using the Talking Piece',
   },
   morning2: {
     id: 'morning2',
     appwriteId: '6a65526000317727e343',
-    url: makeAppwriteUrl('6a65526000317727e343'),
+    url: 'https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a65526000317727e343/view?project=692a34ec001f1efc9002',
     caption: 'The whole group session seated in circle around tables at the Isiolo cultural center.',
     alt: 'The whole group session in circle',
   },
   practice1: {
     id: 'practice1',
     appwriteId: '6a6552620001dd7caa75',
-    url: makeAppwriteUrl('6a6552620001dd7caa75'),
+    url: 'https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a6552620001dd7caa75/view?project=692a34ec001f1efc9002',
     caption: 'Small group break-out session practicing the 7-step Healing Circle method.',
     alt: 'A practice Healing Circle in small groups',
   },
   conclusion1: {
     id: 'conclusion1',
     appwriteId: '6a655263001e44f41058',
-    url: makeAppwriteUrl('6a655263001e44f41058'),
+    url: 'https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a655263001e44f41058/view?project=692a34ec001f1efc9002',
     caption: 'Hussein, Jillo and Shampi of the Northern Vision CBO core organizing team.',
     alt: 'Hussein, Jillo and Shampi of Northern Vision',
   },
   conclusion2: {
     id: 'conclusion2',
     appwriteId: '6a65526d00326e42f8de',
-    url: makeAppwriteUrl('6a65526d00326e42f8de'),
+    url: 'https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a65526d00326e42f8de/view?project=692a34ec001f1efc9002',
     caption: 'The Northern Vision team together with Dr. Jo Bauen and Rebecca.',
     alt: 'The Northern Vision team plus Jo and Rebecca',
   },
   conclusion3: {
     id: 'conclusion3',
     appwriteId: '6a65526f0013ede889d7',
-    url: makeAppwriteUrl('6a65526f0013ede889d7'),
+    url: 'https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a65526f0013ede889d7/view?project=692a34ec001f1efc9002',
     caption: 'Celebratory community dance and songs at the completion of the Circle Keeper training.',
     alt: 'A dance to celebrate the end of the training',
   },
