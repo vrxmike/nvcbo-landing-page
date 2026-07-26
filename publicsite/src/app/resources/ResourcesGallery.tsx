@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { X, ChevronLeft, ChevronRight, Maximize2, Sparkles } from 'lucide-react';
 
 export interface GalleryImage {
@@ -17,7 +18,12 @@ interface ResourcesGalleryProps {
 export default function ResourcesGallery({ galleryImages }: ResourcesGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [isPaused, setIsPaused] = useState<boolean>(false);
+  const [mounted, setMounted] = useState<boolean>(false);
   const touchStartX = useRef<number | null>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Split 12 images into 2 balanced rows of 6 images each
   const row1 = galleryImages.slice(0, 6);
@@ -180,9 +186,9 @@ export default function ResourcesGallery({ galleryImages }: ResourcesGalleryProp
       </div>
 
       {/* ════════════════════════════════════════════════
-          FULL-SCREEN INTERACTIVE LIGHTBOX MODAL (Topmost Layer z-[99999])
+          FULL-SCREEN INTERACTIVE LIGHTBOX MODAL (React Portal -> document.body)
           ════════════════════════════════════════════════ */}
-      {selectedIndex !== null && (
+      {mounted && selectedIndex !== null && createPortal(
         <div
           className="fixed inset-0 z-[99999] bg-black/95 h-[100dvh] w-screen flex flex-col justify-between items-center p-4 md:p-8 animate-in fade-in duration-200"
           onClick={closeModal}
@@ -261,7 +267,8 @@ export default function ResourcesGallery({ galleryImages }: ResourcesGalleryProp
               Swipe or use arrow keys to navigate
             </span>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
