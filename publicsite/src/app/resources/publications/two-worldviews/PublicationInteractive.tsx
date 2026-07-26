@@ -128,15 +128,6 @@ export default function PublicationInteractive({
           <span className="hidden sm:inline text-white font-bold">Original PDF</span>
         </a>
 
-        {scrollProgress > 15 && (
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="w-10 h-10 rounded-full bg-heading text-white flex items-center justify-center shadow-xl hover:bg-primary transition-all"
-            title="Scroll to Top"
-          >
-            <ArrowUp className="w-4 h-4" />
-          </button>
-        )}
       </div>
 
       {/* Sticky Section Jump Pill Bar */}
