@@ -37,7 +37,7 @@ export default function PublicationInteractive({
       }
 
       // Track active section
-      const sections = ['invitation', 'context', 'morning', 'method', 'practice', 'conclusions', 'citations'];
+      const sections = ['invitation', 'context', 'morning', 'conclusions', 'citations'];
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
         if (el) {
@@ -148,13 +148,11 @@ export default function PublicationInteractive({
             </span>
 
             {[
-              { id: 'invitation', label: '1. An Invitation' },
-              { id: 'context', label: '2. The Context' },
-              { id: 'morning', label: '3. Two Worldviews' },
-              { id: 'method', label: '4. 7-Step Method' },
-              { id: 'practice', label: '5. Practice Circles' },
-              { id: 'conclusions', label: '6. Conclusions' },
-              { id: 'citations', label: '7. Sources' },
+              { id: 'invitation', label: '1. Invitation' },
+              { id: 'context', label: '2. Context' },
+              { id: 'morning', label: '3. Morning & Training' },
+              { id: 'conclusions', label: '4. Conclusions/Outcomes' },
+              { id: 'citations', label: '5. Sources' },
             ].map((sec) => (
               <button
                 key={sec.id}
