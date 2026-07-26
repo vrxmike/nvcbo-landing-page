@@ -97,8 +97,8 @@ export default function PublicationInteractive({
         />
       </div>
 
-      {/* Floating Quick Actions Bar */}
-      <div className="fixed bottom-6 right-6 z-40 flex items-center gap-2">
+      {/* Floating Quick Actions Bar (Left-aligned) */}
+      <div className="fixed bottom-6 left-6 z-40 flex items-center gap-2">
         <button
           onClick={handleShare}
           className="tactile-btn flex items-center gap-2 px-4 py-3 rounded-full bg-white/90 backdrop-blur-md shadow-xl text-heading text-xs font-bold hover:text-primary transition-all border border-muted"
