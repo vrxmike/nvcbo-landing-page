@@ -238,16 +238,13 @@ export function ImageFrame({
           onClick={() => setModalOpen(true)}
           className={`relative ${aspect} w-full bg-neutral-100 overflow-hidden cursor-zoom-in`}
         >
-          <div className="absolute inset-0 bg-neutral-light/60 animate-pulse pointer-events-none" />
 
           <img
             src={image.url}
             alt={image.alt}
             loading={priority ? 'eager' : 'lazy'}
             onLoad={() => setLoaded(true)}
-            className={`w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105 ${
-              loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-            }`}
+            className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 opacity-100"
           />
 
           <div className="absolute inset-0 bg-gradient-to-t from-brand-espresso/75 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-4">
