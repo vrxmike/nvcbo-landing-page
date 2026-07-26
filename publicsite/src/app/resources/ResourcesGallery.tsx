@@ -236,14 +236,14 @@ export default function ResourcesGallery({ galleryImages }: ResourcesGalleryProp
 
           {/* Main Modal Media Stage */}
           <div
-            className="relative w-full max-w-5xl flex-1 flex flex-col items-center justify-center p-2 min-h-0"
+            className="relative w-full max-w-5xl flex-1 flex flex-col items-center justify-center p-2 min-h-0 overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {galleryImages[selectedIndex]?.src ? (
               <img
                 src={galleryImages[selectedIndex].src}
                 alt={galleryImages[selectedIndex].alt || `Photo ${selectedIndex + 1}`}
-                className="max-h-[70vh] md:max-h-[75vh] max-w-full w-auto h-auto object-contain rounded-2xl shadow-2xl border border-white/15"
+                className="max-h-[55vh] sm:max-h-[64vh] md:max-h-[68vh] max-w-full w-auto h-auto object-contain rounded-2xl shadow-2xl border border-white/15"
               />
             ) : (
               <div className="p-12 text-white text-center bg-white/10 rounded-2xl">
@@ -251,25 +251,32 @@ export default function ResourcesGallery({ galleryImages }: ResourcesGalleryProp
               </div>
             )}
 
-            {/* Image Caption Footer */}
+            {/* Refined Compact Image Caption */}
             {galleryImages[selectedIndex]?.caption && (
-              <div className="mt-4 max-w-2xl text-center px-4">
-                <p className="text-sm md:text-base font-medium text-white/90 leading-relaxed bg-black/40 backdrop-blur-md px-6 py-3 rounded-xl border border-white/10 shadow-lg">
+              <div className="mt-3 max-w-xl text-center px-3">
+                <p className="text-xs sm:text-sm font-normal text-brand-cream/90 leading-snug bg-black/60 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/10 shadow-md">
                   {galleryImages[selectedIndex].caption}
                 </p>
               </div>
             )}
           </div>
 
-          {/* Bottom Navigation & Close Instructions Footer */}
-          <div className="w-full text-center pb-2 shrink-0 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-xs text-white/70 font-medium">
-            <span className="flex items-center gap-1">
-              Press <kbd className="px-1.5 py-0.5 rounded bg-white/20 text-white font-mono text-[10px] border border-white/30">ESC</kbd> or click <span className="text-white font-bold">Close</span> at top right
-            </span>
-            <span className="hidden sm:inline text-white/40">•</span>
-            <span className="hidden sm:inline">Click backdrop outside to close</span>
-            <span className="text-white/40">•</span>
-            <span>Swipe or use arrow keys to navigate</span>
+          {/* Dedicated Isolated Footer for Control Instructions */}
+          <div className="w-full shrink-0 border-t border-white/10 bg-black/50 backdrop-blur-md py-2.5 px-4 text-center z-30 mt-2">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-4 text-[11px] sm:text-xs text-white/70 font-medium max-w-4xl mx-auto">
+              <div className="flex items-center gap-1.5">
+                <span>Press <kbd className="px-1.5 py-0.5 rounded bg-white/20 text-white font-mono text-[9px] sm:text-[10px] border border-white/30">ESC</kbd> or tap <span className="text-white font-bold">Close</span> at top right</span>
+              </div>
+
+              <span className="hidden sm:inline text-white/30">•</span>
+
+              <div className="flex items-center gap-1.5">
+                <span className="hidden sm:inline">Tap backdrop outside to exit</span>
+                <span className="hidden sm:inline text-white/30">•</span>
+                <span className="text-brand-gold font-semibold">Swipe ← →</span>
+                <span>or use arrow keys to navigate</span>
+              </div>
+            </div>
           </div>
         </div>,
         document.body
