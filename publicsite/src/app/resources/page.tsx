@@ -326,6 +326,12 @@ export default function ResourcesPage() {
             <p className="text-brand-cream/80 text-base mt-2 font-medium">
               Photographic documentation of facilitators, community circles, and leadership workshops.
             </p>
+
+            <div className="mt-4 flex items-center gap-2">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-brand-gold text-xs font-bold border border-white/20 shadow-xs">
+                💡 Click or tap any photo to view in full screen
+              </span>
+            </div>
           </div>
 
           {/* 12-Image Double-Track Infinite Marquee Carousel */}

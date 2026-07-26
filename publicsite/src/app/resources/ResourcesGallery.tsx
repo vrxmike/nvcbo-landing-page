@@ -45,11 +45,13 @@ export default function ResourcesGallery({ galleryImages }: ResourcesGalleryProp
     }
   };
 
-  // Lock body scroll & listen for keyboard events while modal is open
+  // Lock body & document scroll & listen for keyboard events while modal is open
   useEffect(() => {
     if (selectedIndex !== null) {
+      document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
     } else {
+      document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
     }
 
@@ -62,6 +64,7 @@ export default function ResourcesGallery({ galleryImages }: ResourcesGalleryProp
 
     window.addEventListener('keydown', handleKeyDown);
     return () => {
+      document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
       window.removeEventListener('keydown', handleKeyDown);
     };
@@ -177,16 +180,16 @@ export default function ResourcesGallery({ galleryImages }: ResourcesGalleryProp
       </div>
 
       {/* ════════════════════════════════════════════════
-          FULL-SCREEN INTERACTIVE LIGHTBOX MODAL
+          FULL-SCREEN INTERACTIVE LIGHTBOX MODAL (Topmost Layer z-[99999])
           ════════════════════════════════════════════════ */}
       {selectedIndex !== null && (
         <div
-          className="fixed inset-0 z-50 bg-black/95 h-[100dvh] flex flex-col justify-between items-center p-4 md:p-8 animate-in fade-in duration-200"
+          className="fixed inset-0 z-[99999] bg-black/95 h-[100dvh] w-screen flex flex-col justify-between items-center p-4 md:p-8 animate-in fade-in duration-200"
           onClick={closeModal}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          {/* Top Bar (Counter Badge & Close Button) */}
+          {/* Top Bar (Counter Badge & Prominent Close Button) */}
           <div className="w-full flex items-center justify-between z-20 shrink-0 max-w-6xl mx-auto pt-2">
             <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-bold tracking-wider">
               <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
@@ -197,11 +200,12 @@ export default function ResourcesGallery({ galleryImages }: ResourcesGalleryProp
 
             <button
               onClick={closeModal}
-              className="w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer focus:outline-none"
+              className="px-4 py-2 rounded-full bg-brand-rust hover:bg-brand-espresso text-white font-bold text-xs flex items-center gap-1.5 border border-white/30 shadow-2xl transition-all cursor-pointer focus:outline-none"
               aria-label="Close modal"
               title="Close (Esc)"
             >
-              <X className="w-6 h-6 text-white" />
+              <X className="w-4 h-4 text-white" />
+              <span className="hidden sm:inline text-white font-bold">Close (Esc)</span>
             </button>
           </div>
 
