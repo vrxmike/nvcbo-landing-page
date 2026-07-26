@@ -261,11 +261,15 @@ export default function ResourcesGallery({ galleryImages }: ResourcesGalleryProp
             )}
           </div>
 
-          {/* Bottom Touch Indicator / Blank Space */}
-          <div className="w-full text-center pb-2 shrink-0">
-            <span className="text-[11px] font-semibold text-white/50 tracking-widest uppercase">
-              Swipe or use arrow keys to navigate
+          {/* Bottom Navigation & Close Instructions Footer */}
+          <div className="w-full text-center pb-2 shrink-0 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-xs text-white/70 font-medium">
+            <span className="flex items-center gap-1">
+              Press <kbd className="px-1.5 py-0.5 rounded bg-white/20 text-white font-mono text-[10px] border border-white/30">ESC</kbd> or click <span className="text-white font-bold">Close</span> at top right
             </span>
+            <span className="hidden sm:inline text-white/40">•</span>
+            <span className="hidden sm:inline">Click backdrop outside to close</span>
+            <span className="text-white/40">•</span>
+            <span>Swipe or use arrow keys to navigate</span>
           </div>
         </div>,
         document.body
