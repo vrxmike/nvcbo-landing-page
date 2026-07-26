@@ -180,16 +180,14 @@ export default function CircleKeepersPage() {
               What happens when communities embrace the best of two worldviews? Dr. Jo Bauen reflects on Northern Vision's first Circle Keeper Training and the role of Healing Circles in creating safe spaces that honor every voice, strengthen indigenous values of interconnectedness, and open new possibilities for inclusive community dialogue and leadership.
             </p>
 
-            <a
-              href="https://drive.google.com/file/d/1gSi06RWFWFvs763pDfN46pzsPC5R8R6S/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/resources/publications/two-worldviews"
               className="group inline-flex items-center justify-center gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 bg-brand-gold hover:bg-brand-rust text-white rounded-full font-black text-xs sm:text-sm uppercase tracking-wider active:scale-[0.98] transition-all duration-300 shadow-md hover:shadow-xl w-full sm:w-auto max-w-xs sm:max-w-none"
             >
               <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
               <span>Read the Publication</span>
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 group-hover:translate-x-1 transition-transform duration-300" />
-            </a>
+            </Link>
 
           </div>
         </div>
