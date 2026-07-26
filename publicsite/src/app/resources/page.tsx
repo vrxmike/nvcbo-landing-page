@@ -245,7 +245,7 @@ export default async function ResourcesPage() {
                 </p>
               </div>
 
-              <div className="w-full md:w-auto shrink-0 pt-2 flex flex-col sm:flex-row md:flex-col gap-3">
+              <div className="w-full md:w-auto shrink-0 pt-2">
                 <Link
                   href={FEATURED_PUBLICATION.articleUrl}
                   className="w-full md:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-primary text-white font-bold text-base tracking-wide shadow-md hover:shadow-lg hover:bg-primary/90 active:scale-[0.98] transition-all duration-200"
@@ -253,16 +253,6 @@ export default async function ResourcesPage() {
                   <BookOpen className="w-5 h-5" />
                   {FEATURED_PUBLICATION.buttonText}
                 </Link>
-
-                <a
-                  href={FEATURED_PUBLICATION.pdfUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white border border-muted text-heading hover:text-primary hover:border-primary/50 font-bold text-sm tracking-wide shadow-xs hover:shadow-md transition-all duration-200"
-                >
-                  <Download className="w-4 h-4 text-primary" />
-                  Download PDF
-                </a>
               </div>
 
             </div>
