@@ -47,8 +47,8 @@ export const PUBLICATION_META = {
 export const PUBLICATION_IMAGES: Record<string, PublicationImage> = {
   hero1: {
     id: 'hero1',
-    appwriteId: '6a655257001c94d17b7e',
-    url: 'https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a655257001c94d17b7e/view?project=692a34ec001f1efc9002',
+    appwriteId: '6a656650001786462894',
+    url: 'https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a656650001786462894/view?project=692a34ec001f1efc9002',
     caption: 'Jo Bauen and Zamzam Bonaya co-facilitating the Healing Circle training in Isiolo.',
     alt: 'Jo and Zamzam co-facilitating',
   },
