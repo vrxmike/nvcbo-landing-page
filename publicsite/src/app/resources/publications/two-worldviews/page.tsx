@@ -98,8 +98,22 @@ export const PUBLICATION_IMAGES: Record<string, PublicationImage> = {
     id: 'conclusion1',
     appwriteId: '6a6568cc003cd98ff9ce',
     url: 'https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a6568cc003cd98ff9ce/view?project=692a34ec001f1efc9002',
-    caption: 'Hussein, Jillo and Shampi of the Northern Vision CBO core organizing team.',
-    alt: 'Hussein, Jillo and Shampi of Northern Vision',
+    caption: 'Hussein of Northern Vision',
+    alt: 'Hussein of Northern Vision',
+  },
+  jillo: {
+    id: 'jillo',
+    appwriteId: '6a6552aa002f77667472',
+    url: 'https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a6552aa002f77667472/view?project=692a34ec001f1efc9002',
+    caption: 'Jillo of Northern Vision',
+    alt: 'Jillo of Northern Vision',
+  },
+  shampi: {
+    id: 'shampi',
+    appwriteId: '6a6552ab0029136bf27e',
+    url: 'https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a6552ab0029136bf27e/view?project=692a34ec001f1efc9002',
+    caption: 'Shampi of Northern Vision',
+    alt: 'Shampi of Northern Vision',
   },
   conclusion2: {
     id: 'conclusion2',
@@ -325,9 +339,11 @@ export default function TwoWorldviewsPage() {
               The Healing Circle creates safe space, and honors all voices. While based on indigenous principles, it is not embedded in any particular tradition, and is thus unencumbered by cultural restrictions. Our Healing Circle training lifted up the fundamental tribal value of interconnectedness, then introduced a circle method that is free from constraints of tribal culture (i.e. gender inequality, and ageism to name two), and placed it back down in a fully indigenous setting. I saw how the training provided a way for the participants to embrace their tribal values, to challenge traditional norms when necessary, and to implement a new way to address community dialogue, conflicts and decision making with a fresh commitment to non-authoritarian, non-sexist, inclusive methods. The 27 youth leaders embraced the Healing Circle as something, &quot;We thought we didn’t understand, but in the end, we always have understood.&quot;
             </p>
 
-            {/* Northern Vision Team Media Frame */}
-            <div className="py-4 not-prose">
-              <ImageFrame image={PUBLICATION_IMAGES.conclusion1} aspect="aspect-[16/9]" />
+            {/* Northern Vision Core Team Media Grid (3 Frames) */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 py-4 not-prose">
+              <ImageFrame image={PUBLICATION_IMAGES.conclusion1} aspect="aspect-[3/4]" />
+              <ImageFrame image={PUBLICATION_IMAGES.jillo} aspect="aspect-[3/4]" />
+              <ImageFrame image={PUBLICATION_IMAGES.shampi} aspect="aspect-[3/4]" />
             </div>
           </div>
         </section>
