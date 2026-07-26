@@ -389,43 +389,44 @@ export default function TwoWorldviewsPage() {
             Sources
           </h2>
 
-          <div className="bg-white border border-muted p-8 rounded-2xl space-y-4 shadow-xs">
-            <ul className="space-y-4 divide-y divide-muted/50 text-base font-medium">
-              <li className="pt-2 flex items-start gap-3">
-                <span className="text-primary font-bold">•</span>
+          <div className="bg-white border border-muted p-5 sm:p-8 rounded-2xl shadow-xs">
+            <ul className="space-y-4 divide-y divide-muted/50 text-sm sm:text-base font-medium">
+              <li className="pt-2 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2">
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-rust shrink-0" />
+                  <span className="font-bold text-heading">Restorative Justice for Oakland Youth</span>
+                </div>
+                <a
+                  href="https://rjoyoakland.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline font-mono text-xs sm:text-sm break-all flex items-center gap-1 pl-3.5 sm:pl-0"
+                >
+                  https://rjoyoakland.org/ <ExternalLink className="w-3 h-3 shrink-0 inline" />
+                </a>
+              </li>
+
+              <li className="pt-4 flex items-start gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-rust shrink-0 mt-2" />
                 <div>
-                  <span className="font-bold text-heading">Restorative Justice for Oakland Youth</span>,{' '}
-                  <a
-                    href="https://rjoyoakland.org/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary underline hover:text-heading font-mono"
-                  >
-                    https://rjoyoakland.org/
-                  </a>
+                  <span className="font-bold text-heading">Kay Pranis’ Circle Keepers Handbook</span>
+                  <span className="text-body font-normal block sm:inline sm:ml-1">— Living Justice Press</span>
                 </div>
               </li>
 
-              <li className="pt-3 flex items-start gap-3">
-                <span className="text-primary font-bold">•</span>
-                <div>
-                  <span className="font-bold text-heading">Kay Pranis’ Circle Keepers Handbook</span>, Living Justice Press
+              <li className="pt-4 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2">
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-rust shrink-0" />
+                  <span className="font-bold text-heading">Renjitham Alfred of Restorative Justice Training Institute</span>
                 </div>
-              </li>
-
-              <li className="pt-3 flex items-start gap-3">
-                <span className="text-primary font-bold">•</span>
-                <div>
-                  <span className="font-bold text-heading">Renjitham Alfred of Restorative Justice Training Institute</span>{' '}
-                  <a
-                    href="https://www.facebook.com/RJTI.training/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary underline hover:text-heading font-mono block mt-1"
-                  >
-                    https://www.facebook.com/RJTI.training/
-                  </a>
-                </div>
+                <a
+                  href="https://www.facebook.com/RJTI.training/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline font-mono text-xs sm:text-sm break-all flex items-center gap-1 pl-3.5 sm:pl-0"
+                >
+                  https://www.facebook.com/RJTI.training/ <ExternalLink className="w-3 h-3 shrink-0 inline" />
+                </a>
               </li>
             </ul>
           </div>
