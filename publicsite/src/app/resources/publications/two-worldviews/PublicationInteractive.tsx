@@ -121,11 +121,11 @@ export default function PublicationInteractive({
           href={pdfUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="tactile-btn flex items-center gap-2 px-4 py-3 rounded-full bg-primary text-white shadow-xl text-xs font-bold hover:bg-primary/90 transition-all"
+          className="flex items-center gap-2 px-4 py-3 rounded-full bg-brand-rust text-white shadow-xl text-xs font-bold hover:bg-brand-rust/90 active:scale-95 transition-all border border-brand-rust"
           title="Download PDF"
         >
-          <Download className="w-4 h-4" />
-          <span className="hidden sm:inline">Original PDF</span>
+          <Download className="w-4 h-4 text-white" />
+          <span className="hidden sm:inline text-white font-bold">Original PDF</span>
         </a>
 
         {scrollProgress > 15 && (

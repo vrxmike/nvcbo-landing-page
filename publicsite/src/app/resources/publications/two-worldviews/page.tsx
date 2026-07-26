@@ -269,9 +269,9 @@ export default function TwoWorldviewsPage() {
                 href={PUBLICATION_META.pdfUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="tactile-btn inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-primary text-white font-bold text-base tracking-wide shadow-md hover:shadow-lg hover:bg-primary/90 active:scale-[0.98] transition-all duration-200"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-brand-rust text-white font-bold text-base tracking-wide shadow-md hover:shadow-lg hover:bg-brand-rust/90 active:scale-[0.98] transition-all duration-200 border border-brand-rust"
               >
-                <Download className="w-5 h-5" /> Download Original PDF
+                <Download className="w-5 h-5 text-white" /> <span className="text-white">Download Original PDF</span>
               </a>
               <span className="text-xs text-body font-medium">
                 Official field publication document (Google Drive PDF)
