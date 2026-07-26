@@ -166,6 +166,18 @@ export default function PublicationInteractive({
                 {sec.label}
               </button>
             ))}
+
+            <a
+              href={pdfUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-auto inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-rust text-white text-xs font-bold hover:bg-brand-rust/90 transition-colors shadow-xs shrink-0"
+              title="Download Original PDF"
+            >
+              <Download className="w-3.5 h-3.5 text-white" />
+              <span className="hidden sm:inline">Original PDF</span>
+              <span className="sm:hidden">PDF</span>
+            </a>
           </div>
         </div>
       </nav>

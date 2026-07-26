@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 export const PUBLICATION_META = {
   title: 'Embracing the Best of Two Worldviews: Practicing Restorative Justice in Tribal Kenya',
   author: 'Jo Bauen, Ed.D.',
-  pdfUrl: 'https://drive.google.com/file/d/1gSi06RWFWFvs763pDfN46pzsPC5R8R6S/view?usp=sharing',
+  pdfUrl: 'https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a655ec8001d17bda11c/download?project=692a34ec001f1efc9002&impersonateuserid=&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbklkIjoiNmE2NTZlOGMwNjIzZGZhNmVmMjAiLCJyZXNvdXJjZUlkIjoibnZjYm9fYnVja2V0OjZhNjU1ZWM4MDAxZDE3YmRhMTFjIiwicmVzb3VyY2VUeXBlIjoiZmlsZXMiLCJyZXNvdXJjZUludGVybmFsSWQiOiI3NTA2OToyOTAiLCJpYXQiOjE3ODUwMzIzMzJ9.fiblesBYmW_O1SsyFpotzMaTrsulSSbGlLVwbPRjSaY',
   category: 'FEATURED PUBLICATION | RESTORATIVE JUSTICE',
   participantsCount: 27,
   location: 'Isiolo, Kenya',
