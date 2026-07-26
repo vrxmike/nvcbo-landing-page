@@ -96,8 +96,8 @@ export const PUBLICATION_IMAGES: Record<string, PublicationImage> = {
   },
   conclusion2: {
     id: 'conclusion2',
-    appwriteId: '6a65526d00326e42f8de',
-    url: 'https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a65526d00326e42f8de/view?project=692a34ec001f1efc9002',
+    appwriteId: '6a65699f0003f1a8f217',
+    url: 'https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a65699f0003f1a8f217/view?project=692a34ec001f1efc9002',
     caption: 'The Northern Vision team together with Dr. Jo Bauen and Rebecca.',
     alt: 'The Northern Vision team plus Jo and Rebecca',
   },
@@ -184,20 +184,7 @@ export default function TwoWorldviewsPage() {
               </div>
             </div>
 
-            {/* Tribes Badges */}
-            <div className="flex flex-wrap items-center gap-2 pt-1">
-              <span className="text-xs font-bold uppercase tracking-wider text-heading/70 mr-1">
-                Participating Tribes:
-              </span>
-              {PUBLICATION_META.tribes.map((tribe) => (
-                <span
-                  key={tribe}
-                  className="px-2.5 py-0.5 rounded-md bg-white border border-muted text-xs font-semibold text-heading shadow-xs"
-                >
-                  {tribe}
-                </span>
-              ))}
-            </div>
+
 
             {/* Download CTA Button */}
             <div className="pt-4 flex flex-wrap items-center gap-4">
