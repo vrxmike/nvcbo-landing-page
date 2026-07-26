@@ -20,6 +20,7 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.northernvisionke.org"),
   title: "Northern Vision CBO — Grassroots Climate, Gender & Education Solutions",
   description:
     "Northern Vision Community-Based Organization (NVCBO) works with indigenous and pastoralist communities to strengthen climate resilience, gender justice, education and community wellbeing in Northern Kenya.",
