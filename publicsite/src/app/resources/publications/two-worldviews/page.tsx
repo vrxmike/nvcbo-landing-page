@@ -467,11 +467,15 @@ export default function TwoWorldviewsPage() {
 
           <div className="prose prose-lg max-w-none text-body leading-relaxed space-y-6 text-base sm:text-lg font-normal">
             <p>
-              The final component of the training was practice: to break into small groups to plan and each hold their own Healing Circle. We counted off into four groups, each with a Northern Vision staff member or myself facilitating. The groups each chose as themes: 1) Who do you look up to? 2) What inspires your work? 3) How can we address trauma? And, 4) How to overcome fear of vulnerability?
+              The final component of the training was practice: to break into small groups to plan and each hold their own Healing Circle. We counted off into four groups, each with a Northern Vision staff member or myself facilitating. I instructed each group to start by choosing a theme for the discussion round for their Circle—encouraging them to choose without too much deliberation. The groups each chose as themes: 1) Who do you look up to? 2) What inspires your work? 3) How can we address trauma? And, 4) How to overcome fear of vulnerability? I instructed them to divide up the leadership of the seven Healing Circle steps, according to the desires of each person in their group. Leaning together in hushed conversations with big smiles, each team went to work.
             </p>
 
             <p>
-              After the time for the small groups ended, their report-backs told us that the circles worked. Each group had allowed participants to share deeply, and to strengthen bonds among each other. One participant added, &quot;We need to hold circles with our youth, our single mothers, and our formerly incarcerated.&quot; After the report-back, Jillo concluded, &quot;We should all know that a community that does not sit in Circle, is doomed!&quot;
+              After the time for the small groups ended, their report-backs told us that the circles worked. Each group had allowed participants to share deeply, and to strengthen bonds among each other. Everyone clearly grasped the method, and all agreed that it gave egalitarian voice and value to each participant. Many said they can and will use this method in their projects. One participant added, &quot;We need to hold circles with our youth, our single mothers, and our formerly incarcerated.&quot; They noted that circles uncover individual needs, needs that will have to be addressed by the community. They commented on the potential application in Kenya’s criminal justice system and beyond. I shared that my small circle included two of the youngest participants, both of whom seemed too shy to speak, but with encouragement, managed to do so. The youngest member chose to open and close the circle with an Arabic prayer, which was translated for me as blessings, gratitude and abundance to all. After the report-back, Jillo concluded, &quot;We should all know that a community that does not sit in Circle, is doomed!&quot;
+            </p>
+
+            <p>
+              The Healing Circle creates safe space, and honors all voices. While based on indigenous principles, it is not embedded in any particular tradition, and is thus unencumbered by cultural restrictions. Our Healing Circle training lifted up the fundamental tribal value of interconnectedness, then introduced a circle method that is free from constraints of tribal culture (i.e. gender inequality, and ageism to name two), and placed it back down in a fully indigenous setting. I saw how the training provided a way for the participants to embrace their tribal values, to challenge traditional norms when necessary, and to implement a new way to address community dialogue, conflicts and decision making with a fresh commitment to non-authoritarian, non-sexist, inclusive methods. The 27 youth leaders embraced the Healing Circle as something, &quot;We thought we didn’t understand, but in the end, we always have understood.&quot;
             </p>
           </div>
 
@@ -526,8 +530,16 @@ export default function TwoWorldviewsPage() {
           </div>
 
           <div className="prose prose-lg max-w-none text-body leading-relaxed space-y-6 text-base sm:text-lg font-normal">
+            <p>
+              I learned that these differing worldviews are potent--they define us, and also challenge us to move beyond their confining elements. They are important as we reflect on what it means to be human, and to deal with our inherent human conflicts. But these two paradigms are not singular, stand-alone truths. It helps to demystify them, to depolarize them so that we can learn who we are in the midst of them. I am grateful to witness the strengths and capabilities of the Northern Vision leaders, plus the participating leaders from other community-based organizations. They are unafraid to explore their truths in search of the best solutions to life at this moment.
+            </p>
+
+            <p>
+              I learned that we can’t completely deny either paradigm in favor of the other, though in many ways the West still tries to deny our fundamental interconnectedness in favor of objectivity, or modern science. Nor, of course, can we deny the devastation caused by modern capitalist greed. And my new tribal friends in Kenya can’t deny their attraction to, and the steady growth of modernity.
+            </p>
+
             <p className="text-lg sm:text-xl font-medium text-heading leading-relaxed bg-white border border-muted p-8 rounded-2xl shadow-xs">
-              I learned that these differing worldviews are potent--they define us, and also challenge us to move beyond their confining elements. But these two paradigms are not singular, stand-alone truths. It helps to demystify them, to depolarize them so that we can learn who we are in the midst of them. I learned that we can’t completely deny either paradigm in favor of the other... Zamzam’s experience with Healing Circles in the US and her vision for their application in her home village created a profound cultural exchange for myself and 27 others. We waded in the unknown zone between two worldviews... And through the Healing Circle practice, we found a means to embrace the best of both worldviews.
+              Zamzam’s experience with Healing Circles in the US and her vision for their application in her home village created a profound cultural exchange for myself and 27 others. We waded in the unknown zone between two worldviews. We stirred the water that usually is left unexplored, rife with uncontested stories, rich with mythos, full of unexamined cosmologies and identities. In this mix, the young activists bravely claimed their own unique truths, both the deeply traditional, and those that lie between the two worldviews. Exploring the region between the paradigms we found the possibility of a combined strength. And through the Healing Circle practice, we found a means to embrace the best of both worldviews.
             </p>
           </div>
 
