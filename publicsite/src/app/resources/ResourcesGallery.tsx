@@ -20,16 +20,8 @@ export default function ResourcesGallery({
 }: ResourcesGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
-  // Limit to exactly 6 images
-  const displayImages = (
-    galleryImages.length > 0
-      ? galleryImages.slice(0, 6)
-      : photoCaptions.slice(0, 6).map((caption) => ({
-          src: "",
-          alt: caption,
-          caption: caption,
-        }))
-  );
+  // Use all provided gallery images
+  const displayImages = galleryImages;
 
   const openModal = (index: number) => {
     setSelectedIndex(index);

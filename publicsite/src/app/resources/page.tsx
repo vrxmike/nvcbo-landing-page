@@ -5,7 +5,7 @@ import { getSpecificBucketImages } from '@/app/lib/getSpecificBucketImages';
 import { BookOpen, Newspaper, ImageIcon, ArrowRight, Download, FileText, Quote, Sparkles } from 'lucide-react';
 import ResourcesGallery from './ResourcesGallery';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: 'Resources & Learning | Northern Vision CBO',
@@ -41,27 +41,77 @@ const FEATURED_PUBLICATION = {
 } as const;
 
 // ──────────────────────────────────────────────────────
-// 3. Page Component
+// 3. Two Worldviews Publication Gallery Images (12 Assets)
 // ──────────────────────────────────────────────────────
 
-export default async function ResourcesPage() {
-  // Fetch training gallery images using Appwrite Storage preview pipeline (&output=webp)
-  let galleryImages: { src: string; alt: string; caption: string }[] = [];
-  try {
-    galleryImages = await getSpecificBucketImages();
-  } catch (err) {
-    console.error("Failed to fetch gallery images for Resources page:", err);
-  }
+const TWO_WORLDVIEWS_GALLERY = [
+  {
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a656650001786462894/view?project=692a34ec001f1efc9002",
+    alt: "Jo Bauen and Zamzam Bonaya co-facilitating the Healing Circle training in Isiolo.",
+    caption: "Jo Bauen and Zamzam Bonaya co-facilitating the Healing Circle training in Isiolo.",
+  },
+  {
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a6552590022615ff7f4/view?project=692a34ec001f1efc9002",
+    alt: "Group photo of the 27 tribal youth leaders and facilitators representing multi-sector organizations.",
+    caption: "Group photo of the 27 tribal youth leaders and facilitators representing multi-sector organizations.",
+  },
+  {
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a65525b0013dd9253b7/view?project=692a34ec001f1efc9002",
+    alt: "Jo and Zamzam headed to the classroom.",
+    caption: "Jo and Zamzam headed to the classroom.",
+  },
+  {
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a65525c001407933217/view?project=692a34ec001f1efc9002",
+    alt: "Dr. Jo Bauen in dialogue with Saadia Boru of the Borana Council of Elders.",
+    caption: "Dr. Jo Bauen in dialogue with Saadia Boru of the Borana Council of Elders.",
+  },
+  {
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a65525e0035dc39b8cb/view?project=692a34ec001f1efc9002",
+    alt: "Participants passing and holding the Talking Piece during the worldview reflection.",
+    caption: "Participants passing and holding the Talking Piece during the worldview reflection.",
+  },
+  {
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a65526000317727e343/view?project=692a34ec001f1efc9002",
+    alt: "The whole group session seated in circle around tables at the Isiolo cultural center.",
+    caption: "The whole group session seated in circle around tables at the Isiolo cultural center.",
+  },
+  {
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a6552620001dd7caa75/view?project=692a34ec001f1efc9002",
+    alt: "Small group break-out session practicing the 7-step Healing Circle method.",
+    caption: "Small group break-out session practicing the 7-step Healing Circle method.",
+  },
+  {
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a6568cc003cd98ff9ce/view?project=692a34ec001f1efc9002",
+    alt: "Hussein of Northern Vision.",
+    caption: "Hussein of Northern Vision.",
+  },
+  {
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a6552aa002f77667472/view?project=692a34ec001f1efc9002",
+    alt: "Jillo of Northern Vision.",
+    caption: "Jillo of Northern Vision.",
+  },
+  {
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a6552ab0029136bf27e/view?project=692a34ec001f1efc9002",
+    alt: "Shampi of Northern Vision.",
+    caption: "Shampi of Northern Vision.",
+  },
+  {
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a65699f0003f1a8f217/view?project=692a34ec001f1efc9002",
+    alt: "The Northern Vision team together with Dr. Jo Bauen and Rebecca.",
+    caption: "The Northern Vision team together with Dr. Jo Bauen and Rebecca.",
+  },
+  {
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a65526f0013ede889d7/view?project=692a34ec001f1efc9002",
+    alt: "Celebratory community dance and songs at the completion of the Circle Keeper training.",
+    caption: "Celebratory community dance and songs at the completion of the Circle Keeper training.",
+  },
+];
 
-  // Fallback captions for training photos mosaic
-  const photoCaptions = [
-    "Circle Keeper Facilitation Workshop — Gotu",
-    "Restorative Dialogue & Conflict Resolution Session",
-    "Intergenerational Wisdom Exchange with Community Elders",
-    "Youth Facilitator Circle Practice in Isiolo",
-    "Community Stewardship & Action Planning Gathering",
-    "Circle Keeper Certification & Reflection Session",
-  ];
+// ──────────────────────────────────────────────────────
+// 4. Page Component
+// ──────────────────────────────────────────────────────
+
+export default function ResourcesPage() {
 
   return (
     <main className="min-h-screen bg-neutral-light pb-24">
@@ -268,15 +318,15 @@ export default async function ResourcesPage() {
               Visual Archives
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-heading tracking-tight">
-              Gallery: Healing Circles & Training in Action
+              Gallery: Training in Action
             </h2>
             <p className="text-body text-base mt-2">
               Photographic documentation of facilitators, community circles, and leadership workshops.
             </p>
           </div>
 
-          {/* 6-Image Interactive Mosaic Grid with Lightbox Popup Modal */}
-          <ResourcesGallery galleryImages={galleryImages} photoCaptions={photoCaptions} />
+          {/* 12-Image Interactive Mosaic Grid with Lightbox Popup Modal */}
+          <ResourcesGallery galleryImages={TWO_WORLDVIEWS_GALLERY} photoCaptions={[]} />
         </section>
 
         {/* ════════════════════════════════════════════════
