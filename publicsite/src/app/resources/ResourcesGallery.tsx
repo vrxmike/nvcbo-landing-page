@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect } from "react";
-import { X, ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
+import React, { useState, useEffect, useRef } from 'react';
+import { X, ChevronLeft, ChevronRight, Maximize2, Sparkles } from 'lucide-react';
 
-interface GalleryImage {
+export interface GalleryImage {
   src: string;
   alt?: string;
   caption?: string;
@@ -11,145 +11,296 @@ interface GalleryImage {
 
 interface ResourcesGalleryProps {
   galleryImages: GalleryImage[];
-  photoCaptions: string[];
+  photoCaptions?: string[];
 }
 
-export default function ResourcesGallery({
-  galleryImages,
-  photoCaptions,
-}: ResourcesGalleryProps) {
+export default function ResourcesGallery({ galleryImages }: ResourcesGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [isPaused, setIsPaused] = useState<boolean>(false);
+  const touchStartX = useRef<number | null>(null);
 
-  // Use all provided gallery images
-  const displayImages = galleryImages;
+  // Split 12 images into 2 balanced rows of 6 images each
+  const row1 = galleryImages.slice(0, 6);
+  const row2 = galleryImages.slice(6, 12);
 
-  const openModal = (index: number) => {
-    setSelectedIndex(index);
+  const openModal = (absoluteIndex: number) => {
+    setSelectedIndex(absoluteIndex);
   };
 
   const closeModal = () => {
     setSelectedIndex(null);
   };
 
-  const showNext = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (selectedIndex !== null) {
-      setSelectedIndex((selectedIndex + 1) % displayImages.length);
+  const showNext = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    if (selectedIndex !== null && galleryImages.length > 0) {
+      setSelectedIndex((selectedIndex + 1) % galleryImages.length);
     }
   };
 
-  const showPrev = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (selectedIndex !== null) {
-      setSelectedIndex(
-        (selectedIndex - 1 + displayImages.length) % displayImages.length
-      );
+  const showPrev = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    if (selectedIndex !== null && galleryImages.length > 0) {
+      setSelectedIndex((selectedIndex - 1 + galleryImages.length) % galleryImages.length);
     }
   };
 
-  // Keyboard navigation listener (Esc to close, Left/Right arrows to cycle)
+  // Lock body scroll & listen for keyboard events while modal is open
   useEffect(() => {
+    if (selectedIndex !== null) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
     const handleKeyDown = (e: KeyboardEvent) => {
       if (selectedIndex === null) return;
-      if (e.key === "Escape") closeModal();
-      if (e.key === "ArrowRight")
-        setSelectedIndex((prev) => (prev !== null ? (prev + 1) % displayImages.length : null));
-      if (e.key === "ArrowLeft")
-        setSelectedIndex((prev) =>
-          prev !== null ? (prev - 1 + displayImages.length) % displayImages.length : null
-        );
+      if (e.key === 'Escape') closeModal();
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'ArrowLeft') showPrev();
     };
 
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [selectedIndex, displayImages.length]);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedIndex, galleryImages.length]);
+
+  // Touch Swipe Gesture Handlers for Lightbox Modal
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const deltaX = touchEndX - touchStartX.current;
+
+    // Threshold of |deltaX| > 50px
+    if (deltaX > 50) {
+      showPrev();
+    } else if (deltaX < -50) {
+      showNext();
+    }
+
+    touchStartX.current = null;
+  };
 
   return (
     <>
-      {/* 6-Image Mosaic Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {displayImages.map((img, idx) => (
+      {/* ════════════════════════════════════════════════
+          DOUBLE-TRACK SEAMLESS MARQUEE CONTAINER
+          ════════════════════════════════════════════════ */}
+      <div
+        className="space-y-6 overflow-hidden py-4"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        {/* ROW 1: Scrolls Left (Images 0 to 5) */}
+        <div className="overflow-hidden w-full flex">
           <div
-            key={idx}
-            onClick={() => openModal(idx)}
-            className="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-muted bg-brand-espresso/5 shadow-sm hover:shadow-xl transition-all duration-300 transform-gpu cursor-pointer"
+            className={`animate-marquee-left-seamless ${
+              isPaused ? 'pause-animation' : ''
+            }`}
           >
-            {img.src ? (
-              <img
-                src={img.src}
-                alt={photoCaptions[idx] || img.alt || `Gallery Image ${idx + 1}`}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            ) : (
-              <div className="w-full h-full bg-brand-espresso/10 flex items-center justify-center p-6 text-center">
-                <p className="text-sm font-bold text-brand-espresso/80">
-                  {photoCaptions[idx] || `Training Photo ${idx + 1}`}
-                </p>
-              </div>
-            )}
+            {/* Track 1 */}
+            <div className="flex gap-6 pr-6">
+              {row1.map((img, idx) => {
+                const absoluteIndex = idx;
+                return (
+                  <MarqueeCard
+                    key={`r1-t1-${idx}`}
+                    img={img}
+                    indexLabel={absoluteIndex + 1}
+                    onClick={() => openModal(absoluteIndex)}
+                  />
+                );
+              })}
+            </div>
 
-            {/* Hover overlay with icon */}
-            <div className="absolute inset-0 bg-brand-espresso/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-              <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <Maximize2 className="w-5 h-5" />
-              </div>
+            {/* Track 2 (Identical Duplicate for 100% Seamless 0% to -50% Loop) */}
+            <div className="flex gap-6 pr-6">
+              {row1.map((img, idx) => {
+                const absoluteIndex = idx;
+                return (
+                  <MarqueeCard
+                    key={`r1-t2-${idx}`}
+                    img={img}
+                    indexLabel={absoluteIndex + 1}
+                    onClick={() => openModal(absoluteIndex)}
+                  />
+                );
+              })}
             </div>
           </div>
-        ))}
+        </div>
+
+        {/* ROW 2: Scrolls Right (Images 6 to 11) */}
+        <div className="overflow-hidden w-full flex">
+          <div
+            className={`animate-marquee-right-seamless ${
+              isPaused ? 'pause-animation' : ''
+            }`}
+          >
+            {/* Track 1 */}
+            <div className="flex gap-6 pr-6">
+              {row2.map((img, idx) => {
+                const absoluteIndex = 6 + idx;
+                return (
+                  <MarqueeCard
+                    key={`r2-t1-${idx}`}
+                    img={img}
+                    indexLabel={absoluteIndex + 1}
+                    onClick={() => openModal(absoluteIndex)}
+                  />
+                );
+              })}
+            </div>
+
+            {/* Track 2 (Identical Duplicate for 100% Seamless -50% to 0% Loop) */}
+            <div className="flex gap-6 pr-6">
+              {row2.map((img, idx) => {
+                const absoluteIndex = 6 + idx;
+                return (
+                  <MarqueeCard
+                    key={`r2-t2-${idx}`}
+                    img={img}
+                    indexLabel={absoluteIndex + 1}
+                    onClick={() => openModal(absoluteIndex)}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* Pop-up Lightbox Modal (Clean preview: no captions, titles, or counter tags) */}
+      {/* ════════════════════════════════════════════════
+          FULL-SCREEN INTERACTIVE LIGHTBOX MODAL
+          ════════════════════════════════════════════════ */}
       {selectedIndex !== null && (
         <div
-          className="fixed inset-0 z-[100] bg-brand-espresso/95 backdrop-blur-md flex items-center justify-center p-4 md:p-8 animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 bg-black/95 h-[100dvh] flex flex-col justify-between items-center p-4 md:p-8 animate-in fade-in duration-200"
           onClick={closeModal}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
-          {/* Close Button */}
-          <button
-            onClick={closeModal}
-            className="absolute top-6 right-6 z-20 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer focus:outline-none"
-            aria-label="Close modal"
-          >
-            <X className="w-6 h-6" />
-          </button>
+          {/* Top Bar (Counter Badge & Close Button) */}
+          <div className="w-full flex items-center justify-between z-20 shrink-0 max-w-6xl mx-auto pt-2">
+            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-bold tracking-wider">
+              <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
+              <span>
+                {selectedIndex + 1} / {galleryImages.length}
+              </span>
+            </div>
 
-          {/* Previous Arrow */}
+            <button
+              onClick={closeModal}
+              className="w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer focus:outline-none"
+              aria-label="Close modal"
+              title="Close (Esc)"
+            >
+              <X className="w-6 h-6 text-white" />
+            </button>
+          </div>
+
+          {/* Floating Navigation Arrows */}
           <button
             onClick={showPrev}
-            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer focus:outline-none"
+            className="fixed left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center border border-white/20 shadow-2xl transition-all cursor-pointer focus:outline-none"
             aria-label="Previous image"
+            title="Previous (Left Arrow)"
           >
-            <ChevronLeft className="w-7 h-7" />
+            <ChevronLeft className="w-6 h-6 md:w-7 md:h-7 text-white" />
           </button>
 
-          {/* Next Arrow */}
           <button
             onClick={showNext}
-            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer focus:outline-none"
+            className="fixed right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center border border-white/20 shadow-2xl transition-all cursor-pointer focus:outline-none"
             aria-label="Next image"
+            title="Next (Right Arrow)"
           >
-            <ChevronRight className="w-7 h-7" />
+            <ChevronRight className="w-6 h-6 md:w-7 md:h-7 text-white" />
           </button>
 
-          {/* Modal Image Box */}
+          {/* Main Modal Media Stage */}
           <div
-            className="relative max-w-5xl max-h-[85vh] w-full flex items-center justify-center p-2"
+            className="relative w-full max-w-5xl flex-1 flex flex-col items-center justify-center p-2 min-h-0"
             onClick={(e) => e.stopPropagation()}
           >
-            {displayImages[selectedIndex]?.src ? (
+            {galleryImages[selectedIndex]?.src ? (
               <img
-                src={displayImages[selectedIndex].src}
-                alt=""
-                className="max-h-[85vh] max-w-full w-auto h-auto object-contain rounded-2xl shadow-2xl border border-white/10"
+                src={galleryImages[selectedIndex].src}
+                alt={galleryImages[selectedIndex].alt || `Photo ${selectedIndex + 1}`}
+                className="max-h-[70vh] md:max-h-[75vh] max-w-full w-auto h-auto object-contain rounded-2xl shadow-2xl border border-white/15"
               />
             ) : (
               <div className="p-12 text-white text-center bg-white/10 rounded-2xl">
                 Photo preview unavailable
               </div>
             )}
+
+            {/* Image Caption Footer */}
+            {galleryImages[selectedIndex]?.caption && (
+              <div className="mt-4 max-w-2xl text-center px-4">
+                <p className="text-sm md:text-base font-medium text-white/90 leading-relaxed bg-black/40 backdrop-blur-md px-6 py-3 rounded-xl border border-white/10 shadow-lg">
+                  {galleryImages[selectedIndex].caption}
+                </p>
+              </div>
+            )}
+          </div>
+
+          {/* Bottom Touch Indicator / Blank Space */}
+          <div className="w-full text-center pb-2 shrink-0">
+            <span className="text-[11px] font-semibold text-white/50 tracking-widest uppercase">
+              Swipe or use arrow keys to navigate
+            </span>
           </div>
         </div>
       )}
     </>
+  );
+}
+
+// ──────────────────────────────────────────────────────
+// Helper Component: Individual Marquee Item Card
+// ──────────────────────────────────────────────────────
+
+interface MarqueeCardProps {
+  img: GalleryImage;
+  indexLabel: number;
+  onClick: () => void;
+}
+
+function MarqueeCard({ img, onClick }: MarqueeCardProps) {
+  return (
+    <div
+      onClick={onClick}
+      className="group relative w-72 sm:w-80 md:w-96 aspect-[16/10] shrink-0 rounded-2xl overflow-hidden border border-white/15 bg-white/5 shadow-lg hover:shadow-2xl transition-all duration-300 transform-gpu cursor-pointer"
+    >
+      <img
+        src={img.src}
+        alt={img.alt || ''}
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      />
+
+      {/* Soft gradient bottom overlay for caption readability */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
+
+      {/* Caption text */}
+      <div className="absolute bottom-0 inset-x-0 p-4">
+        <p className="text-xs sm:text-sm font-semibold text-white line-clamp-2 leading-snug drop-shadow-md">
+          {img.caption || img.alt}
+        </p>
+      </div>
+
+      {/* Hover maximize indicator */}
+      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center text-white shadow-xl group-hover:scale-110 transition-transform duration-300">
+          <Maximize2 className="w-5 h-5 text-white" />
+        </div>
+      </div>
+    </div>
   );
 }

@@ -212,3 +212,36 @@ a.rounded-xl,
   animation: gradientShift 5s ease-in-out infinite;
 }
 
+/* ──────────────────────────────────────────────────────
+   Double-Track Seamless Marquee Carousel Animations
+   ────────────────────────────────────────────────────── */
+
+@keyframes marqueeLeftDouble {
+  0% { transform: translate3d(0%, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes marqueeRightDouble {
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0%, 0, 0); }
+}
+
+.animate-marquee-left-seamless {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marqueeLeftDouble 35s linear infinite;
+}
+
+.animate-marquee-right-seamless {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marqueeRightDouble 35s linear infinite;
+}
+
+.pause-animation {
+  animation-play-state: paused !important;
+}
+
+

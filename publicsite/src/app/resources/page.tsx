@@ -310,23 +310,28 @@ export default function ResourcesPage() {
         </section>
 
         {/* ════════════════════════════════════════════════
-            SECTION 5: Training Photos Gallery (Appwrite WebP Pipeline)
+            SECTION 5: Double-Track Marquee Training Photos Gallery
             ════════════════════════════════════════════════ */}
-        <section className="my-16">
-          <div className="mb-8">
-            <span className="text-xs font-bold tracking-[0.2em] text-primary uppercase block mb-2">
+        <section className="my-16 bg-brand-espresso text-white rounded-3xl p-8 sm:p-12 shadow-2xl border border-white/10 relative overflow-hidden">
+          {/* Subtle background glow */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="mb-8 relative z-10">
+            <span className="text-xs font-bold tracking-[0.2em] text-brand-gold uppercase block mb-2">
               Visual Archives
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-heading tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
               Gallery: Training in Action
             </h2>
-            <p className="text-body text-base mt-2">
+            <p className="text-brand-cream/80 text-base mt-2 font-medium">
               Photographic documentation of facilitators, community circles, and leadership workshops.
             </p>
           </div>
 
-          {/* 12-Image Interactive Mosaic Grid with Lightbox Popup Modal */}
-          <ResourcesGallery galleryImages={TWO_WORLDVIEWS_GALLERY} photoCaptions={[]} />
+          {/* 12-Image Double-Track Infinite Marquee Carousel */}
+          <div className="relative z-10">
+            <ResourcesGallery galleryImages={TWO_WORLDVIEWS_GALLERY} />
+          </div>
         </section>
 
         {/* ════════════════════════════════════════════════
