@@ -59,6 +59,13 @@ export const PUBLICATION_IMAGES: Record<string, PublicationImage> = {
     caption: 'Group photo of the 27 tribal youth leaders and facilitators representing multi-sector organizations.',
     alt: 'The training participants group photo',
   },
+  walkto_classroom: {
+    id: 'walkto_classroom',
+    appwriteId: '6a65525b0013dd9253b7',
+    url: 'https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a65525b0013dd9253b7/view?project=692a34ec001f1efc9002',
+    caption: 'Jo and Zamzam headed to the classroom',
+    alt: 'Jo and Zamzam headed to the classroom',
+  },
   context1: {
     id: 'context1',
     appwriteId: '6a65525c001407933217',
@@ -248,9 +255,10 @@ export default function TwoWorldviewsPage() {
             </p>
           </div>
 
-          {/* Section 2 Inline Media Frame */}
-          <div className="pt-4">
-            <ImageFrame image={PUBLICATION_IMAGES.context1} aspect="aspect-[16/9]" />
+          {/* Section 2 Media Grid (2 Frames) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+            <ImageFrame image={PUBLICATION_IMAGES.walkto_classroom} aspect="aspect-[4/3]" />
+            <ImageFrame image={PUBLICATION_IMAGES.context1} aspect="aspect-[4/3]" />
           </div>
         </section>
 
