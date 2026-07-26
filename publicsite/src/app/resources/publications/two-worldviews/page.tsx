@@ -89,8 +89,8 @@ export const PUBLICATION_IMAGES: Record<string, PublicationImage> = {
   },
   conclusion1: {
     id: 'conclusion1',
-    appwriteId: '6a655263001e44f41058',
-    url: 'https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a655263001e44f41058/view?project=692a34ec001f1efc9002',
+    appwriteId: '6a6568cc003cd98ff9ce',
+    url: 'https://fra.cloud.appwrite.io/v1/storage/buckets/nvcbo_bucket/files/6a6568cc003cd98ff9ce/view?project=692a34ec001f1efc9002',
     caption: 'Hussein, Jillo and Shampi of the Northern Vision CBO core organizing team.',
     alt: 'Hussein, Jillo and Shampi of Northern Vision',
   },
