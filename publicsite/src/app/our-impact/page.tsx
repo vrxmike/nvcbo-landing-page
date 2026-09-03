@@ -58,10 +58,10 @@ const PROJECT_TRACKS: ProjectTrack[] = [
   },
   {
     id: "education-youth",
-    title: "Education, Youth & Digital Inclusion",
+    title: "Education, Youth Leadership & Digital Inclusion",
     href: "/our-impact/education-youth",
     icon: GraduationCap,
-    description: "Equipping young people with knowledge, leadership, and technical skills to shape resilient futures, featuring advanced computing structures like our Wolfram STEM program tracks.",
+    description: "Expanding access to digital skills, STEM learning and leadership opportunities for women and young people, connecting education with community priorities and climate action.",
     colSpan: "lg:col-span-1"
   },
   {
