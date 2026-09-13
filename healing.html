@@ -1,0 +1,523 @@
+
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Healing Circles - NorthernVision CBO</title>
+    <meta name="description" content="Grassroots-Led Climate, Gender and Education Solutions in Northern Kenya.">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
+
+    <style>
+        /* --- GLOBAL THEME VARIABLES --- */
+        :root {
+            --nvcbo-blue: #1D809F;
+            --nvcbo-dark-blue: #155d74;
+            --nvcbo-orange: #FF8C00;
+            --nvcbo-dark-orange: #CC5500;
+            --nvcbo-cream: #FFF5E6;
+            --nvcbo-light-bg: #f4f7f8;
+            --nvcbo-stone: #1a252f;
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            overflow-x: hidden;
+            background-color: var(--nvcbo-light-bg);
+            color: #333;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes titleReveal {
+            from { clip-path: inset(100% 0 0 0); transform: translateY(30px); }
+            to { clip-path: inset(0 0 0 0); transform: translateY(0); }
+        }
+
+        .animate-up { opacity: 0; animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.5s; }
+        .delay-3 { animation-delay: 0.8s; }
+
+        /* Scroll-triggered reveal */
+        .reveal-heading h2 {
+            opacity: 0;
+            transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal-heading.is-visible h2 {
+            opacity: 1;
+            animation: titleReveal 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+
+        .reveal-heading .subheading {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.8s ease 0.2s;
+        }
+
+        .reveal-heading.is-visible .subheading {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- SECTION HEADINGS AESTHETIC --- */
+        .section-heading {
+            margin-bottom: 5rem;
+            position: relative;
+        }
+
+        .section-heading .subheading {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--nvcbo-dark-orange);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 900;
+            color: var(--nvcbo-stone);
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .heading-accent {
+            width: 60px;
+            height: 4px;
+            background: var(--nvcbo-orange);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        .heading-left .heading-accent { margin: 0; }
+        .heading-left { text-align: left; }
+
+        /* --- NAVIGATION --- */
+        .menu-toggle {
+            position: fixed;
+            right: 25px;
+            top: 25px;
+            width: 55px;
+            height: 55px;
+            text-align: center;
+            color: #fff;
+            background: rgba(255, 140, 0, 0.8);
+            backdrop-filter: blur(8px);
+            line-height: 55px;
+            z-index: 9999;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+        }
+
+        .menu-toggle:hover {
+            transform: scale(1.1) rotate(90deg);
+            color: #fff;
+            background: var(--nvcbo-orange);
+        }
+
+        #sidebar-wrapper {
+            position: fixed;
+            z-index: 9998;
+            right: 0;
+            width: 280px;
+            height: 100%;
+            transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+            transform: translateX(280px);
+            background: rgba(204, 85, 0, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            overflow-y: auto;
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .sidebar-nav { padding: 2rem 0; list-style: none; }
+        .sidebar-nav li.sidebar-nav-item a {
+            display: block; text-decoration: none; color: #fff; padding: 1rem 2rem;
+            font-weight: 600; letter-spacing: 0.5px; transition: all 0.3s;
+        }
+        .sidebar-nav li.sidebar-nav-item a:hover { background: rgba(255, 255, 255, 0.15); padding-left: 2.5rem; }
+        .sidebar-nav li.sidebar-brand { font-size: 1.8rem; font-weight: 900; padding: 1rem 2rem 3rem 2rem; color: #fff; }
+        #sidebar-wrapper.active { transform: translateX(0); }
+
+        /* --- HERO SECTION --- */
+        .masthead {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(21, 93, 116, 0.85), rgba(29, 128, 159, 0.7)), 
+                        url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2070&auto=format&fit=crop');
+            background-position: center;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+            overflow: hidden;
+        }
+
+        #three-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; opacity: 0.5; }
+        .masthead .container { position: relative; z-index: 2; }
+        .masthead h1 { font-weight: 900; font-size: clamp(2.5rem, 6vw, 4.5rem); text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 2rem; }
+        .masthead h1 .highlight { color: var(--nvcbo-orange); display: inline-block; }
+        .masthead h2 { font-weight: 400; font-size: clamp(1.1rem, 2vw, 1.35rem); margin-bottom: 3.5rem; color: rgba(255, 255, 255, 0.9); max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.8; letter-spacing: 0.2px; }
+
+        /* --- BUTTONS --- */
+        .btn-xl { padding: 1.25rem 2.5rem; font-size: 0.9rem; font-weight: 700; border-radius: 50px; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: inline-flex; align-items: center; justify-content: center; min-width: 240px; }
+        .btn-primary-custom { background: linear-gradient(135deg, #FF8C00 0%, #CC5500 100%); color: white; border: none; box-shadow: 0 4px 15px rgba(204, 85, 0, 0.3); }
+        .btn-primary-custom:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(255, 140, 0, 0.4); color: white; }
+        .btn-outline-custom { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.5); color: white; }
+        .btn-outline-custom:hover { background: white; color: var(--nvcbo-blue); transform: translateY(-5px); }
+
+        /* --- SECTIONS --- */
+        .content-section { padding: 9rem 0; }
+
+        /* --- HEALING CIRCLES SECTION --- */
+        .callout {
+            position: relative;
+            padding: 12rem 0;
+            background: linear-gradient(rgba(21, 93, 116, 0.95), rgba(29, 128, 159, 0.9)), 
+                        url('https://images.unsplash.com/photo-1529390079861-591de354faf5?q=80&w=2070&auto=format&fit=crop');
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        #healing-three-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; opacity: 0.6; }
+        .callout .container { position: relative; z-index: 2; }
+        .callout .section-heading h2 { color: white; }
+        .callout .section-heading .subheading { color: var(--nvcbo-cream); }
+
+        /* --- FOOTER --- */
+        .footer-stone { 
+            background: linear-gradient(135deg, #CC5500 0%, #B7410E 100%); 
+            color: white; 
+            padding: 7rem 0 3rem 0; 
+        }
+        .footer-bottom { 
+            margin-top: 5rem; 
+            padding-top: 2rem; 
+            border-top: 1px solid rgba(255, 255, 255, 0.2); 
+            text-align: center; 
+            font-size: 0.85rem; 
+            color: rgba(255, 255, 255, 0.7); 
+        }
+        .brand-logo-glass { 
+            background: transparent; 
+            backdrop-filter: blur(5px); 
+            border: 1px solid rgba(255, 255, 255, 0.4); 
+            color: white; 
+            width: 50px; 
+            height: 50px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-weight: 900; 
+            border-radius: 12px; 
+            margin-right: 15px; 
+        }
+
+        @keyframes cbo-breath {
+            0%, 100% { transform: translateY(-2px) scale(1); opacity: 0.8; color: var(--nvcbo-orange); }
+            50% { transform: translateY(-2px) scale(1.15); opacity: 1; color: white; text-shadow: 0 0 10px rgba(255, 140, 0, 0.5); }
+        }
+        .brand-name sup {
+            display: inline-block;
+            font-size: 0.55em;
+            margin-left: 2px;
+            animation: cbo-breath 3s ease-in-out infinite;
+            font-weight: 900;
+            vertical-align: top;
+            top: -0.5em;
+        }
+
+        .scroll-to-top { 
+            position: fixed; 
+            right: 30px; 
+            bottom: 30px; 
+            opacity: 0;
+            visibility: hidden;
+            width: 55px; 
+            height: 55px; 
+            text-align: center; 
+            color: #fff; 
+            line-height: 55px; 
+            z-index: 1000; 
+            text-decoration: none; 
+            background: var(--nvcbo-orange) !important; 
+            border-radius: 50% !important; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25); 
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            border: 2px solid rgba(255, 255, 255, 0.2); 
+            transform: translateY(20px);
+        }
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .scroll-to-top:hover {
+            background: var(--nvcbo-dark-orange) !important;
+            transform: scale(1.1) translateY(-5px);
+            color: white;
+        }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 992px) {
+            .content-section { padding: 5rem 0; }
+            .masthead { min-height: 50vh; padding: 5rem 1rem; }
+            .callout { padding: 6rem 0; }
+        }
+
+        @media (max-width: 576px) {
+            .masthead h1 { font-size: 2.5rem; }
+            .section-heading h2 { font-size: 2rem; }
+            .content-section { padding: 3rem 0; }
+            .section-heading { margin-bottom: 2rem; }
+            .footer-stone { padding: 4rem 0 2rem 0; }
+            .scroll-to-top { width: 45px; height: 45px; line-height: 45px; right: 20px; bottom: 20px; }
+        }
+
+        /* Footer visibility overrides */
+        .footer-stone a.text-white-50 { color: rgba(255, 255, 255, 0.85) !important; transition: all 0.3s; }
+        .footer-stone a.text-white-50:hover { color: white !important; padding-left: 5px; }
+        .footer-stone p { color: rgba(255, 255, 255, 0.9) !important; }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white !important;
+            text-decoration: none;
+            margin-right: 12px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+        .social-link:hover {
+            background: white;
+            color: var(--nvcbo-orange) !important;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            border-color: white;
+        }
+        .social-link:active {
+            transform: scale(0.9);
+        }
+    </style>
+</head>
+
+<body id="page-top">
+    <!-- Sentinel for Scroll-to-Top IntersectionObserver -->
+    <div id="top-sentinel" style="position: absolute; top: 0; height: 400px; width: 100%; pointer-events: none; visibility: hidden;"></div>
+
+    <!-- Sidebar Toggle -->
+    <a class="menu-toggle rounded" href="#" id="menu-toggle">
+        <i class="fa fa-bars"></i>
+    </a>
+
+    <!-- Sidebar Wrapper -->
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">NVCBO</li>
+            <li class="sidebar-nav-item"><a href="index.html">Home</a></li>
+            <li class="sidebar-nav-item"><a href="about.html">About Us</a></li>
+            <li class="sidebar-nav-item"><a href="programs.html">Programs</a></li>
+            <li class="sidebar-nav-item"><a href="healing.html">Healing Circles</a></li>
+            <li class="sidebar-nav-item"><a href="donate.html">Donate</a></li>
+            <li class="sidebar-nav-item"><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Healing Circles Section -->
+    <section class="callout" id="healing">
+        <div id="healing-three-container"></div>
+        <div class="container text-center">
+            <div class="section-heading reveal-heading">
+                <span class="subheading">Our Methodology</span>
+                <h2>Healing Circles</h2>
+                <div class="heading-accent" style="background: var(--nvcbo-cream);"></div>
+            </div>
+            <p class="lead mb-5" style="color: rgba(255,255,255,0.9); max-width: 850px; margin: 0 auto; line-height: 1.9;">
+                Healing circles are a core methodology across all Northern Vision programs. They are used for community dialogue, participatory planning, conflict resolution, youth mentorship and internal organizational reflection.
+            </p>
+            <a class="btn btn-primary-custom btn-xl" href="healing.html">
+                Our Approach
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-stone">
+        <div class="container">
+            <div class="row g-3 g-md-5">
+                <div class="col-lg-6">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="brand-logo-glass">
+                            <img src="assets/img/nvcbo-logo.webp" alt="NVCBO Logo" style="height: 80%; width: 80%; object-fit: contain; mix-blend-mode: multiply;">
+                        </div>
+                        <div class="brand-name h3 mb-0 fw-bold">Northern Vision <sup>CBO</sup></div>
+                    </div>
+                    <p style="color: rgba(255, 255, 255, 0.5); line-height: 1.8; max-width: 450px;">
+                        Northern Vision CBO is a grassroots organization advancing climate adaptation, education, gender justice and peacebuilding in Northern Kenya through community-led solutions, healing circles and storytelling.
+                    </p>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="text-white fw-bold mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-white-50 text-decoration-none">About Us</a></li>
+                        <li><a href="programs.html" class="text-white-50 text-decoration-none">Programs</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Projects</a></li>
+                        <li><a href="healing.html" class="text-white-50 text-decoration-none">Healing Circles</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Stories & Media</a></li>
+                        <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="text-white fw-bold mb-4">Connect</h5>
+                    <ul class="list-unstyled mb-4">
+                        <li><a href="https://news.northernvisionke.org/donate.html" class="text-white-50 text-decoration-none">Support Us</a></li>
+                        <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact Info</a></li>
+                    </ul>
+                    <div class="d-flex">
+                        <a href="#" class="social-link" title="Facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="social-link" title="Instagram"><i class="fa fa-instagram"></i></a>
+                        <a href="#" class="social-link" title="X (Twitter)"><i class="fa fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Northern Vision CBO. Grassroots Leadership for a Sustainable Future.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <script>
+        let healingScene, healingCamera, healingRenderer, healingCircle;
+
+        function initHealingThree() {
+            const container = document.getElementById('healing-three-container');
+            if (!container) return;
+            healingScene = new THREE.Scene();
+            healingCamera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+            healingCamera.position.z = 8;
+            healingRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            healingRenderer.setSize(container.clientWidth, container.clientHeight);
+            healingRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            container.appendChild(healingRenderer.domElement);
+            const geometry = new THREE.TorusGeometry(5, 1, 16, 100);
+            const material = new THREE.PointsMaterial({ color: 0xFFD700, size: 0.03, transparent: true, opacity: 0.4, blending: THREE.AdditiveBlending });
+            healingCircle = new THREE.Points(geometry, material);
+            healingScene.add(healingCircle);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            if (healingCircle) {
+                healingCircle.rotation.z += 0.002;
+                healingCircle.rotation.y += 0.001;
+                healingRenderer.render(healingScene, healingCamera);
+            }
+        }
+
+        // --- INTERSECTION OBSERVER FOR HEADINGS ---
+        function initRevealHeadings() {
+            const observerOptions = { threshold: 0.2 };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-heading').forEach(heading => {
+                observer.observe(heading);
+            });
+        }
+
+        $(document).ready(function() {
+            $("#menu-toggle").click(function(e) {
+                e.preventDefault();
+                $("#sidebar-wrapper").toggleClass("active");
+                $(".menu-toggle > .fa").toggleClass("fa-bars fa-times");
+            });
+
+            initRevealHeadings();
+
+            // Modern IntersectionObserver for Scroll-to-Top
+            const sentinel = document.getElementById('top-sentinel');
+            const scrollToTopBtn = document.querySelector('.scroll-to-top');
+            if (sentinel && scrollToTopBtn) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (!entry.isIntersecting) scrollToTopBtn.classList.add('visible');
+                        else scrollToTopBtn.classList.remove('visible');
+                    });
+                }, { threshold: 0 });
+                observer.observe(sentinel);
+            }
+        });
+
+        window.onload = function() {
+            initHealingThree();
+            animate();
+        };
+
+        window.addEventListener('resize', () => {
+            if (healingCamera && healingRenderer) {
+                const container = document.getElementById('healing-three-container');
+                if (container) {
+                    healingCamera.aspect = container.clientWidth / container.clientHeight;
+                    healingCamera.updateProjectionMatrix();
+                    healingRenderer.setSize(container.clientWidth, container.clientHeight);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
