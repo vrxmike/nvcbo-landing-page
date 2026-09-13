@@ -27,7 +27,7 @@ graph TD
     UserClient -->|HTTP GET Requests| NextJS
     PageServer -->|Server-Side Fetch (listRows)| TablesDB
     ClientComponents -->|WebSocket Connection| RealtimeWS
-    ClientComponents -->|HTML5 Video Stream & WebP Previews| StorageCDN
+    ClientComponents -->|Direct CDN View & Video Streams| StorageCDN
     RealtimeWS -.->|Realtime Row/File Mutations| ClientComponents
 ```
 
@@ -74,8 +74,8 @@ sequenceDiagram
 
 ## 4. Media Gallery Lightbox & Video Player Logic
 
-### Video vs. Image Rendering Strategy
-To prevent Appwrite Storage preview transformation errors (`HTTP 402`) on raw MP4 files from triggering image deletion handlers, video and image rendering are explicitly decoupled:
+### Direct CDN View Delivery & Decoupled Rendering
+To prevent Appwrite Storage image transformation quota limits (`HTTP 402`) from affecting images or raw MP4 files, all media sitewide uses Appwrite's direct CDN `/view` endpoint without triggering transformation limits:
 
 ```typescript
 // Grid Card Media Rendering

@@ -108,11 +108,11 @@ async function seedPdfImages() {
       const inputFile = InputFile.fromPath(filePath, fileName);
       const uploadedFile = await storage.createFile(BUCKET_ID, ID.unique(), inputFile);
 
-      const previewUrl = `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT?.replace(/\/v1$/, '') || 'https://fra.cloud.appwrite.io'}/storage/buckets/${BUCKET_ID}/files/${uploadedFile.$id}/preview?width=1200&output=webp&project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID || '692a34ec001f1efc9002'}`;
+      const viewUrl = `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT || 'https://fra.cloud.appwrite.io/v1'}/storage/buckets/${BUCKET_ID}/files/${uploadedFile.$id}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID || '692a34ec001f1efc9002'}`;
 
       results[meta.key] = {
         fileId: uploadedFile.$id,
-        url: previewUrl,
+        url: viewUrl,
         key: meta.key,
         title: meta.title,
         caption: meta.caption,

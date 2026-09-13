@@ -34,11 +34,11 @@ export async function listBucketImages() {
   const projectId = process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID ?? "";
 
   const previewUrls = images.map((file) => {
-    const url = `${endpoint}/storage/buckets/${bucketId}/files/${file.$id}/preview?width=1200&output=webp&project=${projectId}`;
+    const url = `${endpoint}/v1/storage/buckets/${bucketId}/files/${file.$id}/view?project=${projectId}`;
     return { src: url, alt: file.name, caption: file.name };
   });
 
-  console.log("🖼️  Image preview URLs:");
+  console.log("🖼️  Image view URLs:");
   previewUrls.forEach((img) => console.log(`${img.alt}: ${img.src}`));
   return previewUrls;
 }

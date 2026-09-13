@@ -27,7 +27,7 @@ export async function getSpecificBucketImages() {
   const projectId = process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID ?? "";
 
   const previewUrls = fileIds.map((id) => {
-    const url = `${endpoint}/storage/buckets/${bucketId}/files/${id}/preview?width=1200&output=webp&project=${projectId}&impersonateuserid=`;
+    const url = `${endpoint}/storage/buckets/${bucketId}/files/${id}/view?project=${projectId}`;
     return { src: url, alt: id, caption: id };
   });
 

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Play, X } from 'lucide-react';
-import { Client as AppwriteClient, Storage, ImageFormat } from 'appwrite';
+import { Client as AppwriteClient } from 'appwrite';
 
 export type Category = 'ALL' | 'GOTU' | 'BIOLIT' | 'BRUNS_KENYA' | 'SWEDEN' | 'WOLFRAM';
 
@@ -28,16 +28,12 @@ const CATEGORIES: { id: Category; label: string }[] = [
 
 const getImageUrl = (appwriteId: string) => {
   if (appwriteId.startsWith('http')) return appwriteId;
-  const client = new AppwriteClient()
-    .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT || 'https://cloud.appwrite.io/v1')
-    .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID || '');
-  
-  const storage = new Storage(client);
+  const endpoint = process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT || 'https://cloud.appwrite.io/v1';
+  const projectId = process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID || '';
   const bucketId = process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID || 'nvcbo_bucket';
-  
-  // Natively generate the WebP preview using the Appwrite SDK
-  // Appwrite SDK signature: getFilePreview(bucketId, fileId, width, height, gravity, quality, borderWidth, borderColor, borderRadius, opacity, rotation, background, output)
-  return storage.getFilePreview(bucketId, appwriteId, 1200, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, ImageFormat.Webp).toString();
+
+  // Use direct CDN view URL to bypass Appwrite image transformation preview quotas (HTTP 402)
+  return `${endpoint}/storage/buckets/${bucketId}/files/${appwriteId}/view?project=${projectId}`;
 };
 
 export default function MediaGalleryClient({ mediaItems }: { mediaItems: MediaItem[] }) {
